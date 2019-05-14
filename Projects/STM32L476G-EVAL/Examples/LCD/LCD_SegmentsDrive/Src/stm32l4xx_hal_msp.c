@@ -1,0 +1,137 @@
+/**
+  ******************************************************************************
+  * @file    LCD/LCD_SegmentsDrive/Src/stm32l4xx_hal_msp.c
+  * @author  MCD Application Team
+  * @brief   HAL MSP module.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
+  ******************************************************************************
+  */
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/** @addtogroup STM32L4xx_HAL_Examples
+  * @{
+  */
+
+/** @defgroup HAL_MSP
+  * @brief HAL MSP module.
+  * @{
+  */
+
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Private functions ---------------------------------------------------------*/
+
+/** @defgroup HAL_MSP_Private_Functions
+  * @{
+  */
+
+/**
+  * @brief LCD MSP Init.
+  * @param hlcd: LCD handle
+  * @retval None
+  */
+ void HAL_LCD_MspInit(LCD_HandleTypeDef *hlcd)
+{
+  GPIO_InitTypeDef  GPIO_InitStruct;
+  RCC_OscInitTypeDef RCC_OscInitStruct;
+
+  /*##-1- Enable PWR  peripheral Clock #######################################*/
+  __HAL_RCC_PWR_CLK_ENABLE();
+  
+  /*##-2- Allow Access and Reset the Backup Domaine ##########################*/ 
+  /* Allow Access to Backup Domaine */
+  HAL_PWR_EnableBkUpAccess();
+  
+  /* Reset the Backup Domaine */
+  __HAL_RCC_BACKUPRESET_FORCE(); 
+  __HAL_RCC_BACKUPRESET_RELEASE();
+  
+  /*##-3- Configure LSE as RTC clock source ###################################*/ 
+  RCC_OscInitStruct.OscillatorType =  RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  { 
+    /* Infinite loop */
+    while(1);
+  }
+  __HAL_RCC_RTC_CONFIG(RCC_RTCCLKSOURCE_LSE);
+  
+  
+  /*##-4- Enable LCD GPIO Clocks #############################################*/
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  
+  /*##-5- Configure peripheral GPIO ##########################################*/
+  /* Configure Output for LCD */
+  /* Port A */  
+  GPIO_InitStruct.Pin       =  GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_8 | GPIO_PIN_9 |GPIO_PIN_10 |GPIO_PIN_15;
+  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull      = GPIO_NOPULL;
+  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF11_LCD;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  
+  
+  /* Configure Output for LCD */
+  /* Port B */  
+  GPIO_InitStruct.Pin       = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_8 | GPIO_PIN_9 \
+    | GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15; 
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  
+  
+  /* Configure Output for LCD */
+  /* Port C*/  
+  GPIO_InitStruct.Pin       = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_6 \
+    | GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 |GPIO_PIN_11 ; 
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  
+  /*##-6- Enable LCD peripheral Clock ########################################*/
+  __HAL_RCC_LCD_CLK_ENABLE();
+}
+
+/**
+  * @brief LCD MSP De-Initialization 
+  *        This function freeze the hardware resources used in this example:
+  *          - Disable the Peripheral's clock
+  * @param hlcd: LCD handle pointer
+  * @retval None
+  */
+void HAL_LCD_MspDeInit(LCD_HandleTypeDef *hlcd)
+{
+  /* Enable LCD reset state */
+  __HAL_RCC_LCD_FORCE_RESET();
+  
+  /* Release LCD from reset state */
+  __HAL_RCC_LCD_RELEASE_RESET();
+}
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

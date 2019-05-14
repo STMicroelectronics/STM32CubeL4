@@ -1,0 +1,30 @@
+!SESSION 2015-02-02 10:57:05.967 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY TrueSTUDIO 4 0 2015-02-02 10:57:14.706
+!MESSAGE Target:ARM, Model:Pro, Version:5.1.1, Installation dir:/C:/Program Files (x86)/Atollic/TrueSTUDIO for ARM Pro 5.1.1/ide/
+
+!ENTRY TrueSTUDIO, initLicenseInfo() 1 0 2015-02-02 10:57:14.815
+!MESSAGE License type detected: Node Locked License
+
+!ENTRY TrueSTUDIO 1 0 2015-02-02 10:57:14.815
+!MESSAGE Loading information...
+
+!ENTRY TrueSTUDIO 1 0 2015-02-02 10:57:14.815
+!MESSAGE Loading information complete...
+
+!ENTRY TrueSTUDIO 1 0 2015-02-02 10:57:14.831
+!MESSAGE Initializing systems 1...
+
+!ENTRY TrueSTUDIO 1 0 2015-02-02 10:57:20.104
+!MESSAGE Initializing systems 2...
+
+!ENTRY TrueSTUDIO 0 0 2015-02-02 10:57:20.104
+!MESSAGE Initialized license (0)
+
+!ENTRY TrueSTUDIO 4 0 2015-02-02 10:57:23.131
+!MESSAGE Error authorizing installation (-15)

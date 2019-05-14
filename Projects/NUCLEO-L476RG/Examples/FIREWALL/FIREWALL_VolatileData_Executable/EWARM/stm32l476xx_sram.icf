@@ -1,0 +1,78 @@
+/*###ICF### Section handled by ICF editor, don't touch! ****/
+/*-Editor annotation file-*/
+/* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
+/*-Specials-*/
+define symbol __ICFEDIT_intvec_start__ = 0x20000000;
+/*-Memory Regions-*/
+define symbol __ICFEDIT_region_ROM_start__ = 0x20000000;
+define symbol __ICFEDIT_region_ROM_end__   = 0x2000F0FF;
+define symbol __ICFEDIT_region_RAM_start__ = 0x20010000;
+define symbol __ICFEDIT_region_RAM_end__   = 0x20017FFF;
+
+/*-Sizes-*/
+define symbol __ICFEDIT_size_cstack__ = 0x400;
+define symbol __ICFEDIT_size_heap__   = 0x0;
+/**** End of ICF editor section. ###ICF###*/
+
+
+
+/******************************************************************************/
+/*                                                                            */
+/*    protected_SRAM1_a and protected_SRAM1_b: used to locate code an         */
+/*             data in protected non-volatile data segment                    */
+/*                                                                            */
+/******************************************************************************/
+/* SRAM1 area protected by Firewall extends from 0x2000F100
+   to 0x2000FFFF. This area is divided in two sub-regions SRAM1_a
+   and SRAM1_b to separate protected code and data located in volatile data segment.
+   
+  Note that the protected executable data segment doesn't exactly start 
+   at the starting address used to configure de Firewall.
+   This allows to locate the function used to open the Firewall at the
+   correct address to obey the call gate sequence */
+
+/****************************************************************/
+/*  SRAM1_a: used to locate code in volatile data segment       */
+/* (Firewall will define protected volatile data as executable) */
+/****************************************************************/
+define symbol __ICFEDIT_protected_region_SRAM1_a_start__    = 0x2000F104;
+define symbol __ICFEDIT_protected_region_SRAM1_a_end__      = 0x2000FDFF;
+
+/**********************************************************/
+/*  SRAM1_b: used to locate data in volatile data segment */
+/**********************************************************/
+define symbol __ICFEDIT_protected_region_SRAM1_b_start__    = 0x2000FE00;
+define symbol __ICFEDIT_protected_region_SRAM1_b_end__      = 0x2000FFFF;
+
+
+define memory mem with size = 4G;
+define region ROM_region      = mem:[from __ICFEDIT_region_ROM_start__   to __ICFEDIT_region_ROM_end__];
+define region RAM_region      = mem:[from __ICFEDIT_region_RAM_start__   to __ICFEDIT_region_RAM_end__];
+define region protected_SRAM1_a_region    = mem:[from __ICFEDIT_protected_region_SRAM1_a_start__   to __ICFEDIT_protected_region_SRAM1_a_end__];
+define region protected_SRAM1_b_region    = mem:[from __ICFEDIT_protected_region_SRAM1_b_start__   to __ICFEDIT_protected_region_SRAM1_b_end__];
+
+
+/*******************************************************************/
+/* place code to be protected by FIREWALL in volatile data segment */
+/*******************************************************************/
+place in  protected_SRAM1_a_region {readonly object protected_vdata_code.o};
+
+
+define block CSTACK    with alignment = 8, size = __ICFEDIT_size_cstack__   { };
+define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
+
+initialize by copy { readwrite };
+do not initialize  { section .noinit };
+
+place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
+
+place in ROM_region   { readonly };
+place in RAM_region   { readwrite,
+                        block CSTACK, block HEAP };
+
+
+/******************************************************************************/  
+/*     place protected volatile data in SRAM1 area (more specifically         */
+/*            in SRAM1_b sub-region) to be protected by FIREWALL              */
+/******************************************************************************/  
+place in protected_SRAM1_b_region   {readwrite section .firewall_vdata };

@@ -1,0 +1,100 @@
+/**
+  @page HID_Standalone USB Device Human Interface (HID) example
+
+  @verbatim
+  ******************************************************************************
+  * @file    USB_Device/HID_Standalone/readme.txt
+  * @author  MCD Application Team
+  * @brief   Description of the USB HID example.
+  ******************************************************************************
+  *
+  * Copyright (c) 2018 STMicroelectronics. All rights reserved.
+  *
+  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                       http://www.st.com/SLA0044
+  *
+  ******************************************************************************
+  @endverbatim
+
+@par Application Description
+
+Use of the USB device application based on the Human Interface (HID).
+
+This example is part of the USB Device Library package using STM32Cube firmware.
+
+This example supports the remote wakeup feature (the ability to bring the USB suspended bus back
+to the active condition), and the Virtual Tamper button ( PB0 connected to GND) is used as the remote wakeup source.
+
+By default, in Windows OS, the USB mouse Power Management feature is turned off. This setting
+is different from classic PS/2 computer functionality. To enable the Wake up from  standby
+option, user has to manually turn on the Power Management feature for the USB mouse.
+
+To enable the wake from standby option for the USB mouse, the following steps have to be followed:
+ - Start "Device Manager",
+ - Select "Mice and other pointing devices",
+ - Select the "HID-compliant mouse" device (make sure that PID &VID are equal to 0x5710 & 0x0483 respectively)
+ - Right click and select "Properties",
+ - Select "Power Management" tab,
+ - Finally click to select "Allow this device to wake the computer" check box.
+
+The function GetPointerData() is responsible to move the mouse cursor automatically,
+which can be easily customized (square, circle...).
+In this application the cursor is moving forward and backward in an infinite loop.
+
+At the beginning of the main program the HAL_Init() function is called to reset all the peripherals,
+initialize the Flash interface and the systick. The user is provided with the SystemClock_Config()
+function to configure the system clock (SYSCLK) to run at 80 MHz. The Full Speed (FS) USB module uses
+internally a 48-MHz clock HSI48 USB Clock.
+
+@note Care must be taken when using HAL_Delay(), this function provides accurate delay
+      (in milliseconds) based on variable incremented in SysTick ISR. This implies that
+       if HAL_Delay() is called from a peripheral ISR process, then the SysTick interrupt
+       must have higher priority (numerically lower) than the peripheral interrupt.
+       Otherwise the caller ISR process will be blocked. To change the SysTick interrupt
+       priority you have to use HAL_NVIC_SetPriority() function.
+
+@note The application needs to ensure that the SysTick time base is always set to 1 millisecond
+      to have correct HAL configuration.
+
+@note To reduce the example footprint, the toolchain dynamic allocation is replaced by a static allocation
+      by returning the address of a pre-defined static buffer with the HID class structure size.
+
+@par Directory contents
+
+  - USB_Device/HID_Standalone/Src/main.c                  Main program
+  - USB_Device/HID_Standalone/Src/system_stm32l4xx.c      STM32L4xx system clock configuration file
+  - USB_Device/HID_Standalone/Src/stm32l4xx_it.c          Interrupt handlers
+  - USB_Device/HID_Standalone/Src/usbd_conf.c             General low level driver configuration
+  - USB_Device/HID_Standalone/Src/usbd_desc.c             USB device HID descriptor
+  - USB_Device/HID_Standalone/Inc/main.h                  Main program header file
+  - USB_Device/HID_Standalone/Inc/stm32l4xx_it.h          Interrupt handlers header file
+  - USB_Device/HID_Standalone/Inc/stm32l4xx_hal_conf.h    HAL configuration file
+  - USB_Device/HID_Standalone/Inc/usbd_conf.h             USB device driver Configuration file
+  - USB_Device/HID_Standalone/Inc/usbd_desc.h             USB device MSC descriptor header file
+
+
+@par Hardware and Software environment
+
+	- This example runs on STM32L412xx devices.
+	- This demo has been tested with NUCLEO-L412RB-P board and can be
+    easily tailored to any other supported device and development board.
+	- Since there is no USB 2.0 Full speed connector (Type B) on the nucleo board, user has to make
+    his own USB shield daughter board with the a USB connector and plug it on top of the  CN6
+    connectors of the NUCLEO-L412RB-P. The USB connector has to be connected to the USB device associated GPIOs
+    as follows:
+    - DP (D+ of the USB connector) <======> PA12 (Nucleo board)
+    - DM (D- of the USB connector) <======> PA11 (Nucleo board)
+    To improve EMC performance (noise immunity and signal integrity), it is recommended to connect a 100nF
+	ceramic capacitor to the USB VDD pin.
+
+@par How to use it ?
+
+In order to make the program work, you must do the following:
+ - Open your preferred toolchain
+ - Rebuild all files and load your image into target memory
+ - Run the example
+
+ * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
+ */
