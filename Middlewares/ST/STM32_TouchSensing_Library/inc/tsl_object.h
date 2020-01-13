@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_object.h
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains external declarations of the tsl_object.c file.
   ******************************************************************************
   * @attention

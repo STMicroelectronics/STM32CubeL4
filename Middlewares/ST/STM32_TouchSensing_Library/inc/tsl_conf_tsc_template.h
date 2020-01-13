@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_conf_tsc_template.h
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   TSC configuration file.
   * @note    This file must be copied in the application folder with the 'tsl_conf.h' name.
   ******************************************************************************

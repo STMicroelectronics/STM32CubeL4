@@ -59,6 +59,7 @@ quickly assess STM32L4 low-power performance.
       - NUCLEO-L476RG.hex for STM32L476RG Nucleo board
       - NUCLEO-L496ZG.hex for STM32L496ZG Nucleo board without external SMPS
       - NUCLEO-L496ZG-P.hex for STM32L496ZG Nucleo board with external SMPS
+      - NUCLEO-L4P5ZG.hex for STM32L4P5ZG Nucleo board without external SMPS
       - NUCLEO-L4R5ZI.hex for STM32L4R5ZI Nucleo board without external SMPS
       - NUCLEO-L4R5ZI-P.hex for STM32L4R5ZI Nucleo board with external SMPS              
 

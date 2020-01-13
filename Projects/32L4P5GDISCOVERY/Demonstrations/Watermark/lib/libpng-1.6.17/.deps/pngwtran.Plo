@@ -1,0 +1,248 @@
+pngwtran.lo: pngwtran.c pngpriv.h \
+ c:\touchgfx\4.9.3\env\mingw\include\stdlib.h \
+ c:\touchgfx\4.9.3\env\mingw\include\_mingw.h \
+ c:\touchgfx\4.9.3\env\mingw\include\msvcrtver.h \
+ c:\touchgfx\4.9.3\env\mingw\include\w32api.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sdkddkver.h \
+ c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
+ c:\touchgfx\4.9.3\env\mingw\include\string.h \
+ c:\touchgfx\4.9.3\env\mingw\include\strings.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wchar.h config.h pnglibconf.h png.h \
+ pngconf.h c:\touchgfx\4.9.3\env\mingw\include\limits.h \
+ c:\touchgfx\4.9.3\env\mingw\include\stdio.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sys/types.h \
+ c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
+ c:\touchgfx\4.9.3\env\mingw\include\setjmp.h \
+ c:\touchgfx\4.9.3\env\mingw\include\time.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sys\types.h \
+ c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\float.h \
+ c:\touchgfx\4.9.3\env\mingw\include\float.h \
+ c:\touchgfx\4.9.3\env\mingw\include\math.h \
+ c:\touchgfx\4.9.3\env\mingw\include\windows.h \
+ c:\touchgfx\4.9.3\env\mingw\include\windef.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winnt.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winerror.h \
+ c:\touchgfx\4.9.3\env\mingw\include\basetsd.h \
+ c:\touchgfx\4.9.3\env\mingw\include\pshpack4.h \
+ c:\touchgfx\4.9.3\env\mingw\include\poppack.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wincon.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winbase.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wingdi.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winuser.h \
+ c:\touchgfx\4.9.3\env\mingw\include\dbt.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winnls.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winver.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winnetwk.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winreg.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winsvc.h \
+ c:\touchgfx\4.9.3\env\mingw\include\cderr.h \
+ c:\touchgfx\4.9.3\env\mingw\include\dde.h \
+ c:\touchgfx\4.9.3\env\mingw\include\ddeml.h \
+ c:\touchgfx\4.9.3\env\mingw\include\dlgs.h \
+ c:\touchgfx\4.9.3\env\mingw\include\imm.h \
+ c:\touchgfx\4.9.3\env\mingw\include\lzexpand.h \
+ c:\touchgfx\4.9.3\env\mingw\include\mmsystem.h \
+ c:\touchgfx\4.9.3\env\mingw\include\nb30.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpc.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcdce.h \
+ c:\touchgfx\4.9.3\env\mingw\include\basetyps.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcdcep.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcnsi.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcnterr.h \
+ c:\touchgfx\4.9.3\env\mingw\include\shellapi.h \
+ c:\touchgfx\4.9.3\env\mingw\include\pshpack2.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winperf.h \
+ c:\touchgfx\4.9.3\env\mingw\include\commdlg.h \
+ c:\touchgfx\4.9.3\env\mingw\include\unknwn.h \
+ c:\touchgfx\4.9.3\env\mingw\include\objfwd.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wtypes.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcndr.h \
+ c:\touchgfx\4.9.3\env\mingw\include\rpcnsip.h \
+ c:\touchgfx\4.9.3\env\mingw\include\prsht.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winspool.h \
+ c:\touchgfx\4.9.3\env\mingw\include\winsock2.h \
+ c:\touchgfx\4.9.3\env\mingw\include\ole2.h \
+ c:\touchgfx\4.9.3\env\mingw\include\objbase.h \
+ c:\touchgfx\4.9.3\env\mingw\include\objidl.h \
+ c:\touchgfx\4.9.3\env\mingw\include\cguid.h \
+ c:\touchgfx\4.9.3\env\mingw\include\olectlid.h \
+ c:\touchgfx\4.9.3\env\mingw\include\oleauto.h \
+ c:\touchgfx\4.9.3\env\mingw\include\oaidl.h \
+ c:\touchgfx\4.9.3\env\mingw\include\oleidl.h pngstruct.h \
+ c:\touchgfx\4.9.3\env\mingw\include\zlib.h \
+ c:\touchgfx\4.9.3\env\mingw\include\zconf.h \
+ c:\touchgfx\4.9.3\env\mingw\include\unistd.h \
+ c:\touchgfx\4.9.3\env\mingw\include\io.h \
+ c:\touchgfx\4.9.3\env\mingw\include\stdint.h \
+ c:\touchgfx\4.9.3\env\mingw\include\process.h \
+ c:\touchgfx\4.9.3\env\mingw\include\getopt.h pnginfo.h pngdebug.h
+
+pngpriv.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\stdlib.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\_mingw.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\msvcrtver.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\w32api.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sdkddkver.h:
+
+c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\string.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\strings.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wchar.h:
+
+config.h:
+
+pnglibconf.h:
+
+png.h:
+
+pngconf.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\limits.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\stdio.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sys/types.h:
+
+c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\setjmp.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\time.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sys\types.h:
+
+c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\float.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\float.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\math.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\windows.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\windef.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winnt.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winerror.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\basetsd.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\pshpack4.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\poppack.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wincon.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winbase.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wingdi.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winuser.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\dbt.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winnls.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winver.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winnetwk.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winreg.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winsvc.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\cderr.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\dde.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\ddeml.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\dlgs.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\imm.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\lzexpand.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\mmsystem.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\nb30.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpc.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcdce.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\basetyps.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcdcep.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcnsi.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcnterr.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\shellapi.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\pshpack2.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winperf.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\commdlg.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\unknwn.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\objfwd.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wtypes.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcndr.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\rpcnsip.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\prsht.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winspool.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\winsock2.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\ole2.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\objbase.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\objidl.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\cguid.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\olectlid.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\oleauto.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\oaidl.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\oleidl.h:
+
+pngstruct.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\zlib.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\zconf.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\unistd.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\io.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\stdint.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\process.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\getopt.h:
+
+pnginfo.h:
+
+pngdebug.h:

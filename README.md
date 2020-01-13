@@ -11,7 +11,7 @@
    
 The **STM32CubeL4 MCU Package** projects are directly running on the STM32L4 series boards. You can find in each Projects/*Board name* directories a set of software projects (Applications/Demonstration/Examples). 
 
-In this FW Package, the module **Middlewares/ST/STemWin** is not directly accessible. It must be downloaded from a ST server, the URL is available in a readme.txt file inside the module.
+In this FW Package, the modules **Middlewares/ST/TouchGFX** **Middlewares/ST/STemWin** are not directly accessible. They must be downloaded from a ST server, the respective URL are available in a readme.txt file inside each module.
 
 ## Boards available
   * STM32L4 

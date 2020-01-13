@@ -1,0 +1,74 @@
+contrib/libtests/pngstest.o: contrib/libtests/pngstest.c \
+ c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
+ c:\touchgfx\4.9.3\env\mingw\include\stdlib.h \
+ c:\touchgfx\4.9.3\env\mingw\include\_mingw.h \
+ c:\touchgfx\4.9.3\env\mingw\include\msvcrtver.h \
+ c:\touchgfx\4.9.3\env\mingw\include\w32api.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sdkddkver.h \
+ c:\touchgfx\4.9.3\env\mingw\include\string.h \
+ c:\touchgfx\4.9.3\env\mingw\include\strings.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wchar.h \
+ c:\touchgfx\4.9.3\env\mingw\include\stdio.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sys/types.h \
+ c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
+ c:\touchgfx\4.9.3\env\mingw\include\errno.h \
+ c:\touchgfx\4.9.3\env\mingw\include\ctype.h \
+ c:\touchgfx\4.9.3\env\mingw\include\wctype.h \
+ c:\touchgfx\4.9.3\env\mingw\include\math.h config.h \
+ contrib/libtests/../../png.h contrib/libtests/../../pnglibconf.h \
+ contrib/libtests/../../pngconf.h \
+ c:\touchgfx\4.9.3\env\mingw\include\limits.h \
+ c:\touchgfx\4.9.3\env\mingw\include\setjmp.h \
+ c:\touchgfx\4.9.3\env\mingw\include\time.h \
+ c:\touchgfx\4.9.3\env\mingw\include\sys\types.h \
+ contrib/libtests/../tools/sRGB.h
+
+c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\stdlib.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\_mingw.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\msvcrtver.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\w32api.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sdkddkver.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\string.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\strings.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wchar.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\stdio.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sys/types.h:
+
+c:\touchgfx\4.9.3\env\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\errno.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\ctype.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\wctype.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\math.h:
+
+config.h:
+
+contrib/libtests/../../png.h:
+
+contrib/libtests/../../pnglibconf.h:
+
+contrib/libtests/../../pngconf.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\limits.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\setjmp.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\time.h:
+
+c:\touchgfx\4.9.3\env\mingw\include\sys\types.h:
+
+contrib/libtests/../tools/sRGB.h:

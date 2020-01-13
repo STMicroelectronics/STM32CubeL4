@@ -11,7 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="../../../_htmresc/mini-st.css" />
+  <link rel="stylesheet" href="_htmresc/mini-st.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -25,7 +25,7 @@
 <h1 id="release-notes-for-32l496gdiscovery-board-drivers"><small>Release Notes for</small> <mark>32L496GDISCOVERY Board Drivers</mark></h1>
 <p>Copyright © 2017 STMicroelectronics<br />
 </p>
-<a href="https://www.st.com" class="logo"><img src="../../../_htmresc/st_logo.png" alt="ST logo" /></a>
+<a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo.png" alt="ST logo" /></a>
 </center>
 </div>
 </div>
@@ -38,9 +38,31 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section19" checked aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.2 / 03-April-2019</label>
+<input type="checkbox" id="collapse-section21" checked aria-hidden="true"> <label for="collapse-section21" aria-hidden="true">V1.1.4 / 22-November-2019</label>
 <div>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;">Main Changes</span></span></strong></p>
+<h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>Enable the Sample Shift (SSHIFT) feature in <em>BSP_QSPI_Init()</em> to ensure the read data isn’t corrupted when prescaler is div/1</li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.1.3 / 18-October-2019</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
+<ul>
+<li>stm32l496g_discovery.c
+<ul>
+<li>Remove superfluous settings of PD.11 and PF.00 from FMC_BANK1_MspInit() and FMC_BANK1_MspDeInit() that were preventing a correct usage of PSRAM</li>
+</ul></li>
+<li>Minor update in release notes format</li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.2 / 03-April-2019</label>
+<div>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li>stm32l496g_discovery.c
 <ul>
@@ -53,7 +75,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 27-July-2018</label>
 <div>
-<h2 id="main-changes">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <ul>
 <li>Release notes update to new format</li>
 </ul>
@@ -62,7 +84,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.1.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <ul>
 <li>stm32l496g_discovery.h/.c
 <ul>
@@ -85,7 +107,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9" aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.0.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <ul>
 <li>First official release of <strong>STM32L496G-Discovery</strong> board drivers for STM32Cube L4 FW package</li>
 </ul>

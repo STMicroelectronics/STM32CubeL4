@@ -14,8 +14,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -32,13 +32,14 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-/* include file which match the HW configuration */   
+/* include file which match the HW configuration */
 #include "stdint.h"
 #include "string.h"
 #include "stdio.h"
 #include "stdbool.h"
 #include "lib_NDEF.h"
 #include "m24sr_wrapper.h"
+#include "stm32l4xx.h"
 
 /** @addtogroup NFC_libraries
   * @{
@@ -53,23 +54,23 @@
  * @{
  */
 
-#define NDEF_ERROR          0
-#define NDEF_SUCCESS        1  
+#define NDEF_ERROR          ERROR
+#define NDEF_SUCCESS        SUCCESS
 
 #define NDEF_SIZE_OFFSET           0
-#define FIRST_RECORD_OFFSET        2  
+#define FIRST_RECORD_OFFSET        2
 
-#define RECORD_FLAG_FIELD          1   
+#define RECORD_FLAG_FIELD          1
 #define TYPE_LENGTH_FIELD          1
-#define ID_LENGTH_FIELD            1   
+#define ID_LENGTH_FIELD            1
 
 /**
   * @}
   */
-  
+
 /** @defgroup lib_NDEF_Record_area_mask
   * @{
-  */  
+  */
 #define  MB_Mask                  ((uint8_t)(0x80))
 #define ME_Mask                   ((uint8_t)(0x40))
 #define CF_Mask                   ((uint8_t)(0x20))
@@ -98,28 +99,28 @@
 /** @defgroup lib_NDEF_well_known_string
   * @{
   */
-#define AAR_TYPE_STRING                          "android.com:pkg"  
+#define AAR_TYPE_STRING                          "android.com:pkg"
 #define AAR_TYPE_STRING_LENGTH                   15
 
-#define M24SR_DISCOVERY_APP_STRING              "st.com:m24sr_discovery_democtrl"   
-#define M24SR_DISCOVERY_APP_STRING_LENGTH         31  
+#define M24SR_DISCOVERY_APP_STRING              "st.com:m24sr_discovery_democtrl"
+#define M24SR_DISCOVERY_APP_STRING_LENGTH         31
 
-#define VCARD_TYPE_STRING                        "text/vcard"  
-#define VCARD_TYPE_STRING_LENGTH                 10   
+#define VCARD_TYPE_STRING                        "text/vcard"
+#define VCARD_TYPE_STRING_LENGTH                 10
 
-#define XVCARD_TYPE_STRING                      "text/x-vCard"   
+#define XVCARD_TYPE_STRING                      "text/x-vCard"
 #define XVCARD_TYPE_STRING_LENGTH                 12
 
 #define SMART_POSTER_TYPE_STRING                "Sp"
 #define SMART_POSTER_TYPE_STRING_LENGTH           2
-   
+
 #define URI_TYPE_STRING                          "U"
 #define URI_TYPE_STRING_LENGTH                  1
-   
-#define SMS_TYPE_STRING                          "sms:"  
+
+#define SMS_TYPE_STRING                          "sms:"
 #define SMS_TYPE_STRING_LENGTH                   4
 
-#define GEO_TYPE_STRING                          "geo:"  
+#define GEO_TYPE_STRING                          "geo:"
 #define GEO_TYPE_STRING_LENGTH                   4
 
 #define URI_LATITUDE_END                        ","
@@ -132,10 +133,10 @@
 #define URI_FIRST_DATA_END_LENGTH                1
 
 #define SUBJECT_BEGIN_STRING                    "subject="
-#define SUBJECT_BEGIN_STRING_LENGTH              8   
+#define SUBJECT_BEGIN_STRING_LENGTH              8
 
-#define MESSAGE_BEGIN_STRING                    "body="   
-#define MESSAGE_BEGIN_STRING_LENGTH              5   
+#define MESSAGE_BEGIN_STRING                    "body="
+#define MESSAGE_BEGIN_STRING_LENGTH              5
 
 #define URI_SECOND_DATA_END                      "&"
 #define URI_SECOND_DATA_END_LENGTH              1
@@ -158,7 +159,7 @@ uint16_t NDEF_WriteNDEF( uint8_t *pNDEF);
 /**
   * @}
   */
-  
+
 /**
   * @}
   */

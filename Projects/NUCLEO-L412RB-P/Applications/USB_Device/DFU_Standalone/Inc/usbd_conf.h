@@ -34,7 +34,7 @@
 #define USBD_MAX_NUM_INTERFACES               1
 #define USBD_MAX_NUM_CONFIGURATION            1
 #define USBD_MAX_STR_DESC_SIZ                 0x100
-#define USBD_SUPPORT_USER_STRING              1
+#define USBD_SUPPORT_USER_STRING_DESC         1
 #define USBD_SELF_POWERED                     1
 #define USBD_DEBUG_LEVEL                      0
 
@@ -42,11 +42,11 @@
 #define USBD_DFU_MAX_ITF_NUM                   1
 #define USBD_DFU_XFER_SIZE                     1024   /* Max DFU Packet Size   = 1024 bytes */
 #define USBD_DFU_APP_DEFAULT_ADD               0x0800C000 /* The first 24 pages (48 KB) are reserved for DFU code */
-#define USBD_DFU_APP_END_ADD                   0x0807FFFF /*ADDR_FLASH_PAGE_255*/   
+#define USBD_DFU_APP_END_ADD                   0x0807FFFF /*ADDR_FLASH_PAGE_255*/
 
 /* Exported macro ------------------------------------------------------------*/
-/* Memory management macros */  
-/* For footprint reasons and since only one allocation is handled in the DFU class 
+/* Memory management macros */
+/* For footprint reasons and since only one allocation is handled in the DFU class
    driver, the malloc/free is changed into a static allocation method */
 
 void *USBD_static_malloc(uint32_t size);

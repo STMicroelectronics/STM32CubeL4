@@ -213,11 +213,10 @@ int main(void)
 
           for (index = 0; index < BUFFERSIZE; index++)
           {
-            if (*qspi_addr != aTxBuffer[index])
+            if (qspi_addr[index] != aTxBuffer[index])
             {
               BSP_LED_On(LED_ORANGE);
             }
-            qspi_addr++;
           }
           BSP_LED_Toggle(LED_GREEN);
 

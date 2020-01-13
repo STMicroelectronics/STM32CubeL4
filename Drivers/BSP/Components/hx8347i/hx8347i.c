@@ -114,51 +114,53 @@ void hx8347i_Init(void)
     /* HX8347I requests 120ms (worst case) after reset */
     LCD_Delay(120);
 
-    /* Driving ability setting */
-    hx8347i_WriteReg(LCD_REG_234, 0x00);
-    hx8347i_WriteReg(LCD_REG_235, 0x20);
-    hx8347i_WriteReg(LCD_REG_236, 0x0C);
-    hx8347i_WriteReg(LCD_REG_237, 0xC4);
-    hx8347i_WriteReg(LCD_REG_232, 0x40);
-    hx8347i_WriteReg(LCD_REG_233, 0x38);
-    hx8347i_WriteReg(LCD_REG_39, 0xA3);
-
     /* Adjust the Gamma Curve */
-    hx8347i_WriteReg(LCD_REG_64, 0x01);
+    hx8347i_WriteReg(LCD_REG_64, 0x00);
     hx8347i_WriteReg(LCD_REG_65, 0x00);
-    hx8347i_WriteReg(LCD_REG_66, 0x00);
-    hx8347i_WriteReg(LCD_REG_67, 0x10);
+    hx8347i_WriteReg(LCD_REG_66, 0x04);
+    hx8347i_WriteReg(LCD_REG_67, 0x13);
     hx8347i_WriteReg(LCD_REG_68, 0x0E);
-    hx8347i_WriteReg(LCD_REG_69, 0x24);
-    hx8347i_WriteReg(LCD_REG_70, 0x04);
-    hx8347i_WriteReg(LCD_REG_71, 0x50);
-    hx8347i_WriteReg(LCD_REG_72, 0x02);
+    hx8347i_WriteReg(LCD_REG_69, 0x2D);
+    hx8347i_WriteReg(LCD_REG_70, 0x0E);
+    hx8347i_WriteReg(LCD_REG_71, 0x57);
+    hx8347i_WriteReg(LCD_REG_72, 0x09);
     hx8347i_WriteReg(LCD_REG_73, 0x13);
     hx8347i_WriteReg(LCD_REG_74, 0x19);
-    hx8347i_WriteReg(LCD_REG_75, 0x19);
-    hx8347i_WriteReg(LCD_REG_76, 0x16);
-    hx8347i_WriteReg(LCD_REG_80, 0x1B);
+    hx8347i_WriteReg(LCD_REG_75, 0x1A);
+    hx8347i_WriteReg(LCD_REG_76, 0x1B);
+    hx8347i_WriteReg(LCD_REG_80, 0x12);
     hx8347i_WriteReg(LCD_REG_81, 0x31);
-    hx8347i_WriteReg(LCD_REG_82, 0x2F);
-    hx8347i_WriteReg(LCD_REG_83, 0x3F);
+    hx8347i_WriteReg(LCD_REG_82, 0x2C);
+    hx8347i_WriteReg(LCD_REG_83, 0x3B);
     hx8347i_WriteReg(LCD_REG_84, 0x3F);
-    hx8347i_WriteReg(LCD_REG_85, 0x3E);
-    hx8347i_WriteReg(LCD_REG_86, 0x2F);
-    hx8347i_WriteReg(LCD_REG_87, 0x7B);
-    hx8347i_WriteReg(LCD_REG_88, 0x09);
-    hx8347i_WriteReg(LCD_REG_89, 0x06);
+    hx8347i_WriteReg(LCD_REG_85, 0x3F);
+    hx8347i_WriteReg(LCD_REG_86, 0x28);
+    hx8347i_WriteReg(LCD_REG_87, 0x71);
+    hx8347i_WriteReg(LCD_REG_88, 0x04);
+    hx8347i_WriteReg(LCD_REG_89, 0x05);
     hx8347i_WriteReg(LCD_REG_90, 0x06);
     hx8347i_WriteReg(LCD_REG_91, 0x0C);
-    hx8347i_WriteReg(LCD_REG_92, 0x1D);
-    hx8347i_WriteReg(LCD_REG_93, 0xCC);
+    hx8347i_WriteReg(LCD_REG_92, 0x16);
+    hx8347i_WriteReg(LCD_REG_93, 0x88);
 
     /* Power voltage setting */
-    hx8347i_WriteReg(LCD_REG_27, 0x1B);
-    hx8347i_WriteReg(LCD_REG_26, 0x01);
-    hx8347i_WriteReg(LCD_REG_36, 0x2F);
-    hx8347i_WriteReg(LCD_REG_37, 0x57);
+    hx8347i_WriteReg(LCD_REG_27, 0x1E); /* VRH=4.60V */
+    hx8347i_WriteReg(LCD_REG_28, 0x07); /* AP Crosstalk */
+    hx8347i_WriteReg(LCD_REG_26, 0x01); /* BT (VGH~15V,VGL~-10V,DDVDH~5V) */
+    hx8347i_WriteReg(LCD_REG_36, 0x38); /* VMH */
+    hx8347i_WriteReg(LCD_REG_37, 0x5F); /* VML */
+
     /*****VCOM offset ****/
-    hx8347i_WriteReg(LCD_REG_35, 0x86);
+    hx8347i_WriteReg(LCD_REG_35, 0x6B);
+
+    /* Driving ability setting */
+    hx8347i_WriteReg(LCD_REG_232, 0x7C);
+    hx8347i_WriteReg(LCD_REG_236, 0x14);
+    hx8347i_WriteReg(LCD_REG_237, 0x0C);
+    hx8347i_WriteReg(LCD_REG_228, 0x10);
+    hx8347i_WriteReg(LCD_REG_229, 0x02);
+    hx8347i_WriteReg(LCD_REG_230, 0x10);
+    hx8347i_WriteReg(LCD_REG_231, 0x02);
 
     hx8347i_DisplayOn();
 
@@ -183,11 +185,17 @@ void hx8347i_Init(void)
 void hx8347i_DisplayOn(void)
 {
   /* Power On sequence ---------------------------------------------------------*/
-  hx8347i_WriteReg(LCD_REG_24, 0x36); /* Display frame rate = 70Hz RADJ = '0110' */
+  hx8347i_WriteReg(LCD_REG_24, 0x99); /* Display frame rate = 75Hz UADJ */
   hx8347i_WriteReg(LCD_REG_25, 0x01); /* OSC_EN = 1 */
-  hx8347i_WriteReg(LCD_REG_28, 0x06); /* AP[2:0] = 111 */
+  hx8347i_WriteReg(LCD_REG_26, 0x04); /* BT[2:0] = 4 before sleep out */
+  hx8347i_WriteReg(LCD_REG_31, 0x88); /* GAS=1, VOMG=00, PON=0, DK=1, XDK=0, DVDH_TRI=0, STB=0*/
+  LCD_Delay(5);
+  hx8347i_WriteReg(LCD_REG_31, 0x80); /* GAS=1, VOMG=00, PON=0, DK=0, XDK=0, DVDH_TRI=0, STB=0*/
+  LCD_Delay(5);
   hx8347i_WriteReg(LCD_REG_31, 0x90); /* GAS=1, VOMG=00, PON=1, DK=0, XDK=0, DVDH_TRI=0, STB=0*/
-  LCD_Delay(10);
+  LCD_Delay(5);
+  hx8347i_WriteReg(LCD_REG_31, 0xD0); /* GAS=1, VOMG=10, PON=1, DK=0, XDK=0, DDVDH_TRI=0, STB=0 */
+  LCD_Delay(5);
   /* 262k/65k color selection */
   hx8347i_WriteReg(LCD_REG_23, 0x05); /* default 0x06 262k color,  0x05 65k color */
   /* SET PANEL */

@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_acq.c
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions to manage the acquisition.
   ******************************************************************************
   * @attention
@@ -95,7 +93,7 @@ TSL_Status_enum_T TSL_acq_BankGetResult(TSL_tIndex_T idx_bk, TSL_pFuncMeasFilter
       }
       else
       {
-        if (new_meas > TSL_Params.AcqMax)
+        if (new_meas >= TSL_Params.AcqMax)
         {
           bank->p_chData[idx_dest].Flags.AcqStatus = TSL_ACQ_STATUS_ERROR_MAX;
           bank->p_chData[idx_dest].Delta = 0;
@@ -237,7 +235,7 @@ TSL_Status_enum_T TSL_acq_BankCalibrate(TSL_tIndex_T idx_bk)
         new_meas = TSL_acq_GetMeas(pchSrc->IdxSrc);
 
         // Check min/max and set status flag
-        if ((new_meas < TSL_Params.AcqMin) || (new_meas > TSL_Params.AcqMax))
+        if ((new_meas < TSL_Params.AcqMin) || (new_meas >= TSL_Params.AcqMax))
         {
           // Stop calibration
           // Clear data for all channels of the bank

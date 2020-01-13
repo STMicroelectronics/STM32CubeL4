@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_acq_stm32l1xx_hw.h
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions prototypes that manage the HW acquisition
   * on STM32L1xx devices.
   ******************************************************************************

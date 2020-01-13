@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_time.c
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions to manage the timings for ECS and DTO.
   ******************************************************************************
   * @attention

@@ -124,16 +124,16 @@ typedef struct
   */
 typedef struct
 {
-  __IO uint8_t  ManufacturerID;       /* ManufacturerID */
-  __IO uint16_t OEM_AppliID;          /* OEM/Application ID */
-  __IO uint32_t ProdName1;            /* Product Name part1 */
-  __IO uint8_t  ProdName2;            /* Product Name part2*/
-  __IO uint8_t  ProdRev;              /* Product Revision */
-  __IO uint32_t ProdSN;               /* Product Serial Number */
-  __IO uint8_t  Reserved1;            /* Reserved1 */
-  __IO uint16_t ManufactDate;         /* Manufacturing Date */
-  __IO uint8_t  CID_CRC;              /* CID CRC */
-  __IO uint8_t  Reserved2;            /* always 1 */
+  uint8_t  ManufacturerID;       /* ManufacturerID */
+  uint16_t OEM_AppliID;          /* OEM/Application ID */
+  uint32_t ProdName1;            /* Product Name part1 */
+  uint8_t  ProdName2;            /* Product Name part2*/
+  uint8_t  ProdRev;              /* Product Revision */
+  uint32_t ProdSN;               /* Product Serial Number */
+  uint8_t  Reserved1;            /* Reserved1 */
+  uint16_t ManufactDate;         /* Manufacturing Date */
+  uint8_t  CID_CRC;              /* CID CRC */
+  uint8_t  Reserved2;            /* always 1 */
 } SD_CID;
 
 /**

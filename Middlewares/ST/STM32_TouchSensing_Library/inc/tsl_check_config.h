@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_check_config.h
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains the check of all parameters defined in the
   *          common configuration file.
   ******************************************************************************

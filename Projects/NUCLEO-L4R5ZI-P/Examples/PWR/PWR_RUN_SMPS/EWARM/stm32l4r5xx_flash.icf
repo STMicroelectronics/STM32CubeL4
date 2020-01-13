@@ -38,6 +38,7 @@ do not initialize  { section .noinit };
 place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
 
 place in ROM_region   { readonly };
+place in ROM_While1_region { section While1Section };
 place in RAM_region   { readwrite,
                         block CSTACK, block HEAP };
 place in SRAM2_region { };

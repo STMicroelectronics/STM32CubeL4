@@ -123,7 +123,7 @@ uint8_t BSP_QSPI_Init(void)
   /* QSPI initialization */
   QSPIHandle.Init.ClockPrescaler     = 1; /* QSPI clock = 80MHz / (ClockPrescaler+1) = 40MHz */
   QSPIHandle.Init.FifoThreshold      = 4;
-  QSPIHandle.Init.SampleShifting     = QSPI_SAMPLE_SHIFTING_NONE;
+  QSPIHandle.Init.SampleShifting     = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
   QSPIHandle.Init.FlashSize          = POSITION_VAL(N25Q128A_FLASH_SIZE) - 1;
   QSPIHandle.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_1_CYCLE;
   QSPIHandle.Init.ClockMode          = QSPI_CLOCK_MODE_0;

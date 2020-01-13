@@ -73,9 +73,6 @@ int CircularQueue_Init(queue_t *q, uint8_t* queueBuffer, uint32_t queueSize, uin
   */
 uint8_t* CircularQueue_Add(queue_t *q, uint8_t* x, uint16_t elementSize, uint32_t nbElements)
 {
-  // TODO: Assert sur elementSize
-  // TODO: Assert sur x
-
   uint8_t* ptr = NULL;                   /* fct return ptr to the element freshly added, if no room fct return NULL */
   uint16_t curElementSize = 0;             /* the size of the element currently  stored at q->last position */
   uint8_t  elemSizeStorageRoom  = 0;

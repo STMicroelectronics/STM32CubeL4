@@ -47,10 +47,6 @@ uint8_t *USBD_HID_ConfigStrDescriptor(USBD_SpeedTypeDef speed,
                                       uint16_t * length);
 uint8_t *USBD_HID_InterfaceStrDescriptor(USBD_SpeedTypeDef speed,
                                          uint16_t * length);
-#ifdef USB_SUPPORT_USER_STRING_DESC
-uint8_t *USBD_HID_USRStringDesc(USBD_SpeedTypeDef speed, uint8_t idx,
-                                uint16_t * length);
-#endif                          /* USB_SUPPORT_USER_STRING_DESC */
 
 /* Private variables --------------------------------------------------------- */
 USBD_DescriptorsTypeDef HID_Desc = {
@@ -90,25 +86,25 @@ __ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END = {
 
 /* USB Standard Device Descriptor */
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
-  #pragma data_alignment=4   
+  #pragma data_alignment=4
 #endif
 __ALIGN_BEGIN   uint8_t USBD_LangIDDesc[USB_LEN_LANGID_STR_DESC] __ALIGN_END = {
-  USB_LEN_LANGID_STR_DESC,         
-  USB_DESC_TYPE_STRING,       
+  USB_LEN_LANGID_STR_DESC,
+  USB_DESC_TYPE_STRING,
   LOBYTE(USBD_LANGID_STRING),
-  HIBYTE(USBD_LANGID_STRING), 
+  HIBYTE(USBD_LANGID_STRING),
 };
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
-  #pragma data_alignment=4   
+  #pragma data_alignment=4
 #endif
 __ALIGN_BEGIN uint8_t USBD_StringSerial[USB_SIZ_STRING_SERIAL] __ALIGN_END = {
-  USB_SIZ_STRING_SERIAL,      
-  USB_DESC_TYPE_STRING,    
+  USB_SIZ_STRING_SERIAL,
+  USB_DESC_TYPE_STRING,
 };
 
 #if defined ( __ICCARM__ ) /*!< IAR Compiler */
-  #pragma data_alignment=4   
+  #pragma data_alignment=4
 #endif
 __ALIGN_BEGIN uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ] __ALIGN_END;
 
@@ -117,7 +113,7 @@ static void IntToUnicode(uint32_t value, uint8_t * pbuf, uint8_t len);
 static void Get_SerialNum(void);
 
 /**
-  * @brief  Returns the device descriptor. 
+  * @brief  Returns the device descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -129,7 +125,7 @@ uint8_t *USBD_HID_DeviceDescriptor(USBD_SpeedTypeDef speed, uint16_t * length)
 }
 
 /**
-  * @brief  Returns the LangID string descriptor.        
+  * @brief  Returns the LangID string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -142,7 +138,7 @@ uint8_t *USBD_HID_LangIDStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Returns the product string descriptor. 
+  * @brief  Returns the product string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -156,7 +152,7 @@ uint8_t *USBD_HID_ProductStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Returns the manufacturer string descriptor. 
+  * @brief  Returns the manufacturer string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -170,7 +166,7 @@ uint8_t *USBD_HID_ManufacturerStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Returns the serial number string descriptor.        
+  * @brief  Returns the serial number string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -188,7 +184,7 @@ uint8_t *USBD_HID_SerialStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Returns the configuration string descriptor.    
+  * @brief  Returns the configuration string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -202,7 +198,7 @@ uint8_t *USBD_HID_ConfigStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Returns the interface string descriptor.        
+  * @brief  Returns the interface string descriptor.
   * @param  speed: Current device speed
   * @param  length: Pointer to data length variable
   * @retval Pointer to descriptor buffer
@@ -216,8 +212,8 @@ uint8_t *USBD_HID_InterfaceStrDescriptor(USBD_SpeedTypeDef speed,
 }
 
 /**
-  * @brief  Create the serial number string descriptor 
-  * @param  None 
+  * @brief  Create the serial number string descriptor
+  * @param  None
   * @retval None
   */
 static void Get_SerialNum(void)
@@ -238,9 +234,9 @@ static void Get_SerialNum(void)
 }
 
 /**
-  * @brief  Convert Hex 32Bits value into char 
+  * @brief  Convert Hex 32Bits value into char
   * @param  value: value to convert
-  * @param  pbuf: pointer to the buffer 
+  * @param  pbuf: pointer to the buffer
   * @param  len: buffer length
   * @retval None
   */

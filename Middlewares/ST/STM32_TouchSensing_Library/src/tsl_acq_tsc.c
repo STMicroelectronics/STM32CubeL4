@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_acq_tsc.c
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions to manage the TSC acquisition.
   ******************************************************************************
   * @attention
@@ -285,7 +283,7 @@ TSL_Bool_enum_T TSL_acq_TestFirstReferenceIsValid(TSL_ChannelData_T *pCh, TSL_tM
 #elif defined(__CC_ARM) // Keil/MDK-ARM
 #pragma O1
 #pragma Ospace
-#elif defined(__GNUC__) // Atollic/True Studio + Raisonance/RKit
+#elif defined(__GNUC__) // Atollic/True Studio + AC6/SW4STM32
 #pragma GCC push_options
 #pragma GCC optimize ("O0")
 #endif

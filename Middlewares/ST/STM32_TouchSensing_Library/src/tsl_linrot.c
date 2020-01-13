@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_linrot.c
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions to manage Linear and Rotary sensors.
   ******************************************************************************
   * @attention
@@ -1711,11 +1709,7 @@ void TSL_linrot_DebErrorStateProcess(void)
     // Get state mask
     mask = TSL_linrot_GetStateMask();
     // Mask Error and Debounce bits
-#ifdef _RAISONANCE_
-    mask &= ~(TSL_STATE_DEBOUNCE_BIT_MASK | TSL_STATE_ERROR_BIT_MASK);
-#else
     mask &= (TSL_StateMask_enum_T)(~(TSL_STATE_DEBOUNCE_BIT_MASK | TSL_STATE_ERROR_BIT_MASK));
-#endif
     // Go back to the previous state
     switch (mask)
     {

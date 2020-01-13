@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    tsl_acq_stm32l1xx_sw.c
   * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    01-february-2016
   * @brief   This file contains all functions to manage the acquisition
   *          on STM32l1xx products using the software mode.
   ******************************************************************************
@@ -821,7 +819,7 @@ void TSL_acq_BankStartAcq(void)
     RI->ASCR2 &= (uint32_t)(~(TSL_BankChannelConf[1]));
 
     /*it's better to implement this like that because it's much more faster than to put this test in the "while test" below */
-    if (MeasurementCounter > TSL_Params.AcqMax)
+    if (MeasurementCounter >= TSL_Params.AcqMax)
     {
       TSL_acq_GroupDone(GroupToCheck);
       __NOP();
@@ -976,12 +974,14 @@ TSL_Bool_enum_T TSL_acq_TestFirstReferenceIsValid(TSL_ChannelData_T *pCh, TSL_tM
 
 #if defined(__IAR_SYSTEMS_ICC__) // IAR/EWARM
 #pragma optimize=low
+void SoftDelay(uint16_t val)
 #elif defined(__CC_ARM) // Keil/MDK-ARM
 #pragma O1
 #pragma Ospace
-#elif defined(__GNUC__) // Atollic/True Studio + Raisonance/RKit
+void SoftDelay(uint16_t val)
+#elif defined(__GNUC__) // Atollic/True Studio + AC6/SW4STM32
 #pragma GCC push_options
-#pragma GCC optimize ("O0")
+void __attribute__((optimize("O0"))) SoftDelay(uint16_t val)
 #endif
 /**
   * @brief  Software delay (private routine)
@@ -989,7 +989,6 @@ TSL_Bool_enum_T TSL_acq_TestFirstReferenceIsValid(TSL_ChannelData_T *pCh, TSL_tM
   * With fHCLK = 32MHz: 1 = ~1탎, 50 = ~14탎, 100 = ~25탎, 200 = ~50탎
   * @retval None
   */
-void SoftDelay(uint16_t val)
 {
   __IO uint16_t idx;
   for (idx = val; idx > 0; idx--)
@@ -1005,10 +1004,9 @@ void SwSpreadSpectrum(void)
 #pragma O1
 #pragma Ospace
 __INLINE void SwSpreadSpectrum(void)
-#elif defined(__GNUC__) // Atollic/True Studio + Raisonance/RKit
+#elif defined(__GNUC__) // Atollic/True Studio + AC6/SW4STM32
 #pragma GCC push_options
-#pragma GCC optimize ("O0")
-__INLINE void SwSpreadSpectrum(void)
+void __attribute__((optimize("O0"))) SwSpreadSpectrum(void)
 #endif
 /**
   * @brief  Spread Spectrum using a variable software delay.
@@ -1016,7 +1014,7 @@ __INLINE void SwSpreadSpectrum(void)
   * @retval None
   */
 {
-  uint8_t idx;
+  volatile uint8_t idx;
 
   SpreadCounter++;
 
