@@ -1,21 +1,21 @@
 /**
-  ******************************************************************************
-  * @file    Demonstrations/Watermark/Src/main.c
-  * @author  MCD Application Team
-  * @brief   Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
-  *
-  ******************************************************************************
-  */
+******************************************************************************
+* @file    Demonstrations/Watermark/Src/main.c
+* @author  MCD Application Team
+* @brief   Main program body
+******************************************************************************
+* @attention
+*
+* <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+* All rights reserved.</center></h2>
+*
+* This software component is licensed by ST under Ultimate Liberty license SLA0044,
+* the "License"; You may not use this file except in compliance with the
+* License. You may obtain a copy of the License at:
+*                        http://www.st.com/SLA0044
+*
+******************************************************************************
+*/
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -67,46 +67,46 @@ typedef struct BmpHeader
 #define PIXEL_ARGB(a, r, g, b) (((a) << 24) | ((r) << 16) | ((g) << 8) | (b))
 
 enum {
-    STAGE_ABORT = -2,
-    STAGE_ERROR = -1,
-    STAGE_START =  0,
-    STAGE_INFO,
-    STAGE_IMAGE,
-    STAGE_END
+  STAGE_ABORT = -2,
+  STAGE_ERROR = -1,
+  STAGE_START =  0,
+  STAGE_INFO,
+  STAGE_IMAGE,
+  STAGE_END
 };
 
 typedef struct {
-        uint8_t a;
-        uint8_t r;
-        uint8_t g;
-        uint8_t b;
+  uint8_t a;
+  uint8_t r;
+  uint8_t g;
+  uint8_t b;
 } color_t;
 
 #pragma pack(push, 4)
 typedef struct  PNGFileLoader
 {
-    unsigned char* png_data;
-    unsigned int png_data_length;
-    unsigned int png_data_index;
-    int         stage;
-    int         rows;
-    png_structp png_ptr;
-    png_infop   info_ptr;
-    png_int_32  width;
-    png_int_32  height;
-    int         bpp;
-    int         color_type;
-    png_uint_32 color_key;
-    int         color_keyed;
-    void       *image;
-    uint32_t    pitch;
-    uint32_t    palette[256];
-    color_t     colors[256];
-    int         shared_buffer;
-    FIL        *pngFile;
-    uint32_t    pngFileSize;
-    uint32_t    logo_width;
-    uint32_t    logo_height;
+  unsigned char* png_data;
+  unsigned int png_data_length;
+  unsigned int png_data_index;
+  int         stage;
+  int         rows;
+  png_structp png_ptr;
+  png_infop   info_ptr;
+  png_int_32  width;
+  png_int_32  height;
+  int         bpp;
+  int         color_type;
+  png_uint_32 color_key;
+  int         color_keyed;
+  void       *image;
+  uint32_t    pitch;
+  uint32_t    palette[256];
+  color_t     colors[256];
+  int         shared_buffer;
+  FIL        *pngFile;
+  uint32_t    pngFileSize;
+  uint32_t    logo_width;
+  uint32_t    logo_height;
 
 } PNGFileLoader;
 #pragma pack(pop)
@@ -193,8 +193,6 @@ void Dma2d_TransferComplete(DMA2D_HandleTypeDef* dma2dHandle);
 
 void my_png_warning_fn(png_structp png_ptr, png_const_charp ptr);
 void my_png_error_fn(png_structp png_ptr, png_const_charp ptr);
-static int SortColors(const void *a, const void *b);
-static uint32_t FindColorKey(int n_colors, uint8_t *cmap);
 void png_info_callback(png_structp png_read_ptr,
                        png_infop   png_info_ptr);
 
@@ -211,22 +209,22 @@ void png_IO_flush_callback(png_structp png_ptr);
 /* Private functions ---------------------------------------------------------*/
 
 /**
-  * @brief  Main program
-  * @param  None
-  * @retval None
-  */
+* @brief  Main program
+* @param  None
+* @retval None
+*/
 int main(void)
 {
   /* STM32L4xx HAL library initialization:
-       - Configure the Flash prefetch
-       - Systick timer is configured by default as source of time base, but user
-         can eventually implement his proper time base source (a general purpose
-         timer for example or other time source), keeping in mind that Time base
-         duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and
-         handled in milliseconds basis.
-       - Set NVIC Group Priority to 4
-       - Low Level Initialization
-     */
+  - Configure the Flash prefetch
+  - Systick timer is configured by default as source of time base, but user
+  can eventually implement his proper time base source (a general purpose
+  timer for example or other time source), keeping in mind that Time base
+  duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and
+  handled in milliseconds basis.
+  - Set NVIC Group Priority to 4
+  - Low Level Initialization
+  */
 
   /* Initialize the HAL Library */
   HAL_Init();
@@ -287,7 +285,6 @@ int main(void)
     }
   }
 
-
   /* Initialize usb connection flag */
   usbConnected = 0;
   usbPhysicallyConnected = 0;
@@ -340,9 +337,9 @@ int main(void)
 }
 
 /**
-  * @brief  Waiting USB disconnect, stop USB and mount a filesystem.
-  * @retval None
-  */
+* @brief  Waiting USB disconnect, stop USB and mount a filesystem.
+* @retval None
+*/
 void usb_waiting_disconnect(void)
 {
   __HAL_RCC_PWR_CLK_ENABLE();
@@ -362,9 +359,9 @@ void usb_waiting_disconnect(void)
 }
 
 /**
-  * @brief  Unmount the filesystem, start and Waiting USB connect.
-  * @retval None
-  */
+* @brief  Unmount the filesystem, start and Waiting USB connect.
+* @retval None
+*/
 void usb_waiting_connected(void)
 {
   /* Unmount a Logical Drive */
@@ -399,9 +396,9 @@ void usb_waiting_connected(void)
 }
 
 /**
-  * @brief  Find a xxx.png file without xxx_logo.png.
-  * @retval 1 if found, 0 if not found
-  */
+* @brief  Find a xxx.png file without xxx_logo.png.
+* @retval 1 if found, 0 if not found
+*/
 uint32_t get_file_without_watermark(void)
 {
   DIR dir1, dir2;
@@ -461,46 +458,46 @@ uint32_t get_file_without_watermark(void)
     }
 
     if (((strstr(fn, INPUT_FILE_EXTENSION) != 0) || (strstr(fn, INPUT_FILE_EXTENSION_UC) != 0)) && \
-        (strstr(fn, OUTPUT_FILE_EXTENSION) == 0) && (strcmp(fn, LOGO_FILE) != 0) ){
-      /* Compute the _logo.png filename */
-      strcpy(inName, fn);
-      strcpy(outName, fn);
-      *(outName + strlen(outName) - sizeof (INPUT_FILE_EXTENSION) + 1) = 0;
-      strcat(outName, OUTPUT_FILE_EXTENSION);
+      (strstr(fn, OUTPUT_FILE_EXTENSION) == 0) && (strcmp(fn, LOGO_FILE) != 0) ){
+        /* Compute the _logo.png filename */
+        strcpy(inName, fn);
+        strcpy(outName, fn);
+        *(outName + strlen(outName) - sizeof (INPUT_FILE_EXTENSION) + 1) = 0;
+        strcat(outName, OUTPUT_FILE_EXTENSION);
 
-      if (f_opendir(&dir2, "") != FR_OK){
-        Error_Handler();
-      }
-
-      uint32_t loop = 1;
-      while (loop) {
-        if (f_readdir(&dir2, &fno) != FR_OK){
+        if (f_opendir(&dir2, "") != FR_OK){
           Error_Handler();
         }
 
-        fn = fno.fname;
-        if (fn[0] == 0){
-          /* Close the root directory */
-          if (f_closedir(&dir1) != FR_OK){
+        uint32_t loop = 1;
+        while (loop) {
+          if (f_readdir(&dir2, &fno) != FR_OK){
             Error_Handler();
           }
 
-          return 1;
-        }
-        else{
-          if(strcmp(outName, fn) == 0){
-            loop = 0;
+          fn = fno.fname;
+          if (fn[0] == 0){
+            /* Close the root directory */
+            if (f_closedir(&dir1) != FR_OK){
+              Error_Handler();
+            }
+
+            return 1;
+          }
+          else{
+            if(strcmp(outName, fn) == 0){
+              loop = 0;
+            }
           }
         }
       }
-    }
   }
 }
 
 /**
-  * @brief  Processing the file : decode, watermark and encode.
-  * @retval 1 if fails, 0 if OK
-  */
+* @brief  Processing the file : decode, watermark and encode.
+* @retval 1 if fails, 0 if OK
+*/
 uint32_t data_processing(void)
 {
   FIL fileTmp;
@@ -534,11 +531,11 @@ uint32_t data_processing(void)
     Error_Handler();
   }
 
-//  /* Save watermarked image as BMP (debug purpose) */
-//  if(f_write(&fileTmp, decodeBuf, bufSize, (void *)&bufSize) != FR_OK)
-//  {
-//    Error_Handler();
-//  }
+  //  /* Save watermarked image as BMP (debug purpose) */
+  //  if(f_write(&fileTmp, decodeBuf, bufSize, (void *)&bufSize) != FR_OK)
+  //  {
+  //    Error_Handler();
+  //  }
 
   /* Encode PNG in the output file */
   if (encode_png(&fileTmp, (uint8_t*) OSPI_ZONE_2, &bufSize) !=0 ) {
@@ -557,9 +554,9 @@ uint32_t data_processing(void)
 }
 
 /**
-  * @brief  libPNG warning callback
-  * @retval None
-  */
+* @brief  libPNG warning callback
+* @retval None
+*/
 void my_png_warning_fn(png_structp png_ptr, png_const_charp ptr)
 {
   (void)png_ptr;
@@ -567,9 +564,9 @@ void my_png_warning_fn(png_structp png_ptr, png_const_charp ptr)
 }
 
 /**
-  * @brief  libPNG error callback
-  * @retval None
-  */
+* @brief  libPNG error callback
+* @retval None
+*/
 void my_png_error_fn(png_structp png_ptr, png_const_charp ptr)
 {
   (void)png_ptr;
@@ -578,9 +575,9 @@ void my_png_error_fn(png_structp png_ptr, png_const_charp ptr)
 }
 
 /**
-  * @brief  Decode the logo.
-  * @retval 1 if fails, 0 if OK
-  */
+* @brief  Decode the logo.
+* @retval 1 if fails, 0 if OK
+*/
 uint32_t decode_logo(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 {
   pngLoader.image = (void*) buf;
@@ -595,9 +592,9 @@ uint32_t decode_logo(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 }
 
 /**
-  * @brief  Decode image.
-  * @retval 1 if fails, 0 if OK
-  */
+* @brief  Decode image.
+* @retval 1 if fails, 0 if OK
+*/
 uint32_t decode_image(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 {
   pngLoader.image = (void*) (buf + BITMAP_OFFSET);
@@ -633,9 +630,9 @@ uint32_t decode_image(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 }
 
 /**
-  * @brief  Decode png file.
-  * @retval 1 if fails, 0 if OK
-  */
+* @brief  Decode png file.
+* @retval 1 if fails, 0 if OK
+*/
 uint32_t decode_png(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 {
   uint8_t localBuf[PNG_DECODE_BUF_SIZE];
@@ -708,9 +705,9 @@ uint32_t decode_png(FIL * pngFile, uint8_t * buf, uint32_t * bufSize)
 }
 
 /**
-  * @brief  Watermark image with the logo thanks to dma2d.
-  * @retval 1 if fails, 0 if OK
-  */
+* @brief  Watermark image with the logo thanks to dma2d.
+* @retval 1 if fails, 0 if OK
+*/
 void watermark_png(void)
 {
   uint32_t w, h, W, H, x, y, i, end;
@@ -784,14 +781,14 @@ void watermark_png(void)
 
       /*##-5- Start DMA2D transfer ###############################################*/
       if(HAL_DMA2D_BlendingStart_IT(&Dma2dHandle,
-                (uint32_t)OSPI_ZONE_1, /* Foreground */
-                (uint32_t)((uint32_t)pngLoader.image + (pngLoader.pitch / W) * (y * W + x)), /* Back ground */
-                (uint32_t)((uint32_t)pngLoader.image + (pngLoader.pitch / W) * (y * W + x)), /* Destination */
-                w, /* Width of the 2D memory transfer in pixels */
-                h) /* Height of the 2D memory transfer in lines */
-                != HAL_OK) {
-        Error_Handler();
-      }
+                                    (uint32_t)OSPI_ZONE_1, /* Foreground */
+                                    (uint32_t)((uint32_t)pngLoader.image + (pngLoader.pitch / W) * (y * W + x)), /* Back ground */
+                                    (uint32_t)((uint32_t)pngLoader.image + (pngLoader.pitch / W) * (y * W + x)), /* Destination */
+                                    w, /* Width of the 2D memory transfer in pixels */
+                                    h) /* Height of the 2D memory transfer in lines */
+         != HAL_OK) {
+           Error_Handler();
+         }
 
       /* Wait for dma2d transfer */
       while(dma2dTransfer == 0);
@@ -831,10 +828,10 @@ uint32_t encode_png(FIL * outFile, uint8_t * buf, uint32_t * bufSize)
                    png_IO_flush_callback);
 
   png_set_IHDR( pngLoader.png_ptr, pngLoader.info_ptr,
-                pngLoader.width, pngLoader.height,
-                8, PNG_COLOR_TYPE_RGB_ALPHA,
-                PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE,
-                PNG_FILTER_TYPE_BASE);
+               pngLoader.width, pngLoader.height,
+               8, PNG_COLOR_TYPE_RGB_ALPHA,
+               PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE,
+               PNG_FILTER_TYPE_BASE);
 
 
   png_set_bgr(pngLoader.png_ptr);
@@ -846,10 +843,10 @@ uint32_t encode_png(FIL * outFile, uint8_t * buf, uint32_t * bufSize)
   /* set other zlib parameters */
 
   /* The parameter mem_level corresponds directly to the memLevel parameter of the libz deflateInit2_() interface.
-     This parameter shall specify how much memory to use for the internal state.
-     The value of mem_level must be between 1 and MAX_MEM_LEVEL.
-     Smaller values use less memory but are slower,
-     while higher values use more memory to gain compression speed. */
+  This parameter shall specify how much memory to use for the internal state.
+  The value of mem_level must be between 1 and MAX_MEM_LEVEL.
+  Smaller values use less memory but are slower,
+  while higher values use more memory to gain compression speed. */
   png_set_compression_mem_level(pngLoader.png_ptr, 1);
 
   /* Write header */
@@ -877,269 +874,37 @@ uint32_t encode_png(FIL * outFile, uint8_t * buf, uint32_t * bufSize)
   return 0;
 }
 
-
-static int SortColors(const void *a, const void *b)
-{
-    return (*((const uint8_t*) a) - *((const uint8_t*) b));
-}
-
-/*  looks for a color that is not in the colormap and ideally not
-    even close to the colors used in the colormap  */
-static uint32_t FindColorKey(int n_colors, uint8_t *cmap)
-{
-    uint32_t   color = 0xFF000000;
-    uint8_t    csort[MAXCOLORMAPSIZE/*n_colors*/];
-    int   i, j, index, d;
-
-    if (n_colors < 1)
-        return color;
-
-    for (i = 0; i < 3; i++) {
-        memcpy(csort, cmap + (n_colors * i), n_colors);
-        qsort(csort, n_colors, 1, SortColors);
-
-        for (j = 1, index = 0, d = 0; j < n_colors; j++) {
-            if (csort[j] - csort[j-1] > d) {
-                d = csort[j] - csort[j-1];
-                index = j;
-            }
-        }
-
-        if ((csort[0] - 0x0) > d) {
-            d = csort[0] - 0x0;
-            index = n_colors;
-        }
-
-        if (0xFF - (csort[n_colors - 1]) > d) {
-            index = n_colors + 1;
-        }
-
-        if (index < n_colors)
-            csort[0] = csort[index] - (d/2);
-        else if (index == n_colors)
-                csort[0] = 0x0;
-        else
-            csort[0] = 0xFF;
-
-        color |= (csort[0] << (8 * (2 - i)));
-    }
-
-    return color;
-}
-
-
 void png_info_callback(png_structp png_read_ptr,
                        png_infop   png_info_ptr)
 {
-    int i, ret;
+  PNGFileLoader *pngLoader = (PNGFileLoader*)png_get_progressive_ptr(png_read_ptr);
 
-    uint32_t bpp1[2] = {0, 0xff};
-    uint32_t bpp2[4] = {0, 0x55, 0xaa, 0xff};
-    uint32_t bpp4[16] = {0, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+  if (pngLoader->stage < 0)
+    return;
 
-    PNGFileLoader *pngLoader = (PNGFileLoader*)png_get_progressive_ptr(png_read_ptr);
+  pngLoader->stage = STAGE_INFO;
+  uint32_t  ret = png_get_IHDR(pngLoader->png_ptr, pngLoader->info_ptr,
+                               (png_uint_32 *)&pngLoader->width, (png_uint_32 *)&pngLoader->height,
+                               &pngLoader->bpp, &pngLoader->color_type,
+                               NULL, NULL, NULL);
 
-    /* error stage? */
-    if (pngLoader->stage < 0)
-        return;
+  if ((pngLoader->height == 0) || (pngLoader->width == 0) || (ret != 1)){
+    return;
+  }
 
-    pngLoader->stage = STAGE_INFO;
+  pngLoader->pitch = pngLoader->width * 4;
 
-    ret = png_get_IHDR(pngLoader->png_ptr, pngLoader->info_ptr,
-                       (png_uint_32 *)&pngLoader->width, (png_uint_32 *)&pngLoader->height,
-                       &pngLoader->bpp, &pngLoader->color_type,
-                       NULL, NULL, NULL);
+  if (!pngLoader->color_keyed) {
+    png_set_strip_16(pngLoader->png_ptr);
+  }
 
-    //printf("png_get_IHDR bpp=%d, width=%d, height=%d, col=%d\n", pngLoader->bpp, pngLoader->width, pngLoader->height, pngLoader->color_type);
+  if (!(pngLoader->color_type & PNG_COLOR_MASK_ALPHA)) {
+    png_set_filler(pngLoader->png_ptr, 0xFF, PNG_FILLER_AFTER);
+  }
 
-    /* Let's not do anything with badly sized or corrupted images */
-    if ((pngLoader->height == 0) || (pngLoader->width == 0) || (ret != 1))
-        return;
-
-    if (png_get_valid(pngLoader->png_ptr, pngLoader->info_ptr, PNG_INFO_tRNS )) {
-	    //printf("PNG_INFO_tRNS\n");
-        pngLoader->color_keyed = 1;
-
-        /* generate color key based on palette... */
-        if (pngLoader->color_type == PNG_COLOR_TYPE_PALETTE) {
-            uint32_t            key;
-            png_colorp     palette;
-            png_bytep      trans_alpha;
-            png_color_16p  trans_color;
-            uint8_t             cmap[3][MAXCOLORMAPSIZE];
-            int            num_palette = 0, num_colors = 0, num_trans = 0;
-
-            if (png_get_PLTE(pngLoader->png_ptr, pngLoader->info_ptr, &palette, &num_palette)) {
-                if (png_get_tRNS(pngLoader->png_ptr, pngLoader->info_ptr,
-                                 &trans_alpha, &num_trans, &trans_color)) {
-                    num_colors = MIN(MAXCOLORMAPSIZE, num_palette);
-
-                    for (i = 0; i < num_colors; i++) {
-                        cmap[0][i] = palette[i].red;
-                        cmap[1][i] = palette[i].green;
-                        cmap[2][i] = palette[i].blue;
-                    }
-
-                    key = FindColorKey(num_colors, &cmap[0][0]);
-
-                    for (i = 0; i < num_trans; i++) {
-                        if (!trans_alpha[i]) {
-                            palette[i].red   = (key & 0xff0000) >> 16;
-                            palette[i].green = (key & 0x00ff00) >>  8;
-                            palette[i].blue  = (key & 0x0000ff);
-                        }
-                    }
-
-                    pngLoader->color_key = key;
-                }
-            }
-        }
-        else if (pngLoader->color_type == PNG_COLOR_TYPE_GRAY) {
-            /* ...or based on trans gray value */
-            png_bytep     trans_alpha;
-            png_color_16p trans_color;
-            int           num_trans = 0;
-
-            if (png_get_tRNS(pngLoader->png_ptr, pngLoader->info_ptr,
-                             &trans_alpha, &num_trans, &trans_color)) {
-                switch (pngLoader->bpp) {
-                        case 1:
-                            pngLoader->color_key = (((bpp1[trans_color[0].gray]) << 16) |
-                                                ((bpp1[trans_color[0].gray]) << 8) |
-                                                ((bpp1[trans_color[0].gray])));
-                            break;
-                        case 2:
-                            pngLoader->color_key = (((bpp2[trans_color[0].gray]) << 16) |
-                                                ((bpp2[trans_color[0].gray]) << 8) |
-                                                ((bpp2[trans_color[0].gray])));
-                            break;
-                        case 4:
-                            pngLoader->color_key = (((bpp4[trans_color[0].gray]) << 16) |
-                                                ((bpp4[trans_color[0].gray]) << 8) |
-                                                ((bpp4[trans_color[0].gray])));
-                            break;
-                        case 8:
-                            pngLoader->color_key = (((trans_color[0].gray & 0x00ff) << 16) |
-                                                ((trans_color[0].gray & 0x00ff) << 8) |
-                                                ((trans_color[0].gray & 0x00ff)));
-                            break;
-                        case 16:
-                        default:
-                            pngLoader->color_key = (((trans_color[0].gray & 0xff00) << 8) |
-                                                ((trans_color[0].gray & 0xff00)) |
-                                                ((trans_color[0].gray & 0xff00) >> 8));
-                            break;
-                }
-            }
-        }
-        else {
-            /* ...or based on trans rgb value */
-            png_bytep     trans_alpha;
-            png_color_16p trans_color;
-            int           num_trans = 0;
-
-            if (png_get_tRNS(pngLoader->png_ptr, pngLoader->info_ptr,
-                             &trans_alpha, &num_trans, &trans_color)) {
-                switch(pngLoader->bpp) {
-                        case 1:
-                            pngLoader->color_key = (((bpp1[trans_color[0].red]) << 16) |
-                                                ((bpp1[trans_color[0].green]) << 8) |
-                                                ((bpp1[trans_color[0].blue])));
-                            break;
-                        case 2:
-                            pngLoader->color_key = (((bpp2[trans_color[0].red]) << 16) |
-                                                ((bpp2[trans_color[0].green]) << 8) |
-                                                ((bpp2[trans_color[0].blue])));
-                            break;
-                        case 4:
-                            pngLoader->color_key = (((bpp4[trans_color[0].red]) << 16) |
-                                                ((bpp4[trans_color[0].green]) << 8) |
-                                                ((bpp4[trans_color[0].blue])));
-                            break;
-                        case 8:
-                            pngLoader->color_key = (((trans_color[0].red & 0x00ff) << 16) |
-                                                ((trans_color[0].green & 0x00ff) << 8) |
-                                                ((trans_color[0].blue & 0x00ff)));
-                            break;
-                        case 16:
-                        default:
-                            pngLoader->color_key = (((trans_color[0].red & 0xff00) << 8) |
-                                                ((trans_color[0].green & 0xff00)) |
-                                                ((trans_color[0].blue & 0xff00) >> 8));
-                            break;
-                }
-            }
-        }
-    }
-    else
-    {
-	    //printf("Not PNG_INFO_tRNS\n");
-    }
-
-    switch (pngLoader->color_type) {
-        case PNG_COLOR_TYPE_PALETTE: {
-            png_colorp     palette;
-            png_bytep      trans_alpha;
-            png_color_16p  trans_color;
-            int            num_palette = 0, num_colors = 0, num_trans = 0;
-
-            png_get_PLTE(pngLoader->png_ptr, pngLoader->info_ptr, &palette, &num_palette);
-
-            png_get_tRNS(pngLoader->png_ptr, pngLoader->info_ptr,
-                         &trans_alpha, &num_trans, &trans_color);
-
-            num_colors = MIN(MAXCOLORMAPSIZE, num_palette);
-
-            for (i = 0; i < num_colors; i++) {
-                pngLoader->colors[i].a = (i < num_trans) ? trans_alpha[i] : 0xff;
-                pngLoader->colors[i].r = palette[i].red;
-                pngLoader->colors[i].g = palette[i].green;
-                pngLoader->colors[i].b = palette[i].blue;
-
-                pngLoader->palette[i] = PIXEL_ARGB(pngLoader->colors[i].a,
-                                                pngLoader->colors[i].r,
-                                                pngLoader->colors[i].g,
-                                                pngLoader->colors[i].b);
-            }
-
-            pngLoader->pitch = (pngLoader->width + 7) & ~7;
-            break;
-        }
-
-        case PNG_COLOR_TYPE_GRAY:
-            if (pngLoader->bpp < 16) {
-                pngLoader->pitch = pngLoader->width;
-                break;
-            }
-
-            /* fall through */
-        case PNG_COLOR_TYPE_GRAY_ALPHA:
-            png_set_gray_to_rgb(pngLoader->png_ptr);
-
-            /* fall through */
-        default:
-            pngLoader->pitch = pngLoader->width * 4;
-
-            if (!pngLoader->color_keyed)
-                png_set_strip_16(pngLoader->png_ptr); /* if it is color keyed we will handle conversion ourselves */
-
-#ifdef WORDS_BIGENDIAN
-            if (!(pngLoader->color_type & PNG_COLOR_MASK_ALPHA))
-                png_set_filler(pngLoader->png_ptr, 0xFF, PNG_FILLER_BEFORE);
-
-            png_set_swap_alpha(pngLoader->png_ptr);
-#else
-            if (!(pngLoader->color_type & PNG_COLOR_MASK_ALPHA))
-                png_set_filler(pngLoader->png_ptr, 0xFF, PNG_FILLER_AFTER);
-
-            png_set_bgr(pngLoader->png_ptr);
-#endif
-            break;
-    }
-
-    png_set_interlace_handling(pngLoader->png_ptr);
-
-    png_read_update_info(pngLoader->png_ptr, pngLoader->info_ptr);
+  png_set_bgr(pngLoader->png_ptr);
+  png_set_interlace_handling(pngLoader->png_ptr);
+  png_read_update_info(pngLoader->png_ptr, pngLoader->info_ptr);
 }
 
 void png_row_callback(png_structp png_read_ptr,
@@ -1147,111 +912,16 @@ void png_row_callback(png_structp png_read_ptr,
                       png_uint_32 row_num,
                       int         pass_num)
 {
-    PNGFileLoader *pngLoader = (PNGFileLoader*)png_get_progressive_ptr(png_read_ptr);
+  PNGFileLoader *pngLoader = (PNGFileLoader*)png_get_progressive_ptr(png_read_ptr);
 
-    if (pngLoader->stage < 0)
-        return;
+  if (pngLoader->stage < 0)
+    return;
 
-    pngLoader->stage = STAGE_IMAGE;
-
-    /* write to image data */
-    if (pngLoader->bpp == 16 && pngLoader->color_keyed) {
-        uint8_t *dst = (uint8_t*)((uint8_t*)pngLoader->image + row_num * pngLoader->pitch);
-        uint8_t *src = (uint8_t*)new_row;
-
-        if (src) {
-            int src_advance = 8;
-            int src16_advance = 4;
-            int dst32_advance = 1;
-            int src16_initial_offset = 0;
-            int dst32_initial_offset = 0;
-
-            if (!(row_num % 2)) { /* even lines 0,2,4 ... */
-                switch (pass_num) {
-                case 1:
-                    dst32_initial_offset = 4;
-                    src16_initial_offset = 16;
-                    src_advance = 64;
-                    src16_advance = 32;
-                    dst32_advance = 8;
-                    break;
-                case 3:
-                    dst32_initial_offset = 2;
-                    src16_initial_offset = 8;
-                    src_advance = 32;
-                    src16_advance = 16;
-                    dst32_advance = 4;
-                    break;
-                case 5:
-                    dst32_initial_offset = 1;
-                    src16_initial_offset = 4;
-                    src_advance = 16;
-                    src16_advance = 8;
-                    dst32_advance = 2;
-                    break;
-                default:
-                    break;
-                }
-            }
-
-            png_bytep      trans;
-            png_color_16p  trans_color;
-            int            num_trans = 0;
-
-            png_get_tRNS(pngLoader->png_ptr, pngLoader->info_ptr,
-                         &trans, &num_trans, &trans_color);
-
-            uint16_t *src16 = (uint16_t*)src + src16_initial_offset;
-            uint32_t *dst32 = (uint32_t*)dst + dst32_initial_offset;
-
-            int remaining = pngLoader->width - dst32_initial_offset;
-
-            while (remaining > 0) {
-                int keyed = 0;
-#ifdef WORDS_BIGENDIAN
-                uint16_t comp_r = src16[1];
-                uint16_t comp_g = src16[2];
-                uint16_t comp_b = src16[3];
-                uint32_t pixel32 = src[1] << 24 | src[3] << 16 | src[5] << 8 | src[7];
-#else
-                uint16_t comp_r = src16[2];
-                uint16_t comp_g = src16[1];
-                uint16_t comp_b = src16[0];
-
-                uint32_t pixel32 = src[6] << 24 | src[4] << 16 | src[2] << 8 | src[0];
-#endif
-                /* is the pixel supposted to match the color key in 16 bit per channel resolution? */
-                if (((comp_r == trans_color[0].gray)
-                    && (pngLoader->color_type == PNG_COLOR_TYPE_GRAY))
-                    || ((comp_g == trans_color[0].green)
-                        && (comp_b == trans_color[0].blue)
-                        && (comp_r == trans_color[0].red)))
-                    keyed = 1;
-
-                /*
-                 *  if the pixel was not supposed to get keyed but the colorkey matches in the reduced
-                 *  color space, then toggle the least significant blue bit
-                 */
-                if (!keyed && (pixel32 == (0xff000000 | pngLoader->color_key)))
-                    pixel32 ^= 0x00000001;
-
-                *dst32 = pixel32;
-
-                src16 += src16_advance;
-                src   += src_advance;
-                dst32 += dst32_advance;
-                remaining-= dst32_advance;
-            }
-        }
-    }
-    else
-        png_progressive_combine_row(pngLoader->png_ptr,
-                                    (png_bytep)((uint8_t*)pngLoader->image
-                                                + row_num * pngLoader->pitch),
-                                    new_row);
-
-    /* increase row counter, FIXME: interlaced? */
-    pngLoader->rows++;
+  pngLoader->stage = STAGE_IMAGE;
+  png_progressive_combine_row(pngLoader->png_ptr,
+                              (png_bytep)((uint8_t*)pngLoader->image + row_num * pngLoader->pitch),
+                              new_row);
+  pngLoader->rows++;
 }
 
 void png_end_callback(png_structp png_read_ptr,
@@ -1286,70 +956,70 @@ void png_write_callback(png_structp png_ptr,png_bytep data, png_uint_32 length)
 
 void png_IO_flush_callback(png_structp png_ptr)
 {
-   (void)png_ptr;
+  (void)png_ptr;
 }
 
 /**
-  * @brief  DMA2D Transfer completed callback
-  * @param  hdma2d: DMA2D handle.
-  * @note   This example shows a simple way to report end of DMA2D transfer, and
-  *         you can add your own implementation.
-  * @retval None
-  */
+* @brief  DMA2D Transfer completed callback
+* @param  hdma2d: DMA2D handle.
+* @note   This example shows a simple way to report end of DMA2D transfer, and
+*         you can add your own implementation.
+* @retval None
+*/
 void Dma2d_TransferComplete(DMA2D_HandleTypeDef *hdma2d)
 {
   dma2dTransfer = 1;
 }
 
 /**
-  * @brief  DMA2D error callbacks
-  * @param  hdma2d: DMA2D handle
-  * @note   This example shows a simple way to report DMA2D transfer error, and you can
-  *         add your own implementation.
-  * @retval None
-  */
+* @brief  DMA2D error callbacks
+* @param  hdma2d: DMA2D handle
+* @note   This example shows a simple way to report DMA2D transfer error, and you can
+*         add your own implementation.
+* @retval None
+*/
 void Dma2d_TransferError(DMA2D_HandleTypeDef *hdma2d)
 {
   Error_Handler();
 }
 
 /**
-  * @brief  System Clock Configuration
-  *         The system Clock is configured as follow :
-  *
-  *         If define USB_USE_LSE_MSI_CLOCK enabled:
-  *            System Clock source            = PLL (MSI)
-  *            SYSCLK(Hz)                     = 120000000
-  *            HCLK(Hz)                       = 120000000
-  *            AHB Prescaler                  = 1
-  *            APB1 Prescaler                 = 1
-  *            APB2 Prescaler                 = 1
-  *            MSI Frequency(Hz)              = 48000000
-  *            PLL_M                          = 12
-  *            PLL_N                          = 60
-  *            PLL_Q                          = 2
-  *            PLL_R                          = 2
-  *            PLL_P                          = 7
-  *            Flash Latency(WS)              = 4
-  *
-  *         If define USE_USB_CLKSOURCE_CRSHSI48 enabled:
-  *            System Clock source            = PLL (MSI)
-  *            SYSCLK(Hz)                     = 120000000
-  *            HCLK(Hz)                       = 120000000
-  *            AHB Prescaler                  = 1
-  *            APB1 Prescaler                 = 1
-  *            APB2 Prescaler                 = 1
-  *            MSI Frequency(Hz)              = 4000000
-  *            PLL_M                          = 1
-  *            PLL_N                          = 60
-  *            PLL_Q                          = 2
-  *            PLL_R                          = 2
-  *            PLL_P                          = 7
-  *            Flash Latency(WS)              = 4
-  *
-  * @param  None
-  * @retval None
-  */
+* @brief  System Clock Configuration
+*         The system Clock is configured as follow :
+*
+*         If define USB_USE_LSE_MSI_CLOCK enabled:
+*            System Clock source            = PLL (MSI)
+*            SYSCLK(Hz)                     = 120000000
+*            HCLK(Hz)                       = 120000000
+*            AHB Prescaler                  = 1
+*            APB1 Prescaler                 = 1
+*            APB2 Prescaler                 = 1
+*            MSI Frequency(Hz)              = 48000000
+*            PLL_M                          = 12
+*            PLL_N                          = 60
+*            PLL_Q                          = 2
+*            PLL_R                          = 2
+*            PLL_P                          = 7
+*            Flash Latency(WS)              = 4
+*
+*         If define USE_USB_CLKSOURCE_CRSHSI48 enabled:
+*            System Clock source            = PLL (MSI)
+*            SYSCLK(Hz)                     = 120000000
+*            HCLK(Hz)                       = 120000000
+*            AHB Prescaler                  = 1
+*            APB1 Prescaler                 = 1
+*            APB2 Prescaler                 = 1
+*            MSI Frequency(Hz)              = 4000000
+*            PLL_M                          = 1
+*            PLL_N                          = 60
+*            PLL_Q                          = 2
+*            PLL_R                          = 2
+*            PLL_P                          = 7
+*            Flash Latency(WS)              = 4
+*
+* @param  None
+* @retval None
+*/
 void SystemClock_Config(void)
 {
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
@@ -1417,7 +1087,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-    /*Configure the clock recovery system (CRS)**********************************/
+  /*Configure the clock recovery system (CRS)**********************************/
 
   /* Enable CRS Clock */
   __HAL_RCC_CRS_CLK_ENABLE();
@@ -1509,9 +1179,9 @@ void ospi_flash_init(void)
   /* Test the correctness */
   if((pOSPI_NOR_Info.FlashSize          != MX25LM51245G_FLASH_SIZE) ||
      (pOSPI_NOR_Info.EraseSectorSize    != MX25LM51245G_BLOCK_SIZE)  ||
-     (pOSPI_NOR_Info.ProgPageSize       != MX25LM51245G_PAGE_SIZE)  ||
-     (pOSPI_NOR_Info.EraseSectorsNumber != (MX25LM51245G_FLASH_SIZE/MX25LM51245G_BLOCK_SIZE)) ||
-     (pOSPI_NOR_Info.ProgPagesNumber    != (MX25LM51245G_FLASH_SIZE/MX25LM51245G_PAGE_SIZE)))
+       (pOSPI_NOR_Info.ProgPageSize       != MX25LM51245G_PAGE_SIZE)  ||
+         (pOSPI_NOR_Info.EraseSectorsNumber != (MX25LM51245G_FLASH_SIZE/MX25LM51245G_BLOCK_SIZE)) ||
+           (pOSPI_NOR_Info.ProgPagesNumber    != (MX25LM51245G_FLASH_SIZE/MX25LM51245G_PAGE_SIZE)))
   {
     Error_Handler();
   }
@@ -1704,7 +1374,7 @@ void ospi_delay_calibration(void)
     RCC->DLYCFGR = delay;
     test_failed = 0;
 
-   mem_addr = (uint8_t *)OCTOSPI1_BASE;
+    mem_addr = (uint8_t *)OCTOSPI1_BASE;
 
     for (uint32_t index = 0; index < sizeof(TX_Buffer); index++)
     {
@@ -1720,8 +1390,8 @@ void ospi_delay_calibration(void)
     {
       if (*mem_addr != TX_Buffer[index])
       {
-          test_failed = 1;
-          break;
+        test_failed = 1;
+        break;
       }
       mem_addr++;
     }
@@ -1748,10 +1418,10 @@ void ospi_delay_calibration(void)
 }
 
 /**
-  * @brief  This function is executed in case of unexpected error occurrence. Appli is dead !
-  * @param  None
-  * @retval None
-  */
+* @brief  This function is executed in case of unexpected error occurrence. Appli is dead !
+* @param  None
+* @retval None
+*/
 void Error_Handler(void)
 {
   while (1) {
@@ -1762,30 +1432,30 @@ void Error_Handler(void)
 }
 
 /**
-  * @brief  This function is executed in case of warning. User input are not correct and can be modified.
-  * @param  None
-  * @retval None
-  */
+* @brief  This function is executed in case of warning. User input are not correct and can be modified.
+* @param  None
+* @retval None
+*/
 void Warning_Handler(void)
 {
   BSP_LED_On(LED2);
 }
 
 /**
-  * @brief  Clear Warning.
-  * @param  None
-  * @retval None
-  */
+* @brief  Clear Warning.
+* @param  None
+* @retval None
+*/
 void Warning_Clear(void)
 {
   BSP_LED_Off(LED2);
 }
 
 /**
-  * @brief EXTI line detection callbacks
-  * @param GPIO_Pin: Specifies the pins connected EXTI line
-  * @retval None
-  */
+* @brief EXTI line detection callbacks
+* @param GPIO_Pin: Specifies the pins connected EXTI line
+* @retval None
+*/
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == SEL_JOY_PIN)
@@ -1808,16 +1478,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 #ifdef  USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+* @brief  Reports the name of the source file and the source line number
+*         where the assert_param error has occurred.
+* @param  file: pointer to the source file name
+* @param  line: assert_param error line source number
+* @retval None
+*/
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
   /* Infinite loop */
   while (1)
