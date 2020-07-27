@@ -71,6 +71,7 @@ static uint32_t GetBank(uint32_t Address);
   */
 int main(void)
 {
+  uint32_t src_addr = (uint32_t)Data64_To_Prog;
   uint8_t data_index = 0;
 
   /* STM32L4xx HAL library initialization:
@@ -130,7 +131,7 @@ int main(void)
 
   while (Address < (FLASH_USER_END_ADDR - (FLASH_ROW_SIZE*sizeof(uint64_t))))
   {
-    if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_FAST, Address, (uint64_t)Data64_To_Prog) == HAL_OK)
+    if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_FAST, Address, (uint64_t)src_addr) == HAL_OK)
     {
       Address = Address + (FLASH_ROW_SIZE*sizeof(uint64_t));
     }
@@ -145,7 +146,7 @@ int main(void)
     }
   }
 
-  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_FAST_AND_LAST, Address, (uint64_t)Data64_To_Prog) != HAL_OK)
+  if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_FAST_AND_LAST, Address, (uint64_t)src_addr) != HAL_OK)
   {
     /* Error occurred while writing data in Flash memory.
        User can add here some code to deal with this error */

@@ -107,11 +107,12 @@ int main(void)
   OSPIPSRAMHandle.Init.ChipSelectHighTime    = 1;
   OSPIPSRAMHandle.Init.FreeRunningClock      = HAL_OSPI_FREERUNCLK_DISABLE;
   OSPIPSRAMHandle.Init.ClockMode             = HAL_OSPI_CLOCK_MODE_0;
-  OSPIPSRAMHandle.Init.WrapSize              = HAL_OSPI_WRAP_32_BYTES;
   OSPIPSRAMHandle.Init.ClockPrescaler        = 0x03;
   OSPIPSRAMHandle.Init.SampleShifting        = HAL_OSPI_SAMPLE_SHIFTING_NONE;
   OSPIPSRAMHandle.Init.DelayHoldQuarterCycle = HAL_OSPI_DHQC_ENABLE;
   OSPIPSRAMHandle.Init.ChipSelectBoundary    = 4;
+  OSPIPSRAMHandle.Init.DelayBlockBypass      = HAL_OSPI_DELAY_BLOCK_USED;
+  OSPIPSRAMHandle.Init.MaxTran               = 0;
   __HAL_RCC_OSPIM_CLK_ENABLE();
   if (HAL_OSPIM_Config(&OSPIPSRAMHandle, &OSPIM_Cfg_Struct, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
   {
@@ -404,7 +405,7 @@ static void Delay_Calibration(void)
   sCommand.DQSMode            = HAL_OSPI_DQS_ENABLE;
   sCommand.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
 
-  delay = 0;
+  delay = 1;
   calibration_ongoing = 1;
   step = 0;
 

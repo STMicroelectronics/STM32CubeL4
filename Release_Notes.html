@@ -63,7 +63,7 @@
 <p>Here is the list of references to user documents:</p>
 <ul>
 <li><p><a href="Documentation/STM32CubeL4GettingStarted.pdf">UM1860</a>: Getting started with STM32CubeL4 for STM32L4 Series and STM32L4+ Series</p></li>
-<li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00173145.pdf">UM1884</a>: Description of STM32L4 HAL drivers</p></li>
+<li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00173145.pdf">UM1884</a>: Description of STM32L4 HAL and Low Layer drivers</p></li>
 <li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00108129.pdf">UM1734</a>: STM32Cube USB device library</p></li>
 <li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105256.pdf">UM1720</a>: STM32Cube USB host library</p></li>
 <li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105259.pdf">UM1721</a>: Developing Applications on STM32Cube with FatFs</p></li>
@@ -77,15 +77,562 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section25" checked aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
+<input type="checkbox" id="collapse-section26" checked aria-hidden="true"> <label for="collapse-section26" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package">Maintenance release of STM32CubeL4 Firmware package</h3>
+<ul>
+<li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections
+<ul>
+<li>Update of <strong>HAL OSPI</strong> driver introducing <strong>compatibility break</strong> with previous versions</li>
+</ul></li>
+<li>Add support of new board <strong>B-L4S5I-IOT01A</strong> and associated projects (templates and applications)</li>
+</ul>
+<p><br />
+</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><strong>CMSIS Core</strong> updates
+<ul>
+<li>Upgrade to version V5.6.0
+<ul>
+<li>DSP libraries moved to CMSIS/DSP/Lib (DSP-based user projects impacted)</li>
+</ul></li>
+</ul></li>
+<li><strong>CMSIS Device</strong> updates
+<ul>
+<li>Update GCC startup files
+<ul>
+<li>Call SystemInit() before RAM initialization in GCC startup/Reset_Handler</li>
+</ul></li>
+<li>Update CMSIS bit definitions
+<ul>
+<li>Update bit definitions in OCTOSPI registers</li>
+<li>Align HSITRIM configuration in RCC ICSCR register</li>
+<li>Add bit descriptions in CRS RC register</li>
+</ul></li>
+<li>Refer to <a href="Drivers/CMSIS/Device/ST/STM32L4xx/Release_Notes.html">release notes</a> for further details</li>
+</ul></li>
+<li><strong>HAL/LL Drivers</strong> updates
+<ul>
+<li>Update HAL/LL drivers to include latest corrections
+<ul>
+<li>Update of HAL OSPI driver to add/remove configurations supported by L4+ devices</li>
+<li>Update of CAN, DAC, DCMI, DMA, FLASH, FSMC, GPIO, I2C, LPTIM, NOR, OPAMP, DMA, DMA, RCC, SDMMC, SMARTCARD, SPI, TIM, TSC, UART, USART, WWDG drivers</li>
+</ul></li>
+<li>Refer to <a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a> for further details</li>
+</ul></li>
+<li><p><strong>Projects</strong> updates</p>
+<ul>
+<li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
+<li>Support of <strong>B-L4S5I-IOT01A</strong> board and associated projects:
+<ul>
+<li>HAL Template and LL Template</li>
+<li>2 applications demonstrating how to write NDEF messages to an ST25DV-I2C type 5 NFC tag</li>
+<li>1 application demonstrating how to make HTTP requests using the Es-WiFi module</li>
+</ul></li>
+<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</li>
+</ul></li>
+</ul>
+<table>
+<caption><strong>Projects</strong></caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Projects</strong></td>
+<td><strong>V1.16.0</strong></td>
+<td style="text-align: left;">see Projects Release note for details</td>
+<td style="text-align: left;"><a href="Projects/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="components">Components</h2>
+<p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
+<table>
+<caption><strong>Drivers</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: center;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cortex-M CMSIS</strong></td>
+<td style="text-align: left;"><strong>V5.6.0</strong></td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/LICENSE.txt">Apache License v2.0</a></td>
+<td style="text-align: center;"><a href="Drivers/CMSIS/README.md">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>STM32L4xx CMSIS</strong></td>
+<td style="text-align: left;"><strong>V1.7.0</strong></td>
+<td style="text-align: left;"><a href="Drivers/CMSIS/LICENSE.txt">Apache License v2.0</a></td>
+<td style="text-align: center;"><a href="Drivers/CMSIS/Device/ST/STM32L4xx/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>STM32L4xx HAL</strong></td>
+<td style="text-align: left;"><strong>V1.12.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: center;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>BSP B-L4S5I-IOT01</strong></td>
+<td style="text-align: left;"><strong>V1.0.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/B-L4S5I-IOT01/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP B-L475E-IOT01</td>
+<td style="text-align: left;">V1.1.6</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/B-L475E-IOT01/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BSP STM32L476G_EVAL</strong></td>
+<td style="text-align: left;"><strong>V2.1.5</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L476G_EVAL/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSP STM32L4R9I_EVAL</strong></td>
+<td style="text-align: left;"><strong>V1.1.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4R9I_EVAL/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L476G-Discovery</td>
+<td style="text-align: left;">V2.0.5</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L476G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSP STM32L496G-Discovery</strong></td>
+<td style="text-align: left;"><strong>V1.1.5</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L496G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BSP STM32L4P5G-Discovery</strong></td>
+<td style="text-align: left;"><strong>V1.1.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4P5G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSP STM32L4R9I-Discovery</strong></td>
+<td style="text-align: left;"><strong>V1.1.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4R9I-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo</td>
+<td style="text-align: left;">V2.1.6</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_32</td>
+<td style="text-align: left;">V1.0.3</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo_32/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_144</td>
+<td style="text-align: left;">V1.0.7</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo_144/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: center;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP Adafruit Shield (reference ID 802)</td>
+<td style="text-align: left;">V3.0.5</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Adafruit_Shield/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP Common</td>
+<td style="text-align: left;">V5.1.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/Common/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cs42l51</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cs42l51/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP cs43l22</td>
+<td style="text-align: left;">V2.0.4</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cs43l22/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cy8c4014lqi</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cy8c4014lqi/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft3x67</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft3x67/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP ft6x06</td>
+<td style="text-align: left;">V1.0.3</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft6x06/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft5336</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft5336/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hts221</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hts221/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP hx8347g</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hx8347g/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hx8347i</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hx8347i/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP iss66wvh8m8</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/iss66wvh8m8/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP l3gd20</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/l3gd20/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lis3mdl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lis3mdl/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lps22hb</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lps22hb/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ls016b8uy</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ls016b8uy/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm303c</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm303c/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lsm303dlhc</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm303c/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm6dsl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm6dsl/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP m24sr</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/m24sr/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mfxstm32l152</td>
+<td style="text-align: left;">V2.0.3</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mfxstm32l152/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP mx25lm51245g</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mx25lm51245g/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mx25r6435f</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mx25r6435f/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP n25q128a</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/n25q128a/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP n25q256a</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/n25q256a/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ov9655</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ov9655/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP rk043fn48h</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/rk043fn48h/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BSP st25dv</strong></td>
+<td style="text-align: left;"><strong>V1.0.0</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st25dv/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP st7735</td>
+<td style="text-align: left;">V1.1.5</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st7735/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP st7789h2</td>
+<td style="text-align: left;">V1.1.3</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st7789h2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP stmpe811</td>
+<td style="text-align: left;">V2.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/stmpe811/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP stmpe1600</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/stmpe1600/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP wm8994</td>
+<td style="text-align: left;">V2.3.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/wm8994/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><strong>Middlewares</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: center;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>STM32 USB Host Library</strong></td>
+<td style="text-align: left;"><strong>V3.3.4</strong></td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA004">SLA0044</a></td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_USB_Host_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>STM32 USB Device Library</strong></td>
+<td style="text-align: left;"><strong>V2.6.1</strong></td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA004">SLA0044</a></td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_USB_Device_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32 TouchSensing Library</td>
+<td style="text-align: left;">V2.2.4</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA004">SLA0044</a></td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_TouchSensing_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FatFS</td>
+<td style="text-align: left;">R0.12c</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FatFs/src/00history.txt">FatFS release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ST modified 20191011</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FatFs/src/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>FreeRTOS</strong></td>
+<td style="text-align: left;"><strong>V10.2.1</strong></td>
+<td style="text-align: left;"><a href="Middlewares/Third_Party/FreeRTOS/License/license.txt">MIT</a></td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>ST modified 20200117</strong></td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STemWin</td>
+<td style="text-align: left;">V5.44</td>
+<td style="text-align: left;"><a href="http://www.st.com/SLA004">SLA0044</a></td>
+<td style="text-align: center;"><a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><strong>Utilities</strong></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: center;">Release note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CPU</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Utilities/CPU/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Utilities/Fonts/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Log</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
+<td style="text-align: center;"><a href="Utilities/Log/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
+</ul>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
+<ul>
+<li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
+</ul></li>
+<li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.29 + Pack Keil STM32L4P5xx_DFP.1.0.0</p></li>
+<li><p>STM32CubeIDE 1.4.20w18</p></li>
+<li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
+<li>Tools
+<ul>
+<li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
+<li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
+</ul></li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<ul>
+<li>STM32L41x/L42x devices Rev1</li>
+<li>STM32L43x/L44x devices Rev1</li>
+<li>STM32L45x/L46x devices Rev2</li>
+<li>STM32L47x/L48x devices Rev4</li>
+<li>STM32L49x/L4Ax devices Rev2</li>
+<li>STM32L4Px/L4Qx devices Rev1</li>
+<li>STM32L4Rx/L4Sx devices Rev2</li>
+<li>STM32L476G Evaluation board RevC (MB1144 C-01)</li>
+<li>STM32L4R9I Evaluation board RevB (MB1313 B-03)</li>
+<li>STM32L476G Discovery board RevC (MB1184 C-01)</li>
+<li>STM32L496G Discovery board RevB (MB1261 B-01)</li>
+<li>STM32L4P5G Discovery board RevB (MB1535 B-03)</li>
+<li>STM32L4R9I Discovery board RevC (MB1311 C-01)</li>
+<li>STM32L412KB Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L412RB Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L432KC Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L433RC Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L452RE Nucleo kit RevC (MB1136 C-03, MB1319 C-01)</li>
+<li>STM32L476RG Nucleo kit RevC (MB1136 C-03)</li>
+<li>STM32L496ZG Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>STM32L4P5ZG Nucleo kit (MB1312/L A-01)</li>
+<li>STM32L4R5ZI Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>B-L475E-IOT01A board RevB (MB1297)</li>
+<li>B-L4S5I-IOT01A board RevE02 (MB1297)</li>
+</ul>
+<p><br />
+</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section25" aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <h3 id="patch-release-of-stm32cubel4-firmware-package">Patch release of STM32CubeL4 Firmware package</h3>
 <ul>
 <li>Update of CMIS devices to add bits definitions in OCTOSPI registers</li>
 <li>Update of HAL/LL drivers to include latest corrections of GPIO, I2C, RTC, SDMMC, UTILS drivers</li>
 </ul>
-<h2 id="contents">Contents</h2>
+<h2 id="contents-1">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -101,173 +648,32 @@
 <ul>
 <li>Main functions rework for 32L4P5GDISCOVERY/Demonstrations/Watermark project</li>
 <li><p>Correct syntax error in link script in NUCLEO-L4P5ZG/Examples_LL/RTC/RTC_Tamper/STM32CubeIDE project</p></li>
-<li><p>Projects release notes (updates in <span style="font-weight: bold;">bold</span>)</p>
-<ul>
-<li><p>32L476GDISCOVERY</p>
-<ul>
-<li>Applications (<a href="Projects/32L476GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/32L476GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L476GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L476GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L476GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L496GDISCOVERY</p>
-<ul>
-<li>Applications (<a href="Projects/32L496GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/32L496GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L496GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L496GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L496GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L4P5GDISCOVERY</p>
-<ul>
-<li>Applications (<a href="Projects/32L4P5GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L4P5GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>Examples (<a href="Projects/32L4P5GDISCOVERY/Examples/Release_Notes.html">release notes</a>)<br />
-</li>
-<li>LL Examples (<a href="Projects/32L4P5GDISCOVERY/Examples_LL/Release_Notes.html">release notes</a>)<br />
-</li>
-<li>HAL Templates (<a href="Projects/32L4P5GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L4P5GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L4R9IDISCOVERY</p>
-<ul>
-<li>Applications (<a href="Projects/32L4R9IDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/32L4R9IDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L4R9IDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L4R9IDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L4R9IDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>B-L475E-IOT01A</p>
-<ul>
-<li>Applications (<a href="Projects/B-L475E-IOT01A/Applications/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/B-L475E-IOT01A/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/B-L475E-IOT01A/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/B-L475E-IOT01A/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4P5ZG</p>
-<ul>
-<li>Examples (<a href="Projects/NUCLEO-L4P5ZG/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>Examples_LL</strong> (<a href="Projects/NUCLEO-L4P5ZG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Examples_MIX (<a href="Projects/NUCLEO-L4P5ZG/Examples_MIX/Release_Notes.html">release notes</a>)<br />
-</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L4P5ZG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4P5ZG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L4R5ZI/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L4R5ZI/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L4R5ZI/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L4R5ZI/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L4R5ZI-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L4R5ZI-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412KB</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L412KB/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L412KB/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L412KB/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L412KB/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412KB/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412RB-P</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L412RB-P/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L412RB-P/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L412RB-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412RB-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L432KC</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L432KC/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L432KC/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L432KC/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L432KC/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L432KC/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L433RC-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L433RC-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L433RC-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L433RC-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L452RE/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L452RE/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L452RE/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L452RE/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L452RE-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L452RE-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L476RG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L476RG/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L476RG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L476RG/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L476RG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L476RG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L476RG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L476RG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L496ZG/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L496ZG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L496ZG/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L496ZG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L496ZG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L496ZG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L496ZG-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L496ZG-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L4R9I-EVAL</p>
-<ul>
-<li>Applications (<a href="Projects/STM32L4R9I-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/STM32L4R9I-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/STM32L4R9I-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/STM32L4R9I-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L4R9I-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L476G-EVAL</p>
-<ul>
-<li>Applications (<a href="Projects/STM32L476G-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/STM32L476G-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/STM32L476G-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/STM32L476G-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L476G-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li>WIN32
-<ul>
-<li>STemWin/Simulation (<a href="Projects/WIN32/STemWin_Simulation/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-</ul></li>
+<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li><p>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
 </ul></li>
 </ul>
-<h2 id="components">Components</h2>
+<table>
+<caption><strong>Projects</strong></caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Projects</strong></td>
+<td><strong>V1.15.1</strong></td>
+<td style="text-align: left;">see Projects Release note for details</td>
+<td style="text-align: left;"><a href="Projects/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="components-1">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -360,7 +766,7 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;">BSP Adafruit Shield (reference ID 802)</td>
-<td style="text-align: left;">V3.0.4</td>
+<td style="text-align: left;">V3.0.5</td>
 <td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
 <td style="text-align: center;"><a href="Drivers/BSP/Adafruit_Shield/Release_Notes.html">release notes</a></td>
 </tr>
@@ -652,12 +1058,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations">Known Limitations</h2>
+<h2 id="known-limitations-1">Known Limitations</h2>
 <ul>
-<li><p>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</p></li>
-<li><p>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</p></li>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
 <ul>
@@ -672,7 +1079,7 @@
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -698,19 +1105,21 @@
 <li>STM32L4R5ZI Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
 <li>B-L475E-IOT01A board RevB (MB1297)</li>
 </ul>
+<p><br />
+</p>
 </div>
 </div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section24" aria-hidden="true"> <label for="collapse-section24" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <h3 id="add-support-of-stm32l4p5xx-and-stm32l4q5xx-devices">Add support of STM32L4P5xx and STM32L4Q5xx devices</h3>
 <ul>
 <li>New <strong>PKA</strong> and <strong>PSSI</strong> peripherals</li>
 <li>Updated <strong>PWR</strong> peripheral for finer SRAM2 retention in standby mode</li>
 <li>Updated <strong>RNG</strong> peripheral to open entropy configuration</li>
 </ul>
-<h2 id="contents-1">Contents</h2>
+<h2 id="contents-2">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -723,7 +1132,7 @@
 <li>Update all HAL/LL drivers to support <strong>STM32L4P5xx/STM32L4Q5xx</strong></li>
 <li>Correction of several issues applicable to all devices, refer to <a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a> for further details</li>
 </ul></li>
-<li><p><strong>Projects</strong> updates</p>
+<li><strong>Projects</strong> updates
 <ul>
 <li><strong>32L4P5GDISCOVERY</strong>
 <ul>
@@ -741,173 +1150,33 @@
 <li>HAL Template and LL Template</li>
 <li>66 HAL, LL and MIX example projects illustrating the usage of the HAL and LL ADC, CRC, DMA, FLASH, GPIO, PKA, PSSI, PWR, RCC, RNG ,RTC, under Project/NUCLEO-L4P5ZG/Examples, Project/NUCLEO-L4P5ZG/Examples_LL and Project/NUCLEO-L4P5ZG/Examples_MIX</li>
 </ul></li>
-<li><p>Projects release notes (updates in <span style="font-weight: bold;">bold</span>)</p>
-<ul>
-<li><p>32L476GDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L476GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/32L476GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L476GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L476GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L476GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L496GDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L496GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L496GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/32L496GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L496GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L496GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p><strong>32L4P5GDISCOVERY</strong></p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L4P5GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L4P5GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>Examples</strong> (<a href="Projects/32L4P5GDISCOVERY/Examples/Release_Notes.html">release notes</a>)<br />
-</li>
-<li><strong>LL Examples</strong> (<a href="Projects/32L4P5GDISCOVERY/Examples_LL/Release_Notes.html">release notes</a>)<br />
-</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/32L4P5GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li><strong>LL Templates</strong> (<a href="Projects/32L4P5GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L4R9IDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L4R9IDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L4R9IDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L4R9IDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/32L4R9IDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L4R9IDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>B-L475E-IOT01A</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/B-L475E-IOT01A/Applications/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/B-L475E-IOT01A/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/B-L475E-IOT01A/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/B-L475E-IOT01A/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p><strong>NUCLEO-L4P5ZG</strong></p>
-<ul>
-<li><strong>Examples</strong> (<a href="Projects/NUCLEO-L4P5ZG/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>Examples_LL</strong> (<a href="Projects/NUCLEO-L4P5ZG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li><strong>Examples_MIX</strong> (<a href="Projects/NUCLEO-L4P5ZG/Examples_MIX/Release_Notes.html">release notes</a>)<br />
-</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L4P5ZG/Templates/Release_Notes.html">release notes</a>)</li>
-<li><strong>LL Templates</strong> (<a href="Projects/NUCLEO-L4P5ZG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L4R5ZI/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L4R5ZI/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L4R5ZI/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L4R5ZI/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI-P</p>
-<ul>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L4R5ZI-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L4R5ZI-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412KB</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L412KB/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L412KB/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L412KB/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L412KB/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412KB/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412RB-P</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L412RB-P/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L412RB-P/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L412RB-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412RB-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L432KC</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L432KC/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L432KC/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L432KC/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L432KC/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L432KC/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L433RC-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L433RC-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L433RC-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L433RC-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L452RE/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L452RE/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L452RE/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L452RE/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L452RE-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L452RE-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L476RG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L476RG/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L476RG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L476RG/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L476RG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L476RG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L476RG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L476RG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L496ZG/Applications/Release_Notes.html">release notes</a>)</li>
-<li>Demonstrations (<a href="Projects/NUCLEO-L496ZG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L496ZG/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L496ZG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L496ZG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L496ZG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L496ZG-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/NUCLEO-L496ZG-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L4R9I-EVAL</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/STM32L4R9I-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/STM32L4R9I-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/STM32L4R9I-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/STM32L4R9I-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L4R9I-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L476G-EVAL</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/STM32L476G-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/STM32L476G-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/STM32L476G-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li>HAL Templates (<a href="Projects/STM32L476G-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L476G-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>WIN32</p>
-<ul>
-<li>STemWin/Simulation (<a href="Projects/WIN32/STemWin_Simulation/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-</ul></li>
+<li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
+<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</li>
 </ul></li>
 </ul>
-<h2 id="components-1">Components</h2>
+<table>
+<caption><strong>Projects</strong></caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Projects</strong></td>
+<td><strong>V1.15.0</strong></td>
+<td style="text-align: left;">see Projects Release note for details</td>
+<td style="text-align: left;"><a href="Projects/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="components-2">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -999,8 +1268,8 @@
 <td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo_144/Release_Notes.html">release notes</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">BSP Adafruit Shield (reference ID 802)</td>
-<td style="text-align: left;">V3.0.4</td>
+<td style="text-align: left;"><strong>BSP Adafruit Shield (reference ID 802)</strong></td>
+<td style="text-align: left;"><strong>V3.0.5</strong></td>
 <td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a></td>
 <td style="text-align: center;"><a href="Drivers/BSP/Adafruit_Shield/Release_Notes.html">release notes</a></td>
 </tr>
@@ -1292,12 +1561,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-1">Known Limitations</h2>
+<h2 id="known-limitations-2">Known Limitations</h2>
 <ul>
-<li><p>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</p></li>
-<li><p>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</p></li>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
 <ul>
@@ -1312,7 +1582,7 @@
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-2">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1343,13 +1613,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <h3 id="maintenance-release">Maintenance release</h3>
 <ul>
 <li><p>New <strong>HAL MMC</strong> driver release</p></li>
 <li><p>Demonstrations binaries are no more delivered within the STM32CubeL4 MCU package. They are available for download, in addition to their required media files if any, in a standalone package accessible through each hardware board official webpage. Please refer to the corresponding demonstration binary readme.txt to get webpage for each board.</p></li>
 </ul>
-<h2 id="contents-2">Contents</h2>
+<h2 id="contents-3">Contents</h2>
 <ul>
 <li><strong>CMSIS Core</strong> updates
 <ul>
@@ -1373,161 +1643,44 @@
 </ul></li>
 <li><p><strong>Projects</strong> updates</p>
 <ul>
-<li><p>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
-<li><p>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</p></li>
-<li><p>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</p></li>
+<li>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</li>
+<li>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</li>
 <li><p>Add HAL MMC driver files to all EWARM, MDK-ARM and SW4STM32 HAL Templates projects</p></li>
-<li><p>Projects release notes (updates in <span style="font-weight: bold;">bold</span>)</p>
+<li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
+<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li><p>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
+</ul></li>
+</ul>
+<table>
+<caption><strong>Projects</strong></caption>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Version</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Projects</strong></td>
+<td><strong>V1.14.0</strong></td>
+<td style="text-align: left;">see Projects Release note for details</td>
+<td style="text-align: left;"><a href="Projects/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
 <ul>
-<li><p>32L476GDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L476GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L476GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L476GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/32L476GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L476GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L496GDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L496GDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L496GDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L496GDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/32L496GDISCOVERY/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/32L496GDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L496GDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>32L4R9IDISCOVERY</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/32L4R9IDISCOVERY/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/32L4R9IDISCOVERY/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/32L4R9IDISCOVERY/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/32L4R9IDISCOVERY/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/32L4R9IDISCOVERY/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>B-L475E-IOT01A</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/B-L475E-IOT01A/Applications/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/B-L475E-IOT01A/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/B-L475E-IOT01A/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/B-L475E-IOT01A/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L4R5ZI/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L4R5ZI/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L4R5ZI/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L4R5ZI/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L4R5ZI-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L4R5ZI-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L4R5ZI-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L4R5ZI-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412KB</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L412KB/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L412KB/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L412KB/Examples/Release_Notes.html">release notes</a>)</li>
-<li>LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412KB/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L412KB/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412KB/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L412RB-P</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L412RB-P/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L412RB-P/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L412RB-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>LL Examples</strong> (<a href="Projects/NUCLEO-L412RB-P/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L412RB-P/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L412RB-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L412RB-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L432KC</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L432KC/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L432KC/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li>HAL Examples (<a href="Projects/NUCLEO-L432KC/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L432KC/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L432KC/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L433RC-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L433RC-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L433RC-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L433RC-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/NUCLEO-L452RE/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L452RE/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L452RE/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L452RE/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L452RE-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L452RE-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L452RE-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L452RE-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L476RG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L476RG/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L476RG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L476RG/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>LL Examples</strong> (<a href="Projects/NUCLEO-L476RG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L476RG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L476RG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L476RG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG</p>
-<ul>
-<li>Applications (<a href="Projects/NUCLEO-L496ZG/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/NUCLEO-L496ZG/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/NUCLEO-L496ZG/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>LL Examples</strong> (<a href="Projects/NUCLEO-L496ZG/Examples_LL/Release_Notes.html">release notes</a>)</li>
-<li>Mix HAL/LL Examples (<a href="Projects/NUCLEO-L496ZG/Examples_MIX/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L496ZG/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>NUCLEO-L496ZG-P</p>
-<ul>
-<li>HAL Examples (<a href="Projects/NUCLEO-L496ZG-P/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/NUCLEO-L496ZG-P/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/NUCLEO-L496ZG-P/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L4R9I-EVAL</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/STM32L4R9I-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/STM32L4R9I-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/STM32L4R9I-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/STM32L4R9I-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L4R9I-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>STM32L476G-EVAL</p>
-<ul>
-<li><strong>Applications</strong> (<a href="Projects/STM32L476G-EVAL/Applications/Release_Notes.html">release notes</a>)</li>
-<li><strong>Demonstrations</strong> (<a href="Projects/STM32L476G-EVAL/Demonstrations/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Examples</strong> (<a href="Projects/STM32L476G-EVAL/Examples/Release_Notes.html">release notes</a>)</li>
-<li><strong>HAL Templates</strong> (<a href="Projects/STM32L476G-EVAL/Templates/Release_Notes.html">release notes</a>)</li>
-<li>LL Templates (<a href="Projects/STM32L476G-EVAL/Templates_LL/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-<li><p>WIN32</p>
-<ul>
-<li>STemWin/Simulation (<a href="Projects/WIN32/STemWin_Simulation/Release_Notes.html">release notes</a>)</li>
-</ul></li>
-</ul></li>
-</ul></li>
 <li><p><strong>Utilities</strong> updates</p>
 <ul>
 <li>Remove STM32CubeUpdater from Utilities/PC_Software</li>
 </ul></li>
 </ul>
-<h2 id="components-2">Components</h2>
+<p><br />
+</p>
+<h2 id="components-3">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -1900,14 +2053,15 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-2">Known Limitations</h2>
+<h2 id="known-limitations-3">Known Limitations</h2>
 <ul>
-<li><p>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications.</p></li>
-<li><p>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</p></li>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
 <p><br />
 </p>
-<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.30.1 + ST-Link
 <ul>
@@ -1920,7 +2074,7 @@
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-2">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-3">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1948,13 +2102,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <h3 id="add-support-of-stm32l412xx-and-stm32l422xx-devices">Add support of STM32L412xx and STM32L422xx devices</h3>
 <ul>
 <li>New RTC peripheral to improve power consumption performance</li>
 <li>Updated LPTIM peripheral to make both low power timer instances operational in Stop 2 mode</li>
 </ul>
-<h2 id="contents-3">Contents</h2>
+<h2 id="contents-4">Contents</h2>
 <ul>
 <li><span style="font-weight: bold;">CMSIS Device</span> updates
 <ul>
@@ -2326,7 +2480,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="components-3">Components</h2>
+<h2 id="components-4">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption>Drivers</caption>
@@ -2669,14 +2823,15 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-3">Known Limitations</h2>
+<h2 id="known-limitations-4">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications</li>
-<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL and STM32LR49I-Discovery demonstrations<br />
-<br />
-</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL and STM32LR49I-Discovery demonstrations</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
+<p><br />
+</p>
+<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
 <ul>
 <li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.20.2 + ST-Link</p>
 <ul>
@@ -2693,7 +2848,7 @@
 <li>ST-Link Utility V4.2.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards.</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-3">Supported Devices and Boards</h2>
+<h2 id="supported-devices-and-boards-4">Supported Devices and Boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -2723,7 +2878,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.12.0 / 22-May-2018</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL callback registration feature</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">The feature <span style="font-weight: bold;">disabled by default</span> is available for the following HAL drivers:</span></p>
 <ul>
@@ -3103,7 +3258,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.11.0 / 22-December-2017</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
+<h2 id="main-changes-6">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">external SMPS PWR examples for NUCLEO-L4R5ZI-P (MB1312/S) board</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Reduce package size by gathering all Demonstration media files under  "\Utilities\Media" folder</span></span></p>
 <ul>
@@ -3454,7 +3609,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.10.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R9I-EVAL (MB1313) and STM32L4R9I-Discovery (MB1311) boards</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Maintenance release of CMSIS Device files, HAL and LL drivers</span></li>
@@ -3798,7 +3953,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section7" aria-hidden="true"> <label for="collapse-section7" aria-hidden="true">V1.9.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R5xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R7xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R9xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S5xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S7xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S9xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DSI, OctoSPI (OSPI), GFXMMU and LTDC peripherals </span></li>
@@ -4459,7 +4614,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9"  aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.8.0 / 21-April-2017</label>
 <div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Add support of B-L475E-IOT01 board with project templates, examples and applications</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -4703,7 +4858,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.7.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L496xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4A6xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DCMI, DMA2D, HASH peripherals </span></li>
@@ -4970,7 +5125,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.6.0 / 28-October-2016</label>
 <div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L451xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L452xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L462xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -5171,7 +5326,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.5.2 / 12-September-2016</label>
 <div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in CMSIS Device STM32L4xx description files</span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Fix DAC_SR_BWST1 bit definition</span></li>
@@ -5300,7 +5455,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section13" aria-hidden="true"> <label for="collapse-section13" aria-hidden="true">V1.5.1 / 31-May-2016</label>
 <div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in</span></p>
 <p><strong>HAL ADC</strong> driver</p>
 <ul>
@@ -5333,7 +5488,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.5.0 / 29-April-2016</label>
 <div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release version for STM32L431/432/433/442/443/471/475/476/485/486 lines</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -5557,7 +5712,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.4.0 / 26-February-2016</label>
 <div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L431xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L432xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L433xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L442xx and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L443xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -5697,7 +5852,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.3.0 / 29-January-2016</label>
 <div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Update Low Layer drivers to add some new LL API(s) and minor changes  </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">(release notes)</a></span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add initialization/de-initialization low level API(s) in new stm32l4xx_ll_ppp.c files (under USE_FULL_LL_DRIVER switch)</span></li>
@@ -5850,7 +6005,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.2.0 / 25-November-2015</label>
 <div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Main HAL and LL Drivers updates </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"> </span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">(release notes)</a></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL PWR</span> update (</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">User application code impacted</span></span><span style="font-size: 10pt; font-family: Verdana;">)</span></p>
 <ul>
@@ -6014,7 +6169,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 16-October-2015</label>
 <div>
-<h2 id="main-changes-17">Main Changes</h2>
+<h2 id="main-changes-18">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Patch release for all Examples/Applications/Demonstrations projects fine-tuning</span></span></p>
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Set Flash prefetch off to match defaut system configuration (stm32l4xx_hal_conf.h files)<br />
@@ -6050,7 +6205,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.0 / 16-September-2015</label>
 <div>
-<h2 id="main-changes-18">Main Changes</h2>
+<h2 id="main-changes-19">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Add Low Layer drivers under Drivers\STM32L4xx_HAL_Driver</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers allow performance and memory footprint optimization</span></p>
 <ul>
@@ -6187,7 +6342,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.0 / 26-June-2015</label>
 <div>
-<h2 id="main-changes-19">Main Changes</h2>
+<h2 id="main-changes-20">Main Changes</h2>
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">First official release of STM32CubeL4 (STM32Cube for STM32L4 Series) </span></span></li>
 </ul>

@@ -19,6 +19,7 @@
 
 /* Includes ------------------------------------------------------------------ */
 #include "main.h"
+#include "usbd_dfu.h"
 
 /* Private typedef ----------------------------------------------------------- */
 /* Private define ------------------------------------------------------------ */
@@ -390,7 +391,7 @@ USBD_StatusTypeDef USBD_LL_SetUSBAddress(USBD_HandleTypeDef * pdev,
   */
 USBD_StatusTypeDef USBD_LL_Transmit(USBD_HandleTypeDef * pdev,
                                     uint8_t ep_addr,
-                                    uint8_t * pbuf, uint16_t size)
+                                    uint8_t * pbuf, uint32_t size)
 {
   HAL_PCD_EP_Transmit(pdev->pData, ep_addr, pbuf, size);
   return USBD_OK;
@@ -406,7 +407,7 @@ USBD_StatusTypeDef USBD_LL_Transmit(USBD_HandleTypeDef * pdev,
   */
 USBD_StatusTypeDef USBD_LL_PrepareReceive(USBD_HandleTypeDef * pdev,
                                           uint8_t ep_addr,
-                                          uint8_t * pbuf, uint16_t size)
+                                          uint8_t * pbuf, uint32_t size)
 {
   HAL_PCD_EP_Receive(pdev->pData, ep_addr, pbuf, size);
   return USBD_OK;
@@ -434,4 +435,25 @@ void USBD_LL_Delay(uint32_t Delay)
   HAL_Delay(Delay);
 }
 
+
+/**
+  * @brief  Static single allocation.
+  * @param  size: Size of allocated memory
+  * @retval None
+  */
+void *USBD_static_malloc(uint32_t size)
+{
+  static uint32_t mem[(sizeof(USBD_DFU_HandleTypeDef)/4)+1];/* On 32-bit boundary */
+  return mem;
+}
+
+/**
+  * @brief  Dummy memory free
+  * @param  p: Pointer to allocated  memory address
+  * @retval None
+  */
+void USBD_static_free(void *p)
+{
+
+}
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

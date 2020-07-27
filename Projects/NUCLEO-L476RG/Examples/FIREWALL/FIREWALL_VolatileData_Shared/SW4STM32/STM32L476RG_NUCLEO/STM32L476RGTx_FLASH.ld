@@ -19,11 +19,13 @@
 **  Distribution: The file is distributed as is, without any warranty
 **                of any kind.
 **
-**  (c)Copyright Atollic AB.
+**  (c)Copyright Ac6.
 **  You may use this file as-is or modify it according to the needs of your
-**  project. This file may only be built (assembled or compiled and linked)
-**  using the Atollic TrueSTUDIO(R) product. The use of this file together
-**  with other tools than Atollic TrueSTUDIO(R) is not permitted.
+**  project. Distribution of this file (unmodified or modified) is not
+**  permitted. Ac6 permit registered System Workbench for MCU users the
+**  rights to distribute the assembled, compiled & linked contents of this
+**  file as part of an application binary file, provided that it is built
+**  using the System Workbench for MCU toolchain.
 **
 *****************************************************************************
 */

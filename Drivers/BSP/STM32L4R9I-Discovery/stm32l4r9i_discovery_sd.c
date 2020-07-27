@@ -398,12 +398,17 @@ __weak void BSP_SD_MspInit(SD_HandleTypeDef *hsd, void *Params)
   gpioinitstruct.Alternate = GPIO_AF12_SDMMC1;
 
   /* GPIOC configuration */
-  gpioinitstruct.Pin = GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12;
+  gpioinitstruct.Pin = GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11;
   HAL_GPIO_Init(GPIOC, &gpioinitstruct);
 
   /* GPIOD configuration */
   gpioinitstruct.Pin = GPIO_PIN_2;
   HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+
+  /* CLK (GPIOC12) configuration : no pull-up */
+  gpioinitstruct.Pull = GPIO_NOPULL;
+  gpioinitstruct.Pin  = GPIO_PIN_12;
+  HAL_GPIO_Init(GPIOC, &gpioinitstruct);
 
   /* NVIC configuration for SDMMC1 interrupts */
   HAL_NVIC_SetPriority(SDMMCx_IRQn, 5, 0);

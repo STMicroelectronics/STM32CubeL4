@@ -4,6 +4,7 @@
 | CMSIS Device                    | Apache License 2.0   | ARM Limited - STMicroelectronics |
 | STM32L4 HAL                     | BSD-3-Clause         | STMicroelectronics |
 | BSP B-L475E-IOT01               | BSD-3-Clause         | STMicroelectronics |
+| BSP B-L4S5I-IOT01               | BSD-3-Clause         | STMicroelectronics |
 | BSP STM32L4P5G-Discovery        | BSD-3-Clause         | STMicroelectronics |
 | BSP STM32L4R9I-Discovery        | BSD-3-Clause         | STMicroelectronics |
 | BSP STM32L4R9I_EVAL             | BSD-3-Clause         | STMicroelectronics |

@@ -38,18 +38,38 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section2" checked aria-hidden="true"> <label for="collapse-section2" aria-hidden="true">V1.15.1 / 07-February-2020</label>
+<input type="checkbox" id="collapse-section21" checked aria-hidden="true"> <label for="collapse-section21" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>Update demonstration using USB Device to support USB Device library v2.6.1
+<ul>
+<li>Update USBD_malloc and USBD_free macros definitions in usbd_conf.h file</li>
+<li>Update data size parameter used by USBD_LL_Transmit() and USBD_LL_PrepareReceive() functions to uint32 in usbd_conf.c file</li>
+<li>Update USBD_MAX_STR_DESC_SIZ and MSC_MEDIA_PACKET definitions to enable link step with IAR and Keil IDE</li>
+<li>Reduce heap allocated in RAM to Jpeg library from 304Kb to 300Kb in order to enable link step with STM32CubeIDE</li>
+</ul></li>
+<li>Update demonstration to support the latest version of HAL OSPI driver for L4+ devices
+<ul>
+<li>Remove WRAP configuration</li>
+<li>Add missing DLYBYP and MAXTRAN configurations</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section2" aria-hidden="true"> <label for="collapse-section2" aria-hidden="true">V1.15.1 / 07-February-2020</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <ul>
 <li>Main functions rework</li>
 </ul>
 </div>
 </div>
 <div class="collapse">
-<input type="checkbox" id="collapse-section1" checked aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.15.0 / 22-November-2019</label>
+<input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li>First official release of the Watermark demonstration</li>
 </ul>

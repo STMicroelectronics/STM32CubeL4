@@ -25,7 +25,7 @@ How to update the TIMER channel 1 period and duty cycle using the TIMER DMA burs
 Every update DMA request, the DMA will do 3 transfers of half words into Timer 
 registers beginning from ARR register.
 On the DMA update request, 0x0FFF will be transferred into ARR, 0x0000 
-will be transferred into RCR, 0x0555 will be transferred into CCR1. 
+will be transferred into RCR (if supported), 0x0555 will be transferred into CCR1. 
 
 The TIM2CLK frequency is set to SystemCoreClock, to get TIM2 counter
 clock at 16 MHz the Prescaler is computed as following:

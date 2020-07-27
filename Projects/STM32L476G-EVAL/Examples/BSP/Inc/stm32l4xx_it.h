@@ -46,6 +46,7 @@ void SAI1_IRQHandler(void);
 void AUDIO_SAIx_DMAx_IRQHandler(void);
 void AUDIO_DFSDM_DMAx_LEFT_IRQHandler(void);
 void AUDIO_DFSDM_DMAx_RIGHT_IRQHandler(void);
+void SD_Detect_IRQHandler(void);
 
 #ifdef __cplusplus
 }

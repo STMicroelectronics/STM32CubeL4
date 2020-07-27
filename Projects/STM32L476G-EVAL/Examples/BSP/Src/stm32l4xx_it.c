@@ -201,6 +201,16 @@ void AUDIO_DFSDM_DMAx_RIGHT_IRQHandler(void)
 { 
   HAL_DMA_IRQHandler(haudio_in_dfsdm_rightfilter.hdmaReg);
 }
+
+/**
+  * @brief  This function handles SD Detect interrupt request.
+  * @param  None
+  * @retval None
+  */
+void SD_Detect_IRQHandler(void)
+{ 
+  HAL_GPIO_EXTI_IRQHandler(SD_DETECT_PIN);  
+}
 /**
   * @}
   */

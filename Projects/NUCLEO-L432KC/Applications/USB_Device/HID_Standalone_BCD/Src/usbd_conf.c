@@ -19,6 +19,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usbd_hid.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -410,7 +411,7 @@ USBD_StatusTypeDef USBD_LL_SetUSBAddress(USBD_HandleTypeDef *pdev, uint8_t dev_a
 USBD_StatusTypeDef USBD_LL_Transmit(USBD_HandleTypeDef *pdev,
                                     uint8_t ep_addr,
                                     uint8_t *pbuf,
-                                    uint16_t size)
+                                    uint32_t size)
 {
   HAL_PCD_EP_Transmit((PCD_HandleTypeDef*) pdev->pData, ep_addr, pbuf, size);
   return USBD_OK;
@@ -427,7 +428,7 @@ USBD_StatusTypeDef USBD_LL_Transmit(USBD_HandleTypeDef *pdev,
 USBD_StatusTypeDef USBD_LL_PrepareReceive(USBD_HandleTypeDef *pdev,
                                           uint8_t ep_addr,
                                           uint8_t *pbuf,
-                                          uint16_t size)
+                                          uint32_t size)
 {
   HAL_PCD_EP_Receive((PCD_HandleTypeDef*) pdev->pData, ep_addr, pbuf, size);
   return USBD_OK;
@@ -455,19 +456,19 @@ void USBD_LL_Delay(uint32_t Delay)
 }
 
 /**
-  * @brief  static single allocation.
-  * @param  size: size of allocated memory
+  * @brief  Static single allocation.
+  * @param  size: Size of allocated memory
   * @retval None
   */
 void *USBD_static_malloc(uint32_t size)
 {
-  static uint32_t mem[MAX_STATIC_ALLOC_SIZE];
+  static uint32_t mem[(sizeof(USBD_HID_HandleTypeDef)/4)+1];/* On 32-bit boundary */
   return mem;
 }
 
 /**
   * @brief  Dummy memory free
-  * @param  *p pointer to allocated  memory address
+  * @param  p: Pointer to allocated  memory address
   * @retval None
   */
 void USBD_static_free(void *p)

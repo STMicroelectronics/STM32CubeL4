@@ -171,7 +171,10 @@ void PreSleepProcessing(uint32_t * ulExpectedIdleTime)
     function does not need to execute the wfi instruction  
   */
   *ulExpectedIdleTime = 0;
-  
+
+  /* Suspend the HAL Tick */
+  HAL_SuspendTick();
+
   /*Enter to sleep Mode using the HAL function HAL_PWR_EnterSLEEPMode with WFI instruction*/
   HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);  
 }
@@ -188,6 +191,10 @@ void PostSleepProcessing(uint32_t * ulExpectedIdleTime)
 
   /* Avoid compiler warnings about the unused parameter. */
   (void) ulExpectedIdleTime;
+
+  /* resume the HAL tick */
+  HAL_ResumeTick();
+
 }
 
 /**

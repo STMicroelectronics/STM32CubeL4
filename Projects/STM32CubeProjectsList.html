@@ -11,7 +11,9 @@
       .copyright{text-align: center}
       h1{text-align: center;font-size: 20pt; font-family: Verdana; color: rgb(51, 102, 255);}
     </style></head>
-<body>
+
+
+  <body>
 
     <h1>STM32CubeL4 Firmware Examples for STM32L4 Series and STM32L4+ series</h1>
 
@@ -72,7 +74,7 @@ Applications that use several Middleware stacks are provided as well.</li>
     <ul>
       <li>\Inc folder that contains all header files.</li>
       <li>\Src folder for the sources code.</li>
-      <li>\EWARM, \MDK-ARM, \SW4STM32 and \STM32CubeIDE folders contain the preconfigured project for each toolchain.</li>
+      <li>\EWARM, \MDK-ARM and \SW4STM32 folders contain the preconfigured project for each toolchain.</li>
       <li>readme.txt describing the example behavior and the environment required to run the example.</li>
     </ul>
 
@@ -113,7 +115,7 @@ to any hardware by just implementing the low level routines.</p>
         <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105259.pdf" target="_blank">UM1721</a>: Developing Applications on STM32Cube with FatFs.</li>
         <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00105262.pdf" target="_blank">UM1722</a>: Developing Applications on STM32Cube with RTOS.</li>
         <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00211709.pdf" target="_blank">UM1916</a>: STM32CubeL4 Nucleo demonstration firmware.</li>
-        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00213619.pdf" target="_blank">UM1919</a>: STM32CubeL4 Demonstration firmware for 32L476GDISCOVERY discovery kit.</li><li><a href="https://www.st.com/content/ccc/resource/technical/document/user_manual/group0/43/34/f8/78/00/67/4c/d5/DM00344753/files/DM00344753.pdf/jcr:content/translations/en.DM00344753.pdf" target="_blank">UM2145</a>: STM32CubeL4 Demonstration firmware for 32L496GDISCOVERY discovery kit.</li>
+        <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00213619.pdf" target="_blank">UM1919</a>: STM32CubeL4 Demonstration firmware for 32L476GDISCOVERY discovery kit.</li>
         <li><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00222162.pdf" target="_blank">UM1937</a>: STM32CubeL4 Demonstration firmware for STM32L476G-EVAL board.</li>
       </ul>
     
@@ -137,6 +139,7 @@ to any hardware by just implementing the low level routines.</p>
 				<td>NUCLEO-L432KC</td>
 				<td>NUCLEO-L412RB-P</td>
 				<td>NUCLEO-L412KB</td>
+				<td>B-L4S5I-IOT01A</td>
 				<td>B-L475E-IOT01A</td>
 				<td>32L4R9IDISCOVERY</td>
 				<td>32L4P5GDISCOVERY</td>
@@ -155,24 +158,26 @@ to build any firmware application.
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-        <td colspan="3"><b>Total number of templates: 19</b></td>
+        <td colspan="3"><b>Total number of templates: 20</b></td>
+        <td>1</td>
         <td>1</td>
         <td>1</td>
         <td>1</td>
@@ -205,24 +210,26 @@ to build any firmware application.
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-        <td colspan="3"><b>Total number of templates_ll: 19</b></td>
+        <td colspan="3"><b>Total number of templates_ll: 20</b></td>
+        <td>1</td>
         <td>1</td>
         <td>1</td>
         <td>1</td>
@@ -264,6 +271,7 @@ How to use the different BSP drivers of the board.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
@@ -281,7 +289,7 @@ and out-of-window interrupts enabled.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
@@ -290,6 +298,7 @@ and out-of-window interrupts enabled.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -307,15 +316,16 @@ the result using a DMA transfer through the HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -333,7 +343,7 @@ between 2 ADC channels.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -342,6 +352,7 @@ between 2 ADC channels.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -373,6 +384,7 @@ How to use two ADC peripherals to perform conversions in dual interleaved mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_LowPower">ADC_LowPower</p></td>
@@ -389,6 +401,7 @@ How to use the ADC peripheral to perform conversions in ADC auto-wait low-power 
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -423,6 +436,7 @@ How to use an ADC peripheral in oversampling mode to increase resolution.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_Oversampling">ADC_Oversampling</p></td>
@@ -432,7 +446,7 @@ How to use an ADC peripheral in oversampling mode to increase resolution.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -441,6 +455,7 @@ How to use an ADC peripheral in oversampling mode to increase resolution.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -468,6 +483,7 @@ How to use the ADC in interrupt mode to convert data through the HAL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -490,6 +506,7 @@ How to use the ADC in Polling mode to convert data through the HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -525,6 +542,7 @@ main conversion stream).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_Sequencer">ADC_Sequencer</p></td>
@@ -535,7 +553,7 @@ How to use the ADC peripheral with a sequencer to convert several channels.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
@@ -544,6 +562,7 @@ How to use the ADC peripheral with a sequencer to convert several channels.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -560,6 +579,7 @@ normal mode.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -604,6 +624,7 @@ the internal voltage reference (VREFINT), in interrupt mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="COMP_Interrupt">COMP_Interrupt</p></td>
@@ -623,6 +644,7 @@ pin to the the internal voltage reference (VREFINT), in interrupt mode.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -657,6 +679,7 @@ level.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="4" align="left"><p id="CRC">CRC</p></td>
@@ -672,16 +695,17 @@ Network, IEC 60870-5[17].
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -701,16 +725,17 @@ that is, X^16 + X^12 + X^5 + 1 which is the CRC-CCITT generating polynomial.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -728,16 +753,17 @@ redundancy check) calculation unit computes the CRC code of a given buffer of
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -756,16 +782,17 @@ optimization purposes (performance and size).
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -789,6 +816,7 @@ modes (ECB, CBC, CTR).
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -825,6 +853,7 @@ of a higher-priority message.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="CRYP_DMA">CRYP_DMA</p></td>
@@ -842,6 +871,7 @@ algorithm with ECB chaining mode in DMA mode.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -877,6 +907,7 @@ GMAC, and CMAC AES algorithms.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="CRYP_GCM_GMAC_CMAC_Suspension">CRYP_GCM_GMAC_CMAC_Suspension</p></td>
@@ -895,6 +926,7 @@ or authentication tag computation of a higher-priority message.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -932,6 +964,7 @@ different modes.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="CORTEXM_ModePrivilege">CORTEXM_ModePrivilege</p></td>
@@ -952,6 +985,7 @@ on reset or when returning from an exception.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -984,6 +1018,7 @@ entered as a result of an exception return.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="CORTEXM_SysTick">CORTEXM_SysTick</p></td>
@@ -1003,6 +1038,7 @@ How to use the default SysTick configuration with a 1 ms timebase to toggle LEDs
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1036,6 +1072,7 @@ controller.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="DAC_SimpleConversion">DAC_SimpleConversion</p></td>
@@ -1052,6 +1089,7 @@ How to use the DAC peripheral to do a simple conversion.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1087,6 +1125,7 @@ stream on the LCD.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -1097,6 +1136,7 @@ How to use the DCMI to interface with a camera module to continuously capture
 RGB565 images, crop them from size 320x240 to 240x240 then display the video
 stream on the LCD.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1142,6 +1182,7 @@ LCD in RGB565 format.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -1154,6 +1195,7 @@ uses two MP34DT01 digital microphones mounted on the board.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1199,6 +1241,7 @@ obtained from the PT100. The temperature value is thus deduced.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="3" align="left"><p id="DMA">DMA</p></td>
@@ -1211,7 +1254,8 @@ requests upon an External line 13 rising edge signal.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1238,7 +1282,8 @@ output signal. LPUART1 is used in DMA synchronized mode to send a countdown from
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1265,7 +1310,7 @@ the HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1275,6 +1320,7 @@ the HAL API.
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1288,6 +1334,7 @@ the HAL API.
   How to configure the DMA2D peripheral in Memory-to-memory with blending
   transfer mode.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1331,6 +1378,7 @@ the HAL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -1340,6 +1388,7 @@ the HAL API.
   How to configure the DMA2D peripheral in Memory-to-memory transfer mode with
   pixel format conversion (PFC) mode.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1381,7 +1430,8 @@ How to configure the DMA2D peripheral in Memory-to-memory transfer mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -1391,6 +1441,7 @@ How to configure the DMA2D peripheral in Memory-to-memory transfer mode.
 How to configure DMA2D peripheral in Register-to-memory transfer mode and
 display the result on the LCD.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1419,6 +1470,7 @@ How to use the embedded LCD DSI controller (using the LTDC and DSI Host IPs) to
 drive the round LCD mounted on-board.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1463,6 +1515,7 @@ data lane is exited, and the display operates as before.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -1476,6 +1529,7 @@ drive the KoD LCD mounted on-board and manage entry and exit in DSI ULPM mode
 on data and clock lanes.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1521,6 +1575,7 @@ as executable.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FIREWALL_VolatileData_Shared">FIREWALL_VolatileData_Shared</p></td>
@@ -1536,6 +1591,7 @@ non-volatile data segments.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1572,6 +1628,7 @@ and bank 2, and to swap between both of them by mean of the FLASH HAL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -1585,16 +1642,17 @@ Flash memory.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
@@ -1611,12 +1669,13 @@ internal Flash memory.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1637,16 +1696,17 @@ protection of the internal Flash memory.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1661,6 +1721,7 @@ How to configure the FMC controller to access the NOR memory.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1701,6 +1762,7 @@ How to configure the FMC controller to access the SRAM memory.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -1714,19 +1776,20 @@ How to configure external interrupt lines.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -1739,19 +1802,20 @@ How to configure and use GPIOs through the HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -1771,6 +1835,7 @@ interrupt request.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -1808,6 +1873,7 @@ instead of Systick.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="11" align="left"><p id="HASH">HASH</p></td>
@@ -1832,7 +1898,8 @@ and HMAC MD5 algorithms.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1858,7 +1925,8 @@ interruption or by DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1884,7 +1952,8 @@ to the HASH unit with DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1911,7 +1980,8 @@ successively to the HASH peripheral.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1936,7 +2006,8 @@ How to suspend the HMAC digest computation when data are fed in interrupt mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1961,7 +2032,8 @@ How to use the HASH peripheral to hash data with SHA-1 and MD5 algorithms.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -1987,7 +2059,8 @@ when data are fed to the HASH unit with DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2012,7 +2085,8 @@ How to suspend the HASH peripheral when data are fed in interrupt mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2038,7 +2112,8 @@ or with DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2063,7 +2138,8 @@ How to use the HASH peripheral to hash data with SHA224 and SHA256 algorithms.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2088,7 +2164,8 @@ How to suspend the HASH peripheral when data are fed to the HASH unit with DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2101,6 +2178,7 @@ the device communicates with an I2C EEPROM memory.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2144,6 +2222,7 @@ the evaluation board.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_AdvComIT">I2C_TwoBoards_AdvComIT</p></td>
@@ -2163,6 +2242,7 @@ using an interrupt.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2196,6 +2276,7 @@ via DMA.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_ComIT">I2C_TwoBoards_ComIT</p></td>
@@ -2216,6 +2297,7 @@ using an interrupt.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2248,6 +2330,7 @@ in polling mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_RestartAdvComIT">I2C_TwoBoards_RestartAdvComIT</p></td>
@@ -2274,6 +2357,7 @@ in interrupt mode and with restart condition.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_RestartComIT">I2C_TwoBoards_RestartComIT</p></td>
@@ -2293,6 +2377,7 @@ in interrupt mode and with restart condition.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2326,6 +2411,7 @@ using an interrupt when the device is in Stop mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_WakeUpFromStop2">I2C_WakeUpFromStop2</p></td>
@@ -2346,6 +2432,7 @@ using an interrupt when the device is in Stop 2 mode.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2379,6 +2466,7 @@ an MCU IWDG reset after a preset laps of time.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="IWDG_WindowMode">IWDG_WindowMode</p></td>
@@ -2399,6 +2487,7 @@ an MCU IWDG reset after a preset laps of time.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2432,6 +2521,7 @@ blink mode and blinking frequency.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LCD_SegmentsDrive">LCD_SegmentsDrive</p></td>
@@ -2441,6 +2531,7 @@ LCD glass by Pacific Display Devices.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2485,6 +2576,7 @@ to generate a PWM signal at the lowest power consumption.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LPTIM_PWM_LSE">LPTIM_PWM_LSE</p></td>
@@ -2502,6 +2594,7 @@ as counter clock, to generate a PWM signal, in a low-power mode.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2537,6 +2630,7 @@ to count pulses.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LPTIM_RepetitionCounter">LPTIM_RepetitionCounter</p></td>
@@ -2560,7 +2654,8 @@ the autoreload counter upon an update event.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2585,8 +2680,9 @@ the system from a low-power mode.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2604,6 +2700,7 @@ between two boards.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2642,6 +2739,7 @@ when a given stimulus is received.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="3" align="left"><p id="LTDC">LTDC</p></td>
@@ -2650,6 +2748,7 @@ when a given stimulus is received.
 How to enable and use the LTDC color keying functionality.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2694,6 +2793,7 @@ How to enable and use the LTDC color keying functionality.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LTDC_Display_2Layers">LTDC_Display_2Layers</p></td>
@@ -2701,6 +2801,7 @@ How to enable and use the LTDC color keying functionality.
   How to configure the LTDC peripheral to display two layers at the same time.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2745,6 +2846,7 @@ How to use the built-in PGA mode (OPAMP programmable gain).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="OPAMP_STANDALONE">OPAMP_STANDALONE</p></td>
@@ -2771,6 +2873,7 @@ in this mode can be set externally (external gain setting mode).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="9" align="left"><p id="OSPI">OSPI</p></td>
@@ -2779,6 +2882,7 @@ in this mode can be set externally (external gain setting mode).
 How to execute code from OSPI memory after code loading.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2822,6 +2926,7 @@ How to execute code from OSPI memory after code loading.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="OSPI_NOR_MemoryMapped">OSPI_NOR_MemoryMapped</p></td>
@@ -2843,8 +2948,9 @@ How to use a OSPI NOR memory in memory-mapped mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2854,6 +2960,7 @@ How to use a OSPI NOR memory in memory-mapped mode.
 How to use a OSPI NOR memory in memory-mapped mode.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2893,8 +3000,9 @@ How to use a OSPI NOR memory in DMA mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2904,6 +3012,7 @@ How to use a OSPI NOR memory in DMA mode.
 How to use a OSPI NOR memory in DMA mode.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -2944,7 +3053,8 @@ How to execute code from OSPI memory after code loading.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2969,7 +3079,8 @@ How to use a OSPI HyperRAM memory in memory-mapped mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -2994,7 +3105,8 @@ How to use a OSPI HyperRAM memory in DMA mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -3009,7 +3121,8 @@ allows generating a public key from a private key.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3035,7 +3148,8 @@ allows generating a public key from a private key in interrupt mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3061,7 +3175,8 @@ How to compute a signed message regarding the Elliptic curve digital signature a
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3087,7 +3202,8 @@ How to compute a signed message regarding the Elliptic curve digital signature a
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3113,7 +3229,8 @@ How to determine if a given signature is valid regarding the Elliptic curve digi
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3139,7 +3256,8 @@ How to determine if a given signature is valid regarding the Elliptic curve digi
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3165,7 +3283,8 @@ allows ciphering/deciphering a text.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3190,7 +3309,8 @@ How to compute the Chinese Remainder Theorem (CRT) optimization.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3215,7 +3335,8 @@ How to compute the Chinese Remainder Theorem (CRT) optimization in interrupt mod
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3241,7 +3362,8 @@ allows ciphering/deciphering a text in interrupt mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3267,7 +3389,8 @@ allows validating an external public key.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3293,7 +3416,8 @@ allows validating an external public key.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3319,7 +3443,8 @@ How to configure the PSSI using the HAL API to transmit data in blocking mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3344,7 +3469,8 @@ How to configure the PSSI using the HAL API to transmit data in DMA mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3370,16 +3496,17 @@ How to enter and exit the Low-power run mode.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3395,14 +3522,15 @@ How to enter and exit the Low-power run mode.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3421,16 +3549,17 @@ an interrupt.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3447,14 +3576,15 @@ low-power modes.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3485,7 +3615,8 @@ gain obtained when the SMPS feature is used.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -3499,16 +3630,17 @@ reset or the WKUP pin.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3524,16 +3656,17 @@ How to enter the Sleep mode and wake up from this mode by using an interrupt.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3550,16 +3683,17 @@ reset or the WKUP pin.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3576,16 +3710,17 @@ reset or the RTC wakeup timer.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3613,7 +3748,8 @@ How to enter SMPS Standby mode and wake up from this mode using the wake-up pin.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -3639,7 +3775,8 @@ from this mode using an interrupt.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -3652,16 +3789,17 @@ How to enter the Stop 1 mode and wake up from this mode by using an interrupt.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3678,16 +3816,17 @@ from RTC wakeup timer.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3704,16 +3843,17 @@ or wakeup interrupt.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3730,16 +3870,17 @@ or RTC wakeup timer.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3754,6 +3895,7 @@ How to execute code from QSPI memory after code loading.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3794,6 +3936,7 @@ How to use a QSPI memory in memory-mapped mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -3804,6 +3947,7 @@ How to configure the QSPI Peripheral in order to have access to external memory 
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3844,6 +3988,7 @@ How to use a QSPI memory in DMA mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -3854,6 +3999,7 @@ How to use a QSPI memory in interrupt mode.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3897,6 +4043,7 @@ Configuration of the clock recovery service (CRS) in Interrupt mode, using the R
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RCC_CRS_Synchronization_Polling">RCC_CRS_Synchronization_Polling</p></td>
@@ -3922,6 +4069,7 @@ Configuration of the clock recovery service (CRS) in Polling mode, using the RCC
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RCC_ClockConfig">RCC_ClockConfig</p></td>
@@ -3932,19 +4080,20 @@ Configuration of the system clock (SYSCLK) and modification of the clock setting
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -3958,7 +4107,7 @@ other than RTC, using the RCC HAL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3967,6 +4116,7 @@ other than RTC, using the RCC HAL API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3983,7 +4133,7 @@ How to enable/disable the low-speed internal (LSI) RC oscillator (about 32 KHz) 
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3992,6 +4142,7 @@ How to enable/disable the low-speed internal (LSI) RC oscillator (about 32 KHz) 
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4009,7 +4160,8 @@ Configuration of the RNG using the HAL API. This example uses the RNG to generat
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4034,15 +4186,16 @@ Configuration of the RNG using the HAL API. This example uses the RNG to generat
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4059,15 +4212,16 @@ Configuration of the RNG using the HAL API. This example uses RNG interrupts to 
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4085,15 +4239,16 @@ Configuration and generation of an RTC alarm using the RTC HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4110,7 +4265,7 @@ Configuration of the calendar using the RTC HAL API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4119,6 +4274,7 @@ Configuration of the calendar using the RTC HAL API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4150,6 +4306,7 @@ Demonstration the internal timestamp feature using the RTC HAL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RTC_LSI">RTC_LSI</p></td>
@@ -4160,15 +4317,16 @@ Use of the LSI clock source autocalibration to get a precise RTC clock.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4185,7 +4343,7 @@ How to enter STANDBY mode and wake up from this mode using the RTC alarm event.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4194,6 +4352,7 @@ How to enter STANDBY mode and wake up from this mode using the RTC alarm event.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4210,15 +4369,16 @@ Configuration of the RTC HAL API to write/read data to/from RTC Backup registers
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4235,15 +4395,16 @@ Configuration of the RTC HAL API to demonstrate the timestamp feature.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
@@ -4259,6 +4420,7 @@ Use of the SAI HAL API to play an audio file in DMA circular mode and handle the
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4304,6 +4466,7 @@ using the USART in Smartcard mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="4" align="left"><p id="SPI">SPI</p></td>
@@ -4323,6 +4486,7 @@ Data buffer transmission/reception between two boards via SPI using DMA.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4355,6 +4519,7 @@ Data buffer transmission/reception between two boards via SPI using Interrupt mo
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SPI_FullDuplex_ComPolling">SPI_FullDuplex_ComPolling</p></td>
@@ -4373,6 +4538,7 @@ Data buffer transmission/reception between two boards via SPI using Polling mode
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4405,6 +4571,7 @@ Data buffer half-duplex transmission/reception between two boards via SPI using 
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="SWPMI">SWPMI</p></td>
@@ -4415,6 +4582,7 @@ a SWP compliant card in no software buffer mode.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4459,6 +4627,7 @@ to transfer data from memory to TIMER Capture Compare Register 3 (TIMx_CCR3).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_DMABurst">TIM_DMABurst</p></td>
@@ -4484,6 +4653,7 @@ How to update the TIMER channel 1 period and duty cycle using the TIMER DMA burs
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_ExtTriggerSynchro">TIM_ExtTriggerSynchro</p></td>
@@ -4500,6 +4670,7 @@ Synchronization of TIM peripherals in Cascade mode with an external trigger.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4534,6 +4705,7 @@ How to use the TIM peripheral to measure an external signal frequency.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_OCActive">TIM_OCActive</p></td>
@@ -4554,6 +4726,7 @@ pin is set to its active state).
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4587,6 +4760,7 @@ with the corresponding Interrupt requests for each channel.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_OCToggle">TIM_OCToggle</p></td>
@@ -4606,6 +4780,7 @@ signals at four different frequencies.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4639,6 +4814,7 @@ an external signal rising edge is received on the timer input pin.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_PWMInput">TIM_PWMInput</p></td>
@@ -4665,6 +4841,7 @@ duty cycle of an external signal.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_PWMOutput">TIM_PWMOutput</p></td>
@@ -4683,6 +4860,7 @@ Configuration of the TIM peripheral in PWM (pulse width modulation) mode.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4716,6 +4894,7 @@ one second with the corresponding interrupt request.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="TSC">TSC</p></td>
@@ -4725,6 +4904,7 @@ Use of he TSC to perform continuous acquisitions of one channel in Interrupt mod
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4769,6 +4949,7 @@ when a given stimulus is received.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UART_HyperTerminal_DMA">UART_HyperTerminal_DMA</p></td>
@@ -4778,6 +4959,7 @@ between a board and an HyperTerminal PC application.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4821,6 +5003,7 @@ between a board and an HyperTerminal PC application.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UART_Printf">UART_Printf</p></td>
@@ -4829,6 +5012,7 @@ Re-routing of the C library printf function to the UART.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4872,6 +5056,7 @@ between two boards.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UART_TwoBoards_ComIT">UART_TwoBoards_ComIT</p></td>
@@ -4891,6 +5076,7 @@ between two boards.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4924,6 +5110,7 @@ between two boards.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UART_WakeUpFromStop">UART_WakeUpFromStop</p></td>
@@ -4943,6 +5130,7 @@ when a given stimulus is received.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4977,6 +5165,7 @@ generates an MCU WWDG reset when a predefined time period has elapsed.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
         <td colspan="3"><b>Total number of examples: 716</b></td>
@@ -4994,6 +5183,7 @@ generates an MCU WWDG reset when a predefined time period has elapsed.
         <td>62</td>
         <td>43</td>
         <td>20</td>
+        <td>0</td>
         <td>1</td>
         <td>16</td>
         <td>25</td>
@@ -5017,6 +5207,7 @@ thresholds.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5054,6 +5245,7 @@ channel, from a software start.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_ContinuousConversion_TriggerSW_Init">ADC_ContinuousConversion_TriggerSW_Init</p></td>
@@ -5080,6 +5272,7 @@ channel, from a software start.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_ContinuousConversion_TriggerSW_LowPower">ADC_ContinuousConversion_TriggerSW_LowPower</p></td>
@@ -5094,6 +5287,7 @@ How to use an ADC peripheral with ADC low-power features.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5131,6 +5325,7 @@ in their intended use cases.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_MultiChannelSingleConversion">ADC_MultiChannelSingleConversion</p></td>
@@ -5146,6 +5341,7 @@ performed successively in a scan sequence.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5182,6 +5378,7 @@ How to use several ADC peripherals in multimode and interleaved mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_Oversampling">ADC_Oversampling</p></td>
@@ -5196,6 +5393,7 @@ How to use an ADC peripheral with ADC oversampling.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5234,6 +5432,7 @@ power consumption, to perform an acquisition at low frequency
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_SingleConversion_TriggerSW">ADC_SingleConversion_TriggerSW</p></td>
@@ -5252,6 +5451,7 @@ service functions for optimization purpose (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5292,6 +5492,7 @@ service functions for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_SingleConversion_TriggerSW_IT">ADC_SingleConversion_TriggerSW_IT</p></td>
@@ -5310,6 +5511,7 @@ service functions for optimization purpose (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5350,6 +5552,7 @@ for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_SingleConversion_TriggerTimer_DMA_LP">ADC_SingleConversion_TriggerTimer_DMA_LP</p></td>
@@ -5377,6 +5580,7 @@ power consumption, to perform an acquisition at medium frequency
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="ADC_TemperatureSensor">ADC_TemperatureSensor</p></td>
@@ -5392,6 +5596,7 @@ internal temperature sensor and calculate the temperature in degrees Celsius.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5432,6 +5637,7 @@ is done using LL unitary service functions for optimization purpose (performance
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="COMP_CompareGpioVsVrefInt_IT_Init">COMP_CompareGpioVsVrefInt_IT_Init</p></td>
@@ -5460,6 +5666,7 @@ is done using LL initialization function to demonstrate LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="COMP_CompareGpioVsVrefInt_OutputGpio">COMP_CompareGpioVsVrefInt_OutputGpio</p></td>
@@ -5475,6 +5682,7 @@ pin to the internal voltage reference (VREFINT).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5515,6 +5723,7 @@ unitary service functions for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="CORTEX">CORTEX</p></td>
@@ -5537,6 +5746,7 @@ different modes.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5572,6 +5782,7 @@ optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="CRC_UserDefinedPolynomial">CRC_UserDefinedPolynomial</p></td>
@@ -5585,7 +5796,7 @@ optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -5595,6 +5806,7 @@ optimization purposes (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5616,6 +5828,7 @@ service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5655,6 +5868,7 @@ service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="4" align="left"><p id="DAC">DAC</p></td>
@@ -5671,6 +5885,7 @@ on the STM32L4xx DAC LL API.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5711,6 +5926,7 @@ is done using LL unitary service functions for optimization purpose (performance
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="DAC_GenerateWaveform_TriggerHW">DAC_GenerateWaveform_TriggerHW</p></td>
@@ -5728,6 +5944,7 @@ for optimization purpose (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5767,6 +5984,7 @@ to demonstrate LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="DMA">DMA</p></td>
@@ -5795,6 +6013,7 @@ LL unitary service functions for optimization purposes (performance and size)..
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="DMA_CopyFromFlashToMemory_Init">DMA_CopyFromFlashToMemory_Init</p></td>
@@ -5811,6 +6030,7 @@ initialization functions to demonstrate LL init usage.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5848,7 +6068,8 @@ initialization uses LL unitary service functions for optimization purposes
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -5880,6 +6101,7 @@ functions for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="EXTI_ToggleLedOnIT_Init">EXTI_ToggleLedOnIT_Init</p></td>
@@ -5897,6 +6119,7 @@ initialization function to demonstrate LL init usage.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5937,6 +6160,7 @@ for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="GPIO_InfiniteLedToggling_Init">GPIO_InfiniteLedToggling_Init</p></td>
@@ -5965,6 +6189,7 @@ demonstrate LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="9" align="left"><p id="I2C">I2C</p></td>
@@ -5982,6 +6207,7 @@ functions to optimize for performance and size.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6020,6 +6246,7 @@ LL unitary service functions to optimize for performance and size.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_OneBoard_Communication_IT">I2C_OneBoard_Communication_IT</p></td>
@@ -6036,6 +6263,7 @@ with LL unitary service functions to  optimize for performance and size.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6074,6 +6302,7 @@ with LL initialization function to demonstrate LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_OneBoard_Communication_PollingAndIT">I2C_OneBoard_Communication_PollingAndIT</p></td>
@@ -6090,6 +6319,7 @@ with LL unitary service functions to optimize for performance and size.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6129,6 +6359,7 @@ and size.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_MasterTx_SlaveRx">I2C_TwoBoards_MasterTx_SlaveRx</p></td>
@@ -6145,6 +6376,7 @@ with LL unitary service functions to optimize for performance and size.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6183,6 +6415,7 @@ with LL unitary service functions to optimize for performance and size.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="I2C_TwoBoards_WakeUpFromStop2_IT">I2C_TwoBoards_WakeUpFromStop2_IT</p></td>
@@ -6200,6 +6433,7 @@ performance and size.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6240,6 +6474,7 @@ for performance and size.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="LPTIM">LPTIM</p></td>
@@ -6269,6 +6504,7 @@ for optimization purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LPTIM_PulseCounter_Init">LPTIM_PulseCounter_Init</p></td>
@@ -6286,6 +6522,7 @@ to demonstrate LL init usage.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6326,6 +6563,7 @@ service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="LPUART_WakeUpFromStop2_Init">LPUART_WakeUpFromStop2_Init</p></td>
@@ -6343,6 +6581,7 @@ initialization function to demonstrate LL init usage.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6384,6 +6623,7 @@ purpose (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="OPAMP_PGA_Init">OPAMP_PGA_Init</p></td>
@@ -6413,6 +6653,7 @@ LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="PKA">PKA</p></td>
@@ -6424,7 +6665,8 @@ How to use the low-layer PKA API to generate an ECDSA signature.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6449,7 +6691,8 @@ How to use the low-layer PKA API to execute RSA modular exponentiation.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6491,6 +6734,7 @@ reset or a wakeup interrupt.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="PWR_EnterStopMode">PWR_EnterStopMode</p></td>
@@ -6516,6 +6760,7 @@ How to enter Stop 2 mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="PWR_LPRunMode_SRAM1">PWR_LPRunMode_SRAM1</p></td>
@@ -6530,6 +6775,7 @@ How to execute code in Low-power run mode from SRAM1..
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6567,6 +6813,7 @@ Low-power run mode.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="4" align="left"><p id="RCC">RCC</p></td>
@@ -6578,7 +6825,7 @@ How to use of the MSI clock source hardware autocalibration and LSE clock (PLL m
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6587,6 +6834,7 @@ How to use of the MSI clock source hardware autocalibration and LSE clock (PLL m
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6603,7 +6851,7 @@ Configuration of MCO pin (PA8) to output the system clock.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6612,6 +6860,7 @@ Configuration of MCO pin (PA8) to output the system clock.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6643,6 +6892,7 @@ Use of the RCC LL API to start the HSE and use it as system clock.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RCC_UseHSI_PLLasSystemClock">RCC_UseHSI_PLLasSystemClock</p></td>
@@ -6657,6 +6907,7 @@ Modification of the PLL parameters in run time.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6695,6 +6946,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RNG_GenerateRandomNumbers_IT">RNG_GenerateRandomNumbers_IT</p></td>
@@ -6722,6 +6974,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="7" align="left"><p id="RTC">RTC</p></td>
@@ -6734,7 +6987,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6743,6 +6996,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6760,7 +7014,7 @@ initialization uses the LL initialization function.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6769,6 +7023,7 @@ initialization uses the LL initialization function.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6786,7 +7041,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6795,6 +7050,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6813,7 +7069,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6822,6 +7078,7 @@ functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6855,6 +7112,7 @@ initialization uses LL unitary service functions for optimization purposes
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="RTC_Tamper">RTC_Tamper</p></td>
@@ -6866,7 +7124,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -6875,6 +7133,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6896,6 +7155,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6936,6 +7196,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SPI_OneBoard_HalfDuplex_DMA_Init">SPI_OneBoard_HalfDuplex_DMA_Init</p></td>
@@ -6953,6 +7214,7 @@ LL initialization function to demonstrate LL init usage.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -6992,6 +7254,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SPI_TwoBoards_FullDuplex_DMA">SPI_TwoBoards_FullDuplex_DMA</p></td>
@@ -7019,6 +7282,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SPI_TwoBoards_FullDuplex_IT">SPI_TwoBoards_FullDuplex_IT</p></td>
@@ -7035,6 +7299,7 @@ initialization uses LL unitary service functions for optimization purposes (perf
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7074,6 +7339,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SWPMI_Loopback_MultiSWBuffer_Init">SWPMI_Loopback_MultiSWBuffer_Init</p></td>
@@ -7101,6 +7367,7 @@ the LL initialization function to demonstrate LL init usage.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SWPMI_Loopback_NoSWBuffer">SWPMI_Loopback_NoSWBuffer</p></td>
@@ -7117,6 +7384,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7158,6 +7426,7 @@ Configuration of the TIM peripheral to
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_DMA">TIM_DMA</p></td>
@@ -7175,6 +7444,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7215,6 +7485,7 @@ for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_OnePulse">TIM_OnePulse</p></td>
@@ -7232,6 +7503,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7271,6 +7543,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_PWMOutput">TIM_PWMOutput</p></td>
@@ -7288,6 +7561,7 @@ LL unitary service functions for optimization purposes (performance and size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7327,6 +7601,7 @@ LL initialization function to demonstrate LL init.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="TIM_TimeBase">TIM_TimeBase</p></td>
@@ -7343,6 +7618,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7382,6 +7658,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="USART_Communication_Rx_IT_Continuous">USART_Communication_Rx_IT_Continuous</p></td>
@@ -7409,6 +7686,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="USART_Communication_Rx_IT_Init">USART_Communication_Rx_IT_Init</p></td>
@@ -7425,6 +7703,7 @@ uses the LL initialization function to demonstrate LL init.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7466,6 +7745,7 @@ initialization uses LL unitary service functions for optimization purpose
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="USART_Communication_TxRx_DMA">USART_Communication_TxRx_DMA</p></td>
@@ -7481,6 +7761,7 @@ to send characters asynchronously to/from an HyperTerminal (PC) in DMA mode.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7509,6 +7790,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7549,6 +7831,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="USART_SyncCommunication_FullDuplex_DMA">USART_SyncCommunication_FullDuplex_DMA</p></td>
@@ -7567,6 +7850,7 @@ size).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7606,6 +7890,7 @@ initialization uses LL unitary service functions for optimization purposes (perf
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="USART_WakeUpFromStop1">USART_WakeUpFromStop1</p></td>
@@ -7623,6 +7908,7 @@ uses LL unitary service functions for optimization purposes (performance and siz
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7661,6 +7947,7 @@ clock.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UTILS_ReadDeviceInfo">UTILS_ReadDeviceInfo</p></td>
@@ -7676,6 +7963,7 @@ them into a global information buffer.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7715,6 +8003,7 @@ uses the LL unitary service functions for optimization purposes (performance and
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
         <td colspan="3"><b>Total number of examples_ll: 219</b></td>
@@ -7732,6 +8021,7 @@ uses the LL unitary service functions for optimization purposes (performance and
         <td>0</td>
         <td>15</td>
         <td>7</td>
+        <td>0</td>
         <td>0</td>
         <td>0</td>
         <td>1</td>
@@ -7768,6 +8058,7 @@ examples). This example is based on the STM32L4xx ADC HAL and LL API
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="CRC">CRC</p></td>
@@ -7779,7 +8070,7 @@ How to use the CRC peripheral through the STM32L4xx CRC HAL and LL API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -7789,6 +8080,7 @@ How to use the CRC peripheral through the STM32L4xx CRC HAL and LL API.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7822,6 +8114,7 @@ performance improvement.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="DMA2D">DMA2D</p></td>
@@ -7831,6 +8124,7 @@ How to configure the DMA2D peripheral in Memory-to-memory transfer mode and
 display the result on the LCD. The DMA2D LL APIs are used for performance
 improvement.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7858,6 +8152,7 @@ How to configure DMA2D peripheral in Memory-to-memory transfer mode with pixel
 format conversion and image blending, then display the result on LCD. The DMA2D
 LL APIs are used for performance improvement.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7906,6 +8201,7 @@ and an interrupt.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="OPAMP">OPAMP</p></td>
@@ -7922,6 +8218,7 @@ How to calibrate and operate the OPAMP peripheral. This example is based on the 
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -7961,6 +8258,7 @@ and LL API. The LL API is used for performance improvement.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="PWR_STOP1">PWR_STOP1</p></td>
@@ -7977,6 +8275,7 @@ RCC LL API for footprint and performance improvements).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8014,6 +8313,7 @@ Data buffer transmission/reception between two boards via SPI using Polling mode
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="SPI_HalfDuplex_ComPollingIT">SPI_HalfDuplex_ComPollingIT</p></td>
@@ -8040,6 +8340,7 @@ two boards via SPI using Polling (LL driver) and Interrupt modes (HAL driver).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="1" align="left"><p id="TIM">TIM</p></td>
@@ -8055,6 +8356,7 @@ Configuration of the TIM1 peripheral to generate six-step PWM signals.
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8095,6 +8397,7 @@ and LL API, the LL API being used for performance improvement.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="UART_HyperTerminal_TxPolling_RxIT">UART_HyperTerminal_TxPolling_RxIT</p></td>
@@ -8112,6 +8415,7 @@ the STM32L4xx UART HAL and LL API, the LL API being used for performance improve
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8143,6 +8447,7 @@ the STM32L4xx UART HAL and LL API, the LL API being used for performance improve
         <td>0</td>
         <td>0</td>
         <td>0</td>
+        <td>0</td>
         <td>2</td>
         <td>0</td>
       </tr>
@@ -8154,6 +8459,7 @@ the STM32L4xx UART HAL and LL API, the LL API being used for performance improve
 This application shows how to use the VL53L0X sensor mounted on the B-L475E-IOT01A 
 board to provide proximity information.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8194,6 +8500,7 @@ This application shows how to use BLE component for HeartRate profile applicatio
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -8205,6 +8512,7 @@ This application shows how to use BLE component for HeartRate profile applicatio
         <td align="left">
 This example aims at demonstrating point-to-point communications using the BLE component.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8252,6 +8560,7 @@ features to configure a RAM disk (SRAM) drive.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FatFs_USBDisk_Standalone">FatFs_USBDisk_Standalone</p></td>
@@ -8262,6 +8571,7 @@ Speed (HS) mode. This example develops an application
 exploiting FatFs features, with USB disk drive configuration.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8304,7 +8614,8 @@ features to configure a eMMC drive.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -8317,6 +8628,7 @@ features, with a microSD drive in RTOS mode configuration.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8361,6 +8673,7 @@ FatFs features to configure a microSD drive.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FatFs_uSD_Standalone">FatFs_uSD_Standalone</p></td>
@@ -8371,6 +8684,7 @@ features to configure a microSD drive.
 </td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8410,6 +8724,7 @@ How to enter and exit low-power mode with CMSIS RTOS API.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -8421,6 +8736,7 @@ How to enter and exit low-power mode with CMSIS RTOS API.
 How to enter and exit low-power mode with CMSIS RTOS API with LPTIM used as clock source
 for both RTOS and HAL ticks.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8465,6 +8781,7 @@ How to use the MPU feature of FreeRTOS.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FreeRTOS_Mail">FreeRTOS_Mail</p></td>
@@ -8484,6 +8801,7 @@ How to use mail queues with CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8515,6 +8833,7 @@ How to use mutexes with CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FreeRTOS_Queues">FreeRTOS_Queues</p></td>
@@ -8534,6 +8853,7 @@ How to use message queues with CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8565,6 +8885,7 @@ How to use semaphores with CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FreeRTOS_SemaphoreFromISR">FreeRTOS_SemaphoreFromISR</p></td>
@@ -8584,6 +8905,7 @@ How to use semaphore from ISR with CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8615,6 +8937,7 @@ How to perform thread signaling using CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="FreeRTOS_SignalFromISR">FreeRTOS_SignalFromISR</p></td>
@@ -8634,6 +8957,7 @@ How to perform thread signaling from an interrupt using CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8664,6 +8988,7 @@ How to implement thread creation using CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
       </tr>
       <tr align="center">
@@ -8690,6 +9015,7 @@ How to use timers of CMSIS RTOS API.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="IAP">IAP</p></td>
@@ -8700,6 +9026,7 @@ loaded into Flash memory using In-Application Programming (IAP) through USART.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8744,12 +9071,13 @@ In-Application Programming (IAP) through USART.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="2" align="left"><p id="NFC">NFC</p></td>
         <td align="left"><p id="WrAARtoRunBLEapp">WrAARtoRunBLEapp</p></td>
         <td align="left">
-This application aims at showing how to write an AAR NDEF message to an M24SR type 4 NFC tag 
+This application aims at showing how to write an AAR NDEF message to an ST25DV-I2C type 5 NFC tag 
 so that the BLE STM32 Profiles application is launched on the smartphone when it comes near the 
 NFC antenna .
 </td>
@@ -8767,6 +9095,7 @@ NFC antenna .
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -8776,7 +9105,7 @@ NFC antenna .
       <tr align="center">
         <td align="left"><p id="WriteTag">WriteTag</p></td>
         <td align="left">
-This application aims at showing how to write NDEF messages to an M24SR type 4 NFC tag 
+This application aims at showing how to write NDEF messages to an ST25DV-I2C type 5 NFC tag 
 so that the associated application is launched on the smartphone when it comes near the NFC antenna.
 </td>
         <td>-</td>
@@ -8793,6 +9122,7 @@ so that the associated application is launched on the smartphone when it comes n
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -8805,6 +9135,7 @@ so that the associated application is launched on the smartphone when it comes n
         <td align="left">
 Simple "Hello World" example based on STemWin.
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8847,6 +9178,7 @@ Simple "Hello World" example based on STemWin.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -8873,6 +9205,7 @@ to show some of the STemWin Library capabilities.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -8883,6 +9216,7 @@ to show some of the STemWin Library capabilities.
   This application aims at demonstrating point-to-point communication between two
   B-L475E-IOT01A boards with SubGhz module using Spirit1 driver and STM32Cube firmware. 
 </td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -8928,6 +9262,7 @@ Use of the STMTouch driver with 1 touchkey sensor.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td rowspan="7" align="left"><p id="USB_Device">USB_Device</p></td>
@@ -8953,6 +9288,7 @@ following the PSTN subprotocol. This application uses the USB Device and UART pe
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -8963,6 +9299,7 @@ Use of the USB device application based on the Custom HID Class.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9002,6 +9339,7 @@ capability to program the embedded Flash memory through the USB peripheral.
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
@@ -9025,6 +9363,7 @@ Use of the USB device application based on the Human Interface (HID).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -9055,6 +9394,7 @@ Battery Charger Detection (BCD).
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
       </tr>
@@ -9077,6 +9417,7 @@ Link Power Management Protocol (LPM).
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9105,7 +9446,8 @@ Use of the USB device application based on the Mass Storage Class (MSC).
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -9117,6 +9459,7 @@ Use of the USB host application based on the CDC class.
 </td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9157,6 +9500,7 @@ Use of the USB host application based on the HID class.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
       </tr>
@@ -9169,6 +9513,7 @@ Use of the USB host application based on the Mass Storage Class (MSC).
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9207,6 +9552,7 @@ to a TCP server.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9216,8 +9562,8 @@ to a TCP server.
       <tr align="center">
         <td align="left"><p id="WiFi_HTTP_Server">WiFi_HTTP_Server</p></td>
         <td align="left">
-This application shows how to make HTTP requests using the Es-WiFi module based 
-on STM32Cube HAL. 
+This application shows how to make HTTP requests using the Es-WiFi module based
+on STM32Cube HAL.
 </td>
         <td>-</td>
         <td>-</td>
@@ -9233,6 +9579,7 @@ on STM32Cube HAL.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9240,7 +9587,7 @@ on STM32Cube HAL.
         <td>-</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-        <td colspan="3"><b>Total number of applications: 128</b></td>
+        <td colspan="3"><b>Total number of applications: 131</b></td>
         <td>12</td>
         <td>28</td>
         <td>0</td>
@@ -9255,6 +9602,7 @@ on STM32Cube HAL.
         <td>5</td>
         <td>15</td>
         <td>1</td>
+        <td>3</td>
         <td>11</td>
         <td>6</td>
         <td>2</td>
@@ -9288,10 +9636,12 @@ STM32 Cortex-M devices that are plugged onto your STM32 Nucleo board.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="Demo">Demo</p></td>
         <td align="left"></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9338,6 +9688,7 @@ STM32NUCLEO_32 board.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="MB1144">MB1144</p></td>
@@ -9371,6 +9722,7 @@ based on the STM32Cube HAL BSP and several middleware components.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
       </tr>
       <tr align="center">
         <td align="left"><p id="MenuLauncher">MenuLauncher</p></td>
@@ -9379,6 +9731,7 @@ The STM32Cube demonstration platform comes on top of the STM32Cube(TM) as a firm
 package that offers a full set of software components based on a modular architecture.
 </td>
         <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9419,7 +9772,8 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td>-</td>
+        <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -9427,6 +9781,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td rowspan="1" align="left"><p id="EmbeddedWizard">EmbeddedWizard</p></td>
         <td align="left"><p id="Binary">Binary</p></td>
         <td align="left"></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9466,6 +9821,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9475,6 +9831,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td rowspan="1" align="left"><p id="TouchGFX">TouchGFX</p></td>
         <td align="left"><p id="Binary">Binary</p></td>
         <td align="left"></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -9511,6 +9868,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>1</td>
         <td>1</td>
         <td>1</td>
+        <td>0</td>
         <td>1</td>
         <td>4</td>
         <td>1</td>
@@ -9518,7 +9876,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>1</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-      	<td colspan="4"><b>Total number of projects: 1147</b></td>
+      	<td colspan="4"><b>Total number of projects: 1152</b></td>
       	<td>69</td>
       	<td>118</td>
       	<td>5</td>
@@ -9533,6 +9891,7 @@ The software watermarks the PNG xxxxx.png files with logo.png.
       	<td>70</td>
       	<td>78</td>
       	<td>33</td>
+      	<td>5</td>
       	<td>15</td>
       	<td>28</td>
       	<td>31</td>

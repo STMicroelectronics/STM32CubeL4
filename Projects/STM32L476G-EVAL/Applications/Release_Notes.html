@@ -38,9 +38,29 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section20" checked aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.15.0 / 22-November-2019</label>
+<input type="checkbox" id="collapse-section21" checked aria-hidden="true"> <label for="collapse-section21" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>USB Device applications
+<ul>
+<li>Update all projects using USB Device to support USB Device library v2.6.1
+<ul>
+<li>Update USBD_malloc and USBD_free macros definitions in all usbd_conf.h files</li>
+<li>Update data size parameter used by USBD_LL_Transmit() and USBD_LL_PrepareReceive() functions to uint32 in usbd_conf.c files</li>
+</ul></li>
+</ul></li>
+<li>Update FreeRTOS LowPower application
+<ul>
+<li>Update PreSleepProcessing() and PostSleepProcessing() functions to ensure that the HAL Tick is stopped before entering Low Power mode and resumed after</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.15.0 / 22-November-2019</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <ul>
 <li>USB Device applications
 <ul>
@@ -56,7 +76,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li><p>USB_Device applications</p>
 <ul>
@@ -69,7 +89,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <ul>
 <li><p>STemWin HelloWorld and SampleDemo applications</p>
 <ul>
@@ -91,7 +111,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.11.0 / 22-December-2017</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <ul>
 <li><p>USB_Device/CDC_Standalone application</p>
 <ul>
@@ -103,7 +123,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.10.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <ul>
 <li><p>FatFs_uSD_DMA_RTOS application</p>
 <ul>
@@ -115,7 +135,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.9.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
+<h2 id="main-changes-6">Main Changes</h2>
 <ul>
 <li><p>FatFs and USB_Host/MSC applications</p>
 <ul>
@@ -127,7 +147,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section120" aria-hidden="true"> <label for="collapse-section120" aria-hidden="true">V1.8.1 / 16-June-2017</label>
 <div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <ul>
 <li><p>STemWin applications</p>
 <ul>
@@ -143,7 +163,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.8.0 / 21-April-2017</label>
 <div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <ul>
 <li><p>USB_Device applications</p>
 <ul>
@@ -156,7 +176,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.7.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <ul>
 <li><p>FatFs_uSD, FatFs_uSD_RTOS and USB_Host\CDC_Standalone applications</p>
 <ul>
@@ -169,7 +189,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.6.0 / 28-October-2016</label>
 <div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <ul>
 <li><p>STemWin_HelloWorld and STemWin_SampleDemo applications</p>
 <ul>
@@ -182,7 +202,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9" aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.5.2 / 12-September-2016</label>
 <div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <ul>
 <li><p>FatFS, IAP, STemWin, USB Host and USB Device applications</p>
 <ul>
@@ -198,7 +218,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section8" aria-hidden="true"> <label for="collapse-section8" aria-hidden="true">V1.5.0 / 29-April-2016</label>
 <div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <ul>
 <li><p>USB Host and Device applications</p>
 <ul>
@@ -222,7 +242,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.3.0 / 29-January-2016</label>
 <div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <ul>
 <li>STM2Cube Level 1 &amp; 2 source files license model changed from "Liberty" to new license "Ultimate Liberty"</li>
 </ul>
@@ -231,7 +251,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.2.0 / 25-November-2015</label>
 <div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <ul>
 <li><p>FreeRTOS_SignalFromISR application</p>
 <ul>
@@ -247,7 +267,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.1.1 / 16-October-2015</label>
 <div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <ul>
 <li><p>Fine-tuning of all Applications projects: stm32l4xx_hal_conf.h files updated to set Flash prefetch off in line with default system configuration.</p></li>
 <li><p>STemWin_SampleDemo Application</p>
@@ -260,7 +280,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.1.0 / 16-September-2015</label>
 <div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <ul>
 <li><p>Add support of System Workbench for STM32 (SW4STM32) toolchain</p></li>
 <li><p>Apply GPIO_SPEED_FREQ_xxx new definitions from HAL GPIO</p></li>
@@ -278,7 +298,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section2" aria-hidden="true"> <label for="collapse-section2" aria-hidden="true">V1.0.0 / 26-June-2015</label>
 <div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <ul>
 <li>First official release</li>
 </ul>

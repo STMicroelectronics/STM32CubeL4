@@ -42,7 +42,7 @@
  * @brief STM32L4P5G_DISCOVERY BSP Driver version number
    */
 #define __STM32L4P5G_DISCOVERY_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
-#define __STM32L4P5G_DISCOVERY_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
+#define __STM32L4P5G_DISCOVERY_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
 #define __STM32L4P5G_DISCOVERY_BSP_VERSION_SUB2   (0x00) /*!< [15:8]  sub2 version */
 #define __STM32L4P5G_DISCOVERY_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L4P5G_DISCOVERY_BSP_VERSION            ((__STM32L4P5G_DISCOVERY_BSP_VERSION_MAIN << 24)\

@@ -93,8 +93,10 @@ void SD_demo (void)
 
       SD_state = BSP_SD_Erase(BLOCK_START_ADDR, (BLOCKSIZE * NUM_OF_BLOCKS));
     
-      /* Verify that SD card is ready to use after the Erase */
-      SD_state |= BSP_SD_GetCardState();
+      /* Wait until SD card is ready to use for new operation */
+      while(BSP_SD_GetCardState() != SD_TRANSFER_OK)
+      {
+      }
 
       if(SD_state != MSD_OK)
       {
@@ -107,8 +109,13 @@ void SD_demo (void)
       
         /* Fill the buffer to write */
         Fill_Buffer(aTxBuffer, BUFFER_WORDS_SIZE, 0x22FF);
-        SD_state = BSP_SD_WriteBlocks((uint32_t *)aTxBuffer, BLOCK_START_ADDR, BLOCKSIZE, NUM_OF_BLOCKS);
+        SD_state = BSP_SD_WriteBlocks((uint32_t *)aTxBuffer, BLOCK_START_ADDR, NUM_OF_BLOCKS, SD_DATATIMEOUT);
       
+        /* Wait until SD card is ready to use for new operation */
+        while(BSP_SD_GetCardState() != SD_TRANSFER_OK)
+        {
+        }
+
         if(SD_state != MSD_OK)
         {
           BSP_LCD_DisplayStringAt(20, 145, (uint8_t *)"SD WRITE : FAILED.", LEFT_MODE);
@@ -117,7 +124,13 @@ void SD_demo (void)
         else
         {
           BSP_LCD_DisplayStringAt(20, 145, (uint8_t *)"SD WRITE : OK.", LEFT_MODE);
-          SD_state = BSP_SD_ReadBlocks((uint32_t *)aRxBuffer, BLOCK_START_ADDR, BLOCKSIZE, NUM_OF_BLOCKS);
+          SD_state = BSP_SD_ReadBlocks((uint32_t *)aRxBuffer, BLOCK_START_ADDR, NUM_OF_BLOCKS, SD_DATATIMEOUT);
+
+          /* Wait until SD card is ready to use for new operation */
+          while(BSP_SD_GetCardState() != SD_TRANSFER_OK)
+          {
+          }
+
           if(SD_state != MSD_OK)
           {
             BSP_LCD_DisplayStringAt(20, 160, (uint8_t *)"SD READ : FAILED.", LEFT_MODE);

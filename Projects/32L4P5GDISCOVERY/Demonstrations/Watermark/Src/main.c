@@ -1275,11 +1275,12 @@ void ospi_ram_init(void)
   OSPIHandle.Init.ChipSelectHighTime    = 1;
   OSPIHandle.Init.FreeRunningClock      = HAL_OSPI_FREERUNCLK_DISABLE;
   OSPIHandle.Init.ClockMode             = HAL_OSPI_CLOCK_MODE_0;
-  OSPIHandle.Init.WrapSize              = HAL_OSPI_WRAP_32_BYTES;
   OSPIHandle.Init.ClockPrescaler        = 0x03;
   OSPIHandle.Init.SampleShifting        = HAL_OSPI_SAMPLE_SHIFTING_NONE;
   OSPIHandle.Init.DelayHoldQuarterCycle = HAL_OSPI_DHQC_ENABLE;
   OSPIHandle.Init.ChipSelectBoundary    = 4;
+  OSPIHandle.Init.DelayBlockBypass      = HAL_OSPI_DELAY_BLOCK_USED;
+  OSPIHandle.Init.MaxTran               = 0;
 
   if (HAL_OSPI_Init(&OSPIHandle) != HAL_OK) {
     Error_Handler();

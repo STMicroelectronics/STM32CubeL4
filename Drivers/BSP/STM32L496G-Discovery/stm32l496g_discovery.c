@@ -55,7 +55,7 @@
    */
 #define __STM32L496G_DISCOVERY_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L496G_DISCOVERY_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
-#define __STM32L496G_DISCOVERY_BSP_VERSION_SUB2   (0x04) /*!< [15:8]  sub2 version */
+#define __STM32L496G_DISCOVERY_BSP_VERSION_SUB2   (0x05) /*!< [15:8]  sub2 version */
 #define __STM32L496G_DISCOVERY_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L496G_DISCOVERY_BSP_VERSION            ((__STM32L496G_DISCOVERY_BSP_VERSION_MAIN << 24)\
                                                       |(__STM32L496G_DISCOVERY_BSP_VERSION_SUB1 << 16)\
@@ -500,7 +500,6 @@ void BSP_COM_Init(COM_TypeDef COM, UART_HandleTypeDef *huart)
 
   /* Configure USART Rx as alternate function */
   gpio_init_structure.Pin = COM_RX_PIN[COM];
-  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
   gpio_init_structure.Alternate = COM_RX_AF[COM];
   HAL_GPIO_Init(COM_RX_PORT[COM], &gpio_init_structure);
 

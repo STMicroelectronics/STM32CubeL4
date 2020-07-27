@@ -139,11 +139,12 @@ uint8_t BSP_OSPI_NOR_Init(void)
   OSPINORHandle.Init.ChipSelectHighTime    = 2;
   OSPINORHandle.Init.FreeRunningClock      = HAL_OSPI_FREERUNCLK_DISABLE;
   OSPINORHandle.Init.ClockMode             = HAL_OSPI_CLOCK_MODE_0;
-  OSPINORHandle.Init.WrapSize              = HAL_OSPI_WRAP_NOT_SUPPORTED;
   OSPINORHandle.Init.ClockPrescaler        = 2; /* OctoSPI clock = 110MHz / ClockPrescaler = 55MHz */
   OSPINORHandle.Init.SampleShifting        = HAL_OSPI_SAMPLE_SHIFTING_NONE;
   OSPINORHandle.Init.DelayHoldQuarterCycle = HAL_OSPI_DHQC_ENABLE;
   OSPINORHandle.Init.ChipSelectBoundary    = 0;
+  OSPINORHandle.Init.DelayBlockBypass      = HAL_OSPI_DELAY_BLOCK_USED;
+  OSPINORHandle.Init.MaxTran               = 0;
 
   if (HAL_OSPI_Init(&OSPINORHandle) != HAL_OK)
   {
