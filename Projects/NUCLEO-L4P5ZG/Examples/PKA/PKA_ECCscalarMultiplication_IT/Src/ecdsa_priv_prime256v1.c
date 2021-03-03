@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @brief   This file contains buffers reflecting the content of the file
   *          ecdsa_priv_prime256v1.pem provided as an example of private and
-  *          public key pair to demonstrate functionnality of PKA.
+  *          public key pair to demonstrate functionality of PKA.
   ******************************************************************************
   * @attention
   *

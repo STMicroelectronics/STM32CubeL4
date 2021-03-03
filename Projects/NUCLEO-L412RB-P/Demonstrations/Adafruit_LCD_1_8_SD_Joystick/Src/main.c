@@ -300,7 +300,7 @@ static void TFT_DisplayImages(void)
   {
     if(res == FR_NO_FILESYSTEM)
     {
-      /* Display message: SD card not FAT formated */
+      /* Display message: SD card not FAT formatted */
       TFT_DisplayErrorMessage(SD_CARD_NOT_FORMATTED);
     }
     else

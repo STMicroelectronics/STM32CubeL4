@@ -285,7 +285,7 @@ static int8_t CDC_Itf_Receive(uint8_t* Buf, uint32_t *Len)
 
 /**
   * @brief  CDC_Itf_TransmitCplt
-  *         Data transmited callback
+  *         Data transmitted callback
   *
   *         @note
   *         This function is IN transfer complete callback used to inform user that
@@ -434,7 +434,7 @@ static void TIM_Config(void)
   */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle)
 {
-  /* Transfer error occured in reception and/or transmission process */
+  /* Transfer error occurred in reception and/or transmission process */
   Error_Handler();
 }
 

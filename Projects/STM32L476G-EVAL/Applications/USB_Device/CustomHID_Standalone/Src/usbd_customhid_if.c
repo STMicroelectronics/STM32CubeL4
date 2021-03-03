@@ -165,7 +165,7 @@ USBD_CUSTOM_HID_ItfTypeDef USBD_CustomHID_fops =
   * @brief  CustomHID_Init
   *         Initializes the CUSTOM HID media low layer
   * @param  None
-  * @retval Result of the opeartion: USBD_OK if all operations are OK else USBD_FAIL
+  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
 static int8_t CustomHID_Init(void)
 {
@@ -230,7 +230,7 @@ static int8_t CustomHID_Init(void)
   * @brief  CustomHID_DeInit
   *         DeInitializes the CUSTOM HID media low layer
   * @param  None
-  * @retval Result of the opeartion: USBD_OK if all operations are OK else USBD_FAIL
+  * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
 static int8_t CustomHID_DeInit(void)
 {

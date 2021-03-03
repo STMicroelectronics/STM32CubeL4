@@ -40,7 +40,7 @@ SUbGhz SPSGRF Common files description:
   * @details
   *
   * In order to encrypt data, the user must manage the AES_END IRQ.
-  * The data have to be splitted in blocks of 16 bytes and written
+  * The data have to be split in blocks of 16 bytes and written
   * into the <i>AES DATA IN registers</i>. Then, after the key is written
   * into the <i>AES KEY registers</i>, a command of <i>Execute encryption</i>
   * has to be sent.

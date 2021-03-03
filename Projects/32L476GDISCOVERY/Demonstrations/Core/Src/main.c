@@ -146,7 +146,7 @@ int main(void)
      */
   HAL_Init();
 
-  /*  Check power supply ressource */
+  /*  Check power supply resource */
   PowerSupplyMode = BSP_SupplyModeDetection();
 
   /* Configure the system clock according to power supply */  
@@ -837,7 +837,7 @@ void SystemComponentsLowPower(void)
   /* OTG_PSO / OTG_OC / OTG_ID in Analog floating */
   HAL_GPIO_DeInit(GPIOC, (GPIO_PIN_9  | GPIO_PIN_10 |GPIO_PIN_12));
 
-  /* OTG_VBUS in Ouput no pull, set to Low */
+  /* OTG_VBUS in Output no pull, set to Low */
   GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP  ;
   GPIO_InitStruct.Pin       = GPIO_PIN_11;
   GPIO_InitStruct.Pull      = GPIO_NOPULL;

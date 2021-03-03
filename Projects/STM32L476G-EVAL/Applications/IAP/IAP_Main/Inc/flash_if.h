@@ -65,7 +65,7 @@ enum {
 
 
 /* Exported macro ------------------------------------------------------------*/
-/* ABSoulute value */
+/* absolute value */
 #define ABS_RETURN(x,y)               ((x) < (y)) ? ((y)-(x)) : ((x)-(y))
 
 /* Get the number of sectors from where the user program will be loaded */

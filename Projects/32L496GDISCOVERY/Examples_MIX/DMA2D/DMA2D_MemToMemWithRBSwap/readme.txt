@@ -38,7 +38,7 @@ LL APIs are used for performance improvement.
   
  
   In this basic example, the goal is to show how to set some of the DMA2D IP
-  parameters thru DMAD LL APIs:
+  parameters through DMAD LL APIs:
   - input and output image format, alpha value
   - origin and destination buffers addresses
   - foreground and background addresses

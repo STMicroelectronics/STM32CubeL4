@@ -114,7 +114,7 @@ void HW_BNRG_Isr(uint16_t event_payload_len)
   if(TlSpiIsrContext.TlPacketStatus == tl_packet_cont)
   {
     /**
-     * The packet HCI has been splitted over several SPI frame
+     * The packet HCI has been split over several SPI frame
      */
     TlSpiIsrContext.HciPacketLengthOfDataLeftToReceiveFromSpi -= event_payload_len;
   }

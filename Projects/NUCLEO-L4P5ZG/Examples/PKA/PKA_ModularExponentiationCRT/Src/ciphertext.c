@@ -6,7 +6,7 @@
   *          It has been created using xxd external tool in version V1.10 27oct98.
   *          Command line: 
   *            xxd -i ciphertext.bin
-  *          Additionnal modification for easier usage:
+  *          Additional modification for easier usage:
   *           Replaced unsigned char by const uint8_t
   *           Replaced unsigned int by const uin32_t
   ******************************************************************************

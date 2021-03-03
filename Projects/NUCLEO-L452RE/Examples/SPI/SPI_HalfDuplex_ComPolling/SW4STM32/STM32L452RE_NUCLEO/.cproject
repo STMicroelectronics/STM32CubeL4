@@ -57,7 +57,7 @@
 							<tool id="fr.ac6.managedbuild.tool.gnu.archiver.1417986743" name="MCU GCC Archiver" superClass="fr.ac6.managedbuild.tool.gnu.archiver" />
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.assembler.637544974" name="MCU GCC Assembler" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler">
 								<option id="gnu.both.asm.option.include.paths.475035606" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="" />
+
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.344882887" superClass="cdt.managedbuild.tool.gnu.assembler.input" />
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.assembler.input.187768251" superClass="fr.ac6.managedbuild.tool.gnu.cross.assembler.input" />

@@ -30,7 +30,7 @@ order to do this, user is just requested to follow the displayed instructions.
 Then all the demo modules are run sequentially. Throughout the demonstration, a
 control frame window is displayed at the bottom right of the touch screen, including
 a progress bar.
-To skip a demo and immediatly jump to the next one, user has just to touch the LCD screen.
+To skip a demo and immediately jump to the next one, user has just to touch the LCD screen.
 
 LED1 and LED2 are continuously toggling to indicate that the Demo runs properly.
 

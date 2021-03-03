@@ -64,7 +64,7 @@ NUCLEO-L412RB-P Rev C board LEDs are used to monitor the program execution statu
  - Normal operation: LED4 is turned-on/off with respect to ADC conversion status:
     - Turned-off if ADC conversions have just filled up half of the buffer (DMA half-transfer interrupt has been triggered)
     - Turned-on if ADC conversions have filled up the complete buffer (DMA transfer complete interrupt has been triggered)
-   The buffer fill up operation carries on indefinitively. 
+   The buffer fill up operation carries on indefinitely. 
  - Error: In case of error, LED4 is toggling at a frequency of 1Hz.
 
 

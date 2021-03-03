@@ -203,7 +203,7 @@ static ES_WIFI_SecurityType_t ParseSecurity(char* ptr)
 }
 
 /**
-  * @brief  Parses ES module informations and save them in the handle.
+  * @brief  Parses ES module information and save them in the handle.
   * @param  Obj: pointer to module handle
   * @param  ptr: pointer to string
   * @retval None.
@@ -1228,9 +1228,21 @@ ES_WIFI_Status_t ES_WIFI_ActivateAP(ES_WIFIObject_t *Obj, ES_WIFI_APConfig_t *Ap
             ret = AT_ExecuteCommand(Obj, Obj->CmdData, Obj->CmdData);
             if(ret == ES_WIFI_STATUS_OK)
             {
-              if(strstr((char *)Obj->CmdData, "[AP     ]"))
+              char * join_line = strstr((char *)Obj->CmdData, "[JOIN   ]");
+              if( join_line == NULL)
               {
-                ret = ES_WIFI_STATUS_OK;
+                ret = ES_WIFI_STATUS_ERROR;
+              }
+              else
+              {
+                /* Example: [JOIN   ] SSID_NAME,192.168.1.33,0,0 */
+                char * save_ptr = NULL;  
+                char * ptr = strtok_r(&join_line[12], ",", &save_ptr);
+                strncpy((char *)Obj->NetSettings.SSID, ptr, ES_WIFI_MAX_SSID_NAME_SIZE);
+                ptr = strtok_r(NULL, ",", &save_ptr);
+                ParseIP((char *)ptr, Obj->NetSettings.IP_Addr);
+                Obj->NetSettings.IsConnected = 1;
+                ret =  ES_WIFI_STATUS_OK;
               }
             }
           }

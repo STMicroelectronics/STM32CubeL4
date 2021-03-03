@@ -129,7 +129,7 @@ int main(void)
   }
   else
   {
-    /* WRP area is splitted on two banks */
+    /* WRP area is split on two banks */
     /* => Error : this case is not treated in this example */
     while (1)
     {

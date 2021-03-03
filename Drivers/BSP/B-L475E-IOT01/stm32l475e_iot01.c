@@ -40,7 +40,7 @@
    */
 #define __STM32L475E_IOT01_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L475E_IOT01_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
-#define __STM32L475E_IOT01_BSP_VERSION_SUB2   (0x06) /*!< [15:8]  sub2 version */
+#define __STM32L475E_IOT01_BSP_VERSION_SUB2   (0x07) /*!< [15:8]  sub2 version */
 #define __STM32L475E_IOT01_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L475E_IOT01_BSP_VERSION        ((__STM32L475E_IOT01_BSP_VERSION_MAIN << 24)\
                                                  |(__STM32L475E_IOT01_BSP_VERSION_SUB1 << 16)\
@@ -463,7 +463,7 @@ static HAL_StatusTypeDef I2Cx_ReadMultiple(I2C_HandleTypeDef *i2c_handler, uint8
   /* Check the communication status */
   if(status != HAL_OK)
   {
-    /* I2C error occured */
+    /* I2C error occurred */
     I2Cx_Error(i2c_handler, Addr);
   }
   return status;

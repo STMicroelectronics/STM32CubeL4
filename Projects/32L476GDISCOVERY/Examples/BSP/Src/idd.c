@@ -84,7 +84,7 @@ void Idd_demo(void)
   uint8_t idderror = 0;
   uint8_t i = 0;
   
-  /* Initialize Idd measurment component */
+  /* Initialize Idd measurement component */
   if(IddInitialized != SET)
   {
     if(BSP_IDD_Init() != IDD_OK)
@@ -180,7 +180,7 @@ void Idd_demo(void)
       /* Convert Idd value in order to display it on LCD glass */
       Idd_Convert(IddReadValue, datatodisplay);
 
-      /* display mesure */
+      /* display measure */
       BSP_LCD_GLASS_DisplayStrDeci(datatodisplay);
 
       /* reset display buffer */

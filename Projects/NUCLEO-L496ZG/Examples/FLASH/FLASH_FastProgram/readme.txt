@@ -38,8 +38,8 @@ Once this operation is finished, page fast programming operation will be perform
 in the Flash memory. The written data is then read back and checked.
 
 The NUCLEO-L496ZG (144 pins) board LEDs can be used to monitor the transfer status:
- - LED1 is ON when there are no errors detected after data programing 
- - LED2 is ON when there are errors detected after data programing 
+ - LED1 is ON when there are no errors detected after data programming 
+ - LED2 is ON when there are errors detected after data programming 
  - LED3 is ON when there is an issue during erase or program procedure
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate delay (in milliseconds)

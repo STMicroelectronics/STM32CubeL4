@@ -39,7 +39,7 @@ in the Flash memory. The written data is then read back and checked.
 
 The STM32L4R9I-Discovery board LEDs can be used to monitor the transfer status:
  - LED1 is ON when there are no errors detected after programming
- - LED2 is ON when there are errors detected after data programing 
+ - LED2 is ON when there are errors detected after data programming 
  - LED2 is blinking with a 1s period when there is an issue during erase or program procedure
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate delay (in milliseconds)

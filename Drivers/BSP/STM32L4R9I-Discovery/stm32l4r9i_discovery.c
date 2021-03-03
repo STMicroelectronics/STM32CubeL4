@@ -44,7 +44,7 @@
    */
 #define __STM32L4R9I_DISCOVERY_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L4R9I_DISCOVERY_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
-#define __STM32L4R9I_DISCOVERY_BSP_VERSION_SUB2   (0x00) /*!< [15:8]  sub2 version */
+#define __STM32L4R9I_DISCOVERY_BSP_VERSION_SUB2   (0x01) /*!< [15:8]  sub2 version */
 #define __STM32L4R9I_DISCOVERY_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L4R9I_DISCOVERY_BSP_VERSION            ((__STM32L4R9I_DISCOVERY_BSP_VERSION_MAIN << 24)\
                                                       |(__STM32L4R9I_DISCOVERY_BSP_VERSION_SUB1 << 16)\
@@ -155,7 +155,7 @@ void            CAMERA_Delay(uint32_t Delay);
 void            CAMERA_IO_Write(uint8_t Addr, uint8_t Reg, uint8_t Value);
 uint8_t         CAMERA_IO_Read(uint8_t Addr, uint8_t Reg);
 
-/* Link functions for IDD measurment */
+/* Link functions for IDD measurement */
 void            MFX_IO_Init(void);
 void            MFX_IO_DeInit(void);
 void            MFX_IO_ITConfig (void);

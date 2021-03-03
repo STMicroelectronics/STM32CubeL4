@@ -2181,7 +2181,7 @@
     <group>
         <name>Doc</name>
         <file>
-            <name>$PROJ_DIR$\..\readme.txt</name>
+            <name>$PROJ_DIR$\..\..\readme.txt</name>
         </file>
     </group>
     <group>
@@ -2210,9 +2210,6 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_nor.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_ram.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_sd.c</name>
@@ -2988,15 +2985,5 @@
                 </file>
             </group>
         </group>
-    </group>
-    <group>
-        <name>Patches</name>
-        <file>
-            <name>$PROJ_DIR$\..\Patches\stm32l4xx_hal_i2c.c</name>
-            <excluded>
-                <configuration>MenuLauncher-STM32L4R9I-EVAL_MB1314</configuration>
-                <configuration>MenuLauncher-STM32L4R9I-EVAL_MB1314_OoB</configuration>
-            </excluded>
-        </file>
     </group>
 </project>

@@ -134,7 +134,7 @@ static int wifi_start(void)
     LOG(("ES-WIFI Initialized.\n"));
     if(WIFI_GetMAC_Address(MAC_Addr) == WIFI_STATUS_OK)
     {
-      LOG(("> es-wifi module MAC Address : %X:%X:%X:%X:%X:%X\n",
+      LOG(("> eS-WiFi module MAC Address : %02X:%02X:%02X:%02X:%02X:%02X\n",
                MAC_Addr[0],
                MAC_Addr[1],
                MAC_Addr[2],

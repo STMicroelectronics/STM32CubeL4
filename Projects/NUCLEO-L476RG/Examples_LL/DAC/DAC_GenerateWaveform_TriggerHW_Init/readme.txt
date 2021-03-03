@@ -21,7 +21,7 @@
 @par Example Description
 
 How to use the DAC peripheral to generate a voltage waveform from a digital data
-stream transfered by DMA. This example is based on the STM32L4xx
+stream transferred by DMA. This example is based on the STM32L4xx
 DAC LL API. The peripheral initialization is done using LL initialization function
 to demonstrate LL init usage.
 

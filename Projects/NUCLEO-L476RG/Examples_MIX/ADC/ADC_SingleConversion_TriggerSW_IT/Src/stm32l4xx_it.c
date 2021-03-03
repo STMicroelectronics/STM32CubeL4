@@ -195,7 +195,7 @@ void ADC1_2_IRQHandler(void)
     LL_ADC_ClearFlag_EOC(ADCx);
     
     /* Clear flag ADC group regular end of sequence conversions */
-    /* Note: Clear this flag optionaly, this flag is set with end of          */
+    /* Note: Clear this flag optionally, this flag is set with end of          */
     /*       unitary conversion since there is only 1 rank in                 */
     /*       group regular sequencer.                                         */
     LL_ADC_ClearFlag_EOS(ADCx);

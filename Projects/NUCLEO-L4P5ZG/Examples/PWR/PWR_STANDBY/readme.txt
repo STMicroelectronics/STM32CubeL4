@@ -24,7 +24,7 @@ How to enter the Standby mode and wake up from this mode by using an external
 reset or the WKUP pin.
 
 In the associated software, the system clock is set to 120 MHz, an EXTI line
-is connected to the User push-button thru PC.13 and configured to generate an
+is connected to the User push-button through PC.13 and configured to generate an
 interrupt on falling edge.
 The SysTick is programmed to generate an interrupt each 1 ms and in the SysTick
 interrupt handler, LED1 is toggled in order to indicate whether the MCU is in Standby or Run mode.

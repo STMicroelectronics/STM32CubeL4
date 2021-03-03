@@ -15,6 +15,7 @@
 
 
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <link rel="File-List" href="Release_Notes_for_STM32F2xx_StdPeriph_Driver_files/filelist.xml">
 <link rel="Edit-Time-Data" href="Release_Notes_for_STM32F2xx_StdPeriph_Driver_files/editdata.mso"><!--[if !mso]>
@@ -923,7 +924,49 @@ ul
    <tbody><tr>
     <td style="padding: 0in;" valign="top">
     <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><a name="History"></a><span style="font-size: 12pt; color: white;">Update History</span></h2>
-            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.6.1 / 05-June-2020</span></h3>
+            
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.7.1 / 18-August-2020</span></h3>
+            <b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<br>
+</span></u></b>
+            <ul style="margin-top: 0cm;" type="square">
+<li>USB All Class:</li>
+              <ul>
+                <li>Add NULL pointer access check to Class handler<br>
+                </li>
+              </ul>
+            </ul>
+
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.7.0 / 12-August-2020</span></h3>
+<p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes</span></u></b></p><ul style="margin-top: 0cm;" type="square"><li>Integration of&nbsp; new USB device Class driver:</li><ul><li>USB video Class driver based on USB-IF video class definition version 1.1</li></ul></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <ul style="margin-top: 0cm;" type="square"><li>USB Core:</li><ul><li>Enhance NULL pointer check in Core APIs</li><li>Allow supporting both USER and USER Class string desc</li><li>Add support of USB controller which handles packet-size splitting by hardware</li><li>Avoid compilation warning due macro redefinition</li><li>change
+added to USBD_HandleTypeDef structure: dev_state, old_dev_state and
+ep0_state declaration become volatile to disable compiler optimization</li><li>Word spelling correction and file indentation improved</li><li>usbd_conf.h/c Template file updated to suggest using by default a static memory allocation for Class handler</li></ul></ul><ul style="margin-top: 0cm;" type="square"><li>USB All Classes</li><ul><li>Word spelling correction and file indentation improved</li><li>Allow updating device config descriptor Max power from user code usbd_conf.h using USBD_MAX_POWER define</li><li>Fix device config descriptor bmAttributes value which depends on user code define USBD_SELF_POWERED</li></ul></ul><ul style="margin-top: 0cm;" type="square"><li>USB CDC Class:</li><ul><li>Class specific request, add protection to limit the maximum data length to be sent by the CDC device</li></ul></ul><ul style="margin-top: 0cm;" type="square"><li>USB CustomHID Class:</li><ul><li>Allow changing CustomHID data EP size from user code </li></ul></ul>
+            <br><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.6.1 / 05-June-2020</span></h3>
 
 
             
@@ -996,7 +1039,7 @@ Changes</span></u></b><u><span style="font-size: 10pt; font-family: Verdana; col
             
             
             
-            <ul style="margin-top: 0cm;" type="square"><li>Integration of three new USB device Class drivers:</li><ul><li>USB CDC ECM Class driver</li><li>USB CDC RNDIS Microsoft Class driver</li><li>USB Billboard Class driver</li></ul><li>Fix mondatory misra-c 2012 violations</li><li>update user core and class template files</li><li>USB Core:</li><ul><li>Fix unexpected EP0 stall during enumeration phase&nbsp;</li><li>Improve APIs error&nbsp;management and prevent accessing NULL pointers</li></ul><li>USB MSC Class:</li><ul><li>Fix USBCV specific class tests</li><li>Fix multiple error with SCSI commands handling</li><li>Protect medium access when host ask for medium ejection</li></ul><li>USB CDC Class:</li><ul><li>Add new function to inform user that current IN transfer is completed</li><li>update transmit and receive APIs to transfer up to 64KB</li></ul></ul><ul style="margin-top: 0cm;" type="square"><li>USB AUDIO Class:</li><ul><li>Fix audio sync start buffer size</li><li>update user callback periodicTC args by adding pointer to user buffer and size</li></ul><li>USB CustomHID Class:</li><ul><li>Rework the OUT transfer complete and prevent automatically re-enabling the OUT EP&nbsp;</li><li>Add new user API to restart the OUT transfer: USBD_CUSTOM_HID_ReceivePacket()</li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.5.3 / 30-April-2019</span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+            <ul style="margin-top: 0cm;" type="square"><li>Integration of three new USB device Class drivers:</li><ul><li>USB CDC ECM Class driver</li><li>USB CDC RNDIS Microsoft Class driver</li><li>USB Billboard Class driver</li></ul><li>Fix mandatory misra-c 2012 violations</li><li>update user core and class template files</li><li>USB Core:</li><ul><li>Fix unexpected EP0 stall during enumeration phase&nbsp;</li><li>Improve APIs error&nbsp;management and prevent accessing NULL pointers</li></ul><li>USB MSC Class:</li><ul><li>Fix USBCV specific class tests</li><li>Fix multiple error with SCSI commands handling</li><li>Protect medium access when host ask for medium ejection</li></ul><li>USB CDC Class:</li><ul><li>Add new function to inform user that current IN transfer is completed</li><li>update transmit and receive APIs to transfer up to 64KB</li></ul></ul><ul style="margin-top: 0cm;" type="square"><li>USB AUDIO Class:</li><ul><li>Fix audio sync start buffer size</li><li>update user callback periodicTC args by adding pointer to user buffer and size</li></ul><li>USB CustomHID Class:</li><ul><li>Rework the OUT transfer complete and prevent automatically re-enabling the OUT EP&nbsp;</li><li>Add new user API to restart the OUT transfer: USBD_CUSTOM_HID_ReceivePacket()</li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.5.3 / 30-April-2019</span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
 Changes</span></u></b><u><span style="font-size: 10pt; font-family: Verdana; color: black;"><o:p></o:p></span></u></p>
 
 
@@ -1019,7 +1062,7 @@ Changes</span></u></b><u><span style="font-size: 10pt; font-family: Verdana; col
             
             
             
-            <ul style="margin-top: 0cm;" type="square"><li>Fix misra-c 2012 high severity violations</li><li>Core driver:</li><ul><li>protect shared macros __ALIGN_BEGIN, __ALIGN_END with C directive #ifndef</li><li>update Core driver and DFU Class driver to use&nbsp;USBD_SUPPORT_USER_STRING_DESC insead of &nbsp;USBD_SUPPORT_USER_STRING</li><li>&nbsp;prevent accessing to NULL pointer if the get descriptor functions are not defined</li><li>Update on USBD_LL_Resume(),&nbsp; restore the device state only if the current state is USBD_STATE_SUSPENDED </li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.5.2 / 27-Mars-2019</span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+            <ul style="margin-top: 0cm;" type="square"><li>Fix misra-c 2012 high severity violations</li><li>Core driver:</li><ul><li>protect shared macros __ALIGN_BEGIN, __ALIGN_END with C directive #ifndef</li><li>update Core driver and DFU Class driver to use&nbsp;USBD_SUPPORT_USER_STRING_DESC instead of &nbsp;USBD_SUPPORT_USER_STRING</li><li>&nbsp;prevent accessing to NULL pointer if the get descriptor functions are not defined</li><li>Update on USBD_LL_Resume(),&nbsp; restore the device state only if the current state is USBD_STATE_SUSPENDED </li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.5.2 / 27-Mars-2019</span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
 Changes</span></u></b><u><span style="font-size: 10pt; font-family: Verdana; color: black;"><o:p></o:p></span></u></p>
 
 

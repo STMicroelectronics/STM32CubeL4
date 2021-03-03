@@ -88,7 +88,7 @@ int main(void)
   while(endOfProcess != 1);
   endOfProcess = 0;
   
-  /* Retreive the result and output buffer */
+  /* Retrieve the result and output buffer */
   PKA_Memcpy_u32_to_u8(buffer, &PKA->RAM[PKA_MODULAR_EXP_OUT_SM_ALGO_ACC1], rsa_pub_2048_modulus_len / 4);
   
   /* Compare to expected results */
@@ -110,7 +110,7 @@ int main(void)
   while(endOfProcess != 1);
   endOfProcess = 0;
   
-  /* Retreive the result and output buffer */
+  /* Retrieve the result and output buffer */
   PKA_Memcpy_u32_to_u8(buffer, &PKA->RAM[PKA_MODULAR_EXP_OUT_SM_ALGO_ACC1], rsa_pub_2048_modulus_len / 4);
   
   /* Compare to expected results */

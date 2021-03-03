@@ -278,7 +278,7 @@ static void VL53L0X_PROXIMITY_MspInit(void)
 
 /**
   * @brief  Gets numeric values from the Hyperterminal.
-  * @param  Maximun value allowed (value)
+  * @param  Maximum value allowed (value)
   * @retval The character received
   */
 uint32_t Serial_Scanf(uint32_t value)

@@ -1215,7 +1215,7 @@ void BSP_LCD_ScreenDimmingOn(void)
 
 /**
   * @brief  LCD screen dimming disable
-  * @note   Screen brightness is immediatly set to its highest level
+  * @note   Screen brightness is immediately set to its highest level
   * @param  None
   * @retval None
   */

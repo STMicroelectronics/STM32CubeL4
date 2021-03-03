@@ -753,11 +753,6 @@
               <FilePath>../Src/main.c</FilePath>
             </File>
             <File>
-              <FileName>ospi_ram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/ospi_ram.c</FilePath>
-            </File>
-            <File>
               <FileName>touchscreen.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/touchscreen.c</FilePath>
@@ -857,11 +852,6 @@
         <Group>
           <GroupName>Drivers/BSP/STM32L4R9I_EVAL</GroupName>
           <Files>
-            <File>
-              <FileName>stm32l4r9i_eval_ospi_ram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../../../../../Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</FilePath>
-            </File>
             <File>
               <FileName>stm32l4r9i_eval_eeprom.c</FileName>
               <FileType>1</FileType>
@@ -1778,11 +1768,6 @@
               <FilePath>../Src/main.c</FilePath>
             </File>
             <File>
-              <FileName>ospi_ram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Src/ospi_ram.c</FilePath>
-            </File>
-            <File>
               <FileName>touchscreen.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/touchscreen.c</FilePath>
@@ -1882,11 +1867,6 @@
         <Group>
           <GroupName>Drivers/BSP/STM32L4R9I_EVAL</GroupName>
           <Files>
-            <File>
-              <FileName>stm32l4r9i_eval_ospi_ram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../../../../../Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</FilePath>
-            </File>
             <File>
               <FileName>stm32l4r9i_eval_eeprom.c</FileName>
               <FileType>1</FileType>

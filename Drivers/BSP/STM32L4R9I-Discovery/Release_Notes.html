@@ -11,24 +11,22 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="_htmresc/mini-st.css" />
+  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <link rel="icon" type="image/x-icon" href="_htmresc/favicon.png" />
 </head>
 <body>
 <div class="row">
 <div class="col-sm-12 col-lg-4">
-<div class="card fluid">
-<div class="sectione dark">
 <center>
-<h1 id="release-notes-for-32l4r9idiscovery-board-drivers"><small>Release Notes for</small> <mark>32L4R9IDISCOVERY Board Drivers</mark></h1>
+<h1 id="release-notes-for">Release Notes for</h1>
+<h1 id="l4r9idiscovery-board-drivers"><mark>32L4R9IDISCOVERY Board Drivers</mark></h1>
 <p>Copyright © 2017 STMicroelectronics<br />
 </p>
-<a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo.png" alt="ST logo" /></a>
+<a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo_2020.png" alt="ST logo" /></a>
 </center>
-</div>
-</div>
 <h1 id="license">License</h1>
 <p>Licensed by ST under BSD 3-Clause license (the "License"). You may not use this package except in compliance with the License. You may obtain a copy of the License at:</p>
 <p><a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a></p>
@@ -38,9 +36,27 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section21" checked aria-hidden="true"> <label for="collapse-section21" aria-hidden="true">V1.1.0 / 26-June-2020</label>
+<input type="checkbox" id="collapse-section22" checked aria-hidden="true"> <label for="collapse-section22" aria-hidden="true">V1.1.1 / 11-February-2021</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>Add new example for DCMI continuous capture with DMA transfer size larger than DMA maximum limit (65535)
+<ul>
+<li>/32L4R9IDISCOVERY/Examples/DCMI/DCMI_CaptureMode</li>
+<li>The example can be run on STM32LR49I Discovery board with 1.2" 390x390 pixel AMOLED round display connected to CN4 and DM-CAM130 camera connected to CN2</li>
+</ul></li>
+<li>Minor update of Release Notes template</li>
+<li>Add License.md file for GitHub publication</li>
+<li>Add missing configuration of GPIO used for DCMI_D6 in <em>BSP_CAMERA_MspInit function()</em></li>
+<li>Add missing configuration of MFX_GPIO12 used for DCMI_PWR_EN signal in <em>BSP_CAMERA_Init function()</em></li>
+<li>Fix typo in <em>BSP_IDD_GetValue()</em> function where IDD_AMP_CONTROL_PIN has to be SET</li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section21" aria-hidden="true"> <label for="collapse-section21" aria-hidden="true">V1.1.0 / 26-June-2020</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <ul>
 <li>Update of 32L4R9IDISCOVERY board driver following the update of HAL OSPI driver for STM32L4+ devices
 <ul>
@@ -54,7 +70,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.3 / 18-October-2019</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li>Minor update in release notes format</li>
 </ul>
@@ -63,7 +79,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.0.2 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <ul>
 <li>stm32l4r9i_discovery.c
 <ul>
@@ -75,7 +91,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.0.1 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <ul>
 <li>Release notes update to new format</li>
 </ul>
@@ -84,7 +100,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.0.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <ul>
 <li>First official release of <strong>STM32L4R9I-Discovery</strong> board drivers for STM32Cube L4 FW package</li>
 </ul>

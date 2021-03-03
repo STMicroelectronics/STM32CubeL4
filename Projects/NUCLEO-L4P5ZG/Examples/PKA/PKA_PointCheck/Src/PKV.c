@@ -62,5 +62,5 @@ const uint8_t PKV2_Qy[] = {
 };
 const uint32_t PKV2_Qy_len = 32;
 
-const uint32_t PKV2_Result = RESET; /* PKV.rsp mentions "F (2 - Point not on curve)" result, PKA returns 1 in this case (Only different from 0 is meaningfull) */
+const uint32_t PKV2_Result = RESET; /* PKV.rsp mentions "F (2 - Point not on curve)" result, PKA returns 1 in this case (Only different from 0 is meaningful) */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

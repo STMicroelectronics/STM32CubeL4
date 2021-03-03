@@ -23,7 +23,7 @@
 How to enter SMPS Standby mode and wake up from this mode using the wake-up pin.
 
 In the associated software, the system clock is set to 80 MHz, an EXTI line
-is connected to the user button thru PC.13 and configured to generate an 
+is connected to the user button through PC.13 and configured to generate an 
 interrupt on falling edge upon key press.
 
 After start-up, 
@@ -35,7 +35,7 @@ After start-up,
   
 3) The MCU waits for 5 seconds before entering Standby mode.
 
-4) The sytem stays in Standby mode until the user presses the User Button.
+4) The system stays in Standby mode until the user presses the User Button.
 
 5) Coming back from Standby mode, the MCU runs at 4 MHz, Voltage Scale Range 1. It
    moves to RUN mode at 80 MHz with external SMPS on, voltage scaling Range 2.

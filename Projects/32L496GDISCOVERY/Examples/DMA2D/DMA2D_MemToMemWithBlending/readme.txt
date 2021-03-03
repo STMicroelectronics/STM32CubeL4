@@ -50,7 +50,7 @@
   operation between background and foreground.
  
   The blending result of the foreground and background is shown on the LCD panel
-  thru a DMA2D-based transfer of the resulting image to the LCD. 
+  through a DMA2D-based transfer of the resulting image to the LCD. 
   
   This process is repeated in an infinite loop where the foreground and background
   transparency values are respectively increased then decreased so that each image 

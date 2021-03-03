@@ -24,7 +24,7 @@ How to enter the Low-power sleep mode and wake up from this mode by using
 an interrupt.
 
 In the associated software, the system clock is set to 32 MHz.
-An EXTI line is connected to the user button thru PC.13 and configured 
+An EXTI line is connected to the user button through PC.13 and configured 
 to generate an interrupt on falling edge upon key press.
  
 The SysTick is programmed to generate an interrupt each 1 ms and in the SysTick 

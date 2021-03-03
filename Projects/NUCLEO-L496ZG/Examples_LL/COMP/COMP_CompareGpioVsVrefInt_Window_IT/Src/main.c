@@ -54,8 +54,8 @@
   /* for min/typ/max values).                                                 */
   /* (unit: mV).                                                              */
   #define VREFINT                          ((uint32_t)1220)
-  #define COMP_WINDOW_THRESHOLD_HIGH       (VREFINT)        /* COMP1 input plus is selected to VrefInt in this exemple */
-  #define COMP_WINDOW_THRESHOLD_LOW        (VREFINT /2)     /* COMP2 input plus is selected to 1/2 VrefInt in this exemple */
+  #define COMP_WINDOW_THRESHOLD_HIGH       (VREFINT)        /* COMP1 input plus is selected to VrefInt in this example */
+  #define COMP_WINDOW_THRESHOLD_LOW        (VREFINT /2)     /* COMP2 input plus is selected to 1/2 VrefInt in this example */
   
 /* Definitions of data related to this example */
   /* Full-scale digital value with a resolution of 12 bits (voltage range     */

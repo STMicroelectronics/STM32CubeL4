@@ -1,164 +1,0 @@
-Dependencies for Project 'Project', Target 'STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation': (DO NOT MODIFY !)
-F (../Src/ciphertext.bin)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\ciphertext.o --omf_browse stm32l4p5zg_nucleo_144\exe\ciphertext.crf --depend stm32l4p5zg_nucleo_144\exe\ciphertext.d)
-F (../Src/plaintext.bin)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\plaintext.o --omf_browse stm32l4p5zg_nucleo_144\exe\plaintext.crf --depend stm32l4p5zg_nucleo_144\exe\plaintext.d)
-F (../readme.txt)(0x5DCDB582)()
-F (../Src/rsa_priv_2048.pem)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\rsa_priv_2048.o --omf_browse stm32l4p5zg_nucleo_144\exe\rsa_priv_2048.crf --depend stm32l4p5zg_nucleo_144\exe\rsa_priv_2048.d)
-F (../Src/rsa_pub_2048.pem)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\rsa_pub_2048.o --omf_browse stm32l4p5zg_nucleo_144\exe\rsa_pub_2048.crf --depend stm32l4p5zg_nucleo_144\exe\rsa_pub_2048.d)
-F (../Src/system_stm32l4xx.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\system_stm32l4xx.o --omf_browse stm32l4p5zg_nucleo_144\exe\system_stm32l4xx.crf --depend stm32l4p5zg_nucleo_144\exe\system_stm32l4xx.d)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-F (../../../../../../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_utils.c)(0x5DB2C955)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\stm32l4xx_ll_utils.o --omf_browse stm32l4p5zg_nucleo_144\exe\stm32l4xx_ll_utils.crf --depend stm32l4p5zg_nucleo_144\exe\stm32l4xx_ll_utils.d)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-F (startup_stm32l4q5xx.s)(0x5DB2E8BC)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "stm32l4q5xx SETA 1"--list startup_stm32l4q5xx.lst --xref -o stm32l4p5zg_nucleo_144\exe\startup_stm32l4q5xx.o --depend stm32l4p5zg_nucleo_144\exe\startup_stm32l4q5xx.d)
-F (../Src/ciphertext.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\ciphertext_1.o --omf_browse stm32l4p5zg_nucleo_144\exe\ciphertext_1.crf --depend stm32l4p5zg_nucleo_144\exe\ciphertext_1.d)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)
-F (../Src/main.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\main.o --omf_browse stm32l4p5zg_nucleo_144\exe\main.crf --depend stm32l4p5zg_nucleo_144\exe\main.d)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)
-F (../Src/plaintext.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\plaintext_1.o --omf_browse stm32l4p5zg_nucleo_144\exe\plaintext_1.crf --depend stm32l4p5zg_nucleo_144\exe\plaintext_1.d)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)
-F (../Src/rsa_priv_2048.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\rsa_priv_2048_1.o --omf_browse stm32l4p5zg_nucleo_144\exe\rsa_priv_2048_1.crf --depend stm32l4p5zg_nucleo_144\exe\rsa_priv_2048_1.d)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)
-F (../Src/rsa_pub_2048.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\rsa_pub_2048_1.o --omf_browse stm32l4p5zg_nucleo_144\exe\rsa_pub_2048_1.crf --depend stm32l4p5zg_nucleo_144\exe\rsa_pub_2048_1.d)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)
-F (../Src/stm32l4xx_it.c)(0x5DB2C804)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../../../../../../Drivers/CMSIS/Include -I ../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I ../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc-I.\RTE\_STM32L4P5ZG_NUCLEO_144_PKA_ModularExponentiation-IC:\Users\smatia\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\smatia\AppData\Local\Arm\Packs\Keil\STM32L4P5xx_DFP\1.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -Dstm32l4q5xx -DSTM32L4Q5xx -DUSE_STM32L4XX_NUCLEO_144-o stm32l4p5zg_nucleo_144\exe\stm32l4xx_it.o --omf_browse stm32l4p5zg_nucleo_144\exe\stm32l4xx_it.crf --depend stm32l4p5zg_nucleo_144\exe\stm32l4xx_it.d)
-I (../Inc/stm32l4xx_it.h)(0x5DB2C804)
-I (../Inc/main.h)(0x5DB2C804)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_bus.h)(0x5DB2C926)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4q5xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/CMSIS/Include/core_cm4.h)(0x5DB2C896)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_version.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Include/mpu_armv7.h)(0x5DB2C896)
-I (../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h)(0x5DB2C8B0)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_rcc.h)(0x5DB2C926)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_system.h)(0x5DB2C8FB)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_utils.h)(0x5DB2C955)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_gpio.h)(0x5DB2C900)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pka.h)(0x5DB2C91C)
-I (../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_pwr.h)(0x5DB2C922)
-I (../Inc/rsa_priv_2048.h)(0x5DB2C804)
-I (../Inc/rsa_pub_2048.h)(0x5DB2C804)
-I (../Inc/plaintext.h)(0x5DB2C804)
-I (../Inc/ciphertext.h)(0x5DB2C804)

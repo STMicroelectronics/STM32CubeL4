@@ -60,7 +60,7 @@
 
 
 /* Definitions of example options */
-#define OPTION_PWR_OPTIM_BUFFER_PROCESSING            /* Process DMA buffer when completed half by half (triggered by DMA half transfer and transfer complete interruptions): will sligthly increase CPU activity (and therefore power consumption). */
+#define OPTION_PWR_OPTIM_BUFFER_PROCESSING            /* Process DMA buffer when completed half by half (triggered by DMA half transfer and transfer complete interruptions): will slightly increase CPU activity (and therefore power consumption). */
 #define OPTION_PWR_OPTIM_ADC_DISABLE                  /* Set ADC in the deepest low-power mode possible in idle phases (between ADC conversions). Relevant for ADC conversion triggers at low frequency: less ADC idle current consumption, but more CPU activity to manage ADC activation. */
 //#define OPTION_MONITOR_CPU_ACTIVITY                   /* Monitor CPU activity: when CPU is active, turn LED on. This induces extra power consumption. To be used for debug. */
 //#define OPTION_THRESHOLD_DEBUG                        /* Monitor converted values: when value is higher than 2048, turn LED on. This induces extra power consumption. To be used for debug. */

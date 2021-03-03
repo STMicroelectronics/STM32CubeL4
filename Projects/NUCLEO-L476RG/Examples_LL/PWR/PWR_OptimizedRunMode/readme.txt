@@ -30,7 +30,7 @@ interrupt on falling edge upon key press.
 After start-up LED2 is toggling FAST(100-ms blinking period), indicates that device 
 is running at 80MHZ.
 
-LED toggling speed is controled by variable "uhLedBlinkSpeed".
+LED toggling speed is controlled by variable "uhLedBlinkSpeed".
 
 The User push-button can be pressed at any time to change Frequency, VCore(VOS) 
 and Low Power Run mode. 

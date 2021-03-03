@@ -270,7 +270,7 @@ static void ADC_Config(void)
   AdcHandle.Init.ExternalTrigConv      = ADC_EXTERNALTRIGCONV_Tx_TRGO;  /* Trig of conversion start done by external event */
   AdcHandle.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_RISING;
   AdcHandle.Init.DMAContinuousRequests = ENABLE;
-  AdcHandle.Init.Overrun               = ADC_OVR_DATA_PRESERVED;        /* Overrun set to data preserved to trig overrun event as an error in this exemple */
+  AdcHandle.Init.Overrun               = ADC_OVR_DATA_PRESERVED;        /* Overrun set to data preserved to trig overrun event as an error in this example */
   AdcHandle.Init.OversamplingMode      = DISABLE;                       /* No oversampling */
 
   if (HAL_ADC_Init(&AdcHandle) != HAL_OK)

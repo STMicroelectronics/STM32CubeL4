@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    clock_faces_res.h
   * @author  MCD Application Team
-  * @brief   clock faces ressources
+  * @brief   clock faces resources
   ******************************************************************************
   * @attention
   *

@@ -141,7 +141,7 @@ int main(void)
   {
     if(pending_buffer == 0)
     {
-      /* Successfull display */
+      /* Successful display */
       BSP_LED_On(LED2);
 
       pending_buffer = -1;
@@ -283,7 +283,7 @@ static uint8_t LCD_Config(void)
   LayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_PAxCA; /* Not Used: default value */
   LayerCfg.FBStartAdress   = LAYER_ADDRESS;
   LayerCfg.ImageWidth      = 1024; /* virtual frame buffer contains 768 pixels per line for 24bpp */
-                                   /* (192 blocs * 16) / (24bpp/3) = 1024 pixels per ligne        */
+                                   /* (192 blocks * 16) / (24bpp/3) = 1024 pixels per ligne        */
   LayerCfg.ImageHeight     = 390;
   LayerCfg.Backcolor.Red   = 0; /* Not Used: default value */
   LayerCfg.Backcolor.Green = 0; /* Not Used: default value */
@@ -303,7 +303,7 @@ static uint8_t LCD_Config(void)
   DsiHandle.Instance = DSI;
   DsiHandle.Init.AutomaticClockLaneControl = DSI_AUTO_CLK_LANE_CTRL_DISABLE;
   /* We have 1 data lane at 500Mbps => lane byte clock at 500/8 = 62,5 MHZ */
-  /* We want TX escape clock at arround 20MHz and under 20MHz so clock division is set to 4 */
+  /* We want TX escape clock at around 20MHz and under 20MHz so clock division is set to 4 */
   DsiHandle.Init.TXEscapeCkdiv             = 4;
   DsiHandle.Init.NumberOfLanes             = DSI_ONE_DATA_LANE;
   /* We have HSE value at 16 Mhz and we want data lane at 500Mbps */
@@ -391,7 +391,7 @@ static uint8_t LCD_Config(void)
   /* Step 1 */
   /* Go to command 2 */
   HAL_DSI_ShortWrite(&DsiHandle, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0xFE, 0x01);
-  /* IC Frame rate control, set power, sw mapping, mux swithc timing command */
+  /* IC Frame rate control, set power, sw mapping, mux switch timing command */
   HAL_DSI_ShortWrite(&DsiHandle, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x06, 0x62);
   HAL_DSI_ShortWrite(&DsiHandle, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0E, 0x80);
   HAL_DSI_ShortWrite(&DsiHandle, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0F, 0x80);
@@ -601,7 +601,7 @@ static void LCD_PowerOn(void)
   /* Configure the GPIO connected to DSI_RESET signal */
   BSP_IO_ConfigPin(IO_PIN_10, IO_MODE_OUTPUT);
 
-  /* Desactivate DSI_RESET */
+  /* Deactivate DSI_RESET */
   BSP_IO_WritePin(IO_PIN_10, GPIO_PIN_SET);
 
   /* Wait reset complete time (maximum time is 5ms when LCD in sleep mode and 120ms when LCD is not in sleep mode) */

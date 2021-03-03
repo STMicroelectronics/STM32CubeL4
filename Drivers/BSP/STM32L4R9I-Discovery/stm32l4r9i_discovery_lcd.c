@@ -288,7 +288,7 @@ uint8_t BSP_LCD_Init(void)
     __HAL_DSI_RESET_HANDLE_STATE(&hdsi_discovery);
     hdsi_discovery.Init.AutomaticClockLaneControl = DSI_AUTO_CLK_LANE_CTRL_DISABLE;
     /* We have 1 data lane at 500Mbps => lane byte clock at 500/8 = 62,5 MHZ */
-    /* We want TX escape clock at arround 20MHz and under 20MHz so clock division is set to 4 */
+    /* We want TX escape clock at around 20MHz and under 20MHz so clock division is set to 4 */
     hdsi_discovery.Init.TXEscapeCkdiv             = 4;
     hdsi_discovery.Init.NumberOfLanes             = DSI_ONE_DATA_LANE;
     /* We have HSE value at 16 Mhz and we want data lane at 500Mbps */
@@ -376,7 +376,7 @@ uint8_t BSP_LCD_Init(void)
     /* Step 1 */
     /* Go to command 2 */
     HAL_DSI_ShortWrite(&hdsi_discovery, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0xFE, 0x01);
-    /* IC Frame rate control, set power, sw mapping, mux swithc timing command */
+    /* IC Frame rate control, set power, sw mapping, mux switch timing command */
     HAL_DSI_ShortWrite(&hdsi_discovery, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x06, 0x62);
     HAL_DSI_ShortWrite(&hdsi_discovery, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0E, 0x80);
     HAL_DSI_ShortWrite(&hdsi_discovery, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0F, 0x80);
@@ -645,7 +645,7 @@ uint32_t BSP_LCD_GetYSize(void)
 /**
   * @brief  Selects the LCD Layer.
   * @param  LayerIndex: Layer foreground (1) or background (0)
-  * @note : Only backgroung layer can be used.
+  * @note : Only background layer can be used.
   * @retval LCD state
   */
 uint8_t BSP_LCD_SelectLayer(uint32_t LayerIndex)
@@ -670,7 +670,7 @@ uint8_t BSP_LCD_SelectLayer(uint32_t LayerIndex)
   *          This parameter can be one of the following values:
   *            @arg  ENABLE
   *            @arg  DISABLE
-  * @note : Only backgroung layer can be used.
+  * @note : Only background layer can be used.
   * @retval LCD state
   */
 uint8_t BSP_LCD_SetLayerVisible(uint32_t LayerIndex, FunctionalState State)
@@ -701,7 +701,7 @@ uint8_t BSP_LCD_SetLayerVisible(uint32_t LayerIndex, FunctionalState State)
   * @param  LayerIndex: Layer foreground or background.
   * @param  Transparency: Transparency
   *           This parameter must be a number between Min_Data = 0x00 and Max_Data = 0xFF
-  * @note : Only backgroung layer can be used.
+  * @note : Only background layer can be used.
   * @retval LCD state
   */
 uint8_t BSP_LCD_SetTransparency(uint32_t LayerIndex, uint8_t Transparency)
@@ -723,7 +723,7 @@ uint8_t BSP_LCD_SetTransparency(uint32_t LayerIndex, uint8_t Transparency)
   * @brief  Configures and sets the color keying.
   * @param  LayerIndex: Layer foreground (1) or background (0)
   * @param  RGBValue: Color reference
-  * @note : Only backgroung layer can be used.
+  * @note : Only background layer can be used.
   * @retval LCD state
   */
 uint8_t BSP_LCD_SetColorKeying(uint32_t LayerIndex, uint32_t RGBValue)
@@ -746,7 +746,7 @@ uint8_t BSP_LCD_SetColorKeying(uint32_t LayerIndex, uint32_t RGBValue)
 /**
   * @brief  Disables the color keying.
   * @param  LayerIndex: Layer foreground (1) or background (0)
-  * @note : Only backgroung layer can be used.
+  * @note : Only background layer can be used.
   * @retval LCD state
   */
 uint8_t BSP_LCD_ResetColorKeying(uint32_t LayerIndex)
@@ -1742,13 +1742,13 @@ static void LCD_PowerOn(void)
   }
 
 #if defined(USE_STM32L4R9I_DISCO_REVA) || defined(USE_STM32L4R9I_DISCO_REVB)
-  /* Desactivate DSI_RESET */
+  /* Deactivate DSI_RESET */
   BSP_IO_WritePin(IO_PIN_10, GPIO_PIN_SET);
 #else /* USE_STM32L4R9I_DISCO_REVA || USE_STM32L4R9I_DISCO_REVB */
   /* Configure the GPIO connected to DSI_RESET signal */
   BSP_IO_ConfigPin(IO_PIN_10, IO_MODE_OUTPUT);
 
-  /* Desactivate DSI_RESET */
+  /* Deactivate DSI_RESET */
   BSP_IO_WritePin(IO_PIN_10, GPIO_PIN_SET);
 #endif /* USE_STM32L4R9I_DISCO_REVA || USE_STM32L4R9I_DISCO_REVB */
 

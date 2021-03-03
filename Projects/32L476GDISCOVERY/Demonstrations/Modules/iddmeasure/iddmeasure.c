@@ -127,7 +127,7 @@ KMODULE_RETURN IddMeasureInit(void)
   /* read IDD backup data to check is we return from Idd measurement test */
   SystemBackupRead(BACKUP_IDD, (void *)&IddBackup);
   
-  /* Initialize Idd measurment component */
+  /* Initialize Idd measurement component */
   if(IddInitialized != SET)
   {
     if(BSP_IDD_Init() != IDD_OK)
@@ -319,7 +319,7 @@ IDD_StatusTypeDef IddMeasureGetAndDisplayValue(void)
       /* Convert Idd value in order to display it on LCD glass */
       Idd_Convert(IddReadValue, datatodisplay);
 
-      /* display mesure */
+      /* display measure */
       BSP_LCD_GLASS_DisplayStrDeci(datatodisplay);
 
       /* reset display buffer */

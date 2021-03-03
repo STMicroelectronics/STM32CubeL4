@@ -292,7 +292,7 @@ static void DAC_Config(void)
     Error_Handler();
   }
 
-  /*##-2- Enable DAC Channel and associeted DMA ##############################*/
+  /*##-2- Enable DAC Channel and associated DMA ##############################*/
   if(HAL_DAC_Start_DMA(&DacHandle, DACx_CHANNELa, (uint32_t*)Sine12bit, 
                        sizeof (Sine12bit) / sizeof (uint32_t), 
                        DAC_ALIGN_12B_R) != HAL_OK)

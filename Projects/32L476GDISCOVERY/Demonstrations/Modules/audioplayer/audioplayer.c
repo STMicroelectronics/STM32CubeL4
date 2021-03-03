@@ -110,7 +110,7 @@ typedef enum {
 
 /* Audio player context information */
 typedef struct {
-  uint16_t                  buffer[AUDIO_BUFFER_SIZE/2];  // Buffer containig the PCM samples to play  
+  uint16_t                  buffer[AUDIO_BUFFER_SIZE/2];  // Buffer containing the PCM samples to play  
   uint32_t                  volume;                       // Actual volume level
   AudioPlayer_StateTypeDef  state;                        // Actual audio player status
   uint32_t                  NbAudioSources;               // Number of audio sources
@@ -688,7 +688,7 @@ static uint8_t PlaylistInit(void)
       hAudioPlayer.NbAudioSources++;
     }
     
-    /* Retreive WAV header from quad SPI flash */
+    /* Retrieve WAV header from quad SPI flash */
     if(BSP_QSPI_Read((uint8_t*)&hAudioPlayer.WavHeader[AUDIO_SOURCE_QSPI],
                      0,
                      WAV_HEADER_SIZE) != QSPI_OK)
@@ -867,7 +867,7 @@ static uint8_t IsValidWAVHeader(WAV_HeaderTypeDef* WAV_header)
   * @param  buff: Pointer to data buffer
   * @param  btr: Number of bytes to read
   * @param  br: Pointer to number of bytes read
-  * @retval 0 if the read operation is successfull, 1 otherwise
+  * @retval 0 if the read operation is successful, 1 otherwise
   */
 static uint8_t ReadAudio(uint16_t* buff, 
                          uint32_t btr, 

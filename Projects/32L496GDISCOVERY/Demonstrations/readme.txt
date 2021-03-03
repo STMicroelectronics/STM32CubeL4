@@ -43,8 +43,8 @@ For the demo to run as expected, this SD card contains the following folders and
            - NoCover
            - Rock
         * Video folder: video file used by the demonstration
-        * EWIZ_flash.bin: binary used by Embedded Wizzard graphic demonstration
-        * EWIZ_ressources.bin: graphic resources used by Embedded Wizzard  graphic demonstration
+        * EWIZ_flash.bin: binary used by Embedded Wizard graphic demonstration
+        * EWIZ_ressources.bin: graphic resources used by Embedded Wizard  graphic demonstration
         * TGFX_Full_flash.bin: binary used by TouchGFX graphic full demonstration
         * TGFX_Full_resources.bin: graphic resources used by TouchGFX graphic full demonstration
         * TGFX_Lite_flash.bin: binary used by TouchGFX graphic reduced demonstration
@@ -85,14 +85,14 @@ Below you find an overview of the different modules offered in the demonstration
  - STemWin graphic demonstration
  - TouchGFX graphic (reduced) demonstration
  - TouchGFX graphic full demonstration
- - Embedded Wizzard graphic demonstration
+ - Embedded Wizard graphic demonstration
 
 @note When the demonstration is launched for the very first time, the touchscreen
 needs to be calibrated. To calibrate again the Touchscreen, user needs to press
 the joystick SEL button while powering on the board or during a software reset
 (e.g., during a RESET button press).
 
-Upon STemWin, TouchGFX (reduced) or Embedded Wizzard demonstration icon press, the
+Upon STemWin, TouchGFX (reduced) or Embedded Wizard demonstration icon press, the
 demonstration starts.
 Upon TouchGFX full demonstation icon press, the relevant graphic resources and binary
 are downloaded from the SD card to the Quad-SPI external Flash and when the copy is over
@@ -126,8 +126,8 @@ Upon STemWin demonstration pick up, the following icons show up:
 
  + Audio recorder
  ----------------
- This module allows to record the user either thru the headset microphone
- or thru the board microphones.
+ This module allows to record the user either through the headset microphone
+ or through the board microphones.
 
  + USB device
  -----------
@@ -138,7 +138,7 @@ Upon STemWin demonstration pick up, the following icons show up:
 
  + Power measurements
  -------------------------
- This module provides the MCU power consumption in various measurements. Scroll thru
+ This module provides the MCU power consumption in various measurements. Scroll through
  the various proposed low power modes. Measures start when user presses "activate" button.
  The screen is shut down (except in Run mode) and the measurement result is reported in
  about four seconds.
@@ -160,14 +160,14 @@ Upon STemWin demonstration pick up, the following icons show up:
 
  + 'Return' icon
  -------------------------
- Pressing this icon allows to immediatly come back to the initial menu.
+ Pressing this icon allows to immediately come back to the initial menu.
 
 
 
-Embedded Wizzard
+Embedded Wizard
 =================
 
-Upon Embedded Wizzard demonstration pick up, the following icons show up:
+Upon Embedded Wizard demonstration pick up, the following icons show up:
 
   - Running
   - Watch
@@ -186,11 +186,11 @@ Upon Embedded Wizzard demonstration pick up, the following icons show up:
 
  + Info
  -------------------------
- This module yields several information on Embedded Wizzard experience.
+ This module yields several information on Embedded Wizard experience.
 
  + 'Back' icon
  -------------------------
- Pressing this icon allows to immediatly come back to the initial menu.
+ Pressing this icon allows to immediately come back to the initial menu.
 
 
 
@@ -225,7 +225,7 @@ running, more different watch displays, more activity monitoring sub menus...)
 
  + 'Back' icon
  -------------------------
- Pressing this icon allows to immediatly come back to the initial menu.
+ Pressing this icon allows to immediately come back to the initial menu.
 
 
 For more details about the demonstration modules please refer to UM2145 "STM32CubeL4

@@ -292,7 +292,7 @@ int main(void)
   */ 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  /* IT comming from MFX */
+  /* IT coming from MFX */
   if(GPIO_Pin == MFX_INT_PIN) 
   {
     
@@ -326,7 +326,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     osMessagePut (MfxEvent, MFX_INTERRUPT_EVENT, 0);
   }
   }
-  /* IT comming from TS */
+  /* IT coming from TS */
   if(GPIO_Pin == TS_INT_PIN) 
   {
 #if defined(DIM_FEATURE_ENABLED)

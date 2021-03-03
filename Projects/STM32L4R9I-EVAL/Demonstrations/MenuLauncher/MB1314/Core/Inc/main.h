@@ -35,7 +35,6 @@
 #include "stm32l4r9i_eval_ts.h"
 #include "stm32l4r9i_eval_sram.h"
 #include "stm32l4r9i_eval_ospi_nor.h"
-#include "stm32l4r9i_eval_ospi_ram.h"
 #include "stm32l4r9i_eval_idd.h"
 #include "stm32l4r9i_eval_sd.h"
 #include "stm32l4r9i_eval_audio.h"

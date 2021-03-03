@@ -2178,7 +2178,7 @@
     <group>
         <name>Doc</name>
         <file>
-            <name>$PROJ_DIR$\..\readme.txt</name>
+            <name>$PROJ_DIR$\..\..\readme.txt</name>
         </file>
     </group>
     <group>
@@ -2995,13 +2995,6 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Gui\Target\LCDConf.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\Gui\Target\LCDConf_bba.c</name>
-                    <excluded>
-                        <configuration>MenuLauncher-STM32L4R9I-EVAL_MB1315</configuration>
-                        <configuration>MenuLauncher-STM32L4R9I-EVAL_MB1315_OoB</configuration>
-                    </excluded>
                 </file>
             </group>
         </group>

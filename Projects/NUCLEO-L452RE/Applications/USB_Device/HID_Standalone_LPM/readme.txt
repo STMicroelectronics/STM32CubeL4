@@ -43,7 +43,7 @@ On Host L1 resume, STM32 will wakeup from STOP and USB resumes operations.
 You can test L1 suspend/resume, by running the USBCV3.0 chapter9 for USB2.0 devices 
 and select (in debug mode) test "TD9.21: LPM L1 Suspend Resume Test".
 Please note that for running USBCV3.0, you'll need a PC with a USB3.0 (xHCI)
-host controller (please refer to USBCV3.0 documentation for more informations).
+host controller (please refer to USBCV3.0 documentation for more information).
 
 You can find in folder \Projects\USBCV3.0 , the full USBCV3.0 chapter9
 test report.

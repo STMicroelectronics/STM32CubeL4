@@ -41,7 +41,7 @@ the PLL with MSI as clock source.
 
 Example execution:
    - 1st execution of the system, LED4 is quickly blinking (every 200ms).
-   - RTC wakup timer is configured to 5 seconds
+   - RTC wakeup timer is configured to 5 seconds
    - Press the User push-button:
      * System enters in standby mode (LED4 is switched off)
    - After 5 seconds, system resumes from standby mode, then LED4 is slowly blinking (every 500ms).

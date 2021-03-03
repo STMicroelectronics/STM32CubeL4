@@ -303,7 +303,7 @@ uint8_t BSP_AUDIO_OUT_Init(uint16_t OutputDevice,
     return AUDIO_ERROR;
   }
 
-  /* Retieve audio codec identifier */
+  /* Retrieve audio codec identifier */
   if (cs43l22_drv.ReadID(AUDIO_I2C_ADDRESS) != CS43L22_ID)
   {
     return AUDIO_ERROR;

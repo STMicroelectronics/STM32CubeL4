@@ -24,7 +24,7 @@ How to enter the Shutdown mode and wake up from this mode by using an external
 reset or the WKUP pin.
 
 In the associated software, the system clock is set to 80 MHz, an EXTI line
-is connected to the user button thru PC.13 and configured to generate an 
+is connected to the user button through PC.13 and configured to generate an 
 interrupt on falling edge.
 The SysTick is programmed to generate an interrupt each 1 ms and in the SysTick 
 interrupt handler, LED2 is toggled in order to indicate whether the MCU is in SHUTDOWN or RUN mode.
@@ -40,7 +40,7 @@ A falling edge on the wake-up pin wakes-up the system from SHUTDOWN.
 Alternatively, an external RESET of the board leads to a system wake-up as well.
 
 After wake-up from SHUTDOWN mode, program execution restarts from the beginning.
-Exit from SHUTDOWN is detected thru a flag set in an RTC back-up register; in
+Exit from SHUTDOWN is detected through a flag set in an RTC back-up register; in
 such a case, LED2 is kept on for about 4 sec. before toggling again.
 
 USer can re-enter SHUTDOWN in pressing again the User push-button.

@@ -160,18 +160,6 @@ void k_BspInit(void)
   /* Init Wakeup/Tamper push-button in GPIO Mode */
   BSP_PB_Init(BUTTON_WAKEUP, BUTTON_MODE_EXTI);
 
-#if USE_OSPI_RAM == 1
-  /* Initializes the OctoSPI RAM interface */
-  if(BSP_OSPI_RAM_Init() != OSPI_RAM_OK)
-  {
-    return;
-  }
-  if(BSP_OSPI_RAM_EnableMemoryMappedMode() != OSPI_RAM_OK)
-  {
-    return;
-  }
-#endif /* USE_OSPI_RAM */
-
 #if USE_OSPI_NOR == 1
   /* Initializes the OctoSPI NOR interface */
   if(BSP_OSPI_NOR_Init() != OSPI_NOR_OK)

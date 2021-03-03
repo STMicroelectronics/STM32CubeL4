@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    DCMI/DCMI_CaptureMode/Src/main.c
   * @author  MCD Application Team
-  * @brief   This example discribe how to configure the camera in continuous mode
+  * @brief   This example describe how to configure the camera in continuous mode
   *          and QVGA resolution and to freeze/unfreeze the capture.
   ******************************************************************************
   * @attention
@@ -127,7 +127,7 @@ void BSP_CAMERA_FrameEventCallback(void)
   /* Fully fill the LCD screen */
   LCD_ImagePreparation(0, 0, ST7789H2_LCD_PIXEL_WIDTH, ST7789H2_LCD_PIXEL_HEIGHT);
   
-  /* Write data (thru DMA2D) */
+  /* Write data (through DMA2D) */
   hal_status = LCD_Write((uint32_t) (&pBuffer), (uint32_t)&(LCD_ADDR->REG), ST7789H2_LCD_PIXEL_WIDTH * ST7789H2_LCD_PIXEL_HEIGHT);
   OnError_Handler(hal_status != HAL_OK); 
 }

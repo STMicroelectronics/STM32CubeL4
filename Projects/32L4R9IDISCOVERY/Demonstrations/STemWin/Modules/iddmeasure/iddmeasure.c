@@ -286,7 +286,7 @@ static void IddMeasure_saveSignature(void)
   */
 void IddMeasureInit(void)
 {
-  /* Initialize Idd measurment component */
+  /* Initialize Idd measurement component */
   if(IddInitialized != SET)
   {
     /* Avoid spurious Interrupts */

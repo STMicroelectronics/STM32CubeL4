@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    audio_recorder_res.h
   * @author  MCD Application Team
-  * @brief   audio recorder ressources
+  * @brief   audio recorder resources
   ******************************************************************************
   * @attention
   *

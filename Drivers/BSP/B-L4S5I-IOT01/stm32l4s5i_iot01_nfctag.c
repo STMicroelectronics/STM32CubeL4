@@ -175,7 +175,7 @@ int32_t BSP_NFCTAG_ConfigIT( uint32_t Instance, const uint16_t ITConfig )
 }
 
 /**
-  * @brief  Get nfctag interrupt configutration
+  * @brief  Get nfctag interrupt configuration
   * @param  ITConfig : store interrupt configuration
   *                  - 0x01 => RF BUSY
   *                  - 0x02 => WIP
@@ -381,7 +381,7 @@ int32_t BSP_NFCTAG_ReadI2CProtectZone( uint32_t Instance, ST25DV_I2C_PROT_ZONE *
 /**
   * @brief    Sets the I2C write-protected state to an EEPROM Area.
   * @details  Needs the I2C Password presentation to be effective.
-  * @param    Zone                ST25DV_PROTECTION_ZONE value coresponding to the area to protect.
+  * @param    Zone                ST25DV_PROTECTION_ZONE value corresponding to the area to protect.
   * @param    ReadWriteProtection ST25DV_PROTECTION_CONF value corresponding to the protection to be set.
   * @return   int32_t enum status.
   */
@@ -463,7 +463,7 @@ int32_t BSP_NFCTAG_WriteI2CPassword(uint32_t Instance, const ST25DV_PASSWD PassW
 
 /**
   * @brief  Reads the RF Zone Security Status (defining the allowed RF accesses).
-  * @param  Zone        ST25DV_PROTECTION_ZONE value coresponding to the protected area.
+  * @param  Zone        ST25DV_PROTECTION_ZONE value corresponding to the protected area.
   * @param  pRfprotZone Pointer on a ST25DV_RF_PROT_ZONE value corresponding to the area protection state.
   * @return int32_t enum status.
   */
@@ -501,7 +501,7 @@ int32_t BSP_NFCTAG_ReadEndZonex(uint32_t Instance, const ST25DV_END_ZONE EndZone
 /**
   * @brief    Sets the end address of an area.
   * @details  Needs the I2C Password presentation to be effective.
-  * @note     The ST25DV answers a NACK when setting the EndZone2 & EndZone3 to same value than repectively EndZone1 & EndZone2.\n
+  * @note     The ST25DV answers a NACK when setting the EndZone2 & EndZone3 to same value than respectively EndZone1 & EndZone2.\n
   *           These NACKs are ok.
   * @param  EndZone ST25DV_END_ZONE value corresponding to an area.
   * @param  EndZ   End zone value to be written.
@@ -516,7 +516,7 @@ int32_t BSP_NFCTAG_WriteEndZonex(uint32_t Instance, const ST25DV_END_ZONE EndZon
 /**
   * @brief  Initializes the end address of the ST25DV areas with their default values (end of memory).
   * @details  Needs the I2C Password presentation to be effective..
-  *           The ST25DV answers a NACK when setting the EndZone2 & EndZone3 to same value than repectively EndZone1 & EndZone2.
+  *           The ST25DV answers a NACK when setting the EndZone2 & EndZone3 to same value than respectively EndZone1 & EndZone2.
   *           These NACKs are ok.
   * @return int32_t enum status.
   */

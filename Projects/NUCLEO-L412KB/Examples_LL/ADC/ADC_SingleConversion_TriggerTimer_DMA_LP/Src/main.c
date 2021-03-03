@@ -121,7 +121,7 @@ __IO uint16_t aADCxConvertedData_Voltage_mVolt[ADC_CONVERTED_DATA_BUFFER_SIZE]; 
 __IO uint8_t ubDmaTransferStatus = 2U; /* Variable set into DMA interruption callback */
 
 /* Variable to report status of ADC calibration                               */
-/*  0: ADC calibration not peformed                                           */
+/*  0: ADC calibration not performed                                           */
 /*  1: ADC calibration performed once                                         */
 __IO uint8_t ubADCCalibrationPerformed = 0U;
 
@@ -401,7 +401,7 @@ void Configure_TIM_TimeBase_ADC_trigger(void)
   *           the setting of these parameters is bypassed without error
   *           reporting:
   *           it can be the expected behavior in case of recall of this
-  *           function to update only a few parameters (which update fullfills
+  *           function to update only a few parameters (which update fulfills
   *           the ADC state).
   *           Otherwise, it is up to the user to set the appropriate error
   *           reporting in user application.

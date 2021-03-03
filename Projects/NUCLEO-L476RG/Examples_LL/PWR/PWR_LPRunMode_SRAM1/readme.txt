@@ -32,7 +32,7 @@ indicates that device is running at 80MHZ.
 The User push-button can be pressed to set system in LowPowerRun mode (Freq: 100KHz). 
 In this case LED2 toggling SLOW(400-ms blinking period).
 
-LED toggling speed is controled by variable "uhLedBlinkSpeed".
+LED toggling speed is controlled by variable "uhLedBlinkSpeed".
 
 @note To measure the current consumption in Run mode, remove JP6 jumper 
       and connect an ampere meter to JP6 to measure IDD current.

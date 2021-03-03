@@ -216,7 +216,7 @@ void DMA1_Channel1_IRQHandler(void)
   /*       DMA global interrupt flag:                                      */
   /* Clear flag DMA global interrupt */
   /* (global interrupt flag: half transfer and transfer complete flags) */
-  // LL_DMA_ClearFlag_GI1(DMA1);
+  /* LL_DMA_ClearFlag_GI1(DMA1); */
   
   /* Check whether DMA transfer error caused the DMA interruption */
   if(LL_DMA_IsActiveFlag_TE1(DMA1) == 1)

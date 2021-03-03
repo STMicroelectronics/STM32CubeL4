@@ -726,7 +726,7 @@ TLLCPF: /* Target LLCP on NFCF */
 }
 
 /**  
-* @brief  	This function configure the SW ressource needed for NFC forum P2P communication 
+* @brief  	This function configure the SW resource needed for NFC forum P2P communication 
 * @param  	None
 * @retval 	None
 */
@@ -743,7 +743,7 @@ void ConfigManager_ActivateP2PStack( void )
 
 
 /**  
-* @brief  	This function configure the SW ressource needed for NFC forum P2P communication 
+* @brief  	This function configure the SW resource needed for NFC forum P2P communication 
 * @param  	None
 * @retval 	None
 */

@@ -42,7 +42,7 @@ On Host L1 resume, STM32 will wakeup from STOP and USB resumes operations.
 
 You can test L1 suspend/resume, by running the USBCV3.0 chapter9 for USB2.0 devices .
 Please note that for running USBCV3.0, you'll need a PC with a USB3.0 (xHCI)
-host controller (please refer to USBCV3.0 documentation for more informations).
+host controller (please refer to USBCV3.0 documentation for more information).
 
 At the beginning of the main program the HAL_Init() function is called to reset all the peripherals,
 initialize the Flash interface and the systick. The user is provided with the SystemClock_Config()

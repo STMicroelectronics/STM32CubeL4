@@ -53,7 +53,7 @@ The following variables can be displayed on the debugger via LiveWatch:
  - HighPriorityThreadCycles
  - MediumPriorityThreadCycles
  - LowPriorityThreadCycles
- These variables must remain equals all the time. If not equal, it means a stall has occured.
+ These variables must remain equals all the time. If not equal, it means a stall has occurred.
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate
       delay (in milliseconds) based on variable incremented in HAL time base ISR.

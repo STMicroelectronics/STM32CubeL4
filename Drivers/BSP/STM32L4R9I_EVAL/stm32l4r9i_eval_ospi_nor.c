@@ -276,7 +276,7 @@ uint8_t BSP_OSPI_NOR_Write(uint8_t* pData, uint32_t WriteAddr, uint32_t Size)
     current_size = Size;
   }
 
-  /* Initialize the adress variables */
+  /* Initialize the address variables */
   current_addr = WriteAddr;
   end_addr = WriteAddr + Size;
 

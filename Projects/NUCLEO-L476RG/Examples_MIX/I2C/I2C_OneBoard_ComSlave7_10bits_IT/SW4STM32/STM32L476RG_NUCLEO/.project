@@ -75,7 +75,7 @@
 		</link><link>
 			<name>Doc/readme.txt</name>
 			<type>1</type>
-			<location>PARENT-2-PROJECT_LOC../readme.txt</location>
+			<location>PARENT-2-PROJECT_LOC/readme.txt</location>
 		</link><link>
 			<name>Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_pwr.c</name>
 			<type>1</type>

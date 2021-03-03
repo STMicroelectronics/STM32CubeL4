@@ -54,7 +54,7 @@
 #define USARTx_RCC_CONFIG(__USARTxCLKSource__)   __HAL_RCC_USART1_CONFIG(__USARTxCLKSource__)
 #define RCC_USARTxCLKSOURCE_HSI                  RCC_USART1CLKSOURCE_HSI
 
-/* Size of Trasmission buffer */
+/* Size of Transmission buffer */
 #define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
 /* Size of Reception buffer */
 #define RXBUFFERSIZE                      TXBUFFERSIZE

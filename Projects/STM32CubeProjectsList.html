@@ -15,12 +15,12 @@
 
   <body>
 
-    <h1>STM32CubeL4 Firmware Examples for STM32L4 Series and STM32L4+ series</h1>
+    <h1>STM32CubeL4 Firmware Examples for STM32L4 Series&nbsp;and STM32L4+ Series</h1>
 
     <p class="copyright">Copyright 2019 STMicroelectronics</p>
 
     <div class="picture">
-      <img alt="" id="_x0000_i1025" src="../_htmresc/st_logo.png" style="border: 0px solid ; width: 104px; height: 77px;">
+      <img alt="" id="_x0000_i1025" src="../_htmresc/st_logo_2020.png" style="border: 0px solid ; width: 104px; height: 77px;">
     </div>
 
     <p>The
@@ -29,7 +29,7 @@ on STMicroelectronics boards, organized by board and provided with
 preconfigured projects for the main supported toolchains.</p>
 
     <div class="picture">
-      <img alt="" src="../_htmresc/STM32Cube.bmp">
+      <img style="width: 943px; height: 570px;" alt="" src="../_htmresc/STM32Cube_2020.bmp">
     </div>
 
     <p>The examples are classified depending on the STM32Cube level they apply to, and are named as follows:</p>
@@ -69,12 +69,12 @@ Applications that use several Middleware stacks are provided as well.</li>
       <li>A Template project is provided to allow user to quickly build any firmware application on a given board.</li>
     </ul>
 
-    <p>The examples are located under STM32Cube_FW_STM32CubeL4_VX.Y.Z\Projects\, and all of them have the same structure:</p>
+    <p>The examples are located under STM32Cube_FW_L4_VX.Y.Z\Projects\, and all of them have the same structure:</p>
 
     <ul>
       <li>\Inc folder that contains all header files.</li>
       <li>\Src folder for the sources code.</li>
-      <li>\EWARM, \MDK-ARM and \SW4STM32 folders contain the preconfigured project for each toolchain.</li>
+      <li>\EWARM, \MDK-ARM, \STM32CubeIDE and \SW4STM32 folders contain the preconfigured project for each toolchain.</li>
       <li>readme.txt describing the example behavior and the environment required to run the example.</li>
     </ul>
 
@@ -102,7 +102,13 @@ same hardware functions (LED, LCD display, pushbuttons...etc.). The BSP
 is based on a modular architecture that allows it to be ported easily
 to any hardware by just implementing the low level routines.</p>
 
-    <p>The table below contains the list of examples provided within STM32CubeL4 Firmware package.</p>
+    <p>
+      </p><div>The table below contains the list of examples provided within STM32Cube_FW_L4 Firmware package.</div>
+      <div>In this table, the label <b>CubeMX</b> means the projects have been created using <a href="https://www.st.com/en/development-tools/stm32cubemx.html" target="_blank">STM32CubeMX</a>,
+the STM32Cube initialization code generator. Those projects can be
+opened with this tools to modify the projects itself. The others
+projects are manually created to demonstrate the product features.</div>
+    
 
     <p id="STM32L4xxImportantLink">
       </p><div>Reference materials available on <a href="http://www.st.com/stm32cubefw" target="_blank">www.st.com/stm32cubefw</a></div>
@@ -168,7 +174,7 @@ to build any firmware application.
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -220,7 +226,7 @@ to build any firmware application.
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
@@ -251,7 +257,7 @@ to build any firmware application.
         <td>1</td>
       </tr>
       <tr align="center">
-        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="183"><p id="Examples">Examples</p></td>
+        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="185"><p id="Examples">Examples</p></td>
         <td rowspan="1" align="left"><p id="-">-</p></td>
         <td align="left"><p id="BSP">BSP</p></td>
         <td align="left">
@@ -1104,9 +1110,8 @@ How to use the DAC peripheral to do a simple conversion.
         <td rowspan="3" align="left"><p id="DCMI">DCMI</p></td>
         <td align="left"><p id="DCMI_CaptureMode">DCMI_CaptureMode</p></td>
         <td align="left">
-How to use the DCMI to interface with a camera module to continuously capture
-RGB565 images, crop them from size 320x240 to 240x240 then display the video
-stream on the LCD.
+How to use the DCMI peripheral when capturing a large image (size
+larger than 65535 pixels) and display it on LCD in DSI Mode Command.
 </td>
         <td>-</td>
         <td>-</td>
@@ -1124,7 +1129,7 @@ stream on the LCD.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td>-</td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
@@ -2742,7 +2747,7 @@ when a given stimulus is received.
         <td>-</td>
       </tr>
       <tr align="center">
-        <td rowspan="3" align="left"><p id="LTDC">LTDC</p></td>
+        <td rowspan="4" align="left"><p id="LTDC">LTDC</p></td>
         <td align="left"><p id="LTDC_ColorKeying">LTDC_ColorKeying</p></td>
         <td align="left">
 How to enable and use the LTDC color keying functionality.
@@ -2765,6 +2770,32 @@ How to enable and use the LTDC color keying functionality.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align="center">
+        <td align="left"><p id="LTDC_Display">LTDC_Display</p></td>
+        <td align="left">
+How to configure and use LTDC peripheral to display an image.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -3035,9 +3066,9 @@ How to use a OSPI NOR memory in DMA mode.
       <tr align="center">
         <td align="left"><p id="OSPI_RAM_ExecuteInPlace">OSPI_RAM_ExecuteInPlace</p></td>
         <td align="left">
-How to execute code from OSPI memory after code loading.
+How to execute code from OCTOSPI memory after code loading.
 </td>
-        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3061,9 +3092,9 @@ How to execute code from OSPI memory after code loading.
       <tr align="center">
         <td align="left"><p id="OSPI_RAM_MemoryMapped">OSPI_RAM_MemoryMapped</p></td>
         <td align="left">
-How to use a OSPI HyperRAM memory in memory-mapped mode.
+How to use a OSPI PSRAM memory in memory-mapped mode.
 </td>
-        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -3087,9 +3118,9 @@ How to use a OSPI HyperRAM memory in memory-mapped mode.
       <tr align="center">
         <td align="left"><p id="OSPI_RAM_ReadWrite_DMA">OSPI_RAM_ReadWrite_DMA</p></td>
         <td align="left">
-How to use a OSPI HyperRAM memory in DMA mode.
+How to use a OSPI PSRAM memory in DMA mode.
 </td>
-        <td><font color="green" size="5">X</font></td>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -4924,7 +4955,7 @@ Use of he TSC to perform continuous acquisitions of one channel in Interrupt mod
         <td>-</td>
       </tr>
       <tr align="center">
-        <td rowspan="8" align="left"><p id="UART">UART</p></td>
+        <td rowspan="9" align="left"><p id="UART">UART</p></td>
         <td align="left"><p id="LPUART_WakeUpFromStop">LPUART_WakeUpFromStop</p></td>
         <td align="left">
 Configuration of an LPUART to wake up the MCU from Stop mode 
@@ -5018,6 +5049,32 @@ Re-routing of the C library printf function to the UART.
         <td>-</td>
         <td>-</td>
         <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr align="center">
+        <td align="left"><p id="UART_ReceptionToIdle_CircularDMA">UART_ReceptionToIdle_CircularDMA</p></td>
+        <td align="left">
+How to use the HAL UART API for reception to IDLE event in circular DMA mode.
+</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><font color="red" size="5">New</font></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
@@ -5169,14 +5226,14 @@ generates an MCU WWDG reset when a predefined time period has elapsed.
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
         <td colspan="3"><b>Total number of examples: 716</b></td>
-        <td>54</td>
+        <td>51</td>
         <td>87</td>
         <td>3</td>
         <td>52</td>
         <td>55</td>
         <td>3</td>
         <td>97</td>
-        <td>70</td>
+        <td>71</td>
         <td>3</td>
         <td>82</td>
         <td>3</td>
@@ -5185,8 +5242,8 @@ generates an MCU WWDG reset when a predefined time period has elapsed.
         <td>20</td>
         <td>0</td>
         <td>1</td>
-        <td>16</td>
-        <td>25</td>
+        <td>17</td>
+        <td>26</td>
         <td>23</td>
         <td>17</td>
       </tr>
@@ -6950,9 +7007,9 @@ functions for optimization purposes (performance and size).
       </tr>
       <tr align="center">
         <td align="left"><p id="RNG_GenerateRandomNumbers_IT">RNG_GenerateRandomNumbers_IT</p></td>
-        <td align="left">
-Configuration of the RNG to generate 32-bit long random numbers using
-interrupts. The peripheral initialization uses LL unitary service
+        <td align="left">Configuration
+of the RNG to generate 32-bit long random numbers using interrupts. The
+peripheral initialization uses LL unitary service
 functions for optimization purposes (performance and size).
 </td>
         <td>-</td>
@@ -8452,7 +8509,7 @@ the STM32L4xx UART HAL and LL API, the LL API being used for performance improve
         <td>0</td>
       </tr>
       <tr align="center">
-        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="43"><p id="Applications">Applications</p></td>
+        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="42"><p id="Applications">Applications</p></td>
         <td rowspan="1" align="left"><p id="-">-</p></td>
         <td align="left"><p id="Proximity">Proximity</p></td>
         <td align="left">
@@ -9018,34 +9075,7 @@ How to use timers of CMSIS RTOS API.
         <td>-</td>
       </tr>
       <tr align="center">
-        <td rowspan="2" align="left"><p id="IAP">IAP</p></td>
-        <td align="left"><p id="IAP_Binary_Template">IAP_Binary_Template</p></td>
-        <td align="left">
-This directory contains a set of sources files that build the application to be
-loaded into Flash memory using In-Application Programming (IAP) through USART.
-</td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr align="center">
+        <td rowspan="1" align="left"><p id="IAP">IAP</p></td>
         <td align="left"><p id="IAP_Main">IAP_Main</p></td>
         <td align="left">
 This directory contains a set of sources files and pre-configured projects that 
@@ -9095,7 +9125,7 @@ NFC antenna .
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9122,7 +9152,7 @@ so that the associated application is launched on the smartphone when it comes n
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9579,7 +9609,7 @@ on STM32Cube HAL.
         <td>-</td>
         <td>-</td>
         <td>-</td>
-        <td><font color="red" size="5">New</font></td>
+        <td><font color="green" size="5">X</font></td>
         <td><font color="green" size="5">X</font></td>
         <td>-</td>
         <td>-</td>
@@ -9587,9 +9617,9 @@ on STM32Cube HAL.
         <td>-</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-        <td colspan="3"><b>Total number of applications: 131</b></td>
+        <td colspan="3"><b>Total number of applications: 130</b></td>
         <td>12</td>
-        <td>28</td>
+        <td>27</td>
         <td>0</td>
         <td>5</td>
         <td>0</td>
@@ -9610,7 +9640,7 @@ on STM32Cube HAL.
         <td>5</td>
       </tr>
       <tr align="center">
-        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="10"><p id="Demonstrations">Demonstrations</p></td>
+        <td style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" rowspan="7"><p id="Demonstrations">Demonstrations</p></td>
         <td rowspan="6" align="left"><p id="-">-</p></td>
         <td align="left"><p id="Adafruit_LCD_1_8_SD_Joystick">Adafruit_LCD_1_8_SD_Joystick</p></td>
         <td align="left">
@@ -9777,83 +9807,8 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>-</td>
         <td>-</td>
       </tr>
-      <tr align="center">
-        <td rowspan="1" align="left"><p id="EmbeddedWizard">EmbeddedWizard</p></td>
-        <td align="left"><p id="Binary">Binary</p></td>
-        <td align="left"></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr align="center">
-        <td rowspan="1" align="left"><p id="STemWin">STemWin</p></td>
-        <td align="left"><p id="Binary">Binary</p></td>
-        <td align="left"></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr align="center">
-        <td rowspan="1" align="left"><p id="TouchGFX">TouchGFX</p></td>
-        <td align="left"><p id="Binary">Binary</p></td>
-        <td align="left"></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td><font color="green" size="5">X</font></td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-        <td colspan="3"><b>Total number of demonstrations: 17</b></td>
+        <td colspan="3"><b>Total number of demonstrations: 14</b></td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
@@ -9870,21 +9825,21 @@ The software watermarks the PNG xxxxx.png files with logo.png.
         <td>1</td>
         <td>0</td>
         <td>1</td>
-        <td>4</td>
+        <td>1</td>
         <td>1</td>
         <td>1</td>
         <td>1</td>
       </tr>
       <tr style="background-repeat: no-repeat; background-position: right center; background-color: rgb(57, 169, 220); color: rgb(255, 255, 255);" align="center">
-      	<td colspan="4"><b>Total number of projects: 1152</b></td>
-      	<td>69</td>
-      	<td>118</td>
+      	<td colspan="4"><b>Total number of projects: 1148</b></td>
+      	<td>66</td>
+      	<td>117</td>
       	<td>5</td>
       	<td>60</td>
       	<td>68</td>
       	<td>5</td>
       	<td>214</td>
-      	<td>178</td>
+      	<td>179</td>
       	<td>5</td>
       	<td>100</td>
       	<td>5</td>
@@ -9893,8 +9848,8 @@ The software watermarks the PNG xxxxx.png files with logo.png.
       	<td>33</td>
       	<td>5</td>
       	<td>15</td>
-      	<td>28</td>
-      	<td>31</td>
+      	<td>26</td>
+      	<td>32</td>
       	<td>40</td>
       	<td>25</td>
       </tr>

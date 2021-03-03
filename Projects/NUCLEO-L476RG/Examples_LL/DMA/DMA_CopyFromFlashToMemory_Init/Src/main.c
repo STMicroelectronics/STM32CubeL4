@@ -76,7 +76,7 @@ int main(void)
 
   /* Configure DMA1 Channel 1                                    */
   /* Enable DMA1 clock                                           */
-  /* Configure the DMA functionnal parameters :                  */
+  /* Configure the DMA functional parameters :                  */
   /*        - Transfer memory word to memory word in normal mode */
   /*        - Memory and Periph increment mode                   */
   /* Configure NVIC for DMA transfer complete/error interrupts   */
@@ -97,7 +97,7 @@ int main(void)
   *         Flash memory(aSRC_Const_Buffer) to Internal SRAM(aDST_Buffer).
   * @note   This function is used to :
   *         -1- Enable DMA1 clock
-  *         -2- Configure the DMA functionnal parameters
+  *         -2- Configure the DMA functional parameters
   *         -3- Configure NVIC for DMA transfer complete/error interrupts
   * @param   None
   * @retval  None
@@ -109,7 +109,7 @@ void Configure_DMA(void)
   /* (1) Enable the clock of DMA1 */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
 
-  /* (2) Configure the DMA functionnal parameters */
+  /* (2) Configure the DMA functional parameters */
 
   /* Reset DMA1 data registers */
   if (LL_DMA_DeInit(DMA1, LL_DMA_CHANNEL_1) != SUCCESS) 
@@ -121,7 +121,7 @@ void Configure_DMA(void)
   /* Set fields of initialization structure:
    *  - Source base address:        aSRC_Const_Buffer
    *  - Destination base address:   aDST_Buffer
-   *  - Tranfer direction :         Memory to memory
+   *  - Transfer direction :         Memory to memory
    *  - Source increment mode:      Increment mode Enable
    *  - Destination increment mode: Increment mode Enable
    *  - Source data alignment:      Word alignment
@@ -299,14 +299,14 @@ void SystemClock_Config(void)
 void TransferComplete()
 {
   /* DMA transfer completed */
-  /* Verify the data transfered */
+  /* Verify the data transferred */
   if (Buffercmp((uint32_t*)aSRC_Const_Buffer, (uint32_t*)aDST_Buffer, BUFFER_SIZE) == 1)
   {
-    /* DMA data transfered not consistency */
+    /* DMA data transferred not consistency */
     LED_Blinking(LED_BLINK_ERROR);
   }
   
-  /* DMA data transfered consistency */
+  /* DMA data transferred consistency */
   LED_On();
 }
 

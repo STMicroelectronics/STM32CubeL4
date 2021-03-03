@@ -185,7 +185,7 @@ void USART1_IRQHandler(void)
     LL_USART_ClearFlag_TC(USART1);
     
     /* Call function in charge of handling end of transmission of sent character
-       and prepare next charcater transmission */
+       and prepare next character transmission */
     USART_CharTransmitComplete_Callback();
   }
   else

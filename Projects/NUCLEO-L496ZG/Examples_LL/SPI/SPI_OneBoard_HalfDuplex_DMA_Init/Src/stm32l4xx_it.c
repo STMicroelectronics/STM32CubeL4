@@ -174,7 +174,7 @@ void DMA1_Channel3_IRQHandler(void)
   if(LL_DMA_IsActiveFlag_TC3(DMA1))
   {
     LL_DMA_ClearFlag_GI3(DMA1);
-    /* Call function Tranmission complete Callback */
+    /* Call function Transmission complete Callback */
     DMA1_TransmitComplete_Callback();
   }
   else if(LL_DMA_IsActiveFlag_TE3(DMA1))

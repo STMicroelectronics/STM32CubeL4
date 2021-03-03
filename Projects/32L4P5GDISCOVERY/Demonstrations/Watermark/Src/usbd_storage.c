@@ -68,7 +68,7 @@ USBD_StorageTypeDef USBD_DISK_fops = {
 /* Private functions ---------------------------------------------------------*/
 
 /**
-  * @brief  Initailizes the storage unit (medium)
+  * @brief  Initializes the storage unit (medium)
   * @param  lun: Logical unit number
   * @retval Status (0 : Ok / -1 : Error)
   */

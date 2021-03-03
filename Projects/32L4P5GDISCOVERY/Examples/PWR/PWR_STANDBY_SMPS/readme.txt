@@ -23,7 +23,7 @@
 How to enter SMPS Standby mode and wake up from this mode using the wake-up pin.
 
 In the associated software, the system clock is set to 80 MHz, an EXTI line
-is connected to the joystick SEL button thru PC.13 and configured to generate an
+is connected to the joystick SEL button through PC.13 and configured to generate an
 interrupt on falling edge upon key press.
 
 After start-up,
@@ -43,7 +43,7 @@ After start-up,
   When SEL button is pressed, the system wakes up with
   external SMPS disabled, voltage scale range 1, system clock at 4 MHz.
   Voltage scale range is moved to range 2 then SMPS is enabled.
-  Finally, the sofware moves back to step 2)d) and the iteration carries on.
+  Finally, the software moves back to step 2)d) and the iteration carries on.
 
 
 While the system is in Run mode, LED1 is toggling.

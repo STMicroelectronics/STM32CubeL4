@@ -591,7 +591,7 @@ static void LCD_MspInit(LCD_HandleTypeDef *hlcd)
   /*##-1- Enable PWR  peripheral Clock #######################################*/
   __HAL_RCC_PWR_CLK_ENABLE();
 
-  /*##-2- Configure LSE as RTC clock soucre ###################################*/
+  /*##-2- Configure LSE as RTC clock source ###################################*/
   oscinitstruct.OscillatorType  = RCC_OSCILLATORTYPE_LSE;
   oscinitstruct.PLL.PLLState    = RCC_PLL_NONE;
   oscinitstruct.LSEState        = RCC_LSE_ON;

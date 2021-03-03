@@ -40,7 +40,7 @@ System clock and power are optimized for the lowest power consumption
 
 Power consumption optimization options:
 Compilation switches are available to select optimizations:
- - OPTION_PWR_OPTIM_BUFFER_PROCESSING (default: enabled): Process DMA buffer when completed half by half (triggered by DMA half transfer and transfer complete interruptions): will sligthly increase CPU activity (and therefore power consumption). */
+ - OPTION_PWR_OPTIM_BUFFER_PROCESSING (default: enabled): Process DMA buffer when completed half by half (triggered by DMA half transfer and transfer complete interruptions): will slightly increase CPU activity (and therefore power consumption). */
  - OPTION_PWR_OPTIM_ADC_DISABLE (default: enabled): Set ADC in the deepest low-power mode possible in idle phases (between ADC conversions). Relevant for ADC conversion triggers at low frequency: less ADC idle current consumption, but more CPU activity to manage ADC activation.
  - OPTION_MONITOR_CPU_ACTIVITY (default: disabled): Monitor CPU activity: when CPU is active, turn LED on. This induces extra power consumption. To be used for debug. */
  - OPTION_THRESHOLD_DEBUG (default: disabled): Monitor converted values: when value is higher than 2048, turn LED on. This induces extra power consumption. To be used for debug.
@@ -74,7 +74,7 @@ Profile of current consumption during execution phases:
 
 For debug: variables to monitor with debugger watch window:
 Due to entry in low-power mode and power optimization configuration (GPIO linked to debugger are disconnected), connection to debugger is lost.
-Therefore, ADC conversion data transfered to variables ("aADCxConvertedData" and "aADCxConvertedData_Voltage_mVolt") cannot be monitored outside of test program.
+Therefore, ADC conversion data transferred to variables ("aADCxConvertedData" and "aADCxConvertedData_Voltage_mVolt") cannot be monitored outside of test program.
 
 Note: Power consumption value:
       Several parameters have an impact on power consumption (CPU frequency,

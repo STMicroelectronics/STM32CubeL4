@@ -51,7 +51,7 @@ to run at 120 MHz.
 STM32L4R9I-EVAL board's LED can be used to monitor the transfer status:
  - LED1 is ON when there are no errors detected after programming
     => should be the case when WRITE_PROTECTION_DISABLE flag is enabled
- - LED2 is ON when there are errors dectected after programming
+ - LED2 is ON when there are errors detected after programming
     => should be the case when WRITE_PROTECTION_ENABLE flag is enabled
  - LED3 is ON when there is an issue during erase, program or OB program procedure
 

@@ -24,7 +24,7 @@ How to enter Stop 0 mode with or without SMPS enabled and to wake up
 from this mode using an interrupt.
 
 In the associated software, the system clock is set to 80 MHz, an EXTI line
-is connected to the user button thru PC.13 and configured to generate an 
+is connected to the user button through PC.13 and configured to generate an 
 interrupt on falling edge upon key press.
 The SysTick is programmed to generate an interrupt each 1 ms and in the SysTick 
 interrupt handler, LED4 is toggled in order to indicate whether the MCU is in STOP 0 mode 

@@ -379,7 +379,7 @@ int16_t SPI_WIFI_ReceiveData(uint8_t *pData, uint16_t len, uint32_t timeout)
   return length;
 }
 /**
-  * @brief  Send wifi Data thru SPI
+  * @brief  Send wifi Data through SPI
   * @param  pdata : pointer to data
   * @param  len : Data length
   * @param  timeout : send timeout in mS

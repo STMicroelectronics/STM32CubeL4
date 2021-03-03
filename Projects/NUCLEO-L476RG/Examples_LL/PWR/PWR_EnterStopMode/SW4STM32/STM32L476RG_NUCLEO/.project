@@ -28,7 +28,7 @@
 		<link>
 			<name>Doc/readme.txt</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC../readme.txt</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/readme.txt</locationURI>
 		</link>
 		<link>
 			<name>Drivers/CMSIS/system_stm32l4xx.c</name>

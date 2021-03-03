@@ -511,9 +511,9 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Modules/information/information_win.c</locationURI>
 		</link>
 		<link>
-			<name>Application/User/Modules/STemWin_demo/STemWin_win .c</name>
+			<name>Application/User/Modules/STemWin_demo/STemWin_win.c</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Modules/STemWin_demo/STemWin_win%20.c</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/Modules/STemWin_demo/STemWin_win.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Modules/TouchGFX_FULLdemo/TouchGFX_FULL_win.c</name>

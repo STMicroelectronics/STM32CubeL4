@@ -157,11 +157,6 @@
 			<location>PARENT-8-PROJECT_LOC/Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_nor.c</location>
 		</link>
     <link>
-			<name>Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</name>
-			<type>1</type>
-			<location>PARENT-8-PROJECT_LOC/Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</location>
-		</link>
-    <link>
 			<name>Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_rgb_ts.c</name>
 			<type>1</type>
 			<location>PARENT-8-PROJECT_LOC/Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_rgb_ts.c</location>

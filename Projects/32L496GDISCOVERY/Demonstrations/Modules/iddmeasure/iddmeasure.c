@@ -86,7 +86,7 @@ extern int sd_status;
 void IddMeasureInit(void)
 {
   
-  /* Initialize Idd measurment component */
+  /* Initialize Idd measurement component */
   if(IddInitialized != SET)
   {
     if(BSP_IDD_Init() != IDD_OK)
@@ -193,7 +193,7 @@ char * IddMeasureGetIDD(void){
         IddTest[iddTestIndex].IddEnter();
       }
 
-      /* MFX task will restore power context, configure Hardware ressources and release the semaphore */
+      /* MFX task will restore power context, configure Hardware resources and release the semaphore */
       osSemaphoreWait(MfxIddSemaphore, osWaitForever);
       
       /* Get Idd Measured value */

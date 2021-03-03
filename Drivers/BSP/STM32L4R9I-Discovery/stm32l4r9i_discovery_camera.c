@@ -116,8 +116,9 @@ uint8_t BSP_CAMERA_Init(uint32_t Resolution)
   phdcmi = &hDcmiHandler;
 
 
-  /* Initialize the IO functionalities */
+  /* Initialize the IO functionalities and configure the camera POWER_DOWN pin */
   BSP_IO_Init();
+  BSP_IO_ConfigPin(CAMERA_PWR_EN_PIN, IO_MODE_OUTPUT_PP_PU);
 
   /* Set up the Camera */
   BSP_CAMERA_PwrUp();
@@ -396,9 +397,10 @@ __weak void BSP_CAMERA_MspInit(DCMI_HandleTypeDef *hdcmi, void *Params)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_4); /* PA8 Camera modul input clock 20 MHz */
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_4); /* PA8 Camera module input clock 20 MHz */
   __HAL_RCC_HSI48_ENABLE();
   HAL_Delay(10); // HSI48 should start in 10ms
 
@@ -431,6 +433,13 @@ __weak void BSP_CAMERA_MspInit(DCMI_HandleTypeDef *hdcmi, void *Params)
   gpio_init_structure.Speed     = GPIO_SPEED_HIGH;
   gpio_init_structure.Alternate = GPIO_AF10_DCMI;
   HAL_GPIO_Init(GPIOI, &gpio_init_structure);
+
+  gpio_init_structure.Pin       = GPIO_PIN_8;
+  gpio_init_structure.Mode      = GPIO_MODE_AF_PP;
+  gpio_init_structure.Pull      = GPIO_NOPULL;
+  gpio_init_structure.Speed     = GPIO_SPEED_HIGH;
+  gpio_init_structure.Alternate = GPIO_AF10_DCMI;
+  HAL_GPIO_Init(GPIOB, &gpio_init_structure);
 
   gpio_init_structure.Pin       = GPIO_PIN_4;
   gpio_init_structure.Mode      = GPIO_MODE_AF_PP;

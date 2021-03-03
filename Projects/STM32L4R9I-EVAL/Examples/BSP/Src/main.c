@@ -101,7 +101,6 @@ BSP_DemoTypedef  BSP_examples[]=
   {AudioPlay_demo, "AUDIO PLAY", 0},
   {AudioRecord_demo, "AUDIO RECORD", 0},
   {OSPI_NOR_demo, "OSPI NOR", 0},
-  {OSPI_RAM_demo, "OSPI RAM", 0},
   {SD_demo, "mSD", 0},
   {EEPROM_demo, "EEPROM", 0}, 
   {NOR_demo, "NOR", 0},

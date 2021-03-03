@@ -167,14 +167,14 @@
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/Common/lib_nfc/lib_NDEF/Core/src/tagtype5_wrapper.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/BSP/Components/st25dv.c</name>
+			<name>Drivers/BSP/Components/st25dv/st25dv.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Drivers/BSP/Components/ST25DV/st25dv.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Drivers/BSP/Components/st25dv/st25dv.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/BSP/Components/st25dv_reg.c</name>
+			<name>Drivers/BSP/Components/st25dv/st25dv_reg.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Drivers/BSP/Components/ST25DV/st25dv_reg.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Drivers/BSP/Components/st25dv/st25dv_reg.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/BSP/STM32L4S5x_IoT_Discovery/stm32l4s5i_iot01.c</name>

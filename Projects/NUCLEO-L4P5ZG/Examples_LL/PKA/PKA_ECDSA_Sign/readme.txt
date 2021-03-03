@@ -37,7 +37,7 @@ The example:
   Loads the input buffers to PKA RAM.
   Launch the computation in interrupt mode.
   Wait for the interrupt callback.
-  Retreive the output buffer.
+  Retrieve the output buffer.
   Compare to expected results.
 
 After successful sequence, LED1 is turned On.

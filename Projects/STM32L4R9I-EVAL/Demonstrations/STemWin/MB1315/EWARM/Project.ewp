@@ -190,7 +190,6 @@
           <state>USE_ROCKTECH_480x272</state>
           <state>USE_IOEXPANDER</state>
           <state>USE_OSPI_NOR=1</state>
-          <state>USE_OSPI_RAM=0</state>
           <state>USE_USB_DISK=0</state>
           <state>BSP_USE_CMSIS_OS</state>
         </option>
@@ -1189,7 +1188,6 @@
           <state>USE_ROCKTECH_480x272</state>
           <state>USE_IOEXPANDER</state>
           <state>USE_OSPI_NOR=1</state>
-          <state>USE_OSPI_RAM=0</state>
           <state>USE_USB_DISK=0</state>
           <state>BSP_USE_CMSIS_OS</state>
         </option>
@@ -2150,7 +2148,7 @@
   <group>
     <name>Doc</name>
     <file>
-      <name>$PROJ_DIR$\..\ReadMe.txt</name>
+      <name>$PROJ_DIR$\..\..\..\MenuLauncher\readme.txt</name>
     </file>
   </group>
   <group>
@@ -2182,9 +2180,6 @@
         </file>
         <file>
           <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_nor.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_ram.c</name>
         </file>
         <file>
           <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_rgb_ts.c</name>
@@ -2268,7 +2263,6 @@
                 <state>USE_ROCKTECH_480x272</state>
                 <state>USE_IOEXPANDER</state>
                 <state>USE_OSPI_NOR=1</state>
-                <state>USE_OSPI_RAM=0</state>
                 <state>USE_USB_DISK=0</state>
                 <state>BSP_USE_CMSIS_OS</state>
               </option>
@@ -2405,8 +2399,6 @@
                 <state>$PROJ_DIR$\..\Gui\STemWin_Addons</state>
                 <state>$PROJ_DIR$\..\Modules\Common</state>
                 <state>$PROJ_DIR$\..\Modules\audio_player</state>
-                <state>$PROJ_DIR$\..\Modules\audio_player\Addons\SpiritDSP_Equalizer</state>
-                <state>$PROJ_DIR$\..\Modules\audio_player\Addons\SpiritDSP_LoudnessControl</state>
                 <state>$PROJ_DIR$\..\Modules\audio_recorder</state>
                 <state>$PROJ_DIR$\..\Modules\usbdevice</state>
                 <state>$PROJ_DIR$\..\..\..\..\..\..\Utilities\CPU</state>
@@ -2551,7 +2543,6 @@
                 <state>USE_ROCKTECH_480x272</state>
                 <state>USE_IOEXPANDER</state>
                 <state>USE_OSPI_NOR=1</state>
-                <state>USE_OSPI_RAM=0</state>
                 <state>USE_USB_DISK=0</state>
                 <state>BSP_USE_CMSIS_OS</state>
               </option>
@@ -2688,8 +2679,6 @@
                 <state>$PROJ_DIR$\..\Gui\STemWin_Addons</state>
                 <state>$PROJ_DIR$\..\Modules\Common</state>
                 <state>$PROJ_DIR$\..\Modules\audio_player</state>
-                <state>$PROJ_DIR$\..\Modules\audio_player\Addons\SpiritDSP_Equalizer</state>
-                <state>$PROJ_DIR$\..\Modules\audio_player\Addons\SpiritDSP_LoudnessControl</state>
                 <state>$PROJ_DIR$\..\Modules\audio_recorder</state>
                 <state>$PROJ_DIR$\..\Modules\usbdevice</state>
                 <state>$PROJ_DIR$\..\..\..\..\..\..\Utilities\CPU</state>

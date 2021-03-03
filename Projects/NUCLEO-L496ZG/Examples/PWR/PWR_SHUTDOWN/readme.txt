@@ -28,7 +28,7 @@ The SysTick is programmed to generate an interrupt each 1 ms and in the SysTick
 interrupt handler, LED1 is turned on / toggled in order to indicate whether the 
 MCU is in SHUTDOWN or RUN mode.
 
-Five seconds after power up, the MCU automatically enters SUTDOWN.
+Five seconds after power up, the MCU automatically enters SHUTDOWN.
 LED1 is toggling during these five seconds.
 
 The user can wake-up the system in pressing the User push-button which is connected
@@ -37,7 +37,7 @@ A falling edge on the wake-up pin wakes-up the system from SHUTDOWN.
 Alternatively, an external RESET of the board leads to a system wake-up as well.
 
 After wake-up from SHUTDOWN mode, program execution restarts from the beginning.
-Exit from SHUTDOWN is detected thru a flag set in an RTC back-up register; in
+Exit from SHUTDOWN is detected through a flag set in an RTC back-up register; in
 such a case, LED1 is kept on for about 2 sec. before toggling again.
 
 Five seconds after wake-up, the MCU automatically enters SHUTDOWN again.

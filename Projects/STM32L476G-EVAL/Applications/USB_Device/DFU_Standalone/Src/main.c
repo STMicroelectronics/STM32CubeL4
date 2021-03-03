@@ -92,7 +92,7 @@ int main(void)
     }
   }  
   
-  /* Otherwise enters DFU mode to allow user programing his application */
+  /* Otherwise enters DFU mode to allow user programming his application */
   /* Init Device Library */
   USBD_Init(&USBD_Device, &DFU_Desc, 0);
   
@@ -157,7 +157,7 @@ static void SystemClock_Config(void)
 
 #if defined (USB_USE_LSE_MSI_CLOCK)
  
-  /* Enable the LSE Oscilator */
+  /* Enable the LSE Oscillator */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_OFF;

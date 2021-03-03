@@ -133,7 +133,7 @@ void HAL_DSI_MspInit(DSI_HandleTypeDef *hdsi)
   HAL_RCC_GetOscConfig(&OscInitStruct);
   if(OscInitStruct.HSEState == RCC_HSE_OFF)
   {
-    /* Workaround for long HSE startup time (set PH0 to ouput PP low) */
+    /* Workaround for long HSE startup time (set PH0 to output PP low) */
     GPIO_InitTypeDef  GPIO_InitStruct;
 
     __HAL_RCC_GPIOH_CLK_ENABLE();
@@ -153,7 +153,7 @@ void HAL_DSI_MspInit(DSI_HandleTypeDef *hdsi)
     }
   }
 
-  /* Set DSI PHY as defaut clock for DSI */
+  /* Set DSI PHY as default clock for DSI */
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_DSI;
   PeriphClkInit.DsiClockSelection = RCC_DSICLKSOURCE_DSIPHY;
   if(HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)

@@ -3,7 +3,7 @@
   * @file    Examples_LL/DAC/DAC_GenerateWaveform_TriggerHW/Src/main.c
   * @author  MCD Application Team
   * @brief   This example describes how to use the DAC peripheral to generate
-  *          a voltage waveform from digital data stream transfered by DMA.
+  *          a voltage waveform from digital data stream transferred by DMA.
   *          This example is based on the STM32L4xx DAC LL API;
   *          Peripheral initialization done using LL unitary services functions.
   ******************************************************************************
@@ -236,7 +236,7 @@ void Configure_DMA(void)
                      LL_DMA_CHANNEL_3);
   
   /* Note: In this example, the only DMA interruption activated is            */
-  /*       tranfer error.                                                     */
+  /*       transfer error.                                                     */
   /*       If needed, DMA interruptions of half of transfer                   */
   /*       and transfer complete can be activated.                            */
   /*       Refer to DMA examples.                                             */

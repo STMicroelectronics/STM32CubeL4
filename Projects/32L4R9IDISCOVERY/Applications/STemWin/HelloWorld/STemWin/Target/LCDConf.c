@@ -553,13 +553,13 @@ static void LCD_LL_PowerOn(void)
   HAL_Delay(15);
 
 #if defined(USE_STM32L4R9I_DISCO_REVA) || defined(USE_STM32L4R9I_DISCO_REVB)
-  /* Desactivate DSI_RESET */
+  /* Deactivate DSI_RESET */
   BSP_IO_WritePin(IO_PIN_10, GPIO_PIN_SET);
 #else /* USE_STM32L4R9I_DISCO_REVA || USE_STM32L4R9I_DISCO_REVB */
   /* Configure the GPIO connected to DSI_RESET signal */
   BSP_IO_ConfigPin(IO_PIN_10, IO_MODE_OUTPUT);
 
-  /* Desactivate DSI_RESET */
+  /* Deactivate DSI_RESET */
   BSP_IO_WritePin(IO_PIN_10, GPIO_PIN_SET);
 #endif /* USE_STM32L4R9I_DISCO_REVA || USE_STM32L4R9I_DISCO_REVB */
   
@@ -720,7 +720,7 @@ static void LCD_LL_Init(void)
   /* END PATCH PNA */
   hdsi.Init.AutomaticClockLaneControl = DSI_AUTO_CLK_LANE_CTRL_DISABLE;
   /* We have 1 data lane at 500Mbps => lane byte clock at 500/8 = 62,5 MHZ */
-  /* We want TX escape clock at arround 20MHz and under 20MHz so clock division is set to 4 */
+  /* We want TX escape clock at around 20MHz and under 20MHz so clock division is set to 4 */
   hdsi.Init.TXEscapeCkdiv             = 4;
   hdsi.Init.NumberOfLanes             = DSI_ONE_DATA_LANE;
   /* We have HSE value at 16 Mhz and we want data lane at 500Mbps */
@@ -799,7 +799,7 @@ static void LCD_LL_Init(void)
   /* Step 1 */
   /* Go to command 2 */
   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0xFE, 0x01);
-  /* IC Frame rate control, set power, sw mapping, mux swithc timing command */
+  /* IC Frame rate control, set power, sw mapping, mux switch timing command */
   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x06, 0x62);
   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0E, 0x80);
   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, 0x0F, 0x80);

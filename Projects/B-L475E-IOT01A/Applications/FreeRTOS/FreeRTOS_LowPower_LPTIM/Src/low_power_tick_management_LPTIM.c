@@ -127,7 +127,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 	else
 	{		
 		
-    /* Strat LPTIM Timeout wake up based on expected idle time */
+    /* Start LPTIM Timeout wake up based on expected idle time */
     HAL_LPTIM_TimeOut_Start_IT(&LptimHandle, 0xFFFF, ulReloadValue);
 		
 		/* A user definable macro that allows application code to be inserted
@@ -140,7 +140,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 		with respect to calendar time then enter a deep sleep that can only be
 		woken by (in this demo case) the user button being pushed on the
 		STM32L discovery board.  If the application does require the tick time
-		to keep better track of the calender time then the LPTIM peripheral can be
+		to keep better track of the calendar time then the LPTIM peripheral can be
 		used to make rough adjustments. */
                 
     /* Enter STOP 1 mode */

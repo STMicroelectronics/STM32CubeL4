@@ -1456,7 +1456,7 @@ void mfxstm32l152_WriteReg(uint16_t DeviceAddr, uint8_t RegAddr, uint8_t Value)
   */
 static uint8_t mfxstm32l152_GetInstance(uint16_t DeviceAddr)
 {
-  uint8_t idx = 0;
+  uint8_t idx;
 
   /* Check all the registered instances */
   for(idx = 0; idx < MFXSTM32L152_MAX_INSTANCE ; idx ++)
@@ -1477,7 +1477,7 @@ static uint8_t mfxstm32l152_GetInstance(uint16_t DeviceAddr)
   */
 static uint8_t mfxstm32l152_ReleaseInstance(uint16_t DeviceAddr)
 {
-  uint8_t idx = 0;
+  uint8_t idx;
 
   /* Check for all the registered instances */
   for(idx = 0; idx < MFXSTM32L152_MAX_INSTANCE ; idx ++)

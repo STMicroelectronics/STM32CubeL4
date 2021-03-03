@@ -318,7 +318,7 @@ uint8_t BSP_AUDIO_OUT_Init(uint16_t OutputDevice, uint8_t Volume, uint32_t Audio
     return AUDIO_ERROR;
   }
 
-  /* Retieve audio codec identifier */
+  /* Retrieve audio codec identifier */
   if (wm8994_drv.ReadID(AUDIO_I2C_ADDRESS) != WM8994_ID)
   {
     return AUDIO_ERROR;

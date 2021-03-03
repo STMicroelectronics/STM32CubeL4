@@ -33,7 +33,7 @@
 /* Private define ------------------------------------------------------------*/
 #define LED_TOGGLE_DELAY         100
 /* Enabling compilation switch NO_DELAY_TOWARDS_SMPS ensures fast transitions to
-   SMPS mode. User can disable this swith to observe more easily the different 
+   SMPS mode. User can disable this switch to observe more easily the different 
    transitions leading to SMPS activation. */
 /* By default, NO_DELAY_TOWARDS_SMPS is enabled. */
 #define NO_DELAY_TOWARDS_SMPS        1

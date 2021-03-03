@@ -163,7 +163,7 @@ static void BatteryMeasure_Run(void)
   /* Convert Voltage value in order to display it on LCD glass */
   Volt_Convert(VoltReadValue, datatodisplay);
 
-  /* display mesure */
+  /* display measure */
   BSP_LCD_GLASS_DisplayStrDeci(datatodisplay);
 
   /* Display for 2,5sec */ 

@@ -6,6 +6,6 @@
   ******************************************************************************
   */
 
-The binary demonstration files are available from the 32L476GDISCOVERY page in the Binary Resources section.
+Please be informed that 32L476GDISCOVERY board is obsolete.
+The binary demonstration files can no more be uploaded from www.st.com site.
 
-Please refer to: https://www.st.com/en/evaluation-tools/32l476gdiscovery.html

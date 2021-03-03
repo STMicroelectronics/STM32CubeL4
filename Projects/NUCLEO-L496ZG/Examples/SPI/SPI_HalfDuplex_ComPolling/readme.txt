@@ -66,12 +66,12 @@ If the Master board is used, the "#define MASTER_BOARD" must be uncommented.
 If the Slave board is used the "#define MASTER_BOARD" must be commented.
 
 This example desmonstrate how to implement a basic protocol between master and slave. 
-The master is writting and reading a register and check that write and read value are 
+The master is writing and reading a register and check that write and read value are 
 identical. The slave sw is an infinite loop which execute the operation requested by the master.
 
 In a first step after the user press the User push-button, SPI Master starts slave communication 
 , a loop to request READ_COUNTER_COMMAND and WRITE_COUNTER_COMMAND. The master control the 
-communcation by a comparaison between the read and write value. 
+communication by a comparison between the read and write value. 
 
 STM32 board's LEDs can be used to monitor the master transfer status:
  - LED1 toggles slowly on master board waiting User push-button to be pressed.

@@ -119,7 +119,7 @@ int main(void)
 
 /**
   * @brief DMA2D configuration.
-  * @note  This function Configure tha DMA2D peripheral :
+  * @note  This function Configure the DMA2D peripheral :
   *        1) Configure the transfer mode : register to memory
   *        2) Configure the color to be used to fill user defined area.
   *        3) Configure the output memory address at SRAM memory

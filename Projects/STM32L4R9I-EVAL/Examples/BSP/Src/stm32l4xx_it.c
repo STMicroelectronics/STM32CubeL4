@@ -404,26 +404,6 @@ void DMA1_Channel1_IRQHandler(void)
 }
 
 /**
-  * @brief  This function handles DMA1 Channel2 interrupt request.
-  * @param  None
-  * @retval None
-  */
-void DMA1_Channel2_IRQHandler(void)
-{
-  BSP_OSPI_RAM_DMA_IRQHandler();
-}
-
-/**
-  * @brief  This function handles OctoSPI2 interrupt request.
-  * @param  None
-  * @retval None
-  */
-void OCTOSPI2_IRQHandler(void)
-{
-  BSP_OSPI_RAM_IRQHandler();
-}
-
-/**
   * @brief  This function handles SDMMC1 interrupt request.
   * @param  None
   * @retval None

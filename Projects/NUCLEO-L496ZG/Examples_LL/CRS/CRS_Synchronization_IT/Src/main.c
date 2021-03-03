@@ -161,7 +161,7 @@ int main(void)
       /* Power off */
       LED_Off();
       LL_mDelay(100);
-      /* Increase tollerance (FELIM value) until no more warning */
+      /* Increase tolerance (FELIM value) until no more warning */
       LL_CRS_DisableFreqErrorCounter();
       felim = LL_CRS_GetFreqErrorLimit();
       LL_CRS_SetFreqErrorLimit(felim+1);

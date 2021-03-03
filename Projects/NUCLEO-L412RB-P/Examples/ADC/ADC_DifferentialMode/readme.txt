@@ -29,7 +29,7 @@ ADC settings:
   Channel in differential mode.
 
 ADC conversion results:
-  ADC conversions results are transfered automatically by ADC IRQ handler, through
+  ADC conversions results are transferred automatically by ADC IRQ handler, through
   function HAL_ADC_ConvCpltCallback(), into variable "uhADCxConvertedValue".
 
   ADC Differential conversion result calculation:                       

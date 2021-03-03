@@ -278,7 +278,7 @@ void SampleRateSelection(void)
 
 /**
   * @brief Callback function invoked when half of the PCM samples have been 
-  *        DM Atransfered from the DFSDM channel.
+  *        DMA transferred from the DFSDM channel.
   * @param  None
   * @retval None
   */
@@ -292,7 +292,7 @@ void AudioRecord_TransferComplete_CallBack(void)
 
 /**
   * @brief Callback function invoked when all the PCM samples have been 
-  *        DMA transfered from the DFSDM channel.
+  *        DMA transferred from the DFSDM channel.
   * @param  None
   * @retval None
   */

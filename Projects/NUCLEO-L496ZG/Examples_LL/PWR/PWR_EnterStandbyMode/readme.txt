@@ -24,7 +24,7 @@ How to enter the Standby mode and wake up from this mode by using an external
 reset or a wakeup interrupt.
 
 In the associated software, the system clock is set to 80 MHz, an EXTI line
-is connected to the user button thru PC.13 and configured to generate an 
+is connected to the user button through PC.13 and configured to generate an 
 interrupt on rising edge upon key press.
 LED1 is toggled each 200 ms in order to indicate that MCU is in RUN mode.
 

@@ -209,7 +209,7 @@ static void IddMeasure_saveSignature(void)
   */
 void IddMeasureInit(void)
 {
-  /* Initialize Idd measurment component */
+  /* Initialize Idd measurement component */
   if(IddInitialized != SET)
   {
     /* Avoid spurious Interrupts */
@@ -1061,7 +1061,7 @@ static void LCD_Reset(void)
   /* Wait at least 1 ms (reset low pulse width) */
   HAL_Delay(2);
 
-  /* Desactivate XRES */
+  /* Deactivate XRES */
   BSP_IO_WritePin(IO_PIN_9, GPIO_PIN_SET);
   
   /* Wait reset complete time (maximum time is 5ms when LCD in sleep mode and 120ms when LCD is not in sleep mode) */

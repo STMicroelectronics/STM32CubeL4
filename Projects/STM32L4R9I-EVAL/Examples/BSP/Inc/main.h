@@ -33,7 +33,6 @@
 #include "stm32l4r9i_eval_lcd.h"
 #include "stm32l4r9i_eval_nor.h"
 #include "stm32l4r9i_eval_ospi_nor.h"
-#include "stm32l4r9i_eval_ospi_ram.h"
 #include "stm32l4r9i_eval_sd.h"
 #include "stm32l4r9i_eval_sram.h"
 #include "stm32l4r9i_eval_ts.h"
@@ -107,7 +106,6 @@ void Touchscreen_demo(void);
 void NOR_demo(void);
 void SRAM_demo(void);
 void OSPI_NOR_demo(void);
-void OSPI_RAM_demo(void);
 void SD_demo(void);
 void Log_demo(void);
 

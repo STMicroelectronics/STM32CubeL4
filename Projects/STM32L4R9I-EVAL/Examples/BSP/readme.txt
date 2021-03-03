@@ -99,10 +99,6 @@ during SRAM operations (specially noticeable for few seconds during SRAM erase)
 This example shows how to erase, write and read data available on the Octal Flash memory
 available on the board.
 
-  ** OSPI RAM **
-This example shows how to write and read data available on the Octal HyperRAM memory
-available on the board.
-
 
 The note hereafter is applicable only to STM32L4R9I_EVAL-DSI configuration used with DSI 390x390 display (MB1314).
 
@@ -135,7 +131,6 @@ The note hereafter is applicable only to STM32L4R9I_EVAL-DSI configuration used 
   - BSP/Src/eeprom.c               EEPROM Read/Write features
   - BSP/Src/nor.c                  NOR features
   - BSP/Src/ospi_nor.c             OctoSPI NOR features
-  - BSP/Src/ospi_ram.c             OctoSPI HyperRAM features
   - BSP/Src/sram.c                 SRAM features
   - BSP/Inc/main.h                 Main program header file
   - BSP/Inc/stm32l4xx_hal_conf.h   HAL Configuration file

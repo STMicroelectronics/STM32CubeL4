@@ -359,7 +359,7 @@ void HAL_DSI_MspInit(DSI_HandleTypeDef* hdsi)
   HAL_RCC_GetOscConfig(&RCC_OscInitStruct);
   if(RCC_OscInitStruct.HSEState == RCC_HSE_OFF)
   {
-    /* Workaround for long HSE startup time (set PH0 to ouput PP low) */
+    /* Workaround for long HSE startup time (set PH0 to output PP low) */
     GPIO_InitTypeDef  GPIO_InitStruct;
     __HAL_RCC_GPIOH_CLK_ENABLE();
     GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP;

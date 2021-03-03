@@ -86,7 +86,7 @@ void Accelero_demo(void)
     yvalabs = ABS(yval);
     zvalabs = ABS(zval);
     
-    /* Treat only significant datas */
+    /* Treat only significant data */
     if((xvalabs > ACCELERO_THRESHOLD_DETECTION) || (yvalabs > ACCELERO_THRESHOLD_DETECTION) ||
        (zvalabs > ACCELERO_THRESHOLD_DETECTION))
     {

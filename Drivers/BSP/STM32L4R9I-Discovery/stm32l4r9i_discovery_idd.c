@@ -158,7 +158,7 @@ void BSP_IDD_LowPower(void)
 void BSP_IDD_StartMeasure(void)
 {
 
-  /* Activate the OPAMP used ny the MFX to measure the current consumption */
+  /* Activate the OPAMP used by the MFX to measure the current consumption */
   BSP_IO_ConfigPin(IDD_AMP_CONTROL_PIN, IO_MODE_OUTPUT);
   BSP_IO_WritePin(IDD_AMP_CONTROL_PIN, GPIO_PIN_RESET);
 
@@ -188,9 +188,9 @@ void BSP_IDD_Config(IDD_ConfigTypeDef IddConfig)
   */
 void BSP_IDD_GetValue(uint32_t *IddValue)
 {
-  /* De-activate the OPAMP used ny the MFX to measure the current consumption */
+  /* De-activate the OPAMP used by the MFX to measure the current consumption */
   BSP_IO_ConfigPin(IDD_AMP_CONTROL_PIN, IO_MODE_OUTPUT);
-  BSP_IO_WritePin(IDD_AMP_CONTROL_PIN, GPIO_PIN_RESET);
+  BSP_IO_WritePin(IDD_AMP_CONTROL_PIN, GPIO_PIN_SET);
 
   if(IddDrv->GetValue != NULL)
   {

@@ -28,7 +28,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 /* Exported constants --------------------------------------------------------*/
-#define AUDIO_OUT_BUFFER_SIZE                       (4 * 512) /* This is the minimum size 2 blocs of SDMMC */
+#define AUDIO_OUT_BUFFER_SIZE                       (4 * 512) /* This is the minimum size 2 blocks of SDMMC */
 #define AUDIO_OUT_BUFFER_SIZE_HALF_WORD             (AUDIO_OUT_BUFFER_SIZE / 2)
 
 #define AUDIO_IN_BUFFER_SIZE                        AUDIO_OUT_BUFFER_SIZE

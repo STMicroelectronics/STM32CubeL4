@@ -533,9 +533,9 @@
               <FilePath>../Src/shutdown_test.c</FilePath>
             </File>
             <File>
-              <FileName>sleep_range1_test .c</FileName>
+              <FileName>sleep_range1_test.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Src/sleep_range1_test .c</FilePath>
+              <FilePath>../Src/sleep_range1_test.c</FilePath>
             </File>
             <File>
               <FileName>sleep_range2_test.c</FileName>

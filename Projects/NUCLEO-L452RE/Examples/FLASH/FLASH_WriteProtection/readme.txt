@@ -54,7 +54,7 @@ to run at 80 MHz.
 NUCLEO-L452RE Rev C board's LED can be used to monitor the transfer status:
  - LED2 is ON when there are no errors detected after programming
     => should be the case when WRITE_PROTECTION_DISABLE flag is enabled
- - LED2 is blinking with a 1s period when there are errors dectected after programming
+ - LED2 is blinking with a 1s period when there are errors detected after programming
     => should be the case when WRITE_PROTECTION_ENABLE flag is enabled
  - LED2 is blinking (100ms on, 2s off) when there is an issue during erase, program or OB program procedure
 

@@ -28,7 +28,7 @@
 		<link>
 			<name>Doc/readme.txt</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/readme.txt</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/MenuLauncher/readme.txt</locationURI>
 		</link>
 		<link>
 			<name>Application/SW4STM32/startup_stm32l4r9xx.s</name>

@@ -1172,7 +1172,7 @@
                 <group>
                     <name>STemWin_demo</name>
                     <file>
-                        <name>$PROJ_DIR$\..\Modules\STemWin_demo\STemWin_win .c</name>
+                        <name>$PROJ_DIR$\..\Modules\STemWin_demo\STemWin_win.c</name>
                     </file>
                 </group>
                 <group>

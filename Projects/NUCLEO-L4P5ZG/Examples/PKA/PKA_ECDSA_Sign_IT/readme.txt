@@ -28,8 +28,8 @@ For this example, a test vector have been extracted from National Institute of S
 This reference files can be found under:
 "http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip (SigGen.txt)"
 
-This test vector has been choosen to demonstrate how to sign a message. The inputs and outputs definitions are included 
-in SigGen.c. The output signature is composed of two parts called "R" and "S". You can refer to this file for more informations.
+This test vector has been chosen to demonstrate how to sign a message. The inputs and outputs definitions are included 
+in SigGen.c. The output signature is composed of two parts called "R" and "S". You can refer to this file for more information.
 
 The selected curve for this example is P-256 (ECDSA-256) published by NIST in 
 Federal Information Processing Standards Publication FIPS PUB 186-4. The description

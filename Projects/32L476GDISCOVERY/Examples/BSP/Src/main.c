@@ -47,7 +47,7 @@ typedef enum
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-/* Menu / Application managment */
+/* Menu / Application management */
 uint32_t AppStatus = 0x00;
 FlagStatus AppLaunched = RESET;
 uint8_t DemoIndex = 0;
@@ -202,7 +202,7 @@ int main(void)
       BSP_IDD_DeInit();
     }
     
-    /* Display demo explaination on LCD Glass */
+    /* Display demo explanation on LCD Glass */
     AppStatus = DEMO_STATE_FIRST_STARTUP;
     Display_DemoDescription();
   }

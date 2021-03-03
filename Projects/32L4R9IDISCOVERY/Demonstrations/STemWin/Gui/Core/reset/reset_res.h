@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    reset_res.h
   * @author  MCD Application Team
-  * @brief   reset ressources
+  * @brief   reset resources
   ******************************************************************************
   * @attention
   *

@@ -42,7 +42,7 @@
   * @ingroup  libNDEF
   *	@brief    This module is used to manage a Wifi Out-Of-Band NDEF message, to start a communication based on Wifi.
   * @details  The Wifi OOB format is described by the Wifi Protected Setup specification.
-  *           It consists in a list of data elements formated as type-length-value.
+  *           It consists in a list of data elements formatted as type-length-value.
   *           This module allows to build, write & read such data embedded in a NDEF message.
   * @section  Wifi_Library_Usage Wifi NDEF library usage
   * @subsection  Write_Wifi_OOB How to write a Wifi OOB

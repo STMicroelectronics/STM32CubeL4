@@ -124,7 +124,7 @@ int main(void)
       /* Power off LED3 */
       BSP_LED_Off(LED3);
       /* Perform a new configuration to LSE when SYNC MISS is detected. */
-      /* For visual confort on LED3 apply delay before new configuration */
+      /* For visual comfort on LED3 apply delay before new configuration */
       HAL_Delay(1000);
 
       /* Retrieve synchronization information */
@@ -159,7 +159,7 @@ int main(void)
       BSP_LED_On(LED3);
       HAL_Delay(100);
       BSP_LED_Off(LED3);
-      /* Increase tollerance (FELIM value) until no more warning */
+      /* Increase tolerance (FELIM value) until no more warning */
       CRSInitStruct.ErrorLimitValue += 1;
       /* Max value for FELIM has been reached? */
       if (CRSInitStruct.ErrorLimitValue > CRS_MAX_FELIM_VALUE)

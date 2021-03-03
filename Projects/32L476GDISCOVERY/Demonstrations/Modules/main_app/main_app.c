@@ -150,7 +150,7 @@ static void AppMain_Option(void)
   JOYState_TypeDef key = JOY_DOWN;
   SettingsBackupData_TypeDef settings;
   
-  /* Display demo informations depending Supply mode*/
+  /* Display demo information depending Supply mode*/
   if(PowerSupplyMode == SUPPLY_MODE_BATTERY)
   {
     max_index = 0;   /* STOP2 only */
@@ -239,7 +239,7 @@ static void AppMain_About(void)
   mfxversion[countof(MFX_INFO)-4] = ((uint8_t)(MfxFwVersion >> 8) + 0x30);
   mfxversion[countof(MFX_INFO)-2] = (uint8_t) ((MfxFwVersion & 0xFF) + 0x30);
 
-  /* Display demo informations */
+  /* Display demo information */
   BSP_LCD_GLASS_ScrollSentence((uint8_t *) DISCOVERY_BOARD, 1, SCROLL_SPEED_HIGH);
   BSP_LCD_GLASS_ScrollSentence((uint8_t *) DEMO_VERSION, 1, SCROLL_SPEED_HIGH);
   BSP_LCD_GLASS_ScrollSentence((uint8_t *) mfxversion, 1, SCROLL_SPEED_HIGH);

@@ -31,7 +31,7 @@ result is a 128-bit long data.
 The expected HASH digests (for SHA1 and MD5) are already computed using an online
 HASH tool. Those values are compared to those computed by the HASH peripheral.
 
-In case there is a missmatch the blue LED (LED2) is turned ON.
+In case there is a mismatch the blue LED (LED2) is turned ON.
 In case the SHA1 digest is computed correctly the green LED (LED1) is turned ON.
 In case the MD5 digest is computed correctly the green LED (LED1) is turned ON.
 

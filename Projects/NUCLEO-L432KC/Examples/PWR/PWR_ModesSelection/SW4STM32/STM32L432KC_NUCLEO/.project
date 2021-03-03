@@ -151,9 +151,9 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Src/shutdown_test.c</locationURI>
 		</link>
 		<link>
-			<name>Example/User/TestConso/sleep_range1_test .c</name>
+			<name>Example/User/TestConso/sleep_range1_test.c</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Src/sleep_range1_test%20.c</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/Src/sleep_range1_test.c</locationURI>
 		</link>
 		<link>
 			<name>Example/User/TestConso/sleep_range2_test.c</name>

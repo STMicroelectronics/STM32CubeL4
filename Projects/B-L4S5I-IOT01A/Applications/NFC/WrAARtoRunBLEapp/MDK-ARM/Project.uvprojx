@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32L4S5xx,USE_HAL_DRIVER,USE_STM32L4S5I_IOT01</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../../../../../../Drivers/CMSIS/Include;../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include;../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc;../../../../../../Drivers/BSP/B-L4S5I-IOT01;../../../../../../Drivers/BSP/Components/ST25DV;../../Common/lib_nfc/common/inc;../../Common/lib_nfc/lib_NDEF/Core/inc</IncludePath>
+              <IncludePath>../Inc;../../../../../../Drivers/CMSIS/Include;../../../../../../Drivers/CMSIS/Device/ST/STM32L4xx/Include;../../../../../../Drivers/STM32L4xx_HAL_Driver/Inc;../../../../../../Drivers/BSP/B-L4S5I-IOT01;../../../../../../Drivers/BSP/Components/st25dv;../../Common/lib_nfc/common/inc;../../Common/lib_nfc/lib_NDEF/Core/inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -460,12 +460,12 @@
             <File>
               <FileName>st25dv.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../../Drivers/BSP/Components/ST25DV/st25dv.c</FilePath>
+              <FilePath>../../../../../../Drivers/BSP/Components/st25dv/st25dv.c</FilePath>
             </File>
             <File>
               <FileName>st25dv_reg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../../../../../../Drivers/BSP/Components/ST25DV/st25dv_reg.c</FilePath>
+              <FilePath>../../../../../../Drivers/BSP/Components/st25dv/st25dv_reg.c</FilePath>
             </File>
           </Files>
         </Group>

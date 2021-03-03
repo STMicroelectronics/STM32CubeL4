@@ -1074,7 +1074,7 @@ static void SUBDEMO_Start(WM_HWIN hWin, const DemoContext_t *pContext)
             f_close(&DEMO_resources_file);
             f_size(&DEMO_resources_file) = 0;
             
-            return; /* Exist immediatly */
+            return; /* Exist immediately */
           }
         }
       }

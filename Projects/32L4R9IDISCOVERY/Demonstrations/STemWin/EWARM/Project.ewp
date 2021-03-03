@@ -2875,7 +2875,7 @@
     <group>
         <name>Doc</name>
         <file>
-            <name>$PROJ_DIR$\..\readme.txt</name>
+            <name>$PROJ_DIR$\..\..\MenuLauncher\readme.txt</name>
         </file>
     </group>
     <group>

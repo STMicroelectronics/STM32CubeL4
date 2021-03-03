@@ -1039,7 +1039,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     pWavRecordList->ptr = 0;
     k_BkupSaveParameter(CALIBRATION_AUDIORECODER_SETTING_BKP, RecorderSettings.d32);
 
-    /* Initialize the Temperature application, due to ressource conflict */
+    /* Initialize the Temperature application, due to resource conflict */
     k_TemperatureInit();
     break;
 
@@ -1228,7 +1228,7 @@ static void Startup(WM_HWIN hWin, uint16_t xpos, uint16_t ypos)
       }
       else
       {
-        /* DeInitialize the Temperature application, due to ressource conflict */
+        /* DeInitialize the Temperature application, due to resource conflict */
         k_TemperatureDeInit();
 
         /* Initialise the Audio Recorder application */
@@ -1239,7 +1239,7 @@ static void Startup(WM_HWIN hWin, uint16_t xpos, uint16_t ypos)
   }
   else
   {
-    /* DeInitialize the Temperature application, due to ressource conflict */
+    /* DeInitialize the Temperature application, due to resource conflict */
     k_TemperatureDeInit();
 
     /* Initialise the Audio Recorder application */

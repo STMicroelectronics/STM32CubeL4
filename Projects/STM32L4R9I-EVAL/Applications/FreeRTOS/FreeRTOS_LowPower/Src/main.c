@@ -155,7 +155,7 @@ static void QueueReceiveThread(const void *argument)
   * @param  ulExpectedIdleTime: Expected time in idle state
   * @retval None
   */
-void PreSleepProcessing(uint32_t * ulExpectedIdleTime)
+void PreSleepProcessing(uint32_t ulExpectedIdleTime)
 {
   /* Called by the kernel before it places the MCU into a sleep mode because
   configPRE_SLEEP_PROCESSING() is #defined to PreSleepProcessing().
@@ -165,18 +165,18 @@ void PreSleepProcessing(uint32_t * ulExpectedIdleTime)
   on again in the post sleep processing function.  For maximum power saving
   ensure all unused pins are in their lowest power state. */
 
-  /* 
-    (*ulExpectedIdleTime) is set to 0 to indicate that PreSleepProcessing contains
+  /*
+    (ulExpectedIdleTime) is set to 0 to indicate that PreSleepProcessing contains
     its own wait for interrupt or wait for event instruction and so the kernel vPortSuppressTicksAndSleep 
     function does not need to execute the wfi instruction  
   */
-  *ulExpectedIdleTime = 0;
+  (void) ulExpectedIdleTime;
 
   /* Suspend the HAL Tick */
   HAL_SuspendTick();
 
   /*Enter to sleep Mode using the HAL function HAL_PWR_EnterSLEEPMode with WFI instruction*/
-  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);  
+  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 }
 
 /**
@@ -184,7 +184,7 @@ void PreSleepProcessing(uint32_t * ulExpectedIdleTime)
   * @param  ulExpectedIdleTime: Not used
   * @retval None
   */
-void PostSleepProcessing(uint32_t * ulExpectedIdleTime)
+void PostSleepProcessing(uint32_t ulExpectedIdleTime)
 {
   /* Called by the kernel when the MCU exits a sleep mode because
   configPOST_SLEEP_PROCESSING is #defined to PostSleepProcessing(). */

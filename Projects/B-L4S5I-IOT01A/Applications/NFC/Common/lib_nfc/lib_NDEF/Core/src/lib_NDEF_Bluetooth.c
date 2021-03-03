@@ -38,7 +38,7 @@
   * @{
   * @brief    This module is used to manage a Bluetooth Out-Of-Band NDEF message, to start a communication based on Bluetooth.
   * @details  The Bluetooth OOB format is described by the Bluetooth v4.0 core specification.
-  *           It consists in a list of Extended Inquiry Responses formated as length-type-value.
+  *           It consists in a list of Extended Inquiry Responses formatted as length-type-value.
   *           This module allows to build, write & read such data embedded in a NDEF message.
   * @section      Bluetooth_Library_Usage Bluetooth NDEF Library usage
   * @subsection   Bluetooth_Write_BrEdr How to write a Bluetooth Br/Edr OOB
@@ -100,7 +100,7 @@
 
 
 /**
-  * @brief  This function copies an array, changing its endianness, usefull to convert data to BLE endianess.
+  * @brief  This function copies an array, changing its endianness, usefull to convert data to BLE endianness.
   * @param  dst Pointer on 1st element of the destination array.
   * @param  src pointer on 1st element of the source array .
   * @param  length Number of element to copy.

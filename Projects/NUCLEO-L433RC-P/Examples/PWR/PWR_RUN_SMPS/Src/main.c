@@ -43,7 +43,7 @@ static void Error_Handler(void);
 static void test_run_range2_80mhz_SMPS(void);
 
 
-/* Default 0x1FE for 0x200 alignement. Best result with 0x200 ie alignement 0x202*/
+/* Default 0x1FE for 0x200 alignment. Best result with 0x200 ie alignment 0x202*/
 #if defined(__CC_ARM)
 #pragma arm section code = ".ROM_While1_section"
 #pragma no_inline

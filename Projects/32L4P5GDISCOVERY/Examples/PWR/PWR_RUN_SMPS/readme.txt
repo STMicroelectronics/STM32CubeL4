@@ -86,7 +86,7 @@ In order to make the program work, you must do the following :
  - Plug the USB cable back to CN11 ST-Link connector (starts the example)
  - Wait 10 seconds and measure power consumption (A: 80 MHz Run mode, Voltage Range 1).
  - Reset board (using reset button)
- - Press user button within 5 seconds (while LED1 is togling) for SMPS
+ - Press user button within 5 seconds (while LED1 is toggling) for SMPS
  - Wait 10s and start measuring power consumption (B: 80 MHz un mode, Voltage Range 1, SMPS enabled)
 
  * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>

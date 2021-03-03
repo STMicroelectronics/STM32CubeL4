@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @brief   This file contains buffers reflecting the content of the file
   *          rsa_priv_2048.pem provided as an example of private key to 
-  *          demonstrate functionnality of PKA.
+  *          demonstrate functionality of PKA.
   ******************************************************************************
   * @attention
   *

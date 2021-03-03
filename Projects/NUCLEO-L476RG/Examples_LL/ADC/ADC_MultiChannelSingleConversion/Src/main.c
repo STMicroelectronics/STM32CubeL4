@@ -110,7 +110,7 @@ static uint32_t ubAdcGrpRegularSequenceConvCount = 0; /* Variable set into ADC i
 /* Variables for ADC conversion data computation to physical values */
 __IO uint16_t uhADCxConvertedData_VoltageGPIO_mVolt = 0;        /* Value of voltage on GPIO pin (on which is mapped ADC channel) calculated from ADC conversion data (unit: mV) */
 __IO uint16_t uhADCxConvertedData_VrefInt_mVolt = 0;            /* Value of internal voltage reference VrefInt calculated from ADC conversion data (unit: mV) */
-__IO  int16_t hADCxConvertedData_Temperature_DegreeCelsius = 0; /* Value of temperature calculated from ADC conversion data (unit: degree Celcius) */
+__IO  int16_t hADCxConvertedData_Temperature_DegreeCelsius = 0; /* Value of temperature calculated from ADC conversion data (unit: degree Celsius) */
 __IO uint16_t uhADCxConvertedData_VrefAnalog_mVolt = 0;         /* Value of analog reference voltage (Vref+), connected to analog voltage supply Vdda, calculated from ADC conversion data (unit: mV) */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -298,7 +298,7 @@ void Configure_DMA(void)
   *           the setting of these parameters is bypassed without error
   *           reporting:
   *           it can be the expected behavior in case of recall of this 
-  *           function to update only a few parameters (which update fullfills
+  *           function to update only a few parameters (which update fulfills
   *           the ADC state).
   *           Otherwise, it is up to the user to set the appropriate error 
   *           reporting in user application.
@@ -368,7 +368,7 @@ void Configure_ADC(void)
     /*       is only a few CPU processing cycles.                             */
     /* Note: On STM32L4, internal reference voltage requires also a           */
     /*       stabilization time (refer to literal LL_ADC_DELAY_VREFINT_STAB_US). */
-    /*       This delay is fullfilled in this example by delay of             */
+    /*       This delay is fulfilled in this example by delay of             */
     /*       temperature sensor.                                              */
     /* Note: This delay is implemented here for the purpose in this example.  */
     /*       It can be optimized if merged with other delays                  */

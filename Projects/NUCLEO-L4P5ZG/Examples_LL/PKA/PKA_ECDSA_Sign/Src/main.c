@@ -118,7 +118,7 @@ int main(void)
   /* Wait for the interrupt callback */
   while(endOfProcess != 1);
 
-  /* Retreive the result and output buffer */
+  /* Retrieve the result and output buffer */
   result = PKA->RAM[PKA_ECDSA_SIGN_OUT_ERROR];
   PKA_Memcpy_u32_to_u8(RBuffer, &PKA->RAM[PKA_ECDSA_SIGN_OUT_SIGNATURE_R], prime256v1_Prime_len / 4);
   PKA_Memcpy_u32_to_u8(SBuffer, &PKA->RAM[PKA_ECDSA_SIGN_OUT_SIGNATURE_S], prime256v1_Prime_len / 4);

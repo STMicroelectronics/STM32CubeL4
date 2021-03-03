@@ -28,10 +28,10 @@ For this example, a test vector have been extracted from National Institute of S
 This reference files can be found under:
 "http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip (ZIP SigGen.rsp)"
 
-This test vector has been choosen to demonstrate the behavior in a case where the input signature
+This test vector has been chosen to demonstrate the behavior in a case where the input signature
 is valid. A second input is provided where one element of the hash message has been modified to 
 demonstrate the behavior in a case where the signature is invalid. Their definitions are included 
-in SigVer.c. You can refer to this file for more informations.
+in SigVer.c. You can refer to this file for more information.
 
 The selected curve for this example is P-256 (ECDSA-256) published by NIST in 
 Federal Information Processing Standards Publication FIPS PUB 186-4. The description

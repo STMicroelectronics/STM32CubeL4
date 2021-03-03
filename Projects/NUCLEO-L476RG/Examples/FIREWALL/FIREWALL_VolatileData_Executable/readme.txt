@@ -73,7 +73,7 @@ and "b" region) defined as follows by the scatter file
  
  If the code unrolls as expected, LED2 is turned on.
  If an error occurs (unexpected Firewall reset or any other unexpected
- result), LED2 blinks in transmiting a sequence of three dots, three dashes, three dots.
+ result), LED2 blinks in transmitting a sequence of three dots, three dashes, three dots.
 
 
  The Firewall software reset leads to resort to RTC back-up registers
@@ -88,10 +88,10 @@ and "b" region) defined as follows by the scatter file
  RTC->BKP31R  |  Example very |  main() has been started  |        N/A
               |  first start  |    at least one time      |  
  -----------------------------------------------------------------------------                  
- RTC->BKP0R   | Initial value |     Unexpected Firewall   | Uncorrect protected
+ RTC->BKP0R   | Initial value |     Unexpected Firewall   | Incorrect protected
               |               |           reset           | function first run 
  -----------------------------------------------------------------------------                  
- RTC->BKP1R   | Initial value | Unexpected software reset | Uncorrect protected
+ RTC->BKP1R   | Initial value | Unexpected software reset | Incorrect protected
               |               | (not Firewall-triggered)  | function second run
  -----------------------------------------------------------------------------                                       
 

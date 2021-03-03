@@ -33,7 +33,7 @@ STM32F4DIS-CAM camera module can be used).
 The DCMI IP is configured to crop the camera module frame set to QVGA 320x240 resolution 
 to the FRIDA LCD format 240x240.
 
-Each time the DCMI End of Frame event callback is raised, the picture is transferred to the LCD frame buffer thru DMA2D.   
+Each time the DCMI End of Frame event callback is raised, the picture is transferred to the LCD frame buffer through DMA2D.   
 
 
 At the beginning of the main program the HAL_Init() function is called to reset 

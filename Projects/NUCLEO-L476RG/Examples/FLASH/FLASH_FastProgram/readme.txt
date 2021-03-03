@@ -39,7 +39,7 @@ in the Flash memory. The written data is then read back and checked.
 
 The NUCLEO-L476RG Rev C board LEDs can be used to monitor the transfer status:
  - LED2 is ON when there are no errors detected after programming
- - LED2 is blinking with a 1s period when there are errors dectected after programming
+ - LED2 is blinking with a 1s period when there are errors detected after programming
  - LED2 is blinking (100ms on, 2s off) when there is an issue during erase or program procedure
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate delay (in milliseconds)

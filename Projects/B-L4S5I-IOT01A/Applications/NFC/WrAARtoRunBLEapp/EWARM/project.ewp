@@ -352,7 +352,7 @@
                     <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include</state>
                     <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc</state>
                     <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\B-L4S5I-IOT01</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\ST25DV</state>
+                    <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\st25dv</state>
                     <state>$PROJ_DIR$\..\..\Common\lib_nfc\common\inc</state>
                     <state>$PROJ_DIR$\..\..\Common\lib_nfc\lib_NDEF\Core\inc</state>
                 </option>
@@ -1119,10 +1119,10 @@
             <group>
                 <name>Components</name>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\ST25DV\st25dv.c</name>
+                    <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\st25dv\st25dv.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\ST25DV\st25dv_reg.c</name>
+                    <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\st25dv\st25dv_reg.c</name>
                 </file>
             </group>
             <group>

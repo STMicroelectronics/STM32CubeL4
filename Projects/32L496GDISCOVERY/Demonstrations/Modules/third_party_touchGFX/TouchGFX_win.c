@@ -336,7 +336,7 @@ static void Startup(WM_HWIN hWin, U16 xpos, U16 ypos)
   {
     /* Now Check if the current flashed demo version is matching flashed resources
      * in the QSPI.
-     * If yes then immediatly jump to the third party demonstration.
+     * If yes then immediately jump to the third party demonstration.
      */
     if (pQspiDemoHeader->demo_id == pDemoDemoHeader->demo_id)
     {
@@ -378,7 +378,7 @@ static void Startup(WM_HWIN hWin, U16 xpos, U16 ypos)
       if(result == FR_OK)
       {
         /* Check if the current flashed demo version is matching the required demo
-         * If yes then immediatly jump to the QSPI resources loading.
+         * If yes then immediately jump to the QSPI resources loading.
          */
         if (pDemoDemoHeader->demo_id == TGFX_LITE_DEMO_REVISION)
         {

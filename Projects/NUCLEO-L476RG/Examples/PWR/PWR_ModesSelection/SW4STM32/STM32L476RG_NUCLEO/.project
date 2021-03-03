@@ -126,9 +126,9 @@
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Src/stop1_mroff_rtc_test.c</location>
 		</link><link>
-			<name>Example/User/TestConso/sleep_range1_test .c</name>
+			<name>Example/User/TestConso/sleep_range1_test.c</name>
 			<type>1</type>
-			<location>PARENT-2-PROJECT_LOC/Src/sleep_range1_test .c</location>
+			<location>PARENT-2-PROJECT_LOC/Src/sleep_range1_test.c</location>
 		</link><link>
 			<name>Example/User/TestConso/sleep_range2_test.c</name>
 			<type>1</type>

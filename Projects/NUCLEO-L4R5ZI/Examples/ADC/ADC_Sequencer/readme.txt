@@ -61,7 +61,7 @@ ADC conversion results:
 
 Board settings:
  - ADC rank 1 is configured to convert ADC_CHANNEL_9 (pin PA.04).
- - There are 2 posibilities:
+ - There are 2 possibilities:
    1 - If compilation switch "WAVEFORM_VOLTAGE_GENERATION_FOR_TEST" is defined:
      - The voltage input on ADC channel is provided from DAC channel.
      ADC and DAC channel have been chosen to have the same pad shared at device level: pin PA.04.

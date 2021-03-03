@@ -28,7 +28,7 @@
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* User can use this section to tailor ADCx instance under use and associated
-   ressources */
+   resources */
 
 /* ## Definition of ADC related resources ################################### */
 /* Definition of ADCx clock resources */

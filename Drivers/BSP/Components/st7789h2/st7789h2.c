@@ -511,7 +511,7 @@ void ST7789H2_SetDisplayWindow(uint16_t Xpos, uint16_t Ypos, uint16_t Width, uin
   */
 void ST7789H2_DrawHLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length)
 {
-  uint16_t counter = 0;
+  uint16_t counter;
   
   /* Set Cursor */
   ST7789H2_SetCursor(Xpos, Ypos); 
@@ -536,7 +536,7 @@ void ST7789H2_DrawHLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t
   */
 void ST7789H2_DrawVLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length)
 {
-  uint16_t counter = 0;
+  uint16_t counter;
 
   /* Set Cursor */
   ST7789H2_SetCursor(Xpos, Ypos);

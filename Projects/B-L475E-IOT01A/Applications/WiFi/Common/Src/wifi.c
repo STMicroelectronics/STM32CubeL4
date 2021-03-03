@@ -167,17 +167,31 @@ WIFI_Status_t WIFI_Disconnect(void)
 WIFI_Status_t WIFI_ConfigureAP(uint8_t *ssid, uint8_t *pass, WIFI_Ecn_t ecn, uint8_t channel, uint8_t max_conn)
 {
   WIFI_Status_t ret = WIFI_STATUS_ERROR;
+  ES_WIFI_Status_t ret_es_wifi = ES_WIFI_STATUS_ERROR;
   ES_WIFI_APConfig_t ApConfig;
+  uint32_t saved_timeout;
   
   strncpy((char*)ApConfig.SSID, (char*)ssid, ES_WIFI_MAX_SSID_NAME_SIZE);
   strncpy((char*)ApConfig.Pass, (char*)pass, ES_WIFI_MAX_PSWD_NAME_SIZE);
+ 
   ApConfig.Channel = channel;
   ApConfig.MaxConnections = WIFI_MAX_CONNECTED_STATIONS;
   ApConfig.Security = (ES_WIFI_SecurityType_t)ecn;
   
-  if(ES_WIFI_ActivateAP(&EsWifiObj, &ApConfig) == ES_WIFI_STATUS_OK)
+  saved_timeout = EsWifiObj.Timeout;
+  
+  EsWifiObj.Timeout = 0xC0000;
+  
+  ret_es_wifi = ES_WIFI_ActivateAP(&EsWifiObj, &ApConfig);
+  
+  EsWifiObj.Timeout = saved_timeout;
+  
+  if (ret_es_wifi == ES_WIFI_STATUS_OK)
   {
-    ret = WIFI_STATUS_OK;
+    if (ES_WIFI_GetNetworkSettings(&EsWifiObj) == ES_WIFI_STATUS_OK)
+    {
+      ret = WIFI_STATUS_OK;
+    }
   }
   return ret;
 }

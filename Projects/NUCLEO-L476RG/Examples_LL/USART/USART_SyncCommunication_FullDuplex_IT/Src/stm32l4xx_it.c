@@ -191,7 +191,7 @@ void USART1_IRQHandler(void)
     /* Clear TC flag */
     LL_USART_ClearFlag_TC(USART1);
     /* Call function in charge of handling end of transmission of sent character
-       and prepare next charcater transmission */
+       and prepare next character transmission */
     USART_CharTransmitComplete_Callback();
   }
 
@@ -214,7 +214,7 @@ void DMA1_Channel3_IRQHandler(void)
   if(LL_DMA_IsActiveFlag_TC3(DMA1))
   {
     LL_DMA_ClearFlag_GI3(DMA1);
-    /* Call function Tranmission complete Callback */
+    /* Call function Transmission complete Callback */
     SPI1_DMA1_TransmitComplete_Callback();
   }
   else if(LL_DMA_IsActiveFlag_TE3(DMA1))

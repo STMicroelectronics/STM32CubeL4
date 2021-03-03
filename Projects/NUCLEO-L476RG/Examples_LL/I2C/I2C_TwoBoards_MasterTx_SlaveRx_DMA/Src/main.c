@@ -172,7 +172,7 @@ void Configure_DMA(void)
   NVIC_SetPriority(DMA1_Channel2_IRQn, 0);
   NVIC_EnableIRQ(DMA1_Channel2_IRQn);
 
-  /* (3) Configure the DMA1_Channel3 functionnal parameters */
+  /* (3) Configure the DMA1_Channel3 functional parameters */
   LL_DMA_ConfigTransfer(DMA1, LL_DMA_CHANNEL_3, LL_DMA_DIRECTION_PERIPH_TO_MEMORY | \
                                                 LL_DMA_PRIORITY_HIGH              | \
                                                 LL_DMA_MODE_NORMAL                | \
@@ -184,7 +184,7 @@ void Configure_DMA(void)
   LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_3, (uint32_t)LL_I2C_DMA_GetRegAddr(I2C3, LL_I2C_DMA_REG_DATA_RECEIVE), (uint32_t)&(aReceiveBuffer), LL_DMA_GetDataTransferDirection(DMA1, LL_DMA_CHANNEL_3));
   LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_3, LL_DMA_REQUEST_3);
 
-  /* (4) Configure the DMA1_Channel2 functionnal parameters */
+  /* (4) Configure the DMA1_Channel2 functional parameters */
   LL_DMA_ConfigTransfer(DMA1, LL_DMA_CHANNEL_2, LL_DMA_DIRECTION_MEMORY_TO_PERIPH | \
                                                 LL_DMA_PRIORITY_HIGH              | \
                                                 LL_DMA_MODE_NORMAL                | \
@@ -572,7 +572,7 @@ void Handle_I2C_Slave(void)
   /* End of I2C_SlaveReceiver_MasterTransmitter_DMA Process */
   LL_I2C_ClearFlag_STOP(I2C3);
 
-  /* Check if datas request to turn on the LED2 */
+  /* Check if data request to turn on the LED2 */
   if(Buffercmp8((uint8_t*)aReceiveBuffer, (uint8_t*)aLedOn, (ubNbDataToReceive-1)) == 0)
   {
     /* Turn LED2 On:

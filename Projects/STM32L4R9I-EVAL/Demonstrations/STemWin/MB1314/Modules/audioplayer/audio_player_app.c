@@ -97,7 +97,7 @@ AUDIOPLAYER_ErrorTypdef  AUDIOPLAYER_Init(uint8_t volume, uint8_t use_spirit_eq)
 
   portENTER_CRITICAL();
 
-  /* Try to Init Audio interface in diffrent config in case of failure */
+  /* Try to Init Audio interface in different config in case of failure */
   if (BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE, volume, DEFAULT_AUDIO_OUT_FREQ))
   {
     Error_Handler();
@@ -119,7 +119,7 @@ AUDIOPLAYER_ErrorTypdef  AUDIOPLAYER_Init(uint8_t volume, uint8_t use_spirit_eq)
     /* Enable CRC to Unlock Audio add-ons */
   __HAL_RCC_CRC_CLK_ENABLE();
   
-  /* Retreive stored settings*/
+  /* Retrieve stored settings*/
   AUDIO_EQ_Bands[0].gainDb = RTC_BkupRestoreParameter(AUDIOPLAYER_EQU1_BKP);
   AUDIO_EQ_Bands[1].gainDb = RTC_BkupRestoreParameter(AUDIOPLAYER_EQU2_BKP);    
   AUDIO_EQ_Bands[2].gainDb = RTC_BkupRestoreParameter(AUDIOPLAYER_EQU3_BKP);   

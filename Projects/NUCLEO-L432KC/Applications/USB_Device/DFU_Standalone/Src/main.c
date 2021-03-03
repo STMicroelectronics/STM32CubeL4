@@ -101,7 +101,7 @@ int main(void)
     }
   }  
   
-  /* Otherwise enters DFU mode to allow user programing his application */
+  /* Otherwise enters DFU mode to allow user programming his application */
   /* Init Device Library */
   USBD_Init(&USBD_Device, &DFU_Desc, 0);
   

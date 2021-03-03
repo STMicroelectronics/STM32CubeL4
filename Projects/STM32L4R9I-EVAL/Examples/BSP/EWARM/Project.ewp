@@ -2025,9 +2025,6 @@
           <name>$PROJ_DIR$\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_nor.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_ospi_ram.c</name>
-        </file>
-        <file>
           <name>$PROJ_DIR$\..\..\..\..\..\Drivers\BSP\STM32L4R9I_EVAL\stm32l4r9i_eval_rgb_lcd.c</name>
           <excluded>
             <configuration>STM32L4R9I_EVAL-DSI</configuration>
@@ -2204,9 +2201,6 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\ospi_nor.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\Src\ospi_ram.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\rgb_lcd.c</name>

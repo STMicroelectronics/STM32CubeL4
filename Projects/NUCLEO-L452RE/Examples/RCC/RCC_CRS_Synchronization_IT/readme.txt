@@ -38,7 +38,7 @@ In this test, this is the scenario:
  - Interrupt is raised to indicate a SYNC MISS and LED2 remains off
  - in main program, wait for 1 sec and reconfigure source to LSE
  - Toggle quickly LED2 when SYNC WARN is detected
- - Increase tollerance (FELIM value) when SYNC WARN is detected
+ - Increase tolerance (FELIM value) when SYNC WARN is detected
  - At the end of the test LED2 should stay ON
 
 Note: HSI48 frequency can be checked with oscilloscope using MCO PIN PA.08

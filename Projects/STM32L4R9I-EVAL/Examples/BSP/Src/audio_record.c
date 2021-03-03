@@ -62,7 +62,7 @@ void AudioRecord_demo(void)
 {
   uint32_t i;
   
-  /* Display test informations */
+  /* Display test information */
   AudioRecord_SetHint();
   
   /* Initialize record */

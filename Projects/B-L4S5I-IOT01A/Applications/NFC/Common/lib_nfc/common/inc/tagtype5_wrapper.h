@@ -65,7 +65,7 @@ typedef struct
   TT5_MagicNumber_t MagicNumber;  /**< CCfile[0]: Magic Number should be E1h or E2h (for extended API) */
   uint8_t Version;                /**< CCfile[1]: Capability container version (b7-b4) and access conditions (b3-b0) */
   uint8_t MemorySize;             /**< CCfile[2]: Memory size, expressed in 8 bytes blocks, set to 0 if tag size is greater than 16kbits. */
-  uint8_t TT5Tag;                 /**< CCfile[3]: Additionnal information on the Type5 Tag:\n
+  uint8_t TT5Tag;                 /**< CCfile[3]: Additional information on the Type5 Tag:\n
                                                   b0: supports `read multiple block` commands\n
                                                   b1: RFU\n
                                                   b2: RFU\n

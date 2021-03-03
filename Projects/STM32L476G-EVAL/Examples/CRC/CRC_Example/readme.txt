@@ -39,7 +39,7 @@ and compared with the expected one stored in uwExpectedCRCValue variable.
 
 STM32 Eval board LEDs are used to monitor the example status:
   - LED1 (GREEN) is ON when a correct CRC value is calculated
-  - LED3 (RED) is ON when an uncorrect CRC value is calculated or when there is an initialization error.
+  - LED3 (RED) is ON when an incorrect CRC value is calculated or when there is an initialization error.
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate delay (in milliseconds)
       based on variable incremented in SysTick ISR. This implies that if HAL_Delay() is called from

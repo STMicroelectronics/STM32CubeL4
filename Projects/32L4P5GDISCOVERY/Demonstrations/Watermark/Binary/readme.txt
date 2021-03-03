@@ -8,4 +8,4 @@
 
 The binary demonstration files are available from the 32L4P5GDISCOVERY page in the Binary Resources section.
 
-Please refer to: https://www.st.com/en/evaluation-tools/32l4p5gdiscovery.html
+Please refer to: https://www.st.com/en/evaluation-tools/stm32l4p5g-dk.html

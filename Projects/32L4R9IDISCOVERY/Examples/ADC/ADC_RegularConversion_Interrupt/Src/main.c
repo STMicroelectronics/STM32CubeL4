@@ -76,7 +76,7 @@ int main(void)
 
   /* On Discovery Kit, specific setting is required to ensure ADC is
     working properly (contrarily to Eval boards, VDDA and VREF+ are not connected
-    thru an external resistor).
+    through an external resistor).
     * VDDA is larger than 2.8V so set the internal voltage reference to scale 1:
        set VREFBUF_CSR VRS = 1
     * VREF+ must be internally connected to VREFINT out:  

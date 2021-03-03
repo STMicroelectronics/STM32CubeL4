@@ -135,7 +135,7 @@ int main(void)
   * @note   This function is used to :
   *         -1- Enable DMA1 clock
   *         -2- Configure NVIC for DMA1.
-  *         -3- Configure the DMA1 functionnal parameters.
+  *         -3- Configure the DMA1 functional parameters.
   *         -4- Enable DMA1 interrupts complete/error.
   * @param   None
   * @retval  None
@@ -149,7 +149,7 @@ void Configure_DMA(void)
   NVIC_SetPriority(DMA1_Channel2_IRQn, 0);
   NVIC_EnableIRQ(DMA1_Channel2_IRQn);
 
-  /* (3) Configure the DMA1 functionnal parameters */
+  /* (3) Configure the DMA1 functional parameters */
   LL_DMA_ConfigTransfer(DMA1, LL_DMA_CHANNEL_2, LL_DMA_DIRECTION_MEMORY_TO_PERIPH | \
                                                 LL_DMA_PRIORITY_HIGH              | \
                                                 LL_DMA_MODE_NORMAL                | \
@@ -689,7 +689,7 @@ void Slave_Reception_Callback(void)
   */
 void Slave_Complete_Callback(void)
 {
-  /* Check if datas request to turn on the LED1 */
+  /* Check if data request to turn on the LED1 */
   if(Buffercmp8((uint8_t*)aReceiveBuffer, (uint8_t*)aLedOn, (ubReceiveIndex-1)) == 0)
   {
     /* Turn LED1 On:

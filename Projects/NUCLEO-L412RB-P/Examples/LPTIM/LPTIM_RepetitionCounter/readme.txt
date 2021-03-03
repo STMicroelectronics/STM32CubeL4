@@ -23,18 +23,18 @@
 How to configure and use LPTIM repetition counter to update
 the autoreload counter upon an update event.
 
-Each time the autoreload counter reachs the maximum value (Period/Autoreload), an
+Each time the autoreload counter reaches the maximum value (Period/Autoreload), an
 interruption is generated, the LED4 toggles.
-Parallely, every autoreload counter match (maximum value reach), the repetition counter
+Parallelly, every autoreload counter match (maximum value reach), the repetition counter
 is decremented.
-When the repetion counter underflows, an update event is generated and the autoreload
+When the repetition counter underflows, an update event is generated and the autoreload
 repetition value is updated.
 
 In this example Period value is alternatively set to 10000 and 1000 while the repetition
 counter is set to 9.
 So each time the counter counts (10000 + 1) or (1000 + 1) internal clock cycles,
 an interrupt is generated, LED4 toggles and the repetition counter is decremented.
-When the repetition counter underflows (i.e. after 10 maximimum value reaches by the
+When the repetition counter underflows (i.e. after 10 maximum value reaches by the
 autoreload counter), the period is updated.
 
 In this example the external clock provided to the LPTIM1 is LSE (32 Khz),

@@ -82,7 +82,7 @@ int main(void)
   BSP_LED_On(LED4);
   BSP_LED_On(LED5);
 
-  /*--- If Wake-up button is pushed, Set or reset BFB2 bit to enable or disbale 
+  /*--- If Wake-up button is pushed, Set or reset BFB2 bit to enable or disable 
   boot from Bank2 (active after next reset, w/ Boot pins set in Boot from Flash 
   memory position ---*/
 

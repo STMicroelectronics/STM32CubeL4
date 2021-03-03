@@ -748,7 +748,7 @@ int main(void)
     }
 
     /********************************************************************/
-    /* Enable UART interruption thru Suspension_Enable() to trigger the
+    /* Enable UART interruption through Suspension_Enable() to trigger the
       low-priority block suspension */
     /********************************************************************/
     if (suspension_trigger == 1)

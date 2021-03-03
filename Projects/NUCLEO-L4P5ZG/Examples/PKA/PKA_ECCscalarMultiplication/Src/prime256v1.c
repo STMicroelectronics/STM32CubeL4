@@ -5,7 +5,7 @@
   * @brief   This file contains reference buffers containing the description of
   *          nist P-256 (ECDSA-256) published by NIST in Federal Information 
   *          Processing Standards Publication FIPS PUB 186-4.
-  *          Additionnal buffer are provided to be used with PKA like abs(A)
+  *          Additional buffer are provided to be used with PKA like abs(A)
   ******************************************************************************
   * @attention
   *

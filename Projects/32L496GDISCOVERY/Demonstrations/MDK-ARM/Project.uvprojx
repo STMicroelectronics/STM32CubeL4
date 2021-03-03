@@ -898,9 +898,9 @@
           <GroupName>Application/User/Modules/STemWin_demo</GroupName>
           <Files>
             <File>
-              <FileName>STemWin_win .c</FileName>
+              <FileName>STemWin_win.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Modules/STemWin_demo/STemWin_win .c</FilePath>
+              <FilePath>../Modules/STemWin_demo/STemWin_win.c</FilePath>
             </File>
           </Files>
         </Group>

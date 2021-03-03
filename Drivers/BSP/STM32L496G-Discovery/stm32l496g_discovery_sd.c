@@ -29,8 +29,8 @@
             mode by calling the functions BSP_SD_ReadBlocks()/BSP_SD_WriteBlocks(), or by DMA
             transfer using the functions BSP_SD_ReadBlocks_DMA()/BSP_SD_WriteBlocks_DMA()
        (++) The DMA transfer complete is used with interrupt mode. Once the SD transfer
-            is complete, the SD interrupt is handeled using the function BSP_SD_IRQHandler(),
-            the DMA Tx/Rx transfer complete are handeled using the functions
+            is complete, the SD interrupt is handled using the function BSP_SD_IRQHandler(),
+            the DMA Tx/Rx transfer complete are handled using the functions
             BSP_SD_DMA_Tx_IRQHandler()/BSP_SD_DMA_Rx_IRQHandler(). The corresponding user callbacks
             are implemented by the user at application level.
        (++) The SD erase block(s) is performed using the function BSP_SD_Erase() with specifying

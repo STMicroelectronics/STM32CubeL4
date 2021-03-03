@@ -197,7 +197,7 @@ void SystemClock_Config(void)
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
   __HAL_RCC_PWR_CLK_DISABLE();
   
-  /* Enable the LSE Oscilator */
+  /* Enable the HSI48 Oscillator */
   RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI48;
   RCC_OscInitStruct.HSI48State          = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_OFF;
@@ -225,7 +225,7 @@ void SystemClock_Config(void)
   /* Enable MSI Auto-calibration through LSE */
   HAL_RCCEx_EnableMSIPLLMode();
 
-  /* Select HSI84 output as USB clock source */
+  /* Select HSI48 output as USB clock source */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USB;
   PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_HSI48;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);

@@ -149,10 +149,6 @@
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Src/touchscreen.c</location>
 		</link><link>
-			<name>Example/User/ospi_ram.c</name>
-			<type>1</type>
-			<location>PARENT-2-PROJECT_LOC/Src/ospi_ram.c</location>
-		</link><link>
 			<name>Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_sram.c</name>
 			<type>1</type>
 			<location>PARENT-6-PROJECT_LOC/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_sram.c</location>
@@ -300,10 +296,6 @@
 			<name>Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_rtc.c</name>
 			<type>1</type>
 			<location>PARENT-6-PROJECT_LOC/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rtc.c</location>
-		</link><link>
-			<name>Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</name>
-			<type>1</type>
-			<location>PARENT-6-PROJECT_LOC/Drivers/BSP/STM32L4R9I_EVAL/stm32l4r9i_eval_ospi_ram.c</location>
 		</link><link>
 			<name>Drivers/STM32L4xx_HAL_Driver/stm32l4xx_hal_dsi.c</name>
 			<type>1</type>

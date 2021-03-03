@@ -82,7 +82,7 @@ void Gyro_demo(void)
     yvalabs = ABS(yval);
     zvalabs = ABS(zval);
     
-    /* Treat only significant datas */
+    /* Treat only significant data */
     if((xvalabs > GYRO_THRESHOLD_DETECTION) || (yvalabs > GYRO_THRESHOLD_DETECTION) ||
        (zvalabs > GYRO_THRESHOLD_DETECTION))
     {

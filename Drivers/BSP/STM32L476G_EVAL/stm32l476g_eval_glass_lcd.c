@@ -243,7 +243,7 @@ void BSP_LCD_GLASS_Contrast(uint32_t Contrast)
   * @param Column: flag indicating if a column has to be add in front
   *        of displayed character.
   *        This parameter can be: DOUBLEPOINT_OFF or DOUBLEPOINT_ON.
-  * @param Position: position in the LCD of the caracter to write [1:7]
+  * @param Position: position in the LCD of the character to write [1:7]
   * @retval None
   * @note  Required preconditions: The LCD should be cleared before to start the
   *        write operation.
@@ -378,11 +378,11 @@ void BSP_LCD_GLASS_WriteChar(uint8_t* ch, uint8_t Point, uint8_t Column, uint8_t
   * @brief Setting bar on LCD, writes bar value in LCD frame buffer
   * @param BarLevel: specifies the LCD GLASS Battery Level.
   *     This parameter can be one of the following values:
-  *     @arg BATTERYLEVEL_OFF: LCD GLASS Batery Empty
-  *     @arg BATTERYLEVEL_1_4: LCD GLASS Batery 1/4 Full
-  *     @arg BATTERYLEVEL_1_2: LCD GLASS Batery 1/2 Full
-  *     @arg BATTERYLEVEL_3_4: LCD GLASS Batery 3/4 Full
-  *     @arg BATTERYLEVEL_FULL: LCD GLASS Batery Full
+  *     @arg BATTERYLEVEL_OFF: LCD GLASS Battery Empty
+  *     @arg BATTERYLEVEL_1_4: LCD GLASS Battery 1/4 Full
+  *     @arg BATTERYLEVEL_1_2: LCD GLASS Battery 1/2 Full
+  *     @arg BATTERYLEVEL_3_4: LCD GLASS Battery 3/4 Full
+  *     @arg BATTERYLEVEL_FULL: LCD GLASS Battery Full
   * @retval None
   */
 void BSP_LCD_GLASS_BarLevelConfig(uint8_t BarLevel)
@@ -442,7 +442,7 @@ void BSP_LCD_GLASS_BarLevelConfig(uint8_t BarLevel)
 
 /**
   * @brief This function Clear a char in the LCD RAM.
-  * @param position: Position in the LCD of the caracter to write.
+  * @param position: Position in the LCD of the character to write.
   *                  This parameter can be any value in range [1:7].
   * @retval None
   */
@@ -539,7 +539,7 @@ void BSP_LCD_GLASS_ClearChar(uint8_t position)
   *          This parameter  can be one of the following values:
   *              @arg DOUBLEPOINT_OFF: No colon to add in back of char.
   *              @arg DOUBLEPOINT_ON: Add an colon in back of char.
-  * @param  Position: Position in the LCD of the caracter to write.
+  * @param  Position: Position in the LCD of the character to write.
   *                   This parameter can be any value in range [1:7].
   * @retval None
   */
@@ -3074,7 +3074,7 @@ static void LCD_MspInit(LCD_HandleTypeDef *hlcd)
   __HAL_RCC_BACKUPRESET_FORCE();
   __HAL_RCC_BACKUPRESET_RELEASE();
 
-  /*##-3- Configue LSE as RTC clock soucre ###################################*/
+  /*##-3- Configure LSE as RTC clock source ###################################*/
   oscinitstruct.OscillatorType =  RCC_OSCILLATORTYPE_LSE;
   oscinitstruct.PLL.PLLState = RCC_PLL_NONE;
   oscinitstruct.LSEState = RCC_LSE_ON;

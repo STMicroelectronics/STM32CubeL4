@@ -62,7 +62,7 @@ AUDIOPLAYER_ErrorTypdef  AUDIOPLAYER_Init(uint8_t volume)
 {
   portENTER_CRITICAL();
   
-  /* Try to Init Audio interface in diffrent config in case of failure */
+  /* Try to Init Audio interface in different config in case of failure */
   if (BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE, volume, DEFAULT_AUDIO_OUT_FREQ))
   {
     Error_Handler();

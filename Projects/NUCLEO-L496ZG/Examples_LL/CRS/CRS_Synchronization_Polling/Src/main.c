@@ -149,7 +149,7 @@ int main(void)
   */
 void Enable_Sync_Reference_Clock(void)
 {
-  /* To enable LSE, before it is neccessary to:
+  /* To enable LSE, before it is necessary to:
      - Enable the power clock
      - Reset the Back up Domain */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);

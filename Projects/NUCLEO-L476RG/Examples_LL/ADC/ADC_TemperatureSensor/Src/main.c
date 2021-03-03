@@ -101,7 +101,7 @@ __IO uint32_t ubUserButtonPressed = 0;
 __IO uint16_t uhADCxConvertedData = VAR_CONVERTED_DATA_INIT_VALUE; /* ADC group regular conversion data */
 
 /* Variables for ADC conversion data computation to physical values */
-__IO uint16_t hADCxConvertedData_Temperature_DegreeCelsius = 0;  /* Value of temperature calculated from ADC conversion data (unit: degree Celcius) */
+__IO uint16_t hADCxConvertedData_Temperature_DegreeCelsius = 0;  /* Value of temperature calculated from ADC conversion data (unit: degree Celsius) */
 
 /* Variable to report status of ADC group regular unitary conversion          */
 /*  0: ADC group regular unitary conversion is not completed                  */
@@ -220,7 +220,7 @@ int main(void)
     /* Note: Temperature from ADC internal temperature sensor is stored into  */
     /*       into variable                                                    */
     /*       "hADCxConvertedData_Temperature_DegreeCelsius".                  */
-    /*       (unit: degree Celcius)                                           */
+    /*       (unit: degree Celsius)                                           */
     /*       (for debug: see variable content into watch window).             */
   }
 }
@@ -244,7 +244,7 @@ int main(void)
   *           the setting of these parameters is bypassed without error
   *           reporting:
   *           it can be the expected behavior in case of recall of this 
-  *           function to update only a few parameters (which update fullfills
+  *           function to update only a few parameters (which update fulfills
   *           the ADC state).
   *           Otherwise, it is up to the user to set the appropriate error 
   *           reporting in user application.

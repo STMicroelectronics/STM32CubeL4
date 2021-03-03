@@ -602,7 +602,7 @@ static void SC_Init(void)
 }
 
 /**
-  * @brief  Deinitializes all ressources used by the Smartcard interface.
+  * @brief  Deinitializes all resources used by the Smartcard interface.
   * @param  None
   * @retval None
   */

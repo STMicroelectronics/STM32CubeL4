@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    power_measurement_res.h
   * @author  MCD Application Team
-  * @brief   power measurement ressources
+  * @brief   power measurement resources
   ******************************************************************************
   * @attention
   *

@@ -415,7 +415,7 @@ int main(void)
     if(((SC_Response.SW1 << 8) | (SC_Response.SW2)) == SC_OP_TERMINATED)
     {
 #if defined(HAL_UART_MODULE_ENABLED)
-      printf("-- ### CHV1 Operation successfull ###  \n\r");
+      printf("-- ### CHV1 Operation successful ###  \n\r");
 #endif /* HAL_UART_MODULE_ENABLED */
       SC_ADPU.Header.CLA = SC_CLA_GSM11;
       SC_ADPU.Header.INS = SC_READ_BINARY;

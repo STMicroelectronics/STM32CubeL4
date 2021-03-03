@@ -251,7 +251,7 @@ void SPI_Write(uint8_t val)
 void SPI_Read(uint8_t *val)
 {
 #ifdef MASTER_BOARD
-   /* In master RX mode the clock is automaticaly generated on the SPI enable. 
+   /* In master RX mode the clock is automatically generated on the SPI enable. 
       So to guarantee the clock generation for only one data, the clock must be 
       disabled after the first bit and before the latest bit */
   __HAL_SPI_ENABLE(&SpiHandle);

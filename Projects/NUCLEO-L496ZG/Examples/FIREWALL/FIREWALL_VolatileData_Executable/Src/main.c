@@ -106,7 +106,7 @@ int main(void)
        /* Mark that this is the first main() run */
        WRITE_REG( RTC->BKP4R, 0x1 );
        /* Initialize RTC back-up registers, used to log code progress
-          or unexpected software resets / uncorrect processing
+          or unexpected software resets / incorrect processing
           (can be used for debugging purposes)   */
        WRITE_REG( RTC->BKP0R, 0x0 ); 
        WRITE_REG( RTC->BKP1R, 0x0 );

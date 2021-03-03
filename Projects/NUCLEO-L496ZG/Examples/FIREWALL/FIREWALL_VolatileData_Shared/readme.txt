@@ -28,7 +28,7 @@ Non-volatile data segment is located in FLASH.
 In the example Firewall initialization, the protected volatile data segment is 
 first defined as shared so that it can be accessed by non protected code.
 
-For Firewall demonstration's sake, two Firewall sofware resets are purposedly
+For Firewall demonstration's sake, two Firewall software resets are purposely
 triggered.
 - the first one in accessing the protected non-volatile data segment
 - the second one in accessing the protected volatile data segment once 
@@ -67,7 +67,7 @@ The Firewall-protected memory segments are defined as follows
  - the array located in the volatile data segment is updated as expected
  - no Firewall reset occurs when unprotected code segment accesses the array.
  
- Next, while the Firewall is closed, a Firewall reset is purposedly triggered
+ Next, while the Firewall is closed, a Firewall reset is purposely triggered
  in accessing an array located in the protected non-volatile data segment.
  
  This leads to a software reset and a second main() run.
@@ -75,12 +75,12 @@ The Firewall-protected memory segments are defined as follows
  same way but this time, the protected code when called disables the volatile 
  data sharing feature.
  
- A second Firewall reset is purposedly triggered in accessing the no more
+ A second Firewall reset is purposely triggered in accessing the no more
  shared array located in the protected volatile data segment.
  
  If the code unrolls as expected, LED1 is turned on.
  If an error occurs (unexpected Firewall reset or any other unexpected
- result), LED1 blinks in transmiting a sequence of three dots, three dashes, three dots.
+ result), LED1 blinks in transmitting a sequence of three dots, three dashes, three dots.
 
 
  The Firewall-triggered software resets lead to resort to RTC back-up registers
@@ -101,12 +101,12 @@ The Firewall-protected memory segments are defined as follows
  ------------------------------------------------------------------------------                  
  RTC->BKP1R     |  Initial value   |  Unexpected Firewall reset   |    N/A
  ------------------------------------------------------------------------------                  
- RTC->BKP2R     |  Initial value   | No Firewall reset occured    |    N/A 
+ RTC->BKP2R     |  Initial value   | No Firewall reset occurred    |    N/A 
                 |                  | when protected non-volatile  |  
                 |                  | data were accessed,          |  
                 |                  | although reset was expected  |  
  ------------------------------------------------------------------------------                  
- RTC->BKP3R     |  Initial value   | No Firewall reset occured    |    N/A 
+ RTC->BKP3R     |  Initial value   | No Firewall reset occurred    |    N/A 
                 |                  | when protected volatile      |  
                 |                  | data were accessed, although |  
                 |                  | reset was expected           |  
