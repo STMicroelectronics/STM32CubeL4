@@ -105,6 +105,11 @@ static int8_t SCSI_ReportLuns12(USBD_HandleTypeDef *pdev, uint8_t lun,
                                  uint8_t *params);
 static int8_t SCSI_Log_Sense10(USBD_HandleTypeDef *pdev, uint8_t lun,
 								uint8_t *params);
+static int8_t SCSI_Recive_Diagnostic8(USBD_HandleTypeDef *pdev, uint8_t lun,
+								uint8_t *params);
+static int8_t SCSI_Ata_PassThrough12(USBD_HandleTypeDef *pdev, uint8_t lun,
+								uint8_t *params);
+
 /**
   * @}
   */
@@ -201,6 +206,14 @@ int8_t SCSI_ProcessCmd(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *cmd)
 
     case SCSI_LOG_SENSE10:
       ret = SCSI_Log_Sense10(pdev, lun, cmd);
+      break;
+
+    case SCSI_RECEIVE_DIAGNOSTIC8:
+      ret = SCSI_Recive_Diagnostic8(pdev, lun, cmd);
+      break;
+
+    case SCSI_ATA_PASSTHROUGH12:
+      ret = SCSI_Ata_PassThrough12(pdev, lun, cmd);
       break;
 
     default:
@@ -1238,7 +1251,7 @@ static int8_t SCSI_ReportLuns12(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *
   * @param  params: Command parameters
   * @retval status
   */
-__attribute__((optimize(0))) static int8_t SCSI_Log_Sense10(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
+static int8_t SCSI_Log_Sense10(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
 {
   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassData;
 
@@ -1253,6 +1266,37 @@ __attribute__((optimize(0))) static int8_t SCSI_Log_Sense10(USBD_HandleTypeDef *
 
   return 0;
 }
+
+
+
+/**
+  * @brief  SCSI_Write12
+  *         Process Write12 command
+  * @param  lun: Logical unit number
+  * @param  params: Command parameters
+  * @retval status
+  */
+static int8_t SCSI_Recive_Diagnostic8(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
+{
+
+  return SCSI_Log_Sense10(pdev, lun, params);
+}
+
+
+
+/**
+  * @brief  SCSI_Write12
+  *         Process Write12 command
+  * @param  lun: Logical unit number
+  * @param  params: Command parameters
+  * @retval status
+  */
+static int8_t SCSI_Ata_PassThrough12(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
+{
+
+  return SCSI_Log_Sense10(pdev, lun, params);
+}
+
 
 /**
   * @}
