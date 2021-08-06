@@ -55,6 +55,7 @@ extern "C" {
 #define BOT_RESET                    0xFF
 #define USB_MSC_CONFIG_DESC_SIZ      32
 
+#define MSC_BOT_MAX_LUN              0x0F
 
 #define MSC_EPIN_ADDR                0x81U
 #define MSC_EPOUT_ADDR               0x01U
@@ -82,25 +83,31 @@ typedef struct _USBD_STORAGE
 
 typedef struct
 {
-  uint32_t                 max_lun;
-  uint32_t                 interface;
-  uint8_t                  bot_state;
-  uint8_t                  bot_status;
-  uint32_t                 bot_data_length;
-  uint8_t                  bot_data[MSC_MEDIA_PACKET];
-  USBD_MSC_BOT_CBWTypeDef  cbw;
-  USBD_MSC_BOT_CSWTypeDef  csw;
+	uint16_t	size;
+	uint32_t	nbr;
+	uint32_t	addr;
+	uint32_t	len;
+}
+USBD_LUN_BLK_HandleTypeDef;
 
-  USBD_SCSI_SenseTypeDef   scsi_sense [SENSE_LIST_DEEPTH];
-  uint8_t                  scsi_sense_head;
-  uint8_t                  scsi_sense_tail;
-  uint8_t                  scsi_medium_state;
+typedef struct
+{
+  uint32_t                    max_lun;
+  uint32_t                    interface;
+  uint8_t                     bot_state;
+  uint8_t                     bot_status;
+  uint32_t                    bot_data_length;
+  uint8_t                     bot_data[MSC_MEDIA_PACKET];
+  USBD_MSC_BOT_CBWTypeDef     cbw;
+  USBD_MSC_BOT_CSWTypeDef     csw;
 
-  uint16_t                 scsi_blk_size;
-  uint32_t                 scsi_blk_nbr;
+  USBD_SCSI_SenseTypeDef      scsi_sense [SENSE_LIST_DEEPTH];
+  uint8_t                     scsi_sense_head;
+  uint8_t                     scsi_sense_tail;
+  uint8_t                     scsi_medium_state;
 
-  uint32_t                 scsi_blk_addr;
-  uint32_t                 scsi_blk_len;
+  USBD_LUN_BLK_HandleTypeDef  scsi_blk[MSC_BOT_MAX_LUN];
+
 }
 USBD_MSC_BOT_HandleTypeDef;
 
