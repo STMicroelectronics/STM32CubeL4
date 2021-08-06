@@ -100,6 +100,9 @@ static int8_t SCSI_ProcessWrite(USBD_HandleTypeDef *pdev, uint8_t lun);
 
 static int8_t SCSI_UpdateBotData(USBD_MSC_BOT_HandleTypeDef *hmsc,
                                  uint8_t *pBuff, uint16_t length);
+
+static int8_t SCSI_ReportLuns12(USBD_HandleTypeDef *pdev, uint8_t lun,
+                                 uint8_t *params);
 /**
   * @}
   */
@@ -188,6 +191,10 @@ int8_t SCSI_ProcessCmd(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *cmd)
 
     case SCSI_VERIFY10:
       ret = SCSI_Verify10(pdev, lun, cmd);
+      break;
+
+    case SCSI_REPORT_LUNS12:
+      ret = SCSI_ReportLuns12(pdev, lun, cmd);
       break;
 
     default:
@@ -1041,12 +1048,12 @@ static int8_t SCSI_Verify10(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *para
   * @param  blk_nbr: number of block to be processed
   * @retval status
   */
-__attribute__((optimize(0))) static int8_t SCSI_CheckAddressRange(USBD_HandleTypeDef *pdev, uint8_t lun,
+static int8_t SCSI_CheckAddressRange(USBD_HandleTypeDef *pdev, uint8_t lun,
                                      uint32_t blk_offset, uint32_t blk_nbr)
 {
   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassData;
   USBD_LUN_BLK_HandleTypeDef *hlun = &hmsc->scsi_blk[lun];
-/*
+
   if (hmsc == NULL)
   {
     return -1;
@@ -1057,7 +1064,7 @@ __attribute__((optimize(0))) static int8_t SCSI_CheckAddressRange(USBD_HandleTyp
     SCSI_SenseCode(pdev, lun, ILLEGAL_REQUEST, ADDRESS_OUT_OF_RANGE);
     return -1;
   }
-*/
+
   return 0;
 }
 
@@ -1181,6 +1188,41 @@ static int8_t SCSI_UpdateBotData(USBD_MSC_BOT_HandleTypeDef *hmsc,
 
   return 0;
 }
+
+
+/**
+  * @brief  SCSI_Write12
+  *         Process Write12 command
+  * @param  lun: Logical unit number
+  * @param  params: Command parameters
+  * @retval status
+  */
+__attribute__((optimize(0))) static int8_t SCSI_ReportLuns12(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
+{
+  USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassData;
+
+  uint16_t lun_i;
+
+  static uint64_t report_luns[MSC_BOT_MAX_LUN + 1];
+
+  if (hmsc == NULL)
+  {
+    return -1;
+  }
+
+
+  report_luns[0] = 0;
+  ((uint8_t *)report_luns)[3] = sizeof(uint64_t)*(hmsc->max_lun + 1);
+
+  for (lun_i = 0; lun_i <= hmsc->max_lun; lun_i++){
+  	report_luns[lun_i + 1] = lun_i << 8;
+  }
+
+  (void)SCSI_UpdateBotData(hmsc, (uint8_t *)report_luns, sizeof(uint64_t)*(hmsc->max_lun + 2) );
+
+  return 0;
+}
+
 /**
   * @}
   */
