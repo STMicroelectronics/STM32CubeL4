@@ -511,7 +511,7 @@ static int8_t SCSI_ModeSense10(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *p
   /* Check If media is write-protected */
   if (((USBD_StorageTypeDef *)pdev->pUserData)->IsWriteProtected(lun) == 1)
   {
-    MSC_Mode_Sense6_data[2] |= 0x80;
+    MSC_Mode_Sense10_data[2] |= 0x80;
   }
 
   if (params[8] <= len)
