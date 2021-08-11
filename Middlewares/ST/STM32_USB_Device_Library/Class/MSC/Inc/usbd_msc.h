@@ -55,7 +55,7 @@ extern "C" {
 #define BOT_RESET                    0xFF
 #define USB_MSC_CONFIG_DESC_SIZ      32
 
-#define MSC_BOT_MAX_LUN              0x0F
+#define MSC_BOT_MAX_LUN              0x10
 
 #define MSC_EPIN_ADDR                0x81U
 #define MSC_EPOUT_ADDR               0x01U
