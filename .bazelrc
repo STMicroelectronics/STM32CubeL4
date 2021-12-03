@@ -1,0 +1,2 @@
+# Enable toolchain resolution with cc
+build --incompatible_enable_cc_toolchain_resolution

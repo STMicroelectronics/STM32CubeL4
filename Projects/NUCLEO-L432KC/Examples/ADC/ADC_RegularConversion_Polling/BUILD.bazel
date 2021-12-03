@@ -1,0 +1,27 @@
+cc_library(
+    name = "stm32l4xx_hal_driver_config",
+    hdrs = ["Inc/stm32l4xx_hal_conf.h"],
+    includes = ["Inc"],
+)
+
+cc_binary(
+    name = "adc_regular_conversion_polling",
+    srcs = [
+        "Inc/main.h",
+        "Inc/stm32l4xx_hal_conf.h",
+        "Inc/stm32l4xx_it.h",
+        "SW4STM32/startup_stm32l432xx.s",
+        "Src/main.c",
+        "Src/stm32l4xx_hal_msp.c",
+        "Src/stm32l4xx_it.c",
+        "Src/system_stm32l4xx.c",
+    ],
+    includes = ["Inc"],
+    linkopts = ["-T $(location :SW4STM32/STM32L432KC_NUCLEO/STM32L432KCUx_FLASH.ld)"],
+    target_compatible_with = ["//:stm32l432"],
+    deps = [
+        ":SW4STM32/STM32L432KC_NUCLEO/STM32L432KCUx_FLASH.ld",
+        "//:stm32l4xx_bsp_driver_nucleo_32",
+        "//:stm32l4xx_hal_driver",
+    ],
+)
