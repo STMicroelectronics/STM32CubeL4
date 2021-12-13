@@ -11,7 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="../_htmresc/mini-st_2020.css" />
+  <link rel="stylesheet" href="../_htmresc/mini-st.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -27,8 +27,6 @@
 </p>
 <a href="https://www.st.com" class="logo"><img src="../_htmresc/st_logo_2020.png" alt="ST logo" /></a>
 </center>
-<h1 id="license">License</h1>
-<p>The projects covered by these release notes are delivered under different licenses. Details of applicable license for each project are provided in the table of the "Contents" section below.</p>
 <h1 id="purpose">Purpose</h1>
 <p>The projects are a set of applicative tasks that aim to explain and provide use cases of the different products features based on the products hardware (Boards, STM32 Core(s) features, interconnections and peripherals) and built around the different firmware components. They can be directly used or adapted by the STM32CubeL4 Firmware Package users. They provide basic functionalities, show main features or demonstrate performance. They are provided with preconfigured projects for the main supported toolchains.</p>
 <p>In the STM32CubeL4 Firmware Package, the projects are organized in a sequential scheme based on the following levels:</p>
@@ -58,9 +56,825 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section27" checked aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
+<input type="checkbox" id="collapse-section28" checked aria-hidden="true"> <label for="collapse-section28" aria-hidden="true">V1.17.1 / 26-November-2021</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>General updates to fix known defects and enhancements implementation.</li>
+<li>All source files: update disclaimer to add reference to the new license agreement.</li>
+</ul>
+<p><br />
+</p>
+<h2 id="contents">Contents</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><br />
+</p>
+<p><strong>32L476GDISCOVERY</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L476GDISCOVERY</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L476GDISCOVERY\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L476GDISCOVERY</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\32L476GDISCOVERY\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L476GDISCOVERY</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\32L476GDISCOVERY\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L476GDISCOVERY</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L476GDISCOVERY\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L476GDISCOVERY</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L476GDISCOVERY\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>32L496GDISCOVERY</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">LL Examples</td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L496GDISCOVERY</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L496GDISCOVERY\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>32L4P5GDISCOVERY</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">LL Examples</td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Templates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L4P5GDISCOVERY</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4P5GDISCOVERY\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>32L4R9IDISCOVERY</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">32L4R9IDISCOVERY</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4R9IDISCOVERY\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L4R9IDISCOVERY</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\32L4R9IDISCOVERY\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L4R9IDISCOVERY</td>
+<td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
+<td style="text-align: left;">Projects\32L4R9IDISCOVERY\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32L4R9IDISCOVERY</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4R9IDISCOVERY\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32L4R9IDISCOVERY</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\32L4R9IDISCOVERY\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>B-L4S5I-IOT01A</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B-L4S5I-IOT01A</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">Projects\B-L4S5I-IOT01A\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L4S5I-IOT01A</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\B-L4S5I-IOT01A\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-L4S5I-IOT01A</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\B-L4S5I-IOT01A\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>B-L475E-IOT01A</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">Projects\B-L475E-IOT01A\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\B-L475E-IOT01A\Examples</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\B-L475E-IOT01A\Templates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B-L475E-IOT01A</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\B-L475E-IOT01A\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L4P5ZG</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4P5ZG</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4P5ZG</td>
+<td style="text-align: left;">LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4P5ZG</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4P5ZG</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4P5ZG</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L4R5ZI</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples_LL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples_MIX</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Templates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4R5ZI</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L4R5ZI-P</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L412KB</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">Applications</td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412KB</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412KB\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L412RB-P</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L412RB-P</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L412RB-P\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L432KC</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L432KC\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L432KC\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L432KC\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L432KC\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L432KC</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L432KC\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L433RC-P</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L433RC-P</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L433RC-P\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L433RC-P</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L433RC-P\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L433RC-P</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L433RC-P\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L452RE</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L452RE</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L452RE</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L452RE</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L452RE</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L452RE</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L452RE-P</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L452RE-P</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE-P\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L452RE-P</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE-P\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L452RE-P</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L452RE-P\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L476RG</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L476RG</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L476RG\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L496ZG</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples_LL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">Mix HAL/LL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples_MIX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NUCLEO-L496ZG-P</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG-P</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NUCLEO-L496ZG-P</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NUCLEO-L496ZG-P</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STM32L4R9I-EVAL</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L4R9I-EVAL</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L4R9I-EVAL\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L4R9I-EVAL</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\STM32L4R9I-EVAL\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L4R9I-EVAL</td>
+<td style="text-align: left;">HAL Examples <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L4R9I-EVAL\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L4R9I-EVAL</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L4R9I-EVAL\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L4R9I-EVAL</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L4R9I-EVAL\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STM32L476G-EVAL</strong> <span class="icon-st-update"></span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Board</th>
+<th style="text-align: left;">Project category</th>
+<th style="text-align: left;">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32L476G-EVAL</td>
+<td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L476G-EVAL\Applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L476G-EVAL</td>
+<td style="text-align: left;">Demonstrations</td>
+<td style="text-align: left;">Projects\STM32L476G-EVAL\Demonstrations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L476G-EVAL</td>
+<td style="text-align: left;">HAL Examples</td>
+<td style="text-align: left;">Projects\STM32L476G-EVAL\Examples</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L476G-EVAL</td>
+<td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L476G-EVAL\Templates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L476G-EVAL</td>
+<td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
+<td style="text-align: left;">Projects\STM32L476G-EVAL\Templates_LL</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
+</ul>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
+<ul>
+<li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
+</ul></li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.31 + Pack Keil STM32L4P5xx_DFP.1.0.0
+<ul>
+<li>Support of ARM Compiler 6 (AC-5 like warnings) for HAL/LL/BSP drivers and STMicroelectronics Middleware components</li>
+</ul></li>
+<li><p>STM32CubeIDE v1.5.1 - gcc version 7_2018_q2_update (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
+<li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
+<li>Tools
+<ul>
+<li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
+<li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
+</ul></li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<ul>
+<li>STM32L41x/L42x devices Rev1</li>
+<li>STM32L43x/L44x devices Rev1</li>
+<li>STM32L45x/L46x devices Rev2</li>
+<li>STM32L47x/L48x devices Rev4</li>
+<li>STM32L49x/L4Ax devices Rev2</li>
+<li>STM32L4Px/L4Qx devices Rev1</li>
+<li>STM32L4Rx/L4Sx devices Rev2</li>
+<li>STM32L476G Evaluation board RevC (MB1144 C-01)</li>
+<li>STM32L4R9I Evaluation board RevB (MB1313 B-03)</li>
+<li>STM32L476G Discovery board RevC (MB1184 C-01) (obsolete)</li>
+<li>STM32L496G Discovery board RevB (MB1261 B-01)</li>
+<li>STM32L4P5G Discovery board RevB (MB1535 B-03)</li>
+<li>STM32L4R9I Discovery board RevC (MB1311 C-01)</li>
+<li>STM32L412KB Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L412RB Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L432KC Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L433RC Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L452RE Nucleo kit RevC (MB1136 C-03, MB1319 C-01)</li>
+<li>STM32L476RG Nucleo kit RevC (MB1136 C-03)</li>
+<li>STM32L496ZG Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>STM32L4P5ZG Nucleo kit (MB1312/L A-01)</li>
+<li>STM32L4R5ZI Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>B-L475E-IOT01A board RevB (MB1297)</li>
+<li>B-L4S5I-IOT01A board RevE02 (MB1297)</li>
+</ul>
+<p><br />
+</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section27" aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares
 <ul>
@@ -108,7 +922,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="contents">Contents</h2>
+<h2 id="contents-1">Contents</h2>
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
@@ -980,13 +1794,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations">Known Limitations</h2>
+<h2 id="known-limitations-1">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -1004,7 +1818,7 @@
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1038,7 +1852,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section26" aria-hidden="true"> <label for="collapse-section26" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 <li>Update of GCC startup_*.s files to follow correction done in CMSIS files</li>
@@ -1049,7 +1863,7 @@
 <li>1 application demonstrating how to make HTTP requests using the Es-WiFi module</li>
 </ul></li>
 </ul>
-<h2 id="contents-1">Contents</h2>
+<h2 id="contents-2">Contents</h2>
 <ul>
 <li><p>Projects release notes (updates in <strong>bold</strong>)</p>
 <ul>
@@ -1224,13 +2038,13 @@
 </ul>
 <p><br />
 </p>
-<h2 id="known-limitations-1">Known Limitations</h2>
+<h2 id="known-limitations-2">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -1245,7 +2059,7 @@
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-2">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1279,12 +2093,12 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section25" aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <ul>
 <li>Main functions rework for 32L4P5GDISCOVERY/Demonstrations/Watermark project</li>
 <li>Correct syntax error in link script in NUCLEO-L4P5ZG/Examples_LL/RTC/RTC_Tamper/STM32CubeIDE project</li>
 </ul>
-<h2 id="contents-2">Contents</h2>
+<h2 id="contents-3">Contents</h2>
 <ul>
 <li><p>Projects release notes (updates in <strong>bold</strong>)</p>
 <ul>
@@ -1458,7 +2272,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section24" aria-hidden="true"> <label for="collapse-section24" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <ul>
 <li><strong>32L4P5GDISCOVERY</strong>
 <ul>
@@ -1479,7 +2293,7 @@
 </ul></li>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-3">Contents</h2>
+<h2 id="contents-4">Contents</h2>
 <ul>
 <li><p>Projects release notes (updates in <strong>bold</strong>)</p>
 <ul>
@@ -1653,14 +2467,14 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <ul>
 <li>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</li>
 <li>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</li>
 <li>Add HAL MMC driver files to all EWARM, MDK-ARM and SW4STM32 HAL Templates projects</li>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-4">Contents</h2>
+<h2 id="contents-5">Contents</h2>
 <ul>
 <li><p>Projects release notes (updates in <strong>bold</strong>)</p>
 <ul>
@@ -1814,12 +2628,12 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
+<h2 id="main-changes-6">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 <li>Update all readme.txt files for introductory paragraphes coherency over the whole package</li>
 </ul>
-<h2 id="contents-5">Contents</h2>
+<h2 id="contents-6">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.13.0)</li>
 </ul>
@@ -1828,11 +2642,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.12.0 / 22-May-2018</label>
 <div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-6">Contents</h2>
+<h2 id="contents-7">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.12.0)</li>
 </ul>
@@ -1843,11 +2657,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.11.0 / 22-December-2017</label>
 <div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-7">Contents</h2>
+<h2 id="contents-8">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.11.0)</li>
 </ul>
@@ -1858,11 +2672,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.10.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-8">Contents</h2>
+<h2 id="contents-9">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.10.0)</li>
 </ul>
@@ -1873,11 +2687,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section7" aria-hidden="true"> <label for="collapse-section7" aria-hidden="true">V1.9.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-9">Contents</h2>
+<h2 id="contents-10">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.9.0)</li>
 </ul>
@@ -1888,11 +2702,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section8" aria-hidden="true"> <label for="collapse-section8" aria-hidden="true">V1.8.1 / 16-June-2017</label>
 <div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-10">Contents</h2>
+<h2 id="contents-11">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.8.1)</li>
 </ul>
@@ -1903,11 +2717,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9"  aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.8.0 / 21-April-2017</label>
 <div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-11">Contents</h2>
+<h2 id="contents-12">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.8.0)</li>
 </ul>
@@ -1918,11 +2732,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.7.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-12">Contents</h2>
+<h2 id="contents-13">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.7.0)</li>
 </ul>
@@ -1933,11 +2747,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.6.0 / 28-October-2016</label>
 <div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-13">Contents</h2>
+<h2 id="contents-14">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.6.0)</li>
 </ul>
@@ -1948,11 +2762,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.5.2 / 12-September-2016</label>
 <div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-14">Contents</h2>
+<h2 id="contents-15">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.5.20)</li>
 </ul>
@@ -1963,11 +2777,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section13" aria-hidden="true"> <label for="collapse-section13" aria-hidden="true">V1.5.1 / 31-May-2016</label>
 <div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-15">Contents</h2>
+<h2 id="contents-16">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.5.1)</li>
 </ul>
@@ -1978,11 +2792,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.5.0 / 29-April-2016</label>
 <div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-16">Contents</h2>
+<h2 id="contents-17">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.5.0)</li>
 </ul>
@@ -1993,11 +2807,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.4.0 / 26-February-2016</label>
 <div>
-<h2 id="main-changes-17">Main Changes</h2>
+<h2 id="main-changes-18">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-17">Contents</h2>
+<h2 id="contents-18">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.4.0)</li>
 </ul>
@@ -2008,11 +2822,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.3.0 / 29-January-2016</label>
 <div>
-<h2 id="main-changes-18">Main Changes</h2>
+<h2 id="main-changes-19">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-18">Contents</h2>
+<h2 id="contents-19">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.3.0)</li>
 </ul>
@@ -2023,11 +2837,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.2.0 / 25-November-2015</label>
 <div>
-<h2 id="main-changes-19">Main Changes</h2>
+<h2 id="main-changes-20">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-19">Contents</h2>
+<h2 id="contents-20">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.2.0)</li>
 </ul>
@@ -2038,11 +2852,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 16-October-2015</label>
 <div>
-<h2 id="main-changes-20">Main Changes</h2>
+<h2 id="main-changes-21">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-20">Contents</h2>
+<h2 id="contents-21">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.1.1)</li>
 </ul>
@@ -2053,11 +2867,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.0 / 16-September-2015</label>
 <div>
-<h2 id="main-changes-21">Main Changes</h2>
+<h2 id="main-changes-22">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
-<h2 id="contents-21">Contents</h2>
+<h2 id="contents-22">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.1.0)</li>
 </ul>
@@ -2068,11 +2882,11 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.0 / 26-June-2015</label>
 <div>
-<h2 id="main-changes-22">Main Changes</h2>
+<h2 id="main-changes-23">Main Changes</h2>
 <ul>
 <li>First official release of STM32CubeL4 (STM32Cube for STM32L4 Series)</li>
 </ul>
-<h2 id="contents-22">Contents</h2>
+<h2 id="contents-23">Contents</h2>
 <ul>
 <li>For the details of FW projects updates, please refer to <strong>STM32CubeL4 Firmware Package</strong> <a href="../Release_Notes.html">release notes</a> (V1.0.0)</li>
 </ul>

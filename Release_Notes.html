@@ -5,13 +5,16 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Release Notes for STM32CubeL4 Firmware Package</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="_htmresc/mini-st_2020.css" />
+  <link rel="stylesheet" href="_htmresc/mini-st.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -27,9 +30,6 @@
 </p>
 <a href="https://www.st.com" class="logo"><img src="_htmresc/st_logo_2020.png" alt="ST logo" /></a>
 </center>
-<h1 id="license">License</h1>
-<p>Licensed by ST under ST license SLA0048 (the "License"). You may not use this package except in compliance with the License. You may obtain a copy of the License at:</p>
-<p><a href="http://www.st.com/SLA0048">http://www.st.com/SLA0048</a></p>
 <h1 id="purpose">Purpose</h1>
 <p><span style="font-weight: bold;">STMCube is an STMicroelectronics original initiative to ease developers life by reducing development efforts, time and cost.</span></p>
 <p>STM32Cube covers STM32 portfolio.</p>
@@ -70,12 +70,674 @@
 <li><p><a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00344753.pdf">UM2145</a>: STM32CubeL4 demonstration firmware for 32L496GDISCOVERY discovery kit</p></li>
 </ul>
 </div>
-<div class="col-sm-12 col-lg-8">
-<h1 id="update-history">Update History</h1>
+<section id="update-history" class="col-sm-12 col-lg-8">
+<h1>Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section27" checked aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
+<input type="checkbox" id="collapse-section28" checked aria-hidden="true"> <label for="collapse-section28" aria-hidden="true">V1.17.1 / 02-December-2021</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>Patch release to fix known defects and enhancements implementation.</li>
+<li>All source files: update disclaimer to add reference to the new license agreement.</li>
+</ul>
+<p><br />
+</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><strong>CMSIS Device</strong> updates
+<ul>
+<li><strong>Headline</strong>
+<ul>
+<li>Add LSI maximum startup time datasheet value: LSI_STARTUP_TIME.</li>
+<li>__FPU_PRESENT defined with 1U instead of 1 to avoid compilation warning</li>
+<li>Improve GCC startup files robustness.</li>
+<li><strong>STM32L476xx.h</strong> header file: Add PWR SR1 EXT_SMPS_RDY bit definition for WLCSP82 package with Ext SMPS</li>
+</ul></li>
+<li>stm32l4xx.h
+<ul>
+<li>Add new atomic register access macros.</li>
+</ul></li>
+<li>system_stm32l4xx.c
+<ul>
+<li>Update SystemInit() API to don’t reset RCC registers to its reset values</li>
+</ul></li>
+</ul></li>
+<li><strong>HAL/LL Drivers</strong> updates
+<ul>
+<li><strong>RCC_HAL</strong>
+<ul>
+<li>Update IS_RCC_PERIPHCLOCK() macro definition depending on targeted derivative.</li>
+<li>Add new HAL_RCC_GetResetSource() API to get all reset sources and clear flags.</li>
+<li>Update PLL clock source configuration to fix warnings with the GCC compiler.</li>
+<li>Add check of PLL enable bit when a peripheral using PPL P or PLL Q.</li>
+<li>Add new LL inline APIs to check specific PLL, PLLSAI1 and PLLSAI2 domains output:
+<ul>
+<li>LL_RCC_PLL_IsEnabledDomain_SAI()</li>
+<li>LL_RCC_PLL_IsEnabledDomain_48M()</li>
+<li>LL_RCC_PLL_IsEnabledDomain_SYS()</li>
+<li>LL_RCC_PLLSAI1_IsEnabledDomain_SAI()</li>
+<li>LL_RCC_PLLSAI1_IsEnabledDomain_48M()</li>
+<li>LL_RCC_PLLSAI1_IsEnabledDomain_ADC()</li>
+<li>LL_RCC_PLLSAI2_IsEnabledDomain_SAI()</li>
+<li>LL_RCC_PLLSAI2_IsEnabledDomain_DSI()</li>
+<li>LL_RCC_PLLSAI2_IsEnabledDomain_LTDC()</li>
+<li>LL_RCC_PLLSAI2_IsEnabledDomain_ADC()</li>
+</ul></li>
+<li>Fix SAI clock source definition when RCC_CCIPR2_SAI1SEL and RCC_CCIPR2_SAI2SEL are present.</li>
+<li>Update IS_RCC_PERIPHCLOCK() macro definition depending on targeted derivative.</li>
+</ul></li>
+<li><strong>EXTI_HAL</strong>
+<ul>
+<li>Update HAL_EXTI_GetConfigLine() API to set default configuration value of Trigger and GPIOSel before checking each corresponding registers.</li>
+</ul></li>
+<li><strong>FLASH_HAL</strong>
+<ul>
+<li>Disable ICache while Flash programming.</li>
+<li>Update HAL_FLASHEx_Erase() to remove __HAL_FLASH_INSTRUCTION_CACHE_DISABLE().</li>
+</ul></li>
+<li><strong>GPIO_HAL</strong>
+<ul>
+<li>Update HAL_GPIO_Init() API to avoid the configuration of PUPDR register when Analog mode is selected.</li>
+<li>Optimize assertion control for GPIO Pull mode in HAL_GPIO_Init() API.</li>
+<li>Reorder EXTI configuration sequence in order to avoid unexpected level detection.</li>
+</ul></li>
+<li><strong>ADC_HAL/LL</strong>
+<ul>
+<li>Update of the TEMPSENSOR_CAL2_TEMP value in the ll_adc.h file.</li>
+<li>Remove useless binary mask.</li>
+<li>Update LL_ADC driver to prevent unused argument compilation warning.</li>
+</ul></li>
+<li><strong>OPAMP_HAL/LL</strong>
+<ul>
+<li>LL_OPAMP_SetTrimmingValue()/LL_OPAMP_GetTrimmingValue(): redefinition of registers address MUST be volatile (_IO)</li>
+</ul></li>
+<li><strong>RTC_BKP_HAL/LL</strong>
+<ul>
+<li>Update __HAL_RTC_…(__HANDLE__, …) macros to access registers through (__HANDLE__)-&gt;Instance pointer and avoid "unused variable" warnings.</li>
+<li>Fix bad reference to RTC handle in LL_RTC_TIME_Init() &amp; LL_RTC_DATE_Init() APIs</li>
+</ul></li>
+<li><strong>CAN_HAL</strong>
+<ul>
+<li>Update HAL_CAN_Init() API to be aligned with reference manual and to avoid timeout error:
+<ul>
+<li>Update CAN Initialization sequence to set "request initialization" bit before exit from sleep mode.</li>
+</ul></li>
+</ul></li>
+<li><strong>SPI_HAL/LL</strong>
+<ul>
+<li>General update to fix MISRA-C 2012 Rule-13.2 issue.</li>
+<li>Update LL_SPI_TransmitData8() API to avoid casting the result to 8 bits.</li>
+</ul></li>
+<li><strong>I2C_HAL</strong>
+<ul>
+<li>Fix written reserved bit 28 in I2C_CR2 register</li>
+<li>Updated I2C_IsAcknowledgeFailed() API to avoid I2C in busy state if NACK received after transmitting register address.</li>
+<li>Update to handle errors in polling mode.
+<ul>
+<li>Rename I2C_IsAcknowledgeFailed() to I2C_IsErrorOccurred() and correctly manage when error occurs.</li>
+</ul></li>
+<li>Update to fix issue detected due to low system frequency execution (HSI).</li>
+<li>Declare an internal macro link to DMA macro to check remaining data: I2C_GET_DMA_REMAIN_DATA</li>
+</ul></li>
+<li><strong>SMBUS_HAL</strong>
+<ul>
+<li>Update to fix issue of mismatched data received by master in case of data size to be transmitted by the slave is greater than the data size to be received by the master.
+<ul>
+<li>Add flush on TX register.</li>
+</ul></li>
+<li>Add the support of wake up capability.
+<ul>
+<li>Add new APIs:
+<ul>
+<li>HAL_SMBUSEx_EnableWakeUp()</li>
+<li>HAL_SMBUSEx_DisableWakeUp()</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>UART_HAL</strong>
+<ul>
+<li>Fix erroneous UART’s handle state in case of error returned after DMA reception start within UART_Start_Receive_DMA().</li>
+<li>Correction on UART ReceptionType management in case of ReceptionToIdle API are called from RxEvent callback</li>
+<li>Handling of UART concurrent register access in case of race condition between Tx and Rx transfers (HAL UART and LL LPUART)</li>
+<li>Improve header description of UART_WaitOnFlagUntilTimeout() function</li>
+<li>Add a check on the UART parity before enabling the parity error interruption.</li>
+<li>Add const qualifier for read only pointers.</li>
+<li>Fix wrong cast when computing the USARTDIV value in UART_SetConfig().</li>
+</ul></li>
+<li><strong>LPUART_LL</strong>
+<ul>
+<li>Remove TXFECF reference from LL LPUART driver</li>
+</ul></li>
+<li><strong>USART_HAL/LL</strong>
+<ul>
+<li>Handling of UART concurrent register access in case of race condition between Tx and Rx transfers (HAL UART and LL LPUART)</li>
+<li>Fix compilation warnings generated with ARMV6 compiler</li>
+<li>Improve header description of USART_WaitOnFlagUntilTimeout() function</li>
+<li>Add a check on the USART parity before enabling the parity error interrupt.</li>
+<li>Add const qualifier for read only pointers.</li>
+</ul></li>
+<li><strong>SMARTCARD_HAL</strong>
+<ul>
+<li>Improve header description of SMARTCARD_WaitOnFlagUntilTimeout() function</li>
+<li>Add const qualifier for read only pointers.</li>
+<li>Fix wrong cast when computing the USARTDIV value in SMARTCARD_SetConfig().</li>
+</ul></li>
+<li><strong>IRDA_HAL</strong>
+<ul>
+<li>Improve header description of IRDA_WaitOnFlagUntilTimeout() function</li>
+<li>Add a check on the IRDA parity before enabling the parity error interrupt.</li>
+<li>Add const qualifier for read only pointers.</li>
+<li>Fix wrong cast when computing the USARTDIV value in IRDA_SetConfig().</li>
+</ul></li>
+<li><strong>DSI_HAL</strong>
+<ul>
+<li>Update HAL_DSI_Read() to avoid HAL_TIMEOUT when a DSI read command is issued to the panel and the read data is not captured by the DSI Host which returns Packet Size Error.</li>
+<li>Update HAL_DSI_ExitULPM() to force DSI refresh</li>
+</ul></li>
+<li><strong>DCMI_HAL</strong>
+<ul>
+<li>Add const qualifier for read only pointers.</li>
+</ul></li>
+<li><strong>TIM_HAL</strong>
+<ul>
+<li>Fix compilation warnings with MDK-ARM</li>
+<li>Update HAL_TIMEx_ConfigBreakInput to use CMSIS TIM1_OR2_BKDF1BK0E_Pos definition instead of its hard coded value.</li>
+</ul></li>
+<li><strong>LPTIM_HAL</strong>RNG
+<ul>
+<li>Add __HAL_LPTIM_RESET_COUNTER() and __HAL_LPTIM_RESET_COUNTER_AFTERREAD() macros managing the synchronous/asynchronous LPTIM counter reset.</li>
+<li>Add check on PRIMASK register to prevent from enabling unwanted global interrupts within LPTIM_Disable() and LL_LPTIM_Disable()</li>
+</ul></li>
+<li><strong>NOR_HAL</strong>
+<ul>
+<li>Align HAL_NOR_Init() API with core of the function when write operation is disabled to avoid HardFault.</li>
+</ul></li>
+<li><strong>SDMMC_HAL</strong>
+<ul>
+<li>Fix Incorrect command sent in MMC_PowerOn
+<ul>
+<li>Update SEND_OP_COND (CMD1) to indicate as argument that the sector mode is supported by the host.</li>
+</ul></li>
+<li>Add new HAL_MMC_SleepDevice() API to Switch device from Standby State to Sleep State.</li>
+<li>Fix MMC &amp; SD chapters generation for PDF User Manual</li>
+</ul></li>
+<li><strong>PKA_HAL</strong>
+<ul>
+<li>Update to fix Montgomery multiplication in PKA.</li>
+</ul></li>
+<li><strong>USB_LL/HAL</strong>
+<ul>
+<li>Update in USB_SetCurrentMode() API to improve required wait timing to change core mode.</li>
+<li>Remove non required 200ms delay during host initialization.</li>
+<li>Update USB_FlushRxFifo() and USB_FlushTxFifo() APIs by adding check on AHB master IDLE state before flushing the USB FIFO.</li>
+<li>Fix isochronous transfer in double buffer mode.</li>
+<li>Update to avoid compiler optimization on count variable used for USB HAL timeout loop check.</li>
+<li>Add missing registres callbacks check for HAL_HCD_HC_NotifyURBChange_Callback() API.</li>
+<li>Add new HAL_PCD_SetTestMode() API to handle USB device high speed Test modes.</li>
+<li>Update to set SNAK for EPs not required during device reset.</li>
+<li>Add new API HAL_PCD_EP_Abort() to abort current USB endpoint transfer.</li>
+<li>Footprint optimization in case USB double buffer mode not used, code protected with new define USE_USB_DOUBLE_BUFFER</li>
+<li>Update to avoid multiple reads of USB ISR register</li>
+</ul></li>
+<li><strong>RNG_HAL</strong>
+<ul>
+<li>Fix Seed error due to a wrong HTCR value</li>
+</ul></li>
+<li><strong>IWDG_HAL</strong>
+<ul>
+<li>Update HAL_IWDG_Init() API in order to fix HAL_GetTick() timeout vulnerability issue.</li>
+<li>Add LSI startup time in default IWDG timeout calculation (HAL_IWDG_DEFAULT_TIMEOUT).</li>
+</ul></li>
+</ul></li>
+<li><strong>Projects</strong> updates
+<ul>
+<li>General updates to fix known defects and enhancements implementation.</li>
+<li>All source files: update disclaimer to add reference to the new license agreement.</li>
+</ul></li>
+</ul>
+<p><br />
+</p>
+<p><strong>Projects</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Projects</td>
+<td style="text-align: left;">V1.17.1 <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="Projects/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><br />
+</p>
+<h2 id="components">Components</h2>
+<p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
+<p><br />
+</p>
+<p><strong>Drivers</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cortex-M CMSIS</td>
+<td style="text-align: left;">V5.6.0</td>
+<td style="text-align: center;"><a href="Drivers/CMSIS/README.md">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32L4xx CMSIS</td>
+<td style="text-align: left;">V1.7.2 <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="Drivers/CMSIS/Device/ST/STM32L4xx/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32L4xx HAL</td>
+<td style="text-align: left;">V1.13.2 <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP B-L4S5I-IOT01</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/B-L4S5I-IOT01/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP B-L475E-IOT01</td>
+<td style="text-align: left;">V1.1.7</td>
+<td style="text-align: center;"><a href="Drivers/BSP/B-L475E-IOT01/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L476G_EVAL</td>
+<td style="text-align: left;">V2.1.6</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L476G_EVAL/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4R9I_EVAL</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4R9I_EVAL/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L476G-Discovery</td>
+<td style="text-align: left;">V2.0.6</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L476G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L496G-Discovery</td>
+<td style="text-align: left;">V1.1.6</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L496G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4P5G-Discovery</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4P5G-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4R9I-Discovery</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4R9I-Discovery/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo</td>
+<td style="text-align: left;">V2.1.7</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_32</td>
+<td style="text-align: left;">V1.0.4</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo_32/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_144</td>
+<td style="text-align: left;">V1.0.8</td>
+<td style="text-align: center;"><a href="Drivers/BSP/STM32L4xx_Nucleo_144/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP Adafruit Shield (reference ID 802)</td>
+<td style="text-align: left;">V3.0.5</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Adafruit_Shield/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP Common</td>
+<td style="text-align: left;">V5.1.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/Common/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cs42l51</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cs42l51/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP cs43l22</td>
+<td style="text-align: left;">V2.0.4</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cs43l22/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cy8c4014lqi</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/cy8c4014lqi/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft3x67</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft3x67/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP ft6x06</td>
+<td style="text-align: left;">V1.0.3</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft6x06/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft5336</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ft5336/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hts221</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hts221/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP hx8347g</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hx8347g/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hx8347i</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/hx8347i/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP iss66wvh8m8</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/iss66wvh8m8/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP l3gd20</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/l3gd20/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lis3mdl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lis3mdl/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lps22hb</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lps22hb/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ls016b8uy</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ls016b8uy/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm303c</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm303c/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lsm303dlhc</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm303c/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm6dsl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/lsm6dsl/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP m24sr</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/m24sr/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mfxstm32l152</td>
+<td style="text-align: left;">V2.0.4</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mfxstm32l152/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP mx25lm51245g</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mx25lm51245g/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mx25r6435f</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/mx25r6435f/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP n25q128a</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/n25q128a/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP n25q256a</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/n25q256a/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ov9655</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/ov9655/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP rk043fn48h</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/rk043fn48h/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP st25dv</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st25dv/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP st7735</td>
+<td style="text-align: left;">V1.1.5</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st7735/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP st7789h2</td>
+<td style="text-align: left;">V1.1.4</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/st7789h2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP stmpe811</td>
+<td style="text-align: left;">V2.0.2</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/stmpe811/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP stmpe1600</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/stmpe1600/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP wm8994</td>
+<td style="text-align: left;">V2.3.1</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Components/wm8994/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p><strong>Middlewares</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">STM32 USB Host Library</td>
+<td style="text-align: left;">V3.3.4</td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_USB_Host_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STM32 USB Device Library</td>
+<td style="text-align: left;">V2.7.1</td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_USB_Device_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32 TouchSensing Library</td>
+<td style="text-align: left;">V2.2.4</td>
+<td style="text-align: center;"><a href="Middlewares/ST/STM32_TouchSensing_Library/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FatFS</td>
+<td style="text-align: left;">R0.12c</td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FatFs/src/00history.txt">FatFS release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ST modified 20191011</td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FatFs/src/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.3.1</td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ST modified 20200831</td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STemWin</td>
+<td style="text-align: left;">V5.44</td>
+<td style="text-align: center;"><a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p><strong>Utilities</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CPU</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: center;"><a href="Utilities/CPU/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="Utilities/Fonts/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Log</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="Utilities/Log/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
+<li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
+</ul>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link</p>
+<ul>
+<li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
+</ul></li>
+<li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.31 + Pack Keil STM32L4P5xx_DFP.1.0.0</p>
+<ul>
+<li>Support of ARM Compiler 6 (AC-5 like warnings) for HAL/LL/BSP drivers and STMicroelectronics Middleware components</li>
+</ul></li>
+<li><p>STM32CubeIDE <strong>v1.7.0 (gcc9_2020_q2_update)</strong> (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
+<li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
+<li><p>Tools</p>
+<ul>
+<li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
+<li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
+</ul></li>
+</ul>
+<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<ul>
+<li>STM32L41x/L42x devices Rev1</li>
+<li>STM32L43x/L44x devices Rev1</li>
+<li>STM32L45x/L46x devices Rev2</li>
+<li>STM32L47x/L48x devices Rev4</li>
+<li>STM32L49x/L4Ax devices Rev2</li>
+<li>STM32L4Px/L4Qx devices Rev1</li>
+<li>STM32L4Rx/L4Sx devices Rev2</li>
+<li>STM32L476G Evaluation board RevC (MB1144 C-01)</li>
+<li>STM32L4R9I Evaluation board RevB (MB1313 B-03)</li>
+<li>STM32L476G Discovery board RevC (MB1184 C-01) (obsolete)</li>
+<li>STM32L496G Discovery board RevB (MB1261 B-01)</li>
+<li>STM32L4P5G Discovery board RevB (MB1535 B-03)</li>
+<li>STM32L4R9I Discovery board RevC (MB1311 C-01)</li>
+<li>STM32L412KB Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L412RB Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L432KC Nucleo kit RevC (MB1180 C-01)</li>
+<li>STM32L433RC Nucleo kit RevC (MB1319 C-01)</li>
+<li>STM32L452RE Nucleo kit RevC (MB1136 C-03, MB1319 C-01)</li>
+<li>STM32L476RG Nucleo kit RevC (MB1136 C-03)</li>
+<li>STM32L496ZG Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>STM32L4P5ZG Nucleo kit (MB1312/L A-01)</li>
+<li>STM32L4R5ZI Nucleo kit (MB1312/L A-01, MB1312/S A-01)</li>
+<li>B-L475E-IOT01A board RevB (MB1297)</li>
+<li>B-L4S5I-IOT01A board RevE02 (MB1297)</li>
+</ul>
+<p><br />
+</p>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section27" aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <h3 id="maintenance-release-of-stm32cubel4-firmware-package">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections</li>
@@ -83,7 +745,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="contents">Contents</h2>
+<h2 id="contents-1">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -147,7 +809,7 @@
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
-<h2 id="components">Components</h2>
+<h2 id="components-1">Components</h2>
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
@@ -572,31 +1234,31 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations">Known Limitations</h2>
+<h2 id="known-limitations-1">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
 <ul>
-<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link</p>
 <ul>
 <li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
-<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.31 + Pack Keil STM32L4P5xx_DFP.1.0.0
+<li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.31 + Pack Keil STM32L4P5xx_DFP.1.0.0</p>
 <ul>
 <li>Support of ARM Compiler 6 (AC-5 like warnings) for HAL/LL/BSP drivers and STMicroelectronics Middleware components</li>
 </ul></li>
 <li><p>STM32CubeIDE v1.5.1 - gcc version 7_2018_q2_update (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
-<li>Tools
+<li><p>Tools</p>
 <ul>
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -630,7 +1292,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section26" aria-hidden="true"> <label for="collapse-section26" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <h3 id="maintenance-release-of-stm32cubel4-firmware-package-1">Maintenance release of STM32CubeL4 Firmware package</h3>
 <ul>
 <li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections
@@ -641,16 +1303,16 @@
 </ul>
 <p><br />
 </p>
-<h2 id="contents-1">Contents</h2>
+<h2 id="contents-2">Contents</h2>
 <ul>
-<li><strong>CMSIS Core</strong> updates
+<li><p><strong>CMSIS Core</strong> updates</p>
 <ul>
 <li>Upgrade to version V5.6.0
 <ul>
 <li>DSP libraries moved to CMSIS/DSP/Lib (DSP-based user projects impacted)</li>
 </ul></li>
 </ul></li>
-<li><strong>CMSIS Device</strong> updates
+<li><p><strong>CMSIS Device</strong> updates</p>
 <ul>
 <li>Update GCC startup files
 <ul>
@@ -664,7 +1326,7 @@
 </ul></li>
 <li>Refer to <a href="Drivers/CMSIS/Device/ST/STM32L4xx/Release_Notes.html">release notes</a> for further details</li>
 </ul></li>
-<li><strong>HAL/LL Drivers</strong> updates
+<li><p><strong>HAL/LL Drivers</strong> updates</p>
 <ul>
 <li>Update HAL/LL drivers to include latest corrections
 <ul>
@@ -707,7 +1369,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-1">Components</h2>
+<h2 id="components-2">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -1122,28 +1784,28 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-1">Known Limitations</h2>
+<h2 id="known-limitations-2">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
 <ul>
-<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link</p>
 <ul>
 <li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
 <li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.29 + Pack Keil STM32L4P5xx_DFP.1.0.0</p></li>
 <li><p>STM32CubeIDE v1.4.2 - gcc version 7_2018_q2_update (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
-<li>Tools
+<li><p>Tools</p>
 <ul>
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-1">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-2">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1177,13 +1839,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section25" aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <h3 id="patch-release-of-stm32cubel4-firmware-package">Patch release of STM32CubeL4 Firmware package</h3>
 <ul>
 <li>Update of CMIS devices to add bits definitions in OCTOSPI registers</li>
 <li>Update of HAL/LL drivers to include latest corrections of GPIO, I2C, RTC, SDMMC, UTILS drivers</li>
 </ul>
-<h2 id="contents-2">Contents</h2>
+<h2 id="contents-3">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -1197,9 +1859,9 @@
 </ul></li>
 <li><strong>Projects</strong> updates
 <ul>
-<li>Main functions rework for 32L4P5GDISCOVERY/Demonstrations/Watermark project</li>
+<li><p>Main functions rework for 32L4P5GDISCOVERY/Demonstrations/Watermark project</p></li>
 <li><p>Correct syntax error in link script in NUCLEO-L4P5ZG/Examples_LL/RTC/RTC_Tamper/STM32CubeIDE project</p></li>
-<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li><p>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</p></li>
 <li><p>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
 </ul></li>
 </ul>
@@ -1224,7 +1886,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-2">Components</h2>
+<h2 id="components-3">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -1609,28 +2271,28 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-2">Known Limitations</h2>
+<h2 id="known-limitations-3">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
 <ul>
-<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link</p>
 <ul>
 <li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
 <li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.27.1.0 + Pack Keil STM32L4P5xx_DFP.1.0.0</p></li>
 <li><p>STM32CubeIDE v1.2.0 - gcc version 7_2018_q2_update (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
-<li>Tools
+<li><p>Tools</p>
 <ul>
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-2">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-3">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -1663,14 +2325,14 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section24" aria-hidden="true"> <label for="collapse-section24" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <h3 id="add-support-of-stm32l4p5xx-and-stm32l4q5xx-devices">Add support of STM32L4P5xx and STM32L4Q5xx devices</h3>
 <ul>
 <li>New <strong>PKA</strong> and <strong>PSSI</strong> peripherals</li>
 <li>Updated <strong>PWR</strong> peripheral for finer SRAM2 retention in standby mode</li>
 <li>Updated <strong>RNG</strong> peripheral to open entropy configuration</li>
 </ul>
-<h2 id="contents-3">Contents</h2>
+<h2 id="contents-4">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -1727,7 +2389,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-3">Components</h2>
+<h2 id="components-4">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -2112,28 +2774,28 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-3">Known Limitations</h2>
+<h2 id="known-limitations-4">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
 <ul>
-<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link</p>
 <ul>
 <li>Limitations: IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
 <li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.27.1.0 + Pack Keil STM32L4P5xx_DFP.1.0.0</p></li>
 <li><p>STM32CubeIDE v1.2.0 - gcc version 7_2018_q2_update (please refer to the Toolchain Management chapter of the CubeIDE User Guide)</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
-<li>Tools
+<li><p>Tools</p>
 <ul>
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 <li>STM32CubeProgrammer v2.1.0 to support STM32L4P5xx/L4Q5xx devices</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-3">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-4">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -2164,24 +2826,24 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <h3 id="maintenance-release">Maintenance release</h3>
 <ul>
 <li><p>New <strong>HAL MMC</strong> driver release</p></li>
 <li><p>Demonstrations binaries are no more delivered within the STM32CubeL4 MCU package. They are available for download, in addition to their required media files if any, in a standalone package accessible through each hardware board official webpage. Please refer to the corresponding demonstration binary readme.txt to get webpage for each board.</p></li>
 </ul>
-<h2 id="contents-4">Contents</h2>
+<h2 id="contents-5">Contents</h2>
 <ul>
-<li><strong>CMSIS Core</strong> updates
+<li><p><strong>CMSIS Core</strong> updates</p>
 <ul>
 <li>Upgrade to version V5.4.0</li>
 </ul></li>
-<li><strong>CMSIS Device</strong> updates
+<li><p><strong>CMSIS Device</strong> updates</p>
 <ul>
 <li>Update all files licenses to Apache v2.0</li>
 <li>Minor set corrections, refer to <a href="Drivers/CMSIS/Device/ST/STM32L4xx/Release_Notes.html">release notes</a> for further details</li>
 </ul></li>
-<li><strong>HAL/LL Drivers</strong> updates
+<li><p><strong>HAL/LL Drivers</strong> updates</p>
 <ul>
 <li>Deliver new <strong>HAL MMC</strong> driver</li>
 <li>Provide additional corrections to Misra C:2012 warnings</li>
@@ -2194,11 +2856,11 @@
 </ul></li>
 <li><p><strong>Projects</strong> updates</p>
 <ul>
-<li>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</li>
-<li>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</li>
+<li><p>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</p></li>
+<li><p>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</p></li>
 <li><p>Add HAL MMC driver files to all EWARM, MDK-ARM and SW4STM32 HAL Templates projects</p></li>
-<li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
-<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</li>
+<li><p>Update of FW projects following changes in latest version of HAL/LL and Middlewares</p></li>
+<li><p>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains.</p></li>
 <li><p>The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
 </ul></li>
 </ul>
@@ -2231,7 +2893,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="components-4">Components</h2>
+<h2 id="components-5">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -2604,7 +3266,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-4">Known Limitations</h2>
+<h2 id="known-limitations-5">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
@@ -2612,20 +3274,20 @@
 </ul>
 <p><br />
 </p>
-<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-5">Development Toolchains and Compilers</h2>
 <ul>
-<li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.30.1 + ST-Link
+<li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.30.1 + ST-Link</p>
 <ul>
 <li><strong>Limitations:</strong> IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
 <li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.26 + Pack Keil STM32L4+_DFP.1.0.2</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.7</p></li>
-<li>Tools
+<li><p>Tools</p>
 <ul>
 <li>ST-Link Utility V4.3.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-4">Supported Devices and boards</h2>
+<h2 id="supported-devices-and-boards-5">Supported Devices and boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -2653,13 +3315,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
+<h2 id="main-changes-6">Main Changes</h2>
 <h3 id="add-support-of-stm32l412xx-and-stm32l422xx-devices">Add support of STM32L412xx and STM32L422xx devices</h3>
 <ul>
 <li>New RTC peripheral to improve power consumption performance</li>
 <li>Updated LPTIM peripheral to make both low power timer instances operational in Stop 2 mode</li>
 </ul>
-<h2 id="contents-5">Contents</h2>
+<h2 id="contents-6">Contents</h2>
 <ul>
 <li><span style="font-weight: bold;">CMSIS Device</span> updates
 <ul>
@@ -2882,8 +3544,8 @@
 </ul>
 <h2 id="projects">Projects</h2>
 <ul>
-<li>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</li>
-<li>Update all readme.txt files for introductory paragraphes coherency over the whole package</li>
+<li><p>The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</p></li>
+<li><p>Update all readme.txt files for introductory paragraphes coherency over the whole package</p></li>
 <li><p>Projects release notes (updates in <span style="font-weight: bold;">bold</span>)</p>
 <ul>
 <li><p>32L476GDISCOVERY</p>
@@ -3031,7 +3693,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="components-5">Components</h2>
+<h2 id="components-6">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption>Drivers</caption>
@@ -3374,7 +4036,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-5">Known Limitations</h2>
+<h2 id="known-limitations-6">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL and STM32LR49I-Discovery demonstrations</li>
@@ -3382,13 +4044,13 @@
 </ul>
 <p><br />
 </p>
-<h2 id="development-toolchains-and-compilers-5">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-6">Development Toolchains and Compilers</h2>
 <ul>
 <li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.20.2 + ST-Link</p>
 <ul>
 <li><span style="font-weight: bold;">Limitations:</span> IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STM32L4R9I-EVAL STemWin MB1315 demonstration</li>
 </ul></li>
-<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a + Pack Keil STM32L4+_DFP.1.0.2</li>
+<li><p>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a + Pack Keil STM32L4+_DFP.1.0.2</p></li>
 <li><p>System Workbench STM32 (SW4STM32) toolchain V2.5</p></li>
 </ul>
 <p><br />
@@ -3399,7 +4061,7 @@
 <li>ST-Link Utility V4.2.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery, STM32L496G-Discovery, STM32L4R9I-EVAL and STM32L4R9I-Discovery boards.</li>
 </ul></li>
 </ul>
-<h2 id="supported-devices-and-boards-5">Supported Devices and Boards</h2>
+<h2 id="supported-devices-and-boards-6">Supported Devices and Boards</h2>
 <ul>
 <li>STM32L41x/L42x devices Rev1</li>
 <li>STM32L43x/L44x devices Rev1</li>
@@ -3428,8 +4090,7 @@
 </div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.12.0 / 22-May-2018</label>
-<div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL callback registration feature</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">The feature <span style="font-weight: bold;">disabled by default</span> is available for the following HAL drivers:</span></p>
 <ul>
@@ -3569,7 +4230,7 @@
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">DSI_ULPM_DataClock:</span><span style="font-size: 10pt; font-family: Verdana;">Fix PLLSAI2 output issue for DSI Ultra Low-power mode.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Projects</span></li>
 </ul>
@@ -3761,21 +4422,21 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;">V1.0.1</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V8.20 + ST-Link</span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">Limitations:</span></span><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 required for STemWin V5.40 based applications</span></li>
 </ul>
 <p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4+_DFP.0.0.5</span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V2.1</span><span style="font-family: Verdana; font-size: 10pt;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.1.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -3798,18 +4459,16 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ARM Compiler 6 (AC6) compliancy </span><span style="font-family: Verdana; font-size: 10pt;">(planned for future release)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">MDK-ARM/SW4STM32 projects are not available for the STM32L4R9I-EVAL and STM32L4R9I-Discovery demonstrations (planned for future release)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">SW4STM32 project is not provided for STM32L476G-EVAL demonstration</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.11.0 / 22-December-2017</label>
-<div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">external SMPS PWR examples for NUCLEO-L4R5ZI-P (MB1312/S) board</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Reduce package size by gathering all Demonstration media files under  "\Utilities\Media" folder</span></span></p>
 <ul>
@@ -3865,7 +4524,7 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix MISRA C-2004 rule 10.6 ('U' suffix)</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></span><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;"></span><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">LL CRC</span></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"> </span><span style="font-size: 10pt; font-family: Verdana;">driver </span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix GCC warning</span></li>
@@ -3912,7 +4571,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">All binaries renamed to match board product names<br />
 </span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold) </span></p>
@@ -4113,20 +4772,20 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;">V1.0.1</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V8.20 + ST-Link</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4+_DFP.0.0.5</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V2.1</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.1.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -4149,18 +4808,16 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ARM Compiler 6 (AC6) compliancy </span><span style="font-family: Verdana; font-size: 10pt;">(planned for future release)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">MDK-ARM/SW4STM32 projects are not available for the STM32L4R9I-EVAL and STM32L4R9I-Discovery demonstrations (planned for future release)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">SW4STM32 project is not provided for STM32L476G-EVAL demonstration</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.10.0 / 13-October-2017</label>
-<div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R9I-EVAL (MB1313) and STM32L4R9I-Discovery (MB1311) boards</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Maintenance release of CMSIS Device files, HAL and LL drivers</span></li>
@@ -4225,7 +4882,7 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix RD_WRN bit management in case of SMBUS_NO_STARTSTOP request</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></span><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;"></span><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">LL DAC </span></span><span style="font-size: 10pt; font-family: Verdana;"> </span><span style="font-size: 10pt; font-family: Verdana;">driver </span></li>
 </ul>
@@ -4295,8 +4952,8 @@
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Add Example projects illustrating the usage of the HAL FLASH, RCC and RTC under  </span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Project/STM32L4R5ZI-Nucleo/Examples</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold) </span></p>
@@ -4458,20 +5115,20 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;">V1.0.1</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 with patch + ST-Link</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4+_DFP.0.0.3</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V2.1</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.1.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -4494,17 +5151,15 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">MDK-ARM/SW4STM32 projects are not available for the STM32L4R9I-EVAL and STM32L4R9I-Discovery demonstrations (planned for next release)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">SW4STM32 project is not provided for STM32L476G-EVAL demonstration</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section7" aria-hidden="true"> <label for="collapse-section7" aria-hidden="true">V1.9.0 / 25-August-2017</label>
-<div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R5xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R7xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R9xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S5xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S7xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S9xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DSI, OctoSPI (OSPI), GFXMMU and LTDC peripherals </span></li>
@@ -4633,11 +5288,11 @@
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SMBUS  </span></span><span style="font-size: 10pt; font-family: Verdana;">driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add Analog and digital filter configuration APIs: HAL_SMBUS_ConfigAnalogFilter() and HAL_SMBUS_ConfigDigitalFilter() </span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">Add error management if occuring during STOP process</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">Add error management if occurring during STOP process</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SPI  </span></span><span style="font-size: 10pt; font-family: Verdana;">driver</span></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Add control of RXFIFO emty at end of transmissing in Master transmission 2 lines mode</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Add control of RXFIFO empty at end of transmissing in Master transmission 2 lines mode</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SWPMI </span> driver</span></p>
 <ul>
@@ -4728,7 +5383,7 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">LL_PWR_EnableRange1BoostMode(),</span><span style="font-size: 10pt; font-family: Verdana;">LL_PWR_DisableRange1BoostMode() and LL_PWR_IsEnabledRange1BoostMode()</span></li>
 </ul></li>
-<li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">For compatibility purpose accross STM32 series, rename LL_PWR_IsActiveFlag_VOSF() to LL_PWR_IsActiveFlag_VOS()</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">For compatibility purpose accros STM32 series, rename LL_PWR_IsActiveFlag_VOSF() to LL_PWR_IsActiveFlag_VOS()</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Add DSI pins pull-down management</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">new LL_PWR_EnableDSIPinsPDActivation(), LL_PWR_DisableDSIPinsPDActivation() and LL_PWR_IsEnabledDSIPinsPDActivation() APIs</span></li>
@@ -4797,8 +5452,8 @@
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">5 Applications demonstrating the integration of Middlewares: FreeRTOS / USB_Host and USB_Device libraries under</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Project/</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">STM32L4R5ZI-Nucleo</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">/Applications</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">1 demonstration with Adafruit shield</span><span style="font-size: 10pt; font-family: Verdana;"> </span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">under </span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Project/STM32L4R5ZI-Nucleo/Demonstrations</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold) </span></p>
@@ -4946,19 +5601,19 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;">V1.0.1</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4 with patch + ST-Link</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.24a</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4+_DFP.0.0.3</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V2.0</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.4.2</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.1.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -4980,16 +5635,15 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL demonstrations<span style="font-weight: bold;"></span></span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section8" aria-hidden="true"> <label for="collapse-section8" aria-hidden="true">V1.8.1 / 16-June-2017</label>
 <div>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Main Changes</span></span></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Main Changes</span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Patch release to deliver  external SMPS PWR examples for STM32L433RC and STM32L452RE</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates to fix issues in</span></p>
 <ul>
@@ -5056,7 +5710,7 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add binaries for STM32L452RE and STM32L433RC Nucleo boards with external SMPS to demonstrate low power performance</span></li>
 </ul>
-<p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><strong><span style="font-size: 10pt; font-family: Verdana; color: black;">Development Toolchains and Compilers </span></strong><span style="font-size: 10pt; font-family: Verdana; color: black;">update</span><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></span></strong></p>
+<p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><strong><span style="font-size: 10pt; font-family: Verdana; color: black;">Development Toolchains and Compilers </span></strong><span style="font-size: 10pt; font-family: Verdana; color: black;">update</span><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;"></span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span><br />
 </p>
 <ul>
@@ -5064,7 +5718,7 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;"></span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-family: Verdana; font-size: 10pt;">Projects</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table </span><span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></li>
@@ -5097,7 +5751,7 @@
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">PWR external SMPS examples creation and PWR_STANDBY_RTC SW4STM32 Linux compilation error fix</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Projects/STM32L452RE-Nucleo/Examples/Release_Notes.html">release notes</a>)</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">Applications</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">Applications</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">USB_Devices UID address error fix</span><span style="font-size: 10pt; font-family: Verdana;"> </span><span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Projects/STM32L452RE-Nucleo/Applications/Release_Notes.html">release notes</a>)</span></li>
 </ul></li>
@@ -5164,8 +5818,7 @@
 </div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section9"  aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.8.0 / 21-April-2017</label>
-<div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Add support of B-L475E-IOT01 board with project templates, examples and applications</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -5241,7 +5894,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">Add binary for STM32L452RE Nucleo board low power performances</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
 </ul></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold) </span></p>
@@ -5366,7 +6019,7 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.80.4</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.23</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4xx_DFP.1.2.3</span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.14</span></p>
@@ -5378,12 +6031,12 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">Furthermore, some versions of System Workbench may have problem to read the OpenOCD configuration file if it is placed in project directory. In that case, copy STM32L475VG.cfg outside of sources directory (for example to c:\) and use it from here (in System Workbench menu "Run/Debug configuration", create or choose STM32L475 configuration, go to Debugger Tab, Select "Script/Use local script", indicate the copied script in the "Configuration Script" field).</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.4.2</span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.0.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -5400,16 +6053,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.7.0 / 17-February-2017</label>
-<div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L496xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4A6xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DCMI, DMA2D, HASH peripherals </span></li>
@@ -5433,8 +6084,8 @@
 <p><span style="font-family: Verdana,sans-serif; font-size: 10pt;"><span style="font-weight: bold;">HAL SD</span><span class="Apple-converted-space"> </span>update</span></p>
 <p><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Overall rework of the driver for a more efficient implementation</span></p>
 <ul>
-<li><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Modify initialization API and structures</span></li>
-<li><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Modify Read / Write sequences: separate transfer process and SD Cards state management </span></li>
+<li><p><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Modify initialization API and structures</span></p></li>
+<li><p><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Modify Read / Write sequences: separate transfer process and SD Cards state management </span></p></li>
 <li><p><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Adding interrupt mode for Read / Write operations</span></p></li>
 <li><p><span style="font-family: Verdana,sans-serif; font-size: 10pt;" lang="EN-US">Update the HAL_SD_IRQHandler function by optimizing the management of interrupt errors<br />
 </span></p></li>
@@ -5493,7 +6144,7 @@
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Fix peripheral clock management sequence in HAL_SWPMI_Init()</span></li>
 </ul>
-<p><strong><span class="underline"><span style="color: black; font-family: Verdana; font-size: 10pt;"></span></span><span class="underline"><span style="color: black; font-family: Verdana; font-size: 10pt;"></span></span></strong></p>
+<p><strong><u><span style="color: black; font-family: Verdana; font-size: 10pt;"></span><span style="color: black; font-family: Verdana; font-size: 10pt;"></span></u></strong></p>
 <ul>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">LL DMA2D </span></span><span style="font-family: Verdana; font-size: 10pt;">driver</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">(NEW)</span></span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">LL BUS </span></span></p>
@@ -5502,7 +6153,7 @@
 </ul></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">LL PWR</span></span></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">For compatibility purpose accross STM32 series, rename LL_PWR_IsActiveFlag_VOSF() to LL_PWR_IsActiveFlag_VOS()</span></li>
+<li><span style="font-family: Verdana; font-size: 10pt;">For compatibility purpose accros STM32 series, rename LL_PWR_IsActiveFlag_VOSF() to LL_PWR_IsActiveFlag_VOS()</span></li>
 </ul></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">LL RCC</span></span></p>
 <ul>
@@ -5529,7 +6180,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">New graphic demonstration for STM32L496G-Discovery with Third Parties graphic deliveries (Embedded Wizard from Tara Systems and TouchGFX from Draupner Graphics)<br />
 </span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold) </span></p>
@@ -5641,19 +6292,19 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.70.1 with patch + ST-Link</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.22</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4xx_DFP.1.2.3</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.10</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.4.2</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V4.0.0 with support of QSPI external loader for STM32L476G_EVAL, STM32L476G-Discovery and</span><span style="font-family: Verdana; font-size: 10pt;">STM32L496G-Discovery</span><span style="font-family: Verdana; font-size: 10pt;">boards.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L47x/L48x devices Rev4</span></li>
@@ -5667,16 +6318,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.6.0 / 28-October-2016</label>
-<div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L451xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L452xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L462xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -5750,7 +6399,7 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="../../../NoBackup/DV/L4/STM32Cube_FW_L4_V1.6.0RC2/Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes (updates in bold)</span></p>
@@ -5843,19 +6492,19 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.70.1 with patch + ST-Link</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.20</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4xx_DFP.1.2.3</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.10</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.4.2</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V3.9.0 with support of QSPI external loader for STM32L476G_EVAL and STM32L476G-Discovery boards.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x/L44x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L45x/L46x devices Rev2</span></li>
@@ -5868,16 +6517,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.5.2 / 12-September-2016</label>
-<div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in CMSIS Device STM32L4xx description files</span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Fix DAC_SR_BWST1 bit definition</span></li>
@@ -5885,64 +6532,64 @@
 </ul>
 <p><strong>HAL and LL drivers</strong></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL ADC </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL ADC </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">No need to configure number of discontinuous conversions if discontinuous mode is not enabled</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_ADCEx_MultiModeConfigChannel() returns HAL_ERROR if no Slave instance defined</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL DAC </span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span><span style="font-weight: normal;">driver</span></span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL DAC </span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span><span style="font-weight: normal;">driver</span></span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix calibration with correct handling of DAC_SR_CAL_FLAGx bits in HAL_DACEx_SelfCalibrate()</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL FLASH </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL FLASH </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Change in HAL_FLASHEx_OBGetConfig() to not return PCROP and/or WRP data if their respective areas are not defined</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix error management in HAL_FLASH_IRQHandler() to simply call HAL_FLASH_OperationErrorCallback() instead of calling both HAL_FLASH_EndOfOperationCallback() and </span><span style="font-size: 10pt; font-family: Verdana;">HAL_FLASH_OperationErrorCallback()</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL I2C </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL I2C </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix wrong state check in HAL_I2C_Master_Sequential_Transmit_IT()</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add new option I2C_FIRST_AND_NEXT_FRAME to manage a sequencewith start condition, address and data to transfer without a final stop condition allowing successive calls to HAL_I2C_Master_Sequential_Transmit_IT()</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL IRDA </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL IRDA </span><span style="font-size: 10pt; font-family: Verdana; font-weight: normal;">driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add transfer abort functions and associated callbacks in interrupt mode</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_IRDA_Abort(), HAL_IRDA_AbortTransmit(), HAL_IRDA_AbortReceive(), HAL_IRDA_Abort_IT(), HAL_IRDA_AbortTransmit_IT(), HAL_IRDA_AbortReceive_IT(), HAL_IRDA_AbortCpltCallback(), HAL_IRDA_AbortTransmitCpltCallback() and HAL_IRDA_AbortReceiveCpltCallback()</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">IRQ Handler + DMA model optimizations</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL RTC</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL RTC</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix missing wakeup flag clear in HAL_RTCEx_SetWakeUpTimer_IT()  </span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL SMARTCARD</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL SMARTCARD</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add transfer abort functions and associated callbacks in interrupt mode</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_SMARTCARD_Abort(), HAL_SMARTCARD_AbortTransmit(), HAL_SMARTCARD_AbortReceive(), HAL_SMARTCARD_Abort_IT(), HAL_SMARTCARD_AbortTransmit_IT(), HAL_SMARTCARD_AbortReceive_IT(), HAL_SMARTCARD_AbortCpltCallback(), HAL_SMARTCARD_AbortTransmitCpltCallback() and HAL_SMARTCARD_AbortReceiveCpltCallback()</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">IRQ Handler + DMA model optimizations</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL SMBUS</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">HAL SMBUS</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span> driver</span></p>
 <ul>
 <li>Fix issue on last data reception in host or device modes</li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SPI</span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SPI</span> driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">USE_SPI_CRC</span> compilation define added to provide the mean to optimize the HAL SPI driver when CRC feature is not used (<span style="font-weight: bold;">when CRC is used, application must be changed to set USE_SPI_CRC in stm32l4xx_hal_conf.h</span> (see Inc\</span><span style="font-size: 10pt; font-family: Verdana;">stm32l4xx_hal_conf_template.h))</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add transfer abort functions and associated callbacks in interrupt mode</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_SPI_Abort_IT()</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_SPI_AbortCpltCallback()</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SWPMI</span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL SWPMI</span> driver</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Fix SWPMI peripheral errors management in DMA (resort to HAL_DMA_Abort_IT() and DMA XferAbortCallback in HAL_SWPMI_IRQHandler())</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL UART</span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL UART</span> driver</span></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana;">New APIs to abort UART tranfer with associated callbacks added </span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">New APIs to abort UART transfer with associated callbacks added </span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_UART_Abort(), HAL_UART_AbortTransmit(), HAL_UART_AbortReceive(), HAL_UART_Abort_IT(), HAL_UART_AbortTransmit_IT(), HAL_UART_AbortReceive_IT(), HAL_UART_AbortCpltCallback(), HAL_UART_AbortTransmitCpltCallback() and HAL_UART_AbortReceiveCpltCallback()</span></li>
 </ul></li>
-<li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL USART</span> driver</span>
+<li><p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL USART</span> driver</span></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana;">New APIs to abort USART tranfer with associated callbacks added</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">New APIs to abort USART transfer with associated callbacks added</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">HAL_USART_Abort(), HAL_USART_Abort_IT() and HAL_USART_AbortCpltCallback()</span></li>
 </ul></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt; font-weight: normal;"></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">LL COMP </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: normal;">driver</span></span></p>
@@ -5963,7 +6610,7 @@
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Fix </span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">stack &amp; heap sizes in</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">MDK-ARM Project configuration of FatFS, IAP, STemWin, USB Host and USB Device applications</span></li>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Fix few SW4STM32 and TrueSTUDIO Project configurations</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></u></strong></p>
 <p><span style="font-family: Verdana; font-size: 10pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects updates</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes</span></p>
@@ -6002,11 +6649,9 @@
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">STM32L4</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">xx HAL V1.5.2</span> (<a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section13" aria-hidden="true"> <label for="collapse-section13" aria-hidden="true">V1.5.1 / 31-May-2016</label>
-<div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in</span></p>
 <p><strong>HAL ADC</strong> driver</p>
 <ul>
@@ -6024,8 +6669,8 @@
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Fix LL_DBGMCU_APB1_xxx / LL_DBGMCU_APB2_xxx definitions</span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"></span></li>
 </ul>
-<p><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></span></strong></p>
+<p><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></u></strong></p>
 <p><span style="font-family: Verdana; font-size: 10pt;"></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Drivers</span><br />
@@ -6035,11 +6680,9 @@
 </ul></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.5.0 / 29-April-2016</label>
-<div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release version for STM32L431/432/433/442/443/471/475/476/485/486 lines</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -6114,7 +6757,7 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">SMBus support added: new field Peripheral mode in LL_I2CInitTypeDef </span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Application code using LL_I2C_Init() is impacted for standard I2C usage</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">Full set of new LL APIs releated to SMBus<br />
+<li><span style="font-size: 10pt; font-family: Verdana;">Full set of new LL APIs related to SMBus<br />
 </span></li>
 </ul></li>
 </ul>
@@ -6152,9 +6795,9 @@
 </span></li>
 </ul>
 <p><span style="font-family: Verdana; font-size: 10pt;">For the complete list of changes, please refer to the release notes of each firmware components (in bold below)</span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
-</span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
+</span></u></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes</span></p>
@@ -6230,20 +6873,20 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.60</span></li>
+<li><p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.60</span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.17</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4xx_DFP.1.2.0</span><span style="font-family: Verdana; font-size: 10pt;"></span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.8</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.8</span><span style="font-family: Verdana; font-size: 10pt;"></span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.4.2</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V3.9.0 with support of QSPI external loader for STM32L476G_EVAL and STM32L476G-Discovery boards.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
@@ -6254,16 +6897,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.4.0 / 26-February-2016</label>
-<div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L431xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L432xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L433xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L442xx and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L443xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -6292,9 +6933,9 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">Add I2C_TwoBoards_RestartComIT and I2C_TwoBoards_RestartAdvComIT examples for STM32L476RG-Nucleo and STM32L476G-EVAL boards</span></li>
 </ul>
 <p><span style="font-family: Verdana; font-size: 10pt;">For the complete list of changes, please refer to the release notes of each firmware components (in bold below)</span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
-</span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
+</span></u></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes</span></p>
@@ -6370,20 +7011,20 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.50.3</span></li>
+<li><p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.50.3</span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.17</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+ Pack Keil STM32L4xx_DFP.1.2.0</span><span style="font-family: Verdana; font-size: 10pt;"></span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.8</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain V1.8</span><span style="font-family: Verdana; font-size: 10pt;"></span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.3.1</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Tools</span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">ST-Link Utility V3.9.0 with support of QSPI external loader for STM32L476G_EVAL and STM32L476G-Discovery boards.</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L43x devices Rev1</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
@@ -6394,16 +7035,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.3.0 / 29-January-2016</label>
-<div>
-<h2 id="main-changes-17">Main Changes</h2>
+<h2 id="main-changes-18">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Update Low Layer drivers to add some new LL API(s) and minor changes  </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">(release notes)</a></span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add initialization/de-initialization low level API(s) in new stm32l4xx_ll_ppp.c files (under USE_FULL_LL_DRIVER switch)</span></li>
@@ -6438,30 +7077,30 @@
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Projects</span><span style="font-weight: bold;"></span> update</span></p>
 <ul>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Add new "Init" LL Examples to demonstrate new LL initialization API(s) under \Projects\STM32L476RG-Nucleo\Examples_LL</span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\ADC\ADC_ContinuousConversion_TriggerSW_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\COMP\COMP_CompareWithInternalReference_IT_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\DAC\DAC_GenerateWaveform_TriggerHW_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\DMA\DMA_CopyFromFlashToMemory_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\EXTI\EXTI_ToggleLedOnIT_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\GPIO\GPIO_InfiniteLedToggling_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\I2C\I2C_OneBoard_Communication_IT_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\LPTIM\LPTIM_PulseCounter_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\LPUART\LPUART_WakeUpFromStop2_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\OPAMP\OPAMP_PGA_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\RTC\RTC_Alarm_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\SPI\SPI_OneBoard_HalfDuplex_DMA_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\SWPMI\SWPMI_Loopback_MultiSWBuffer_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\TIM\TIM_PWMOutput_Init</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\USART\USART_Communication_Rx_IT_Init<br />
-</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">Add few other LL Examples</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">\ADC\ADC_TemperatureSensor</span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\ADC\ADC_ContinuousConversion_TriggerSW_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\COMP\COMP_CompareWithInternalReference_IT_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\DAC\DAC_GenerateWaveform_TriggerHW_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\DMA\DMA_CopyFromFlashToMemory_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\EXTI\EXTI_ToggleLedOnIT_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\GPIO\GPIO_InfiniteLedToggling_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\I2C\I2C_OneBoard_Communication_IT_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\LPTIM\LPTIM_PulseCounter_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\LPUART\LPUART_WakeUpFromStop2_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\OPAMP\OPAMP_PGA_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\RTC\RTC_Alarm_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\SPI\SPI_OneBoard_HalfDuplex_DMA_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\SWPMI\SWPMI_Loopback_MultiSWBuffer_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\TIM\TIM_PWMOutput_Init</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\USART\USART_Communication_Rx_IT_Init<br />
+</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">Add few other LL Examples</span></p></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">\ADC\ADC_TemperatureSensor</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">\UTILS\UTILS_ConfigureSystemClock</span></p></li>
 </ul>
 <p><span style="font-family: Verdana; font-size: 10pt;">STM2Cube Level 1 &amp; 2 source files license model changed from "Liberty" to new license "Ultimate Liberty"</span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
-</span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"><br />
+</span></u></strong></p>
+<p><strong><u><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: &#39;Times New Roman&#39;,&#39;serif&#39;; font-size: 12pt;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes</span></p>
@@ -6529,16 +7168,16 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.7 + ST-Link</span></li>
+<li><p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.7 + ST-Link</span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.17</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+</span><span style="font-family: Verdana; font-size: 10pt;">ST-Link</span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.6 + ST-Link</span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.6 + ST-Link</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.3.1 + ST-Link</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L476G Evaluation board</span><span style="font-size: 10pt; font-family: Verdana;">RevB (MB1144-B01)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
@@ -6547,16 +7186,14 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.2.0 / 25-November-2015</label>
-<div>
-<h2 id="main-changes-18">Main Changes</h2>
+<h2 id="main-changes-19">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Main HAL and LL Drivers updates </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"> </span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">(release notes)</a></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL PWR</span> update (</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">User application code impacted</span></span><span style="font-size: 10pt; font-family: Verdana;">)</span></p>
 <ul>
@@ -6591,7 +7228,7 @@
 <ul>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Update SAI block synchronization selection (</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">User application code impacted</span></span><span style="font-size: 10pt; font-family: Verdana;">)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana;">Replace uncomplete SAI_SYNCHRONOUS_EXT value for with SAI_SYNCHRONOUS_EXT_SAI1 and SAI_SYNCHRONOUS_EXT_SAI2</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">Replace incomplete SAI_SYNCHRONOUS_EXT value for with SAI_SYNCHRONOUS_EXT_SAI1 and SAI_SYNCHRONOUS_EXT_SAI2</span></li>
 </ul></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Add support of 24bits configuration in PCM protocol</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Fix ambiguous clock strobing values in HAL_SAI_Init() according to ClockStrobing and AudioMode parameters</span></p></li>
@@ -6625,7 +7262,7 @@
 </span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">TSC_Sensing_1touchkey application update after HAL TSC IODefault state management change</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></span></strong><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Contents</span></u></strong><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">Projects release notes</span></p>
@@ -6693,16 +7330,16 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.3 + ST-Link</span></li>
+<li><p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.3 + ST-Link</span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.16</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+</span><span style="font-family: Verdana; font-size: 10pt;">ST-Link</span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.4 + ST-Link</span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.4 + ST-Link</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.3.1 + ST-Link</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L476G Evaluation board</span><span style="font-size: 10pt; font-family: Verdana;">RevB (MB1144-B01)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
@@ -6711,19 +7348,17 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 16-October-2015</label>
-<div>
-<h2 id="main-changes-19">Main Changes</h2>
+<h2 id="main-changes-20">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Patch release for all Examples/Applications/Demonstrations projects fine-tuning</span></span></p>
 <ul>
-<li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Set Flash prefetch off to match defaut system configuration (stm32l4xx_hal_conf.h files)<br />
+<li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Set Flash prefetch off to match default system configuration (stm32l4xx_hal_conf.h files)<br />
 </span></li>
 </ul>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">This release contains updated versions of the HAL drivers and Examples/Applications/Demonstrations projects, user needs simply to overwrite the old folders with the new ones:</span></p>
@@ -6744,7 +7379,7 @@
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Add new API LL_RCC_LSE_DisableCSS()</span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Drivers<br />
 </span></p>
@@ -6752,16 +7387,14 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32</span><span style="font-size: 10pt; font-family: Verdana;">L4</span><span style="font-size: 10pt; font-family: Verdana;">xx HAL V1.1.1 (<a href="../../../DV/L4/STM32Cube_FW_L4_V1.2.0/Drivers/STM32L4xx_HAL_Driver/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.0 / 16-September-2015</label>
-<div>
-<h2 id="main-changes-20">Main Changes</h2>
+<h2 id="main-changes-21">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Add Low Layer drivers under Drivers\STM32L4xx_HAL_Driver</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers allow performance and memory footprint optimization</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers APIs provide register level programming: they require deep knowledge of peripherals described in STM32L4x6 Reference Manual</span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers are available for: ADC, COMP, Cortex, CRC, DAC, DMA, EXTI, GPIO, I2C, IWDG, LPTIM, LPUART, OPAMP, PWR, RCC, RNG, RTC, SPI, SWPMI, TIM, USART and WWDG peripherals and additionnal Low Level Bus, System and Utilities APIs.<br />
+<li><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers are available for: ADC, COMP, Cortex, CRC, DAC, DMA, EXTI, GPIO, I2C, IWDG, LPTIM, LPUART, OPAMP, PWR, RCC, RNG, RTC, SPI, SWPMI, TIM, USART and WWDG peripherals and additional Low Level Bus, System and Utilities APIs.<br />
 </span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers APIs are implemented as static inline function in new <span style="font-style: italic;">Inc/stm32l4xx_ll_ppp.h</span> files for PPP peripherals, there is no configuration file and each</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic;">stm32l4xx_ll_ppp.h</span> file must be included in user code.</span></li>
 <li>Refer to <a href="Documentation/STM32CubeL4GettingStarted.pdf">UM1860</a> for Low Layer presentation and <a href="http://www.st.com/st-web-ui/static/active/en/resource/technical/document/user_manual/DM00173145.pdf">UM1884</a> for API list.</li>
@@ -6797,7 +7430,7 @@
 </span></li>
 </ul>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">STM32L476G-Discovery demonstration FW (V1.0.3) update</span></span></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Projects</span></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">The STM32CubeL4 Firmware package comes with a rich set of examples running on STMicroelectronics boards, organized by board and provided with preconfigured projects for the main supported toolchains. The exhaustive list of projects is provided in this table (<a href="Projects/STM32CubeProjectsList.html">STM32CubeProjectsList.html</a>).</span></p>
@@ -6866,16 +7499,16 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <ul>
-<li><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.1 + ST-Link</span></li>
+<li><p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40.1 + ST-Link</span></p></li>
 <li><p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.12</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+</span><span style="font-family: Verdana; font-size: 10pt;">ST-Link</span></p></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.3 + ST-Link</span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">System Workbench STM32 (SW4STM32) toolchain v1.3 + ST-Link</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.3.1 + ST-Link</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L476G Evaluation board</span><span style="font-size: 10pt; font-family: Verdana;">RevB (MB1144-B01)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
@@ -6884,20 +7517,18 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO/SW4STM32 projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 </ul>
 </div>
-</div>
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.0 / 26-June-2015</label>
-<div>
-<h2 id="main-changes-21">Main Changes</h2>
+<h2 id="main-changes-22">Main Changes</h2>
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">First official release of STM32CubeL4 (STM32Cube for STM32L4 Series) </span></span></li>
 </ul>
-<p><strong><span class="underline"><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></span></strong></p>
+<p><strong><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Contents</span></u></strong></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Drivers</span></p>
 <ul>
@@ -6939,21 +7570,21 @@
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Log</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">V1.0.0</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Utilities/Log/Release_Notes.html">release notes</a>)</span></p></li>
 </ul>
 <p><span style="text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; white-space: normal; color: rgb(0, 0, 0); word-spacing: 0px; font-size-adjust: none; font-stretch: normal;"></span></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Development Toolchains and Compilers</span></u></strong></p>
 <p><span style="font-family: Verdana; font-size: 10pt;">IAR Embedded Workbench for ARM (EWARM) toolchain V7.40 + ST-Link</span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L476xx/STM32L486xx devices are supported but any new project creation requires to set the missing FPU declaration (VFPv4) in Project General Option =&gt; Target panel</span></li>
 </ul>
 <p><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.12</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span>+</span><span style="font-family: Verdana; font-size: 10pt;">ST-Link</span></p>
 <ul>
-<li><span style="font-size: 10pt; font-family: Verdana;">Keil pack<span style="font-weight: bold;"></span>for STM32L4 available from <span style="font-style: italic;">\Utilities\PC_Software\MDK-ARM_STM32L476xx_Patch:</span></span><span style="font-size: 10pt; font-family: Verdana;">this Pack provides the support of STM32L471xx/</span><span style="font-size: 10pt; font-family: Verdana;">STM32L476xx</span><span style="font-size: 10pt; font-family: Verdana;">/</span><span style="font-size: 10pt; font-family: Verdana;">STM32L486xx</span><span style="font-size: 10pt; font-family: Verdana;">device numbers for µ5Vision Projects.</span></li>
+<li><p><span style="font-size: 10pt; font-family: Verdana;">Keil pack<span style="font-weight: bold;"></span>for STM32L4 available from <span style="font-style: italic;">\Utilities\PC_Software\MDK-ARM_STM32L476xx_Patch:</span></span><span style="font-size: 10pt; font-family: Verdana;">this Pack provides the support of STM32L471xx/</span><span style="font-size: 10pt; font-family: Verdana;">STM32L476xx</span><span style="font-size: 10pt; font-family: Verdana;">/</span><span style="font-size: 10pt; font-family: Verdana;">STM32L486xx</span><span style="font-size: 10pt; font-family: Verdana;">device numbers for µ5Vision Projects.</span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Run Time Environment (RTE) CMSIS-Core must not be selected to rely only on CMSIS drivers delivered in this STM32Cube L4 FW package<br />
 </span></p></li>
 <li><p><span style="font-size: 10pt; font-family: Verdana;">Atollic TrueSTUDIO STM32 (TrueSTUDIO) toolchain v5.2.1 + ST-Link</span></p></li>
 </ul>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></span></strong></p>
-<p><strong><span class="underline"><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;"></span></u></strong></p>
+<p><strong><u><span style="font-size: 10pt; color: black; font-family: Verdana;">Supported Devices and EVAL boards</span></u></strong></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32L47x devices Rev4</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">STM32L476G Evaluation board</span><span style="font-size: 10pt; font-family: Verdana;">RevB (MB1144-B01)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
@@ -6962,14 +7593,13 @@
 </ul>
 <p><br />
 </p>
-<p><strong><span class="underline"><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></span></strong></p>
+<p><strong><u><span style="font-family: Verdana; color: black; font-size: 10pt;">Known limitation </span></u></strong></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">TrueSTUDIO projects are not provided for the STM32L476G-EVAL and STM32L476G-Discovery demonstrations</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">System Workbench for STM32 (SW4STM32) projects are not provided with this package.</span></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
 </div>
 <footer class="sticky">
 <p>For complete documentation on <mark>STM32 Microcontrollers</mark> , visit: <a href="http://www.st.com/STM32">http://www.st.com/STM32</a></p>

@@ -7,12 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the FatFs with uSD/DMA card drive application.
   ******************************************************************************
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * @attention
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       http://www.st.com/SLA0044
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -103,6 +105,5 @@ In order to make the program work, you must do the following :
 
  @note
  the USB flash disk gets formatted by the application, please make sure to backup any relevant data before using it.
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */
  

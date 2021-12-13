@@ -1,15 +1,18 @@
-/*
- * COPYRIGHT (C) STMicroelectronics 2015. All rights reserved.
- *
- * This software is the confidential and proprietary information of
- * STMicroelectronics ("Confidential Information").  You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with STMicroelectronics
- *
- * Programming Golden Rule: Keep it Simple!
- *
- */
+/**
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  * Programming Golden Rule: Keep it Simple!
+  *
+  */
 
 /*!
  * \file   VL53L0X_platform_log.c

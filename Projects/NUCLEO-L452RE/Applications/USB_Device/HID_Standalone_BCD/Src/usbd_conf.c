@@ -6,13 +6,12 @@
 ******************************************************************************
 * @attention
 *
-* <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+* Copyright (c) 2017 STMicroelectronics.
+* All rights reserved.
+*
+* This software is licensed under terms that can be found in the LICENSE file
+* in the root directory of this software component.
+* If no LICENSE file comes with this software, it is provided AS-IS.
 *
 ******************************************************************************
 */
@@ -54,7 +53,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef *hpcd)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* START : Specific Code For BCD */
-  /* Configure The VBUS PC11 Pin*/
+  /* Configure The VBUS PA9 Pin*/
   GPIO_InitStruct.Pin = GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
@@ -408,7 +407,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == GPIO_PIN_9)
   {
-    HAL_PCDEx_BCD_VBUSDetect (&hpcd);
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET)
+    {
+      /*wait for bus stabilization*/
+      HAL_Delay(450);
+      /*Start BCD Detect*/
+      HAL_PCDEx_ActivateBCD (&hpcd);
+      HAL_PCDEx_BCD_VBUSDetect(&hpcd);
+    }
+    else
+    {
+      HAL_PCD_DevDisconnect(&hpcd);
+
+      /*switch off indication LED*/
+      BSP_LED_Off(LED2);
+    }
   }
 }
 
@@ -443,4 +456,3 @@ void USBD_static_free(void *p)
 
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

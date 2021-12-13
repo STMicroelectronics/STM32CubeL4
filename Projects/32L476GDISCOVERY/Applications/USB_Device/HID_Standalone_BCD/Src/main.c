@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -43,49 +42,53 @@ int main(void)
 {
   /* STM32L4xx HAL library initialization:
        - Configure the Flash prefetch
-       - Systick timer is configured by default as source of time base, but user 
-         can eventually implement his proper time base source (a general purpose 
-         timer for example or other time source), keeping in mind that Time base 
-         duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and 
+       - Systick timer is configured by default as source of time base, but user
+         can eventually implement his proper time base source (a general purpose
+         timer for example or other time source), keeping in mind that Time base
+         duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and
          handled in milliseconds basis.
        - Set NVIC Group Priority to 4
        - Low Level Initialization
      */
-  
+
   /* Initialize the HAL Library */
   HAL_Init();
-  
+
   /* Configure the system clock to 80 MHz */
   SystemClock_Config();
-  
+
   /* Enable Power Clock*/
   __HAL_RCC_PWR_CLK_ENABLE();
-  
+
   /* Enable USB power on Pwrctrl CR2 register */
   HAL_PWREx_EnableVddUSB();
-  
+
   /* Configure LED_GREEN and LED_RED */
   BSP_LED_Init(LED_GREEN);
   BSP_LED_Init(LED_RED);
-    
+
   /* Initialize Joystick */
   if (BSP_JOY_Init(JOY_MODE_GPIO) == HAL_OK)
   {
     joyready = 1;
   }
-  
+
   /* Init Device Library */
   USBD_Init(&USBD_Device, &HID_Desc, 0);
-  
+
   /* Add Supported Class */
   USBD_RegisterClass(&USBD_Device, USBD_HID_CLASS);
-  
-  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11))
+
+  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) == GPIO_PIN_SET)
   {
-    /* Start Device Process */
-    USBD_Start(&USBD_Device);
+    /* wait for bus stabilization */
+    HAL_Delay(450);
+
+    /* Start BCD Detect */
+    HAL_PCDEx_ActivateBCD (&hpcd);
+    HAL_PCDEx_BCD_VBUSDetect(&hpcd);
   }
-    
+
   /* Run Application (Interrupt mode) */
   while (1)
   {
@@ -101,27 +104,30 @@ int main(void)
 void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
 {
   switch(msg)
-  {    
+  {
   case PCD_BCD_CONTACT_DETECTION:
     break;
-    
+
   case PCD_BCD_STD_DOWNSTREAM_PORT:
     BSP_LED_On(LED_RED);
     break;
-    
+
   case PCD_BCD_CHARGING_DOWNSTREAM_PORT:
     BSP_LED_On(LED_GREEN);
     BSP_LED_On(LED_RED);
     break;
-    
+
   case PCD_BCD_DEDICATED_CHARGING_PORT:
     BSP_LED_On(LED_GREEN);
     break;
-    
+
   case PCD_BCD_DISCOVERY_COMPLETED:
+    HAL_Delay(20);
+
+    /* Start USB */
     USBD_Start(&USBD_Device);
     break;
-    
+
   case PCD_BCD_ERROR:
   default:
     break;
@@ -130,7 +136,7 @@ void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
 
 /**
   * @brief  System Clock Configuration
-  *         The system Clock is configured as follow : 
+  *         The system Clock is configured as follow :
   *
   *         If define USB_USE_LSE_MSI_CLOCK enabled:
   *            System Clock source            = PLL (MSI)
@@ -147,7 +153,7 @@ void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
   *            PLL_Q                          = 4
   *            PLL_R                          = 4
   *            Flash Latency(WS)              = 4
-  * 
+  *
   *         If define USB_USE_HSE_CLOCK enabled:
   *            System Clock source            = PLL (HSE)
   *            SYSCLK(Hz)                     = 80000000
@@ -162,7 +168,7 @@ void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
   *            PLL_Q                          = 4
   *            PLL_R                          = 4
   *            Flash Latency(WS)              = 4
-  * 
+  *
   * @param  None
   * @retval None
   */
@@ -173,15 +179,15 @@ static void SystemClock_Config(void)
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
 
 #if defined (USB_USE_LSE_MSI_CLOCK)
- 
+
   /* Enable the LSE Oscillator */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   HAL_RCC_OscConfig(&RCC_OscInitStruct);
-  
+
   /* Enable the CSS interrupt in case LSE signal is corrupted or not present */
   HAL_RCCEx_DisableLSECSS();
-  
+
   /* Enable MSI Oscillator and activate PLL with MSI as source */
   RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.MSIState            = RCC_MSI_ON;
@@ -207,7 +213,7 @@ static void SystemClock_Config(void)
   PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_MSI;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
 
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
+  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
   clocks dividers */
   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -218,9 +224,9 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  
+
 #elif defined (USB_USE_HSE_CLOCK)
-  
+
   /* Enable HSE Oscillator and activate PLL with HSE as source */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -235,14 +241,14 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  
+
   /*Select Main PLL output as USB clock source */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USB;
   PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
-  
-  
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
+
+
+  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
   clocks dividers */
   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -253,7 +259,7 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  
+
 #endif /* USB_USE_LSE_MSI_CLOCK */
 }
 
@@ -281,7 +287,7 @@ static void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
@@ -292,4 +298,3 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

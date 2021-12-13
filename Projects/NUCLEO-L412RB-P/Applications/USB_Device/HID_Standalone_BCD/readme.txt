@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the USB HID BCD example.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2018 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2018 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -42,9 +43,6 @@ If a DCP is connected (D+/D- are shorted or connected through 200 ohm resistor)
 In CDP case we used a HP dock Station: charging port
 
 @note LED 4 is ON when the BCD contact is detected (one of SDP,CDP or DCP)
-      LED 4 toggles 100 times with a frequency of 10 Hz if SDP is detected.
-      LED 4 toggles 100 times with a frequency of 2 Hz if CDP is detected.
-      LED 4 toggles 100 times with a frequency of 1 Hz if DCP is detected.
 
 At the beginning of the main program the HAL_Init() function is called to reset all the peripherals,
 initialize the Flash interface and the systick. The user is provided with the SystemClock_Config()
@@ -106,5 +104,4 @@ In order to make the program work, you must do the following :
  - Rebuild all files and load your image into target memory
  - Run the example
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */
