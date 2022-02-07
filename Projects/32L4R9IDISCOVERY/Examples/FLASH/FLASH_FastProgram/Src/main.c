@@ -47,6 +47,30 @@ __IO uint64_t data64 = 0;
 static FLASH_EraseInitTypeDef EraseInitStruct;
 
 /* Table used for fast programming */
+// the linker script will need to be modified, for example, 4K of flash at the end of 1MB total:
+// 
+// MEMORY
+//  {
+//      FLASH(RX) : ORIGIN = 0x08000000, LENGTH = 996K
+//          DATA(RWX) : ORIGIN = 0x080FF000, LENGTH = 4K
+//          SRAM(RWX) : ORIGIN = 0x20000000, LENGTH = 96K
+//          RAM2(RWX) : ORIGIN = 0x10000000, LENGTH = 32K
+//  }
+// 
+// and this section:
+// 
+//  .user_data :
+//  {
+//      . = ALIGN(4);
+//      KEEP(*(.user_data))
+//          . = ALIGN(4);
+//  } > DATA
+//
+// and add this attribute:
+// 
+// __attribute__((__section__(".user_data")))
+// 
+// here to put this in your Flash:
 static const uint64_t Data64_To_Prog[FLASH_ROW_SIZE] = {
   0x0000000000000000, 0x1111111111111111, 0x2222222222222222, 0x3333333333333333,
   0x4444444444444444, 0x5555555555555555, 0x6666666666666666, 0x7777777777777777,
@@ -56,6 +80,17 @@ static const uint64_t Data64_To_Prog[FLASH_ROW_SIZE] = {
   0x8899889988998899, 0xAABBAABBAABBAABB, 0xCCDDCCDDCCDDCCDD, 0xEEFFEEFFEEFFEEFF,
   0x2200220022002200, 0x3311331133113311, 0x6644664466446644, 0x7755775577557755,
   0xAA88AA88AA88AA88, 0xBB99BB99BB99BB99, 0xEECCEECCEECCEECC, 0xFFDDFFDDFFDDFFDD};
+
+// this is some new data to write to Flash:
+static const uint64_t NewData[FLASH_ROW_SIZE] = {
+0x1313113131313131, 0x1111111111111111, 0x2222222222222222, 0x3333333333333333,
+0x4444444444444444, 0x5555555555555555, 0x6666666666666666, 0x7777777777777777,
+0x8888888888888888, 0x9999999999999999, 0xAAAAAAAAAAAAAAAA, 0xBBBBBBBBBBBBBBBB,
+0xCCCCCCCCCCCCCCCC, 0xDDDDDDDDDDDDDDDD, 0xEEEEEEEEEEEEEEEE, 0xFFFFFFFFFFFFFFFF,
+0x0011001100110011, 0x2233223322332233, 0x4455445544554455, 0x6677667766776677,
+0x8899889988998899, 0xAABBAABBAABBAABB, 0xCCDDCCDDCCDDCCDD, 0xEEFFEEFFEEFFEEFF,
+0x2200220022002200, 0x3311331133113311, 0x6644664466446644, 0x7755775577557755,
+0xAA88AA88AA88AA88, 0xBB99BB99BB99BB99, 0xEECCEECCEECCEECC, 0xFFDDFFDDFFDDFFDD };
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -70,7 +105,7 @@ static uint32_t GetBank(uint32_t Address);
   */
 int main(void)
 {
-  uint32_t src_addr = (uint32_t)Data64_To_Prog;
+  uint32_t src_addr = (uint32_t)NewData; // we'll take the NEW NewData, not currently in Flash, and write it to:  __attribute__((__section__(".user_data"))) static const uint64_t Data64_To_Prog
   uint8_t data_index = 0;
 
   /* STM32L4xx HAL library initialization:
