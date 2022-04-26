@@ -87,9 +87,6 @@ int main(void)
 
   if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9))
   {
-    /* wait for bus stabilization */
-    HAL_Delay(450);
-
     /* Start BCD Detect */
     HAL_PCDEx_ActivateBCD (&hpcd);
     HAL_PCDEx_BCD_VBUSDetect(&hpcd);
@@ -128,8 +125,6 @@ void HAL_PCDEx_BCD_Callback(PCD_HandleTypeDef *hpcd, PCD_BCD_MsgTypeDef msg)
     break;
 
   case PCD_BCD_DISCOVERY_COMPLETED:
-    HAL_Delay(20);
-
     /* Start USB */
     USBD_Start(&USBD_Device);
     break;

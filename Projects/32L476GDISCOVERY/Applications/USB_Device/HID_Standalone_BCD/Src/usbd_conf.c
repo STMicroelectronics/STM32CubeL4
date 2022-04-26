@@ -424,9 +424,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   {
     if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) == GPIO_PIN_SET)
     {
-      /* wait for bus stabilization */
-      HAL_Delay(450);
-
       /* Start BCD Detect */
       HAL_PCDEx_ActivateBCD (&hpcd);
       HAL_PCDEx_BCD_VBUSDetect(&hpcd);
