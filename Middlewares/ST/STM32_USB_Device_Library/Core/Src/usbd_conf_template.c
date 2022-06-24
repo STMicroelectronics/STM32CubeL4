@@ -173,7 +173,7 @@ uint8_t USBD_LL_IsStallEP(USBD_HandleTypeDef *pdev, uint8_t ep_addr)
   * @retval USBD Status
   */
 USBD_StatusTypeDef USBD_LL_SetUSBAddress(USBD_HandleTypeDef *pdev,
-                                         uint8_t dev_addr)
+                                         uint8_t ep_addr)
 {
   UNUSED(pdev);
   UNUSED(ep_addr);
