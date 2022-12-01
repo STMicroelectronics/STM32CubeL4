@@ -538,6 +538,10 @@ uint32_t HAL_EXTI_GetPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
   uint32_t maskline;
   uint32_t offset;
 
+#ifndef USE_FULL_ASSERT /* Prevent compiler warning in case of -Wextra */
+  (void) Edge;
+#endif
+
   /* Check parameters */
   assert_param(IS_EXTI_LINE(hexti->Line));
   assert_param(IS_EXTI_CONFIG_LINE(hexti->Line));
@@ -571,6 +575,10 @@ void HAL_EXTI_ClearPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
   __IO uint32_t *regaddr;
   uint32_t maskline;
   uint32_t offset;
+
+#ifndef USE_FULL_ASSERT /* Prevent compiler warning in case of -Wextra */
+  (void) Edge;
+#endif
 
   /* Check parameters */
   assert_param(IS_EXTI_LINE(hexti->Line));

@@ -4537,6 +4537,8 @@ static uint32_t MMC_PwrClassUpdate(MMC_HandleTypeDef *hmmc, uint32_t Wide, uint3
       supported_pwr_class = ((hmmc->Ext_CSD[(MMC_EXT_CSD_PWR_CL_52_INDEX/4)] >> MMC_EXT_CSD_PWR_CL_52_POS) & 0x000000FFU);
     }
     else
+#else /* Prevent compiler warning in case of -Wextra */
+    (void) Speed;
 #endif
     {
       /* Field PWR_CL_26_xxx [201 or 203] */
