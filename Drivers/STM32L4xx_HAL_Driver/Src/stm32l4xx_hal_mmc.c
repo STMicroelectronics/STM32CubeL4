@@ -4538,7 +4538,7 @@ static uint32_t MMC_PwrClassUpdate(MMC_HandleTypeDef *hmmc, uint32_t Wide, uint3
     }
     else
 #else /* Prevent compiler warning in case of -Wextra */
-    (void) Speed;
+    UNUSED(Speed);
 #endif
     {
       /* Field PWR_CL_26_xxx [201 or 203] */
