@@ -13,7 +13,12 @@
 
 The **STM32CubeL4 MCU Package** projects are directly running on the STM32L4 series boards. You can find in each Projects/*Board name* directories a set of software projects (Applications/Demonstration/Examples).
 
-In this FW Package, the modules **Middlewares/ST/TouchGFX** and **Middlewares/ST/STemWin** are not directly accessible. They must be downloaded from a ST server. The respective URL are available in a readme.txt file inside each module.
+## Some middleware libraries are unavailable in this repository
+
+In this repository, the middleware libraries listed below **along with** the projects (demos, applications, and examples) using them, are **not available** as they (the middleware libraries) are subject to some restrictive license terms requiring the user's approval via a "click thu" procedure.
+* `./Middlewares/ST/STemWin`
+
+If needed, they can be found inside the full firmware package available on our website `st.com` and downloadable from [here](https://www.st.com/content/st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32cube-mcu-mpu-packages/stm32cubel4.html#get-software). You will be prompted to login or to register in case you have no account.
 
 ## Release note
 
