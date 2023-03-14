@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    es-wifi.h
+  * @file    es_wifi.h
   * @author  MCD Application Team
   * @brief   header file for the es-wifi module.
   ******************************************************************************
@@ -32,22 +32,19 @@
 
 /* Exported Constants --------------------------------------------------------*/
 #define ES_WIFI_PAYLOAD_SIZE     1200
-/* Exported macro-------------------------------------------------------------*/
-#define MIN(a, b)  ((a) < (b) ? (a) : (b))
 
-typedef int8_t (*IO_Init_Func)(uint16_t );
-typedef int8_t (*IO_DeInit_Func)( void);
+typedef int8_t (*IO_Init_Func)(uint16_t);
+typedef int8_t (*IO_DeInit_Func)(void);
 typedef void (*IO_Delay_Func)(uint32_t);
-typedef int16_t (*IO_Send_Func)( uint8_t *, uint16_t len, uint32_t);
-typedef int16_t (*IO_Receive_Func)(uint8_t *, uint16_t len, uint32_t);
+typedef int16_t (*IO_Send_Func)(const uint8_t *cmd, uint16_t len, uint32_t timeout);
+typedef int16_t (*IO_Receive_Func)(uint8_t *data, uint16_t len, uint32_t timeout);
 
 
 /* Exported typedef ----------------------------------------------------------*/
 typedef enum {
 ES_WIFI_INIT  = 0,
 ES_WIFI_RESET  = 1
-}
-ES_WIFI_InitMode_t;
+} ES_WIFI_InitMode_t;
 
 
 typedef enum {
@@ -64,7 +61,7 @@ typedef enum {
 #define ES_WIFI_ERROR_WAITING_DRDY_RISING           -2
 #define ES_WIFI_ERROR_WAITING_DRDY_FALLING          -3
 #define ES_WIFI_ERROR_STUFFING_FOREVER              -4
-#define ES_WIFI_ERROR_SPI_INIT                      -5   
+#define ES_WIFI_ERROR_SPI_INIT                      -5
 
 typedef enum {
   ES_WIFI_MODE_SINGLE           = 0,
@@ -76,7 +73,7 @@ typedef enum {
   ES_WIFI_UDP_CONNECTION        = 1,
   ES_WIFI_UDP_LITE_CONNECTION   = 2,
   ES_WIFI_TCP_SSL_CONNECTION    = 3,
-  ES_WIFI_MQTT_CONNECTION       = 4,
+  ES_WIFI_MQTT_CONNECTION       = 4
 } ES_WIFI_ConnType_t;
 
 /* Security settings for wifi network */
@@ -87,24 +84,24 @@ typedef enum {
   ES_WIFI_SEC_WPA2 = 0x03,          /*!< Wi-Fi Protected Access 2 */
   ES_WIFI_SEC_WPA_WPA2= 0x04,       /*!< Wi-Fi Protected Access with both modes */
   ES_WIFI_SEC_WPA2_TKIP= 0x05,      /*!< Wi-Fi Protected Access with both modes */
-  ES_WIFI_SEC_UNKNOWN = 0xFF,       /*!< Wi-Fi Unknown Security mode */
+  ES_WIFI_SEC_UNKNOWN = 0xFF        /*!< Wi-Fi Unknown Security mode */
 } ES_WIFI_SecurityType_t;
 
 typedef enum {
   ES_WIFI_IPV4 = 0x00,
-  ES_WIFI_IPV6 = 0x01,
+  ES_WIFI_IPV6 = 0x01
 } ES_WIFI_IPVer_t;
 
 typedef enum {
   ES_WIFI_AP_NONE     = 0x00,
   ES_WIFI_AP_ASSIGNED = 0x01,
   ES_WIFI_AP_JOINED   = 0x02,
-  ES_WIFI_AP_ERROR    = 0xFF,
+  ES_WIFI_AP_ERROR    = 0xFF
 } ES_WIFI_APState_t;
 
 typedef enum {
   ES_WIFI_FUNCTION_TLS = 0x00,
-  ES_WIFI_FUNCTION_AWS = 0x01,
+  ES_WIFI_FUNCTION_AWS = 0x01
 } ES_WIFI_CredsFunction_t;
 
 //FIXME should be the multiple read/write slot ??
@@ -244,80 +241,88 @@ typedef struct {
   ES_WIFI_IO_t       fops;
   uint8_t            CmdData[ES_WIFI_DATA_SIZE];
   uint32_t           Timeout;
-  uint32_t           BufferSize;  
+  uint32_t           BufferSize;
 } ES_WIFIObject_t;
 
 
 /* Exported functions --------------------------------------------------------*/
 ES_WIFI_Status_t  ES_WIFI_Init(ES_WIFIObject_t *Obj);
+
 ES_WIFI_Status_t  ES_WIFI_SetTimeout(ES_WIFIObject_t *Obj, uint32_t Timeout);
 ES_WIFI_Status_t  ES_WIFI_ListAccessPoints(ES_WIFIObject_t *Obj, ES_WIFI_APs_t *APs);
 ES_WIFI_Status_t  ES_WIFI_Connect(ES_WIFIObject_t *Obj, const char* SSID, const char* Password,
-                                          ES_WIFI_SecurityType_t SecType);
+                                  ES_WIFI_SecurityType_t SecType);
 ES_WIFI_Status_t  ES_WIFI_Disconnect(ES_WIFIObject_t *Obj);
 uint8_t           ES_WIFI_IsConnected(ES_WIFIObject_t *Obj);
 ES_WIFI_Status_t  ES_WIFI_GetNetworkSettings(ES_WIFIObject_t *Obj);
-ES_WIFI_Status_t  ES_WIFI_GetMACAddress(ES_WIFIObject_t *Obj, uint8_t *mac);
-ES_WIFI_Status_t  ES_WIFI_GetIPAddress(ES_WIFIObject_t *Obj, uint8_t *ipaddr);
-ES_WIFI_Status_t  ES_WIFI_GetProductID(ES_WIFIObject_t *Obj, uint8_t *productID);
-ES_WIFI_Status_t  ES_WIFI_GetFWRevID(ES_WIFIObject_t *Obj, uint8_t *FWRev);
-ES_WIFI_Status_t  ES_WIFI_GetRTOSRev(ES_WIFIObject_t *Obj, uint8_t *RTOSRev);
-ES_WIFI_Status_t  ES_WIFI_GetProductName(ES_WIFIObject_t *Obj, uint8_t *productName);
-ES_WIFI_Status_t  ES_WIFI_GetAPIRev(ES_WIFIObject_t *Obj, uint8_t *APIRev);
-ES_WIFI_Status_t  ES_WIFI_GetStackRev(ES_WIFIObject_t *Obj, uint8_t *StackRev);
+ES_WIFI_Status_t  ES_WIFI_GetMACAddress(ES_WIFIObject_t *Obj, uint8_t *mac, uint8_t MacLength);
+ES_WIFI_Status_t  ES_WIFI_GetIPAddress(ES_WIFIObject_t *Obj, uint8_t *ipaddr, uint8_t IpAddrLength);
+ES_WIFI_Status_t  ES_WIFI_GetProductID(ES_WIFIObject_t *Obj, uint8_t *productID, uint8_t ProductIdLength);
+ES_WIFI_Status_t  ES_WIFI_GetFWRevID(ES_WIFIObject_t *Obj, uint8_t *FWRev, uint8_t FWRevLength);
+ES_WIFI_Status_t  ES_WIFI_GetRTOSRev(ES_WIFIObject_t *Obj, uint8_t *RTOSRev, uint8_t RtosRevLength);
+ES_WIFI_Status_t  ES_WIFI_GetProductName(ES_WIFIObject_t *Obj, uint8_t *productName, uint8_t ProductNameLength);
+ES_WIFI_Status_t  ES_WIFI_GetAPIRev(ES_WIFIObject_t *Obj, uint8_t *APIRev, uint8_t ApiRevLength);
+ES_WIFI_Status_t  ES_WIFI_GetStackRev(ES_WIFIObject_t *Obj, uint8_t *StackRev, uint8_t StackRevLength);
 
-
-ES_WIFI_Status_t  ES_WIFI_SetMACAddress(ES_WIFIObject_t *Obj, uint8_t *mac);
+ES_WIFI_Status_t  ES_WIFI_SetMACAddress(ES_WIFIObject_t *Obj, const uint8_t *mac);
 ES_WIFI_Status_t  ES_WIFI_ResetToFactoryDefault(ES_WIFIObject_t *Obj);
 ES_WIFI_Status_t  ES_WIFI_ResetModule(ES_WIFIObject_t *Obj);
-ES_WIFI_Status_t ES_WIFI_HardResetModule(ES_WIFIObject_t *Obj);
-ES_WIFI_Status_t  ES_WIFI_SetProductName(ES_WIFIObject_t *Obj, uint8_t *ProductName);
+ES_WIFI_Status_t  ES_WIFI_HardResetModule(ES_WIFIObject_t *Obj);
+ES_WIFI_Status_t  ES_WIFI_SetProductName(ES_WIFIObject_t *Obj, const char *ProductName);
 #if (ES_WIFI_USE_PING == 1)
-ES_WIFI_Status_t  ES_WIFI_Ping(ES_WIFIObject_t *Obj, uint8_t *address, uint16_t count, uint16_t interval_ms, int32_t res[]);
-#endif
-ES_WIFI_Status_t  ES_WIFI_DNS_LookUp(ES_WIFIObject_t *Obj, const char *url, uint8_t *ipaddress);
+ES_WIFI_Status_t  ES_WIFI_Ping(ES_WIFIObject_t *Obj, const uint8_t *address, uint16_t count, uint16_t interval_ms,
+                               int32_t res[]);
+#endif /* (ES_WIFI_USE_PING == 1) */
+ES_WIFI_Status_t  ES_WIFI_DNS_LookUp(ES_WIFIObject_t *Obj, const char *url, uint8_t *ipaddress, uint8_t IpAddrLength);
+
 ES_WIFI_Status_t  ES_WIFI_StartClientConnection(ES_WIFIObject_t *Obj, ES_WIFI_Conn_t *conn);
 ES_WIFI_Status_t  ES_WIFI_StopClientConnection(ES_WIFIObject_t *Obj, ES_WIFI_Conn_t *conn);
 #if (ES_WIFI_USE_AWS == 1)
 ES_WIFI_Status_t  ES_WIFI_StartAWSClientConnection(ES_WIFIObject_t *Obj, ES_WIFI_AWS_Conn_t *conn);
-#endif
+#endif /* (ES_WIFI_USE_AWS == 1) */
 ES_WIFI_Status_t  ES_WIFI_StartServerSingleConn(ES_WIFIObject_t *Obj, ES_WIFI_Conn_t *conn);
-ES_WIFI_Status_t  ES_WIFI_WaitServerConnection(ES_WIFIObject_t *Obj,uint32_t Timeout,ES_WIFI_Conn_t *);
-ES_WIFI_Status_t  ES_WIFI_CloseServerConnection(ES_WIFIObject_t *Obj,int socket);
-ES_WIFI_Status_t  ES_WIFI_StopServerSingleConn(ES_WIFIObject_t *Obj, int socket);
-
-
+ES_WIFI_Status_t  ES_WIFI_WaitServerConnection(ES_WIFIObject_t *Obj, uint32_t Timeout, ES_WIFI_Conn_t *conn);
+ES_WIFI_Status_t  ES_WIFI_CloseServerConnection(ES_WIFIObject_t *Obj, uint8_t socket);
+ES_WIFI_Status_t  ES_WIFI_StopServerSingleConn(ES_WIFIObject_t *Obj, uint8_t socket);
 ES_WIFI_Status_t  ES_WIFI_StartServerMultiConn(ES_WIFIObject_t *Obj, ES_WIFI_Conn_t *conn);
-ES_WIFI_Status_t  ES_WIFI_StopServerMultiConn(ES_WIFIObject_t *Obj,ES_WIFI_Conn_t *conn);
-ES_WIFI_Status_t  ES_WIFI_SendData(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen , uint16_t *SentLen, uint32_t Timeout);
-ES_WIFI_Status_t  ES_WIFI_SendDataTo(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen , uint16_t *SentLen, uint32_t Timeout, uint8_t *IPaddr, uint16_t Port);
-ES_WIFI_Status_t  ES_WIFI_ReceiveData(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen, uint16_t *Receivedlen, uint32_t Timeout);
-ES_WIFI_Status_t  ES_WIFI_ReceiveDataFrom(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen, uint16_t *Receivedlen, uint32_t Timeout, uint8_t *IPaddr, uint16_t *pPort);
-ES_WIFI_Status_t  ES_WIFI_ActivateAP(ES_WIFIObject_t *Obj, ES_WIFI_APConfig_t *ApConfig);
+ES_WIFI_Status_t  ES_WIFI_StopServerMultiConn(ES_WIFIObject_t *Obj, ES_WIFI_Conn_t *conn);
+
+
+ES_WIFI_Status_t  ES_WIFI_SendData(ES_WIFIObject_t *Obj, uint8_t Socket, const uint8_t *pdata, uint16_t Reqlen,
+                                   uint16_t *SentLen, uint32_t Timeout);
+ES_WIFI_Status_t  ES_WIFI_SendDataTo(ES_WIFIObject_t *Obj, uint8_t Socket, const uint8_t *pdata, uint16_t Reqlen,
+                                     uint16_t *SentLen, uint32_t Timeout, const uint8_t *IPaddr, uint16_t Port);
+ES_WIFI_Status_t  ES_WIFI_ReceiveData(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen,
+                                      uint16_t *Receivedlen, uint32_t Timeout);
+ES_WIFI_Status_t  ES_WIFI_ReceiveDataFrom(ES_WIFIObject_t *Obj, uint8_t Socket, uint8_t *pdata, uint16_t Reqlen,
+                                          uint16_t *Receivedlen, uint32_t Timeout,
+                                          uint8_t *IPaddr, uint8_t IpAddrLength, uint16_t *pPort);
+
+ES_WIFI_Status_t  ES_WIFI_ActivateAP(ES_WIFIObject_t *Obj, const ES_WIFI_APConfig_t *ApConfig);
 ES_WIFI_APState_t ES_WIFI_WaitAPStateChange(ES_WIFIObject_t *Obj);
 
 #if (ES_WIFI_USE_FIRMWAREUPDATE == 1)
 ES_WIFI_Status_t  ES_WIFI_OTA_Upgrade(ES_WIFIObject_t *Obj, uint8_t *link);
-#endif
+#endif /* (ES_WIFI_USE_FIRMWAREUPDATE == 1) */
 
 #if (ES_WIFI_USE_UART == 1)
 ES_WIFI_Status_t  ES_WIFI_SetUARTBaudRate(ES_WIFIObject_t *Obj, uint16_t BaudRate);
-ES_WIFI_Status_t  ES_WIFI_GetUARTConfig(ES_WIFIObject_t *Obj, ES_WIFI_UARTConfig_t *pconf);
-#endif
+ES_WIFI_Status_t  ES_WIFI_GetUARTConfig(ES_WIFIObject_t *Obj, ES_WIFI_UARTConfig_t *pConf);
+#endif /* (ES_WIFI_USE_UART == 1) */
 
-ES_WIFI_Status_t  ES_WIFI_GetSystemConfig(ES_WIFIObject_t *Obj, ES_WIFI_SystemConfig_t *pconf);
+ES_WIFI_Status_t  ES_WIFI_GetSystemConfig(ES_WIFIObject_t *Obj, ES_WIFI_SystemConfig_t *pConf);
 
-ES_WIFI_Status_t  ES_WIFI_RegisterBusIO(ES_WIFIObject_t *Obj, IO_Init_Func IO_Init,
+ES_WIFI_Status_t  ES_WIFI_RegisterBusIO(ES_WIFIObject_t *Obj, IO_Init_Func    IO_Init,
                                                               IO_DeInit_Func  IO_DeInit,
                                                               IO_Delay_Func   IO_Delay,
                                                               IO_Send_Func    IO_Send,
-                                                              IO_Receive_Func  IO_Receive);
+                                                              IO_Receive_Func IO_Receive);
 
 ES_WIFI_Status_t  ES_WIFI_StoreCreds( ES_WIFIObject_t *Obj,
                                       ES_WIFI_CredsFunction_t credsFunction, uint8_t credSet,
                                       uint8_t* ca, uint16_t caLength,
                                       uint8_t* certificate, uint16_t certificateLength,
-                                      uint8_t* key, uint16_t keyLength );
+                                      uint8_t* key, uint16_t keyLength);
 
 ES_WIFI_Status_t  ES_WIFI_StoreCA( ES_WIFIObject_t *Obj,
                                    ES_WIFI_CredsFunction_t credsFunction,
@@ -341,4 +346,3 @@ ES_WIFI_Status_t  ES_WIFI_StoreKey( ES_WIFIObject_t *Obj,
 }
 #endif
 #endif /*__ES_WIFI_H*/
-

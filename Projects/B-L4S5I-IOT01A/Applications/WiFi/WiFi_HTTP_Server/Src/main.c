@@ -84,7 +84,7 @@ static user_config_t user_config;
 
 static  uint8_t http[1024];
 static  uint8_t  IP_Addr[4];
-static  int     LedState = 0; 
+static  int     LedState = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 #if defined (TERMINAL_USE)
@@ -169,7 +169,7 @@ static int wifi_start(void)
   if(WIFI_Init() ==  WIFI_STATUS_OK)
   {
     printf("eS-WiFi Initialized.\n");
-    if(WIFI_GetMAC_Address(MAC_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) == WIFI_STATUS_OK)
     {
       LOG(("eS-WiFi module MAC Address : %02X:%02X:%02X:%02X:%02X:%02X\n",
                MAC_Addr[0],
@@ -197,7 +197,7 @@ static int wifi_start(void)
 int wifi_connect(void)
 {
   wifi_start();
-  
+
   memset(&user_config, 0, sizeof(user_config));
   memcpy(&user_config, lUserConfigPtr, sizeof(user_config));
   if (user_config.wifi_config_magic == USER_CONF_MAGIC)
@@ -260,7 +260,7 @@ int wifi_connect(void)
   }
   if (WIFI_Connect(user_config.wifi_config.ssid, user_config.wifi_config.password, security) == WIFI_STATUS_OK)
   {
-    if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetIP_Address(IP_Addr, sizeof(IP_Addr)) == WIFI_STATUS_OK)
     {
       LOG(("eS-WiFi module connected: got IP Address : %d.%d.%d.%d\n",
                IP_Addr[0],
@@ -303,7 +303,7 @@ int wifi_server(void)
     uint16_t RemotePort;
 
     LOG(("Waiting connection to http://%d.%d.%d.%d\n",IP_Addr[0],IP_Addr[1],IP_Addr[2],IP_Addr[3]));
-    while (WIFI_STATUS_OK != WIFI_WaitServerConnection(SOCKET,1000,RemoteIP,&RemotePort))
+    while (WIFI_STATUS_OK != WIFI_WaitServerConnection(SOCKET, 1000, RemoteIP, sizeof(RemoteIP), &RemotePort))
     {
         LOG(("."));
     }
@@ -553,9 +553,9 @@ PUTCHAR_PROTOTYPE
 
 #ifdef __ICCARM__
 /**
-  * @brief  
-  * @param  
-  * @retval 
+  * @brief
+  * @param
+  * @retval
   */
 size_t __read(int handle, unsigned char * buffer, size_t size)
 {

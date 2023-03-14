@@ -76,4 +76,3 @@ extern osMutexId es_wifi_mutex;
 }
 #endif
 #endif /*__ES_WIFI_CONF_H*/
-

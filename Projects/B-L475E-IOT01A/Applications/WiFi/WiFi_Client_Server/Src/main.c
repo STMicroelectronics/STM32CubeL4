@@ -73,8 +73,8 @@ extern  SPI_HandleTypeDef hspi;
   */
 int main(void)
 {
-  uint8_t  MAC_Addr[6];
-  uint8_t  IP_Addr[4];
+  uint8_t  MAC_Addr[6] = {0};
+  uint8_t  IP_Addr[4] = {0};
   uint8_t TxData[] = "STM32 : Hello!\n";
   int32_t Socket = -1;
   uint16_t Datalen;
@@ -119,7 +119,7 @@ int main(void)
   if(WIFI_Init() ==  WIFI_STATUS_OK)
   {
     TERMOUT("> WIFI Module Initialized.\n");
-    if(WIFI_GetMAC_Address(MAC_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) == WIFI_STATUS_OK)
     {
       TERMOUT("> es-wifi module MAC Address : %X:%X:%X:%X:%X:%X\n",
                MAC_Addr[0],
@@ -138,7 +138,7 @@ int main(void)
     if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
     {
       TERMOUT("> es-wifi module connected \n");
-      if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
+      if(WIFI_GetIP_Address(IP_Addr, sizeof(IP_Addr)) == WIFI_STATUS_OK)
       {
         TERMOUT("> es-wifi module got IP Address : %d.%d.%d.%d\n",
                IP_Addr[0],
