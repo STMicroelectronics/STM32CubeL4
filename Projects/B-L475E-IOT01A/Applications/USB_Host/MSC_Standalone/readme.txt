@@ -34,7 +34,7 @@ initialize the Flash interface and the systick. The user is provided with the Sy
 function to configure the system clock (SYSCLK) to run at 80 MHz. The USB On-The-Go Full Speed (OTG-FS) module uses
 a very accurate internal 48-MHz clock source based on the internal MSI oscillator at 48Mhz used in PLL-mode with the LSE.
 
-@note In case high precision clock source is required (recommanded in host mode), the users must add a 8 MHz crystal (at X1 position).
+@note In case high precision clock source is required (recommended in host mode), the users must add a 8 MHz crystal (at X1 position).
 
 When the application is started, the connected USB flash disk device is detected in MSC mode and gets
 initialized. The STM32 MCU behaves as a MSC Host, it enumerates the device and extracts VID, PID,

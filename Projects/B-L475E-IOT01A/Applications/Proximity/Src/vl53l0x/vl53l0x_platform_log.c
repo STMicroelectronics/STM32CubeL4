@@ -16,7 +16,7 @@
 
 /*!
  * \file   VL53L0X_platform_log.c
- * \brief  Code function defintions for Ewok Platform Layer
+ * \brief  Code function definitions for Ewok Platform Layer
  *
  */
 

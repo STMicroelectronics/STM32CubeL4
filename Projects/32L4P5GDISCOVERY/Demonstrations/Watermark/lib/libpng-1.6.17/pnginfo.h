@@ -167,7 +167,7 @@ defined(PNG_READ_BACKGROUND_SUPPORTED)
 #ifdef PNG_oFFs_SUPPORTED
    /* The oFFs chunk gives the offset in "offset_unit_type" units rightwards
     * and downwards from the top-left corner of the display, page, or other
-    * application-specific co-ordinate space.  See the PNG_OFFSET_ defines
+    * application-specific coordinate space.  See the PNG_OFFSET_ defines
     * below for the unit types.  Valid if (valid & PNG_INFO_oFFs) non-zero.
     */
    png_int_32 x_offset; /* x offset on page */
@@ -239,7 +239,7 @@ defined(PNG_READ_BACKGROUND_SUPPORTED)
    /* The sCAL chunk describes the actual physical dimensions of the
     * subject matter of the graphic.  The chunk contains a unit specification
     * a byte value, and two ASCII strings representing floating-point
-    * values.  The values are width and height corresponsing to one pixel
+    * values.  The values are width and height corresponding to one pixel
     * in the image.  Data values are valid if (valid & PNG_INFO_sCAL) is
     * non-zero.
     */

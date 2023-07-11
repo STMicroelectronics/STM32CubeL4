@@ -134,7 +134,7 @@ extern "C" {
    * @retval Reference of the LSB of the BD Address
    * @note  The application can overload this function for example 
             in case it needs to retrieve the value from OTP 
-            instead of using the harcoded value in the config.h
+            instead of using the hardcoded value in the config.h
    */
   const uint8_t* SVCCTL_GetBdAddress( void );
 

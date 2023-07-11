@@ -402,7 +402,7 @@ local void examine(int syms, int len, int left, int mem, int rem)
    requires that maximum.  Uses the globals max, root, and num. */
 local void enough(int syms)
 {
-    int n;              /* number of remaing symbols for this node */
+    int n;              /* number of remaining symbols for this node */
     int left;           /* number of unused bit patterns at this length */
     size_t index;       /* index of this case in *num */
 
@@ -440,7 +440,7 @@ local void enough(int syms)
    values are 286, 9, and 15 respectively, for the deflate literal/length code.
    The possible codes are counted for each number of coded symbols from two to
    the maximum.  The counts for each of those and the total number of codes are
-   shown.  The maximum number of inflate table entires is then calculated
+   shown.  The maximum number of inflate table entries is then calculated
    across all possible codes.  Each new maximum number of table entries and the
    associated sub-code (starting at root + 1 == 10 bits) is shown.
 

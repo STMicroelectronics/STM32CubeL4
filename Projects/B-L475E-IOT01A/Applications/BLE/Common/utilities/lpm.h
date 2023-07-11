@@ -93,7 +93,7 @@ extern "C" {
    *         enters Sleep mode. Otherwise, it enters either Stop Mode or Off Mode.
    *         The default System clock request for all users is set to System clock switched Off
    * @param  id: process Id - value shall be between 0 and 31
-   * @param  mode: System Clock Activty
+   * @param  mode: System Clock Activity
    * @retval None
    */
   void LPM_SetStopMode(uint32_t id, LPM_StopModeSel_t mode);

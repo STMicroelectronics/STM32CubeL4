@@ -34,7 +34,7 @@
 /* Private typedef -----------------------------------------------------------*/
 typedef struct
 {
-  uint8_t       Notification_Button_Status; // used to chek if LB Router can received push button information
+  uint8_t       Notification_Button_Status; // used to check if LB Router can received push button information
   LBR_ButtonCharValue_t      ButtonStatusToClient;
   uint16_t connHandleWithLbRouteur; //Smart Phone 1
 } LB_End_Dev_Context_t;

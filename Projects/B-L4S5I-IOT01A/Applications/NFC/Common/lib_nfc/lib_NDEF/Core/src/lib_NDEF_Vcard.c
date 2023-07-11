@@ -338,7 +338,7 @@ void NDEF_PrepareVcardMessage( sVcardInfo *pVcardStruct, uint8_t *pNDEFMessage, 
   pNDEFMessage[2] = length>>24;	
   memcpy( &pNDEFMessage[6], XVCARD_TYPE_STRING, XVCARD_TYPE_STRING_LENGTH );
 
-  /* Payload is positionned in the NDEF after record header */
+  /* Payload is positioned in the NDEF after record header */
   PayloadSize = 6 + XVCARD_TYPE_STRING_LENGTH;
   } else {
   pNDEFMessage[0] = 0xD2;   /* Record Flag */
@@ -346,7 +346,7 @@ void NDEF_PrepareVcardMessage( sVcardInfo *pVcardStruct, uint8_t *pNDEFMessage, 
   pNDEFMessage[2] =  length;
   memcpy( &pNDEFMessage[3], XVCARD_TYPE_STRING, XVCARD_TYPE_STRING_LENGTH );
 
-  /* Payload is positionned in the NDEF after record header */
+  /* Payload is positioned in the NDEF after record header */
   PayloadSize = 3 + XVCARD_TYPE_STRING_LENGTH;
   }
 

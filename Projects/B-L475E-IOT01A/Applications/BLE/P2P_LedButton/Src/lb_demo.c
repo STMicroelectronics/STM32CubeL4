@@ -580,7 +580,7 @@ static SVCCTL_EvtAckStatus_t LBR_Client_Event_Handler(void *Event)
              * 2bytes start handle
              * 2bytes end handle
              * 2 or 16 bytes data
-             * we are intersted only if the UUID is 16 bit.
+             * we are interested only if the UUID is 16 bit.
              * So check if the data length is 6
              */
             if (pr->attribute_data_length == 6)
@@ -825,14 +825,14 @@ void LBR_Client_Update_Service()
                                                 aLBRClientContext[index].LedButtonServiceHandle,
                                                 aLBRClientContext[index].LedButtonServiceEndHandle);
         break;
-      case LBC_DISCOVER_LED_CHAR_DESC: //Not Used - No decriptor
-        APPL_MESG_DBG("* GATT : Discover Descriptor of Led Characteritic\n");
+      case LBC_DISCOVER_LED_CHAR_DESC: //Not Used - No descriptor
+        APPL_MESG_DBG("* GATT : Discover Descriptor of Led Characteristic\n");
         aci_gatt_disc_all_charac_descriptors(aLBRClientContext[index].connHandle,
                                                     aLBRClientContext[index].LedButtonLedCharHdle,
                                                     aLBRClientContext[index].LedButtonLedCharHdle+2);
         break;  
       case LBC_DISCOVER_BUTTON_CHAR_DESC:
-        APPL_MESG_DBG("* GATT : Discover Descriptor of Button Characteritic\n");
+        APPL_MESG_DBG("* GATT : Discover Descriptor of Button Characteristic\n");
         aci_gatt_disc_all_charac_descriptors(aLBRClientContext[index].connHandle,
                                                     aLBRClientContext[index].LedButtonClientCharHdle,
                                                     aLBRClientContext[index].LedButtonClientCharHdle+2);

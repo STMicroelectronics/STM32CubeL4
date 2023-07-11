@@ -26,7 +26,7 @@
  */
 
 /**
- * @brief This command retrieves the buid number of the firmware.
+ * @brief This command retrieves the build number of the firmware.
  * @param[out] build_number Build number identifying the firmware release.
  * @return Value indicating success or error code.
  */
@@ -69,7 +69,7 @@ tBleStatus aci_hal_read_config_data(uint8_t offset, uint16_t data_len, uint8_t *
  *        TX power level from the command, i.e. the 2nd command overwrites the previous TX power
  *        level. The new TX power level remains until another Set TX Power command, or the system
  *        reboots.\n
- * @param en_high_power Can be only 0 or 1. Set high power bit on or off. It is strongly adviced to use the
+ * @param en_high_power Can be only 0 or 1. Set high power bit on or off. It is strongly advised to use the
  *             right value, depending on the selected hardware configuration for the RF network:
  *             normal mode or high power mode.
  * @param pa_level Can be from 0 to 7. Set the PA level value.

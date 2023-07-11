@@ -60,7 +60,7 @@ typedef struct
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
-/* Remainig number of audio samples to play */
+/* Remaining number of audio samples to play */
 static int32_t RemainingAudioSamplesNb;
 
 /* Address (in Flash memory) of the first audio sample to play */

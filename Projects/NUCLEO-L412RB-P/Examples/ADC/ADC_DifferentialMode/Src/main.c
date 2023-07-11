@@ -233,7 +233,7 @@ static void ADC_Config(void)
   /* Configuration of channel on ADCx regular group on rank 1 */
   /* Differential mode: only the ADC channel positive has to be configured.   */
   /*                    The negative input is configured automatically        */
-  /* Note: Considering IT occuring after each ADC conversion (ADC IT          */
+  /* Note: Considering IT occurring after each ADC conversion (ADC IT          */
   /*       enabled), select sampling time and ADC clock with sufficient       */
   /*       duration to not create an overhead situation in IRQHandler.        */
   sConfig.Channel = ADCx_CHANNEL_DIFF_HIGH;

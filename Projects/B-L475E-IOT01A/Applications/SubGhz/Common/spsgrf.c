@@ -328,7 +328,7 @@ void SpiritAesWriteDataIn(uint8_t* pcBufferDataIn, uint8_t cDataLength)
 
 
 /**
- * @brief  Returns the encrypted or decrypted data or the decription key from the AES_DATA_OUT register.
+ * @brief  Returns the encrypted or decrypted data or the decryption key from the AES_DATA_OUT register.
  * @param  pcBufferDataOut pointer to the user data buffer. The AES_DATA_OUT[0]
  *         register value will be put as first element of the buffer (MSB), while the
  *         AES_DAT_OUT[cDataLength-1] register value will be put as last element of the buffer (LSB).
@@ -939,7 +939,7 @@ void SpiritCsmaPersistentMode(SpiritFunctionalState xNewState)
     tempRegValue &= ~PROTOCOL1_CSMA_PERS_ON_MASK;
   }
 
-  /* Writes the new vaue on the PROTOCOL1 register */
+  /* Writes the new value on the PROTOCOL1 register */
   g_xStatus = SpiritSpiWriteRegisters(PROTOCOL1_BASE, 1, &tempRegValue);
 
 }
@@ -2022,7 +2022,7 @@ ExtraClockCycles SpiritGpioGetExtraClockCycles(void)
 
 
 /**
- * @brief  De initializate the SpiritIrqs structure setting all the bitfield to 0.
+ * @brief  De initialize the SpiritIrqs structure setting all the bitfield to 0.
  *         Moreover, it sets the IRQ mask registers to 0x00000000, disabling all IRQs.
  * @param  pxIrqInit pointer to a variable of type @ref SpiritIrqs, in which all the
  *         bitfields will be settled to zero.
@@ -2683,7 +2683,7 @@ void SpiritManagementWaCmdStrobeTx(void)
   {
     //uint32_t xtal_frequency = SpiritRadioGetXtalFrequency();
     
-    /* To achive the max output power */
+    /* To achieve the max output power */
     if(s_nDesiredFrequency>=150000000 && s_nDesiredFrequency<=470000000)
     {
       /* Optimal setting for Tx mode only */
@@ -3948,7 +3948,7 @@ uint32_t SpiritPktCommonGetCtrlReference(void)
 
 /**
  * @brief  Sets the TX control field.
- * @param  lField Tx contro field.
+ * @param  lField Tx controlfield.
  *         This parameter is an uint32_t.
  * @retval None.
  */
@@ -8217,8 +8217,8 @@ uint8_t SpiritRadioGetAGCLowThreshold(void)
 /**
 * @brief  Sets the clock recovery algorithm.
 * @param  xMode the Clock Recovery mode. This parameter can be one of the values defined in @ref ClkRecMode :
-*         @arg CLK_REC_PLL     PLL alogrithm for clock recovery
-*         @arg CLK_REC_DLL     DLL alogrithm for clock recovery
+*         @arg CLK_REC_PLL     PLL algorithm for clock recovery
+*         @arg CLK_REC_DLL     DLL algorithm for clock recovery
 * @retval None.
 */
 void SpiritRadioSetClkRecMode(ClkRecMode xMode)
@@ -8245,8 +8245,8 @@ void SpiritRadioSetClkRecMode(ClkRecMode xMode)
 * @brief  Returns the Clock Recovery working mode.
 * @param  None.
 * @retval ClkRecMode Clock Recovery mode. This parameter can be one of the values defined in @ref ClkRecMode :
-*         @arg CLK_REC_PLL     PLL alogrithm for clock recovery
-*         @arg CLK_REC_DLL     DLL alogrithm for clock recovery
+*         @arg CLK_REC_PLL     PLL algorithm for clock recovery
+*         @arg CLK_REC_DLL     DLL algorithm for clock recovery
 */
 ClkRecMode SpiritRadioGetClkRecMode(void)
 {

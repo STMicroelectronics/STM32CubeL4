@@ -85,7 +85,7 @@ int main(void)
    *
    * This section should be removed in production.
    * The Firmware used the RTC IP to implement the TimerServer. During development, it is common to trigger the nreset
-   * to restart the application as this would be done on power ON. However, in that case, the RTC domain is not reseted
+   * to restart the application as this would be done on power ON. However, in that case, the RTC domain is not reset
    * The following implementation resets the RTC domain so that the device behaves in a similar way on nreset to power ON.
    */
 
@@ -540,7 +540,7 @@ void SCH_Idle ( void )
 /**
  * @brief This function OVERLOADEDs the one defined as __WEAK in the TL (transport layer), because
  *        only the application knows which TASKs are currently running and should be paused/resumed.
- *        The applicaiton shall not send a new command when TL the status is set to TL_BLE_HCI_CmdBusy.
+ *        The application shall not send a new command when TL the status is set to TL_BLE_HCI_CmdBusy.
  *        At least, TL_BLE_HCI_UserEvtProc shall not be executed while the TL remains busy
  * @param status
  * @retval None

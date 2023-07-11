@@ -34,7 +34,7 @@
 /* Private typedef -----------------------------------------------------------*/
 typedef struct
 {
-  uint8_t                Notification_Button_Status; /* used to chek if smart phone can receive push button information */
+  uint8_t                Notification_Button_Status; /* used to check if smart phone can receive push button information */
   LBR_LedCharValue_t     LedControlRemoteServer;
   uint16_t               connHandleWithserver; 
   uint8_t                connStatusWithServer; 

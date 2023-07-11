@@ -180,7 +180,7 @@ int main(void)
   */
 static void StartThread(void const * argument)
 {
-  osMutexDef_t mutex_lowpower;
+  osMutexDef_t mutex_lowpower = {0};
 
   /* Create mutex to handle low power mode */
   DemoLowPowerMutex = osRecursiveMutexCreate(&mutex_lowpower);

@@ -478,7 +478,7 @@ static void SystemClockConfig_STOP(void)
 
 #if defined (USE_USB_CLKSOURCE_CRSHSI48)
 
- /* Enable the LSE Oscilator */
+ /* Enable the LSE Oscillator */
   RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI48;
   RCC_OscInitStruct.HSI48State          = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_OFF;

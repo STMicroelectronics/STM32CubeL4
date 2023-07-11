@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2019 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -314,8 +313,8 @@ uint8_t BSP_MMC_WriteBlocks_IT(uint32_t *pData, uint32_t WriteAddr, uint32_t Num
 
 /**
   * @brief  Reads block(s) from a specified address in a card. The received Data will be stored in Data1 and Data2.
-  * @param  pData1: Pointer to the Data1 that will contain/receive the transfered data
-  * @param  pData2: Pointer to the Data2 that will contain/receive the transfered data
+  * @param  pData1: Pointer to the Data1 that will contain/receive the transferred data
+  * @param  pData2: Pointer to the Data2 that will contain/receive the transferred data
   * @param  ReadAddr: Address from where data is to be read
   * @param  NumOfBlocks: Size of Data1 in Blocks. Data1 and Data2 must have the same size.
   * @retval MMC status
@@ -618,4 +617,4 @@ __weak void BSP_MMC_ReadCpltCallback(void)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

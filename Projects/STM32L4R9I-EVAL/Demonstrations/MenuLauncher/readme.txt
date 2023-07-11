@@ -361,7 +361,7 @@ This Sub-Demo offers the following sub-demos:
 
 
 In each demonstration, on the top left side home button to go back to the lancher menu.
-An arrow in the buttom center side of the display once clicked a pop up display will appear
+An arrow in the bottom center side of the display once clicked a pop up display will appear
 to show information about GUI development.On click the luncher menu appear. 
 
 + Climate Cabinet

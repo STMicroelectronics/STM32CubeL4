@@ -634,7 +634,7 @@ WIFI_Status_t WIFI_GetModuleID(char *Id, uint8_t IdLen)
 
 /**
   * @brief  Return the module name as a string
-  * @param  ModuleName : The module name sting to fill
+  * @param  ModuleName : The module name string to fill
   * @param  ModuleNameLen : The length of the module name given as parameter
   * @retval Operation status
   */

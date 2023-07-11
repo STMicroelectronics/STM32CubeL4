@@ -107,7 +107,7 @@ extern "C" {
    * @param  pTimerId: Timer Id returned to the user to request operation (start, stop, delete)
    * @param  TimerMode: Mode of the virtual timer (Single shot or repeated)
    * @param  pTimerCallBack: Callback when the virtual timer expires
-   * @retval HW_TS_ReturnStatus_t: Return whether the creation is sucessfull or not
+   * @retval HW_TS_ReturnStatus_t: Return whether the creation is successful or not
    */
   HW_TS_ReturnStatus_t HW_TS_Create(uint32_t TimerProcessID, uint8_t *pTimerId, HW_TS_Mode_t TimerMode, HW_TS_pTimerCb_t pTimerCallBack);
 

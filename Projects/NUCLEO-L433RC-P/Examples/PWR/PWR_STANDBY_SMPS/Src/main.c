@@ -259,6 +259,8 @@ int main(void)
     /* for SMPS as well as non-SMPS pins. It only remains to set   */
     /* APC bit:                                                    */ 
     HAL_PWREx_EnablePullUpPullDownConfig();
+    /* Disable the Debug Module during STANDBY mode */
+    HAL_DBGMCU_DisableDBGStandbyMode();
     
     /* Enter STANDBY mode */
     HAL_PWR_EnterSTANDBYMode();

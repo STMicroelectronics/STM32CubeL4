@@ -52,7 +52,7 @@ the configuration of the needed SPI resources according to the used hardware (CL
 GPIO). You may update this function to change SPI configuration.
 
 The communication is handled with direct register access. 
-On slave side, a state machine manage the differents communication step, to handle
+On slave side, a state machine manage the different communication step, to handle
 two kinds of communication:
  - register read : master use this operation to get a value from the slave.
  - register write: master use this operation to update a value on slave side.

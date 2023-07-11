@@ -52,7 +52,7 @@
                   - Version2
                   
                 To write a Wifi OOB, the user must:
-                1. Instanciate & initialize a `sWifiTokenInfo` structure, such as:
+                1. Instantiate & initialize a `sWifiTokenInfo` structure, such as:
                 
                        sWifiTokenInfo wps_oob = {.NetworkSSID        = "MY_SSID",
                                                  .AuthenticationType = NDEF_WIFI_AUTHENTICATION_NONE,
@@ -157,7 +157,7 @@ static void NDEF_FillWifiTokenStruct( uint8_t* pPayload, uint32_t PayloadSize, s
 }
 
 /**
-  * @brief  This fonction reads the WifiToken and store data in a structure.
+  * @brief  This function reads the WifiToken and store data in a structure.
 	* @param	pRecordStruct Pointer on the record structure.
 	* @param	pWifiTokenStruct Pointer on the structure to fill.
   * @retval NONE 
@@ -179,7 +179,7 @@ static void NDEF_Read_WifiToken ( struct sRecordInfo *pRecordStruct, sWifiTokenI
 
 
 /**
-  * @brief  This fonction reads a NDEF record and retrieves a WifiToken information if any.
+  * @brief  This function reads a NDEF record and retrieves a WifiToken information if any.
   * @param	pRecordStruct Pointer on the record structure.
 	* @param	pWifiTokenStruct Pointer on a `sWifiTokenInfo` structure to fill with the WifiToken information.
   * @retval NDEF_OK WifiToken information from NDEF have been retrieved.
@@ -200,7 +200,7 @@ uint16_t NDEF_ReadWifiToken(struct sRecordInfo *pRecordStruct, sWifiTokenInfo *p
 
 
 /**
-  * @brief  This fonction writes a NDEF message built with the WifiToken data given in the structure.
+  * @brief  This function writes a NDEF message built with the WifiToken data given in the structure.
 	* @param	pWifiTokenStruct Pointer on the structure containing the WifiToken information.
   * @retval NDEF_OK The NDEF message has been successfully written.
 	* @retval NDEF_ERROR Not able to store the NDEF message inside the tag.

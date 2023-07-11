@@ -180,7 +180,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR cmd, int showmode)
     filename = (char *)NULL;
 
 #ifndef __CYGWIN__
-    /* First reenable console output, which normally goes to the bit bucket
+    /* First re-enable console output, which normally goes to the bit bucket
      * for windowed apps.  Closing the console window will terminate the
      * app.  Thanks to David.Geldreich@realviz.com for supplying the magical
      * incantation. */

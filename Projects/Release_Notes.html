@@ -11,7 +11,7 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="../_htmresc/mini-st_2020.css" />
+  <link rel="stylesheet" href="../_htmresc/mini-st.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -27,8 +27,6 @@
 </p>
 <a href="https://www.st.com" class="logo"><img src="../_htmresc/st_logo_2020.png" alt="ST logo" /></a>
 </center>
-<h1 id="license">License</h1>
-<p>The projects covered by these release notes are delivered under different licenses. Details of applicable license for each project are provided in the table of the "Contents" section below.</p>
 <h1 id="purpose">Purpose</h1>
 <p>The projects are a set of applicative tasks that aim to explain and provide use cases of the different products features based on the products hardware (Boards, STM32 Core(s) features, interconnections and peripherals) and built around the different firmware components. They can be directly used or adapted by the STM32CubeL4 Firmware Package users. They provide basic functionalities, show main features or demonstrate performance. They are provided with preconfigured projects for the main supported toolchains.</p>
 <p>In the STM32CubeL4 Firmware Package, the projects are organized in a sequential scheme based on the following levels:</p>
@@ -58,9 +56,60 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section29" checked aria-hidden="true"> <label for="collapse-section29" aria-hidden="true">V1.17.2 / 15-April-2022</label>
+<input type="checkbox" id="collapse-section30" checked aria-hidden="true"> <label for="collapse-section30" aria-hidden="true">V1.18.0 / 07-June-2023</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
+<ul>
+<li>Update MDK-ARM projects configurations to be aligned with part numbers deployed on Keil V5.32 version.</li>
+<li>Deploy the support of STM32CubeIDE toolchain on all projects
+<ul>
+<li>SW4STM32 toolchain support is discontinued</li>
+</ul></li>
+<li><strong>Examples_CRC</strong>
+<ul>
+<li>Update CRC LL examples to fix incorrect bytes stream handling.</li>
+<li>Update to fix STM32CubeIDE warning: Accessing 4 bytes in a region of size x [-Wstringop-overflow=].</li>
+</ul></li>
+<li><strong>Examples_DSI</strong>
+<ul>
+<li>Update the command mode initialization sequence of the DSI and LTDC.</li>
+</ul></li>
+<li><strong>Examples_OSPI</strong>
+<ul>
+<li>Updated the OSPI_NOR_ReadWrite_DMA example under STM32L4 to use the auto-polling API of the driver.</li>
+</ul></li>
+<li><strong>Examples_PWR</strong>
+<ul>
+<li>Disable debugging module in STANDBY mode.</li>
+<li>Suspending the Systick interrupt to fix a race condition may occur when entering stop mode.</li>
+</ul></li>
+<li><strong>Examples_FIREWALL</strong>
+<ul>
+<li>Add a delay to avoid problems writing to the backup register before software reset.</li>
+</ul></li>
+<li><strong>Examples_UART</strong>
+<ul>
+<li>Remove invalid IOC referenced in the .project file of the UART_ReceptionToIdle_CircularDMA example.</li>
+</ul></li>
+<li><strong>Examples_OPAMP</strong>
+<ul>
+<li>Fix rcc configuration to restore the correct OPAMP_CALIBRATION example behavior.</li>
+</ul></li>
+<li><strong>Applis_MW_WiFi</strong>
+<ul>
+<li>Improve buffer overflow resistance for WiFi driver.</li>
+</ul></li>
+<li><strong>Applis_MW_USB</strong>
+<ul>
+<li>USB_Host (MSC applications): fix Stack corruption due to inconsistent type of local variable in MSC_File_Operations().</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section29" caria-hidden="true"> <label for="collapse-section29" aria-hidden="true">V1.17.2 / 15-April-2022</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
 <ul>
 <li>USB HID_BCD applications: Removal the BCD bus stabilization delay</li>
 </ul>
@@ -69,7 +118,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section28" aria-hidden="true"> <label for="collapse-section28" aria-hidden="true">V1.17.1 / 26-November-2021</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
+<h2 id="main-changes-2">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 <li>Templates MDK-ARM projects migrated to ARM Compiler 6 (AC-5 like warnings)</li>
@@ -88,7 +137,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section27" aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
+<h2 id="main-changes-3">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares
 <ul>
@@ -146,7 +195,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -154,31 +202,26 @@
 <tr class="odd">
 <td style="text-align: left;">32L476GDISCOVERY</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L476GDISCOVERY\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L476GDISCOVERY</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L476GDISCOVERY\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L476GDISCOVERY</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L476GDISCOVERY\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L476GDISCOVERY</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L476GDISCOVERY\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L476GDISCOVERY</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L476GDISCOVERY\Templates_LL</td>
 </tr>
 </tbody>
@@ -189,7 +232,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -197,43 +239,36 @@
 <tr class="odd">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L496GDISCOVERY</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L496GDISCOVERY\Templates_LL</td>
 </tr>
 </tbody>
@@ -244,7 +279,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -252,37 +286,31 @@
 <tr class="odd">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Templates</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L4P5GDISCOVERY</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4P5GDISCOVERY\Templates_LL</td>
 </tr>
 </tbody>
@@ -293,7 +321,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -301,31 +328,26 @@
 <tr class="odd">
 <td style="text-align: left;">32L4R9IDISCOVERY</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L4R9IDISCOVERY\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L4R9IDISCOVERY</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\32L4R9IDISCOVERY\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L4R9IDISCOVERY</td>
 <td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4R9IDISCOVERY\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">32L4R9IDISCOVERY</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4R9IDISCOVERY\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">32L4R9IDISCOVERY</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\32L4R9IDISCOVERY\Templates_LL</td>
 </tr>
 </tbody>
@@ -336,7 +358,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -344,19 +365,16 @@
 <tr class="odd">
 <td style="text-align: left;">B-L4S5I-IOT01A</td>
 <td style="text-align: left;">Applications</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\B-L4S5I-IOT01A\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B-L4S5I-IOT01A</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\B-L4S5I-IOT01A\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">B-L4S5I-IOT01A</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\B-L4S5I-IOT01A\Templates_LL</td>
 </tr>
 </tbody>
@@ -367,7 +385,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -375,25 +392,21 @@
 <tr class="odd">
 <td style="text-align: left;">B-L475E-IOT01A</td>
 <td style="text-align: left;">Applications</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\B-L475E-IOT01A\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B-L475E-IOT01A</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\B-L475E-IOT01A\Examples</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">B-L475E-IOT01A</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\B-L475E-IOT01A\Templates</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B-L475E-IOT01A</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\B-L475E-IOT01A\Templates_LL</td>
 </tr>
 </tbody>
@@ -404,7 +417,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -412,31 +424,26 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4P5ZG</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4P5ZG</td>
 <td style="text-align: left;">LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4P5ZG</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4P5ZG</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4P5ZG</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4P5ZG\Templates_LL</td>
 </tr>
 </tbody>
@@ -447,7 +454,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -455,37 +461,31 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples_LL</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Examples_MIX</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Templates</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4R5ZI</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI\Templates_LL</td>
 </tr>
 </tbody>
@@ -496,7 +496,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -504,19 +503,16 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L4R5ZI-P</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L4R5ZI-P\Templates_LL</td>
 </tr>
 </tbody>
@@ -527,7 +523,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -535,43 +530,36 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">Applications</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412KB</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412KB\Templates_LL</td>
 </tr>
 </tbody>
@@ -582,7 +570,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -590,43 +577,36 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L412RB-P</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L412RB-P\Templates_LL</td>
 </tr>
 </tbody>
@@ -637,7 +617,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -645,31 +624,26 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L432KC</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L432KC\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L432KC</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L432KC\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L432KC</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L432KC\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L432KC</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L432KC\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L432KC</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L432KC\Templates_LL</td>
 </tr>
 </tbody>
@@ -680,7 +654,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -688,19 +661,16 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L433RC-P</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L433RC-P\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L433RC-P</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L433RC-P\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L433RC-P</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L433RC-P\Templates_LL</td>
 </tr>
 </tbody>
@@ -711,7 +681,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -719,31 +688,26 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L452RE</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L452RE</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L452RE</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L452RE</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L452RE</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE\Templates_LL</td>
 </tr>
 </tbody>
@@ -754,7 +718,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -762,19 +725,16 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L452RE-P</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE-P\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L452RE-P</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE-P\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L452RE-P</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L452RE-P\Templates_LL</td>
 </tr>
 </tbody>
@@ -785,7 +745,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -793,43 +752,36 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">HAL Examples <span class="icon-st-add"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L476RG</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L476RG\Templates_LL</td>
 </tr>
 </tbody>
@@ -840,7 +792,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -848,43 +799,36 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">LL Examples <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples_LL</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">Mix HAL/LL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Examples_MIX</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG\Templates_LL</td>
 </tr>
 </tbody>
@@ -895,7 +839,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -903,19 +846,16 @@
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG-P</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NUCLEO-L496ZG-P</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NUCLEO-L496ZG-P</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\NUCLEO-L496ZG-P\Templates_LL</td>
 </tr>
 </tbody>
@@ -926,7 +866,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -934,31 +873,26 @@
 <tr class="odd">
 <td style="text-align: left;">STM32L4R9I-EVAL</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\STM32L4R9I-EVAL\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STM32L4R9I-EVAL</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\STM32L4R9I-EVAL\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">STM32L4R9I-EVAL</td>
 <td style="text-align: left;">HAL Examples <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L4R9I-EVAL\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STM32L4R9I-EVAL</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L4R9I-EVAL\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">STM32L4R9I-EVAL</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L4R9I-EVAL\Templates_LL</td>
 </tr>
 </tbody>
@@ -969,7 +903,6 @@
 <tr class="header">
 <th style="text-align: left;">Board</th>
 <th style="text-align: left;">Project category</th>
-<th style="text-align: left;">License</th>
 <th style="text-align: left;">Path</th>
 </tr>
 </thead>
@@ -977,31 +910,26 @@
 <tr class="odd">
 <td style="text-align: left;">STM32L476G-EVAL</td>
 <td style="text-align: left;">Applications <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\STM32L476G-EVAL\Applications</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STM32L476G-EVAL</td>
 <td style="text-align: left;">Demonstrations</td>
-<td style="text-align: left;"><a href="http://www.st.com/SLA0044">SLA0044</a></td>
 <td style="text-align: left;">Projects\STM32L476G-EVAL\Demonstrations</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">STM32L476G-EVAL</td>
 <td style="text-align: left;">HAL Examples</td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L476G-EVAL\Examples</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STM32L476G-EVAL</td>
 <td style="text-align: left;">HAL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L476G-EVAL\Templates</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">STM32L476G-EVAL</td>
 <td style="text-align: left;">LL Templates <span class="icon-st-update"></span></td>
-<td style="text-align: left;"><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause</a></td>
 <td style="text-align: left;">Projects\STM32L476G-EVAL\Templates_LL</td>
 </tr>
 </tbody>
@@ -1066,7 +994,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section26" aria-hidden="true"> <label for="collapse-section26" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
+<h2 id="main-changes-4">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 <li>Update of GCC startup_*.s files to follow correction done in CMSIS files</li>
@@ -1307,7 +1235,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section25" aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
+<h2 id="main-changes-5">Main Changes</h2>
 <ul>
 <li>Main functions rework for 32L4P5GDISCOVERY/Demonstrations/Watermark project</li>
 <li>Correct syntax error in link script in NUCLEO-L4P5ZG/Examples_LL/RTC/RTC_Tamper/STM32CubeIDE project</li>
@@ -1486,7 +1414,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section24" aria-hidden="true"> <label for="collapse-section24" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
+<h2 id="main-changes-6">Main Changes</h2>
 <ul>
 <li><strong>32L4P5GDISCOVERY</strong>
 <ul>
@@ -1681,7 +1609,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <ul>
 <li>Update all EWARM and MDK-ARM projects to ensure projects refer to delivered /Firmware/Drivers/CMSIS/Include folder</li>
 <li>Remove useless setting of ep0_mps in usbd_conf.c files for all USB_Device applications</li>
@@ -1842,7 +1770,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 <li>Update all readme.txt files for introductory paragraphes coherency over the whole package</li>
@@ -1856,7 +1784,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.12.0 / 22-May-2018</label>
 <div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1871,7 +1799,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.11.0 / 22-December-2017</label>
 <div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1886,7 +1814,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.10.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1901,7 +1829,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section7" aria-hidden="true"> <label for="collapse-section7" aria-hidden="true">V1.9.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1916,7 +1844,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section8" aria-hidden="true"> <label for="collapse-section8" aria-hidden="true">V1.8.1 / 16-June-2017</label>
 <div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1931,7 +1859,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9"  aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.8.0 / 21-April-2017</label>
 <div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1946,7 +1874,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.7.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1961,7 +1889,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.6.0 / 28-October-2016</label>
 <div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1976,7 +1904,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.5.2 / 12-September-2016</label>
 <div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -1991,7 +1919,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section13" aria-hidden="true"> <label for="collapse-section13" aria-hidden="true">V1.5.1 / 31-May-2016</label>
 <div>
-<h2 id="main-changes-17">Main Changes</h2>
+<h2 id="main-changes-18">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2006,7 +1934,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.5.0 / 29-April-2016</label>
 <div>
-<h2 id="main-changes-18">Main Changes</h2>
+<h2 id="main-changes-19">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2021,7 +1949,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.4.0 / 26-February-2016</label>
 <div>
-<h2 id="main-changes-19">Main Changes</h2>
+<h2 id="main-changes-20">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2036,7 +1964,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.3.0 / 29-January-2016</label>
 <div>
-<h2 id="main-changes-20">Main Changes</h2>
+<h2 id="main-changes-21">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2051,7 +1979,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.2.0 / 25-November-2015</label>
 <div>
-<h2 id="main-changes-21">Main Changes</h2>
+<h2 id="main-changes-22">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2066,7 +1994,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 16-October-2015</label>
 <div>
-<h2 id="main-changes-22">Main Changes</h2>
+<h2 id="main-changes-23">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2081,7 +2009,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.0 / 16-September-2015</label>
 <div>
-<h2 id="main-changes-23">Main Changes</h2>
+<h2 id="main-changes-24">Main Changes</h2>
 <ul>
 <li>Update of FW projects following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
@@ -2096,7 +2024,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.0 / 26-June-2015</label>
 <div>
-<h2 id="main-changes-24">Main Changes</h2>
+<h2 id="main-changes-25">Main Changes</h2>
 <ul>
 <li>First official release of STM32CubeL4 (STM32Cube for STM32L4 Series)</li>
 </ul>
@@ -2111,7 +2039,7 @@
 </div>
 </div>
 <footer class="sticky">
-<p>For complete documentation on STM32L5,visit: [<a href="http://www.st.com/stm32l5">www.st.com/stm32l5</a>]</p>
+<p>For complete documentation on STM32L4,visit: [<a href="http://www.st.com/stm32l4">www.st.com/stm32l4</a>]</p>
 <em>This release note uses up to date web standards and, for this reason, should not be opened with Internet Explorer but preferably with popular browsers such as Google Chrome, Mozilla Firefox, Opera or Microsoft Edge.</em>
 </footer>
 </body>

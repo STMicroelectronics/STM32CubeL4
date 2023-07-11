@@ -66,7 +66,7 @@ or
  - BLE/Common/                                  These files are Common also to other applic/examples then P2P_LedButton (e.g. to HeartRate)
  - BLE/Common/ble_core/*.*                      BlueNRG-MS Bluetooth Low Energy device driver 
  - BLE/Common/ble_services/*.*                  GATT services according to BLE spec
- - BLE/Common/debug/*.*                         Code usefull for debugging (DBG should be activated in config.h)
+ - BLE/Common/debug/*.*                         Code useful for debugging (DBG should be activated in config.h)
  - BLE/Common/tl/*.*                            HCI layer and SPI protocol    
  - BLE/Common/hw/*.*                            HW board and device dependencies (SPI pins, timeserver, low power) 
  - BLE/Common/utilities/*.*                     Scheduler, memory/queue/fifo/list management, otp, etc   

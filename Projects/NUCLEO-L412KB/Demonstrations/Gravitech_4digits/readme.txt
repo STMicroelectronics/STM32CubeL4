@@ -58,7 +58,7 @@ go over very different ranges every second and an amperemeter may not give the c
 The graphic tool is available at
 www.st.com/stm32softwaretools
 with order code: STM32CubeMonPwr
-It allows to observe the power consumption measured for each mode with the one-second period peaks occuring when
+It allows to observe the power consumption measured for each mode with the one-second period peaks occurring when
 the display is updated every second.
 
 

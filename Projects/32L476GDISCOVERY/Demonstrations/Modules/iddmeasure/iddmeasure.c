@@ -228,7 +228,7 @@ static void IddMeasure(uint8_t Index)
     /* un configure HW resources */
     SystemHardwareDeInit(HWINIT_IDD);
 
-    /* if function pointer exists, execute correponsing low power action */
+    /* if function pointer exists, execute corresponding low power action */
     if(IddTest[Index].IddEnter != NULL)
     {
       IddTest[Index].IddEnter();
@@ -605,7 +605,7 @@ static void Idd_StopEnter(void)
   */
 static void Idd_StopRestore(void)
 {
-  /* call predifined function: */
+  /* call predefined function: */
   ExitStop2Mode();
 }
 

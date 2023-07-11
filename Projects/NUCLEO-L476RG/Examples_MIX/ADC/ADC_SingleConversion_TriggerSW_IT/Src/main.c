@@ -201,7 +201,7 @@ int main(void)
       /* Start ADC group regular conversion */
       /* Note: Hardware constraint (refer to description of the function          */
       /*       below):                                                            */
-      /*       On this STM32 serie, setting of this feature is conditioned to     */
+      /*       On this STM32 series, setting of this feature is conditioned to     */
       /*       ADC state:                                                         */
       /*       ADC must be enabled without conversion on going on group regular,  */
       /*       without conversion stop command on going on group regular.         */

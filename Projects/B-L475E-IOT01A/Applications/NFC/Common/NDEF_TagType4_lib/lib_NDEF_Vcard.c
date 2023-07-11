@@ -43,7 +43,7 @@ static void NDEF_FillVcardStruct( uint8_t* pPayload, uint32_t PayloadSize, char*
 static void NDEF_ExtractVcard ( sRecordInfo *pRecordStruct, sVcardInfo *pVcardStruct );
 
 /**
-  * @brief  This fonction fill Vcard structure with information of NDEF message
+  * @brief  This function fill Vcard structure with information of NDEF message
   * @param  pPayload : pointer on the payload data of the NDEF message
   * @param  PayloadSize : number of data in the payload
   * @param  pKeyWord : pointer on the keyword to look for.
@@ -58,7 +58,7 @@ static void NDEF_FillVcardStruct( uint8_t* pPayload, uint32_t PayloadSize, char*
   /* First charactere force to NULL in case not matching found */
   *pString = 0;
   
-  /* Interresting information are stored before picture if any */
+  /* Interesting information are stored before picture if any */
   /* Moreover picture is not used in this demonstration SW */  
   pLastByteAdd = pPayload;
   while( memcmp( pLastByteAdd, JPEG, JPEG_STRING_SIZE) && pLastByteAdd<(pPayload+PayloadSize) )
@@ -92,7 +92,7 @@ static void NDEF_FillVcardStruct( uint8_t* pPayload, uint32_t PayloadSize, char*
 }
 
 /**
-  * @brief  This fonction read the Vcard and store data in a structure
+  * @brief  This function read the Vcard and store data in a structure
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pSMSStruct : pointer on the structure to fill
   * @retval NONE  
@@ -144,7 +144,7 @@ static void NDEF_ExtractVcard ( sRecordInfo *pRecordStruct, sVcardInfo *pVcardSt
   */ 
 
 /**
-  * @brief  This fonction read NDEF and retrieve Vcard information if any
+  * @brief  This function read NDEF and retrieve Vcard information if any
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pVcardStruct : pointer on the structure to fill 
   * @retval SUCCESS : Vcard information from NDEF have been retrieved
@@ -164,9 +164,9 @@ uint16_t NDEF_ReadVcard ( sRecordInfo *pRecordStruct, sVcardInfo *pVcardStruct )
 }
 
 /**
-  * @brief  This fonction write the NDEF file with the Vcard data given in the structure
+  * @brief  This function write the NDEF file with the Vcard data given in the structure
   * @param  pVcardStruct : pointer on structure that contain the Vcard information
-  * @retval SUCCESS : the function is succesful
+  * @retval SUCCESS : the function is successful
   * @retval ERROR : Not able to store NDEF file inside tag.
   */
 uint16_t NDEF_WriteVcard ( sVcardInfo *pVcardStruct )
@@ -217,7 +217,7 @@ uint16_t NDEF_WriteVcard ( sVcardInfo *pVcardStruct )
   NDEF_Buffer[FIRST_RECORD_OFFSET+5] = 0x00;  
   memcpy(&NDEF_Buffer[FIRST_RECORD_OFFSET+6], VCARD_TYPE_STRING, VCARD_TYPE_STRING_LENGTH);
   
-  /* Payload is positionned in the NDEF after record header */
+  /* Payload is positioned in the NDEF after record header */
   PayloadSize = FIRST_RECORD_OFFSET+6+VCARD_TYPE_STRING_LENGTH;
   
   /* "BEGIN:VCARD\r\n" */

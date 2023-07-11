@@ -247,7 +247,7 @@ typedef struct
   int32_t CsmaRSSIThreshold;/*!<RSSI Threshold for CSMA*/
   uint8_t CsmaOverrideFail;
   uint8_t CsmaCcaPeriod; /*!< RSSI meas cycle = (CsmaCcaPeriod+1)*64*TBIT*/
-  uint8_t CsmaCcaLength; /*!<times of CsmaCcaPeriod for ch assesment */
+  uint8_t CsmaCcaLength; /*!<times of CsmaCcaPeriod for ch assessment */
   uint8_t CsmaMaxNb; /*!<Max N backoff */
   uint16_t CsmaBuSeed; /*!<seed for rand in (2^rand)* presc */
   uint8_t CsmaBuPrescaler; /*!<presc for (2^rand)*presc */

@@ -206,7 +206,7 @@ void SC_PTSConfig(void)
   {
     if(SC_A2R.T[0] != 0x11)
     {
-      /* PPSS identifies the PPS request or responce and is equal to 0xFF */
+      /* PPSS identifies the PPS request or response and is equal to 0xFF */
       SC_PPSS[0] = 0xFF;
       /* PPS0 indicates by the bits b5, b6, b7 equal to 1 the presence of the optional
       bytes PPSI1, PPS2, PPS3 respectively */
@@ -310,7 +310,7 @@ void SC_PTSConfig(void)
 
 /**
   * @brief  Manages the Smartcard transport layer: send APDU commands and receives
-  *   the APDU responce.
+  *   the APDU response.
   * @param  SC_ADPU: pointer to a SC_ADPU_Commands structure which will be initialized.  
   * @param  SC_Response: pointer to a SC_ADPU_Response structure which will be initialized.
   * @retval None
@@ -321,7 +321,7 @@ static void SC_SendData(SC_ADPU_Commands *SC_ADPU, SC_ADPU_Response *SC_Response
   uint8_t SC_Command[5] = {0};
   uint8_t locData = 0;
   
-  /* Reset responce buffer ---------------------------------------------------*/
+  /* Reset response buffer ---------------------------------------------------*/
   for(i = 0; i < LC_MAX; i++)
   {
     SC_ResponseStatus->Data[i] = 0;
@@ -439,7 +439,7 @@ static void SC_AnswerReq(SC_State *SCState, uint8_t *card, uint8_t length)
   switch(*SCState)
   {
   case SC_RESET_LOW:
-    /* Check responce with reset low -----------------------------------------*/
+    /* Check response with reset low -----------------------------------------*/
     HAL_SMARTCARD_Receive(&SCHandle, card, length, SC_RECEIVE_TIMEOUT);
 
     if(card[0] != 0x00)
@@ -454,7 +454,7 @@ static void SC_AnswerReq(SC_State *SCState, uint8_t *card, uint8_t length)
     break;
 
   case SC_RESET_HIGH:
-    /* Check responce with reset high ----------------------------------------*/
+    /* Check response with reset high ----------------------------------------*/
     SC_Reset(IO_PIN_SET); /* Reset High */
     
     HAL_SMARTCARD_Receive(&SCHandle, card, length, SC_RECEIVE_TIMEOUT);

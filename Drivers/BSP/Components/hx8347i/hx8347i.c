@@ -223,7 +223,7 @@ void hx8347i_DisplayOff(void)
   hx8347i_WriteReg(LCD_REG_23, 0x0000); /* default 0x06 262k color,  0x05 65k color */
   hx8347i_WriteReg(LCD_REG_24, 0x0000); /* Display frame rate = 70Hz RADJ = '0110' */
   hx8347i_WriteReg(LCD_REG_25, 0x0000); /* OSC_EN = 1 */
-  hx8347i_WriteReg(LCD_REG_28, 0x0000); /* AP[2:0] = 111 */
+  hx8347i_WriteReg(LCD_REG_26, 0x0000); /* BT[2:0] = 0 */
   hx8347i_WriteReg(LCD_REG_31, 0x0000); /* GAS=1, VOMG=00, PON=1, DK=0, XDK=0, DVDH_TRI=0, STB=0*/
   hx8347i_WriteReg(LCD_REG_54, 0x0000); /* SS_PANEL = 1, GS_PANEL = 0,REV_PANEL = 0, BGR_PANEL = 1 */
 }

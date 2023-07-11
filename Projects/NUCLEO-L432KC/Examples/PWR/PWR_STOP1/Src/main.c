@@ -123,12 +123,14 @@ int main(void)
     GPIO_InitStructure.Pin &= (~GPIO_PIN_12);
   
     HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);       
-      
 
-
+    /* Suspend Tick increment to prevent wakeup by Systick interrupt. 
+    Otherwise the Systick interrupt will wake up the device within 1ms (HAL time base)*/
+    HAL_SuspendTick();
     /* Enter STOP 1 mode */
     HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
-    
+    /* Resume SysTick */
+    HAL_ResumeTick();
     /* ... STOP 1 mode ... */
 
     /* Re-configure the system clock to 80 MHz based on MSI, enable and

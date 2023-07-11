@@ -33,7 +33,7 @@
   *           This module allows to build, write & read such data embedded in a NDEF message.
   * @section      Bluetooth_Library_Usage Bluetooth NDEF Library usage
   * @subsection   Bluetooth_Write_BrEdr How to write a Bluetooth Br/Edr OOB
-  *               1. Instanciate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
+  *               1. Instantiate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
   *                 - the `NDEF_BLUETOOTH_BREDR` type.
   *                 - the mandatory Device Address field.
   *                 - any other optional EIRs.
@@ -54,7 +54,7 @@
   *                      NDEF_AppendBluetoothOOB ( &w_bredr_oob, NULL );
   *                 @note Second parameter of `NDEF_AppendBluetoothOOB` can be used to specify an ID for the OOB record (useful for the NDEF Handover message, where specifying an ID is mandatory)
   * @subsection   Bluetooth_Write_Ble How to write a Bluetooth LE OOB
-  *               1. Instanciate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
+  *               1. Instantiate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
   *                 - the `NDEF_BLUETOOTH_BLE` type.
   *                 - the mandatory Device Address & LE Role fields.
   *                 - any other optional EIRs.
@@ -91,7 +91,7 @@
 
 
 /**
-  * @brief  This function copies an array, changing its endianness, usefull to convert data to BLE endianness.
+  * @brief  This function copies an array, changing its endianness, useful to convert data to BLE endianness.
   * @param  dst Pointer on 1st element of the destination array.
   * @param  src pointer on 1st element of the source array .
   * @param  length Number of element to copy.

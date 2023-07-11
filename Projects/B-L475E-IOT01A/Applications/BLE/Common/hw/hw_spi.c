@@ -955,7 +955,7 @@ void HW_BNRG_DMARxCb(void)
              * may not fail so it is increasing robustness by adding this checking just in case the
              * timeout define in the workaround is too short which will end up to marginally brake
              * the specification.
-             * This checking will poping BluenRG for a dummy even
+             * This checking will popping BluenRG for a dummy even
              */
 
             /* Release CS line */

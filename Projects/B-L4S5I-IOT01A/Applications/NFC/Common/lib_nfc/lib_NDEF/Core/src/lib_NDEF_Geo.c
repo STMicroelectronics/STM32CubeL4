@@ -66,7 +66,7 @@ static void NDEF_FillGeoStruct( uint8_t* pPayload, uint32_t PayloadSize, sGeoInf
   *pGeoStruct->Latitude = 0;
   *pGeoStruct->Longitude = 0;
 
-  /* Interresting information are stored before picture if any */
+  /* Interesting information are stored before picture if any */
   /* Moreover picture is not used in this demonstration SW */
   pLastByteAdd = (uint8_t*)(pPayload + PayloadSize);
 
@@ -165,8 +165,8 @@ uint16_t NDEF_ReadGeo( sRecordInfo_t *pRecordStruct, sGeoInfo *pGeoStruct )
 
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData + 1; /* remove not usefull data */
-        pData += *pData + 1; /* set pointer on usefull data */
+        PayloadSize -= *pData + 1; /* remove not useful data */
+        pData += *pData + 1; /* set pointer on useful data */
 
         memcpy( pGeoStruct->Information, pData, PayloadSize );
         /* add end of string character */
@@ -181,7 +181,7 @@ uint16_t NDEF_ReadGeo( sRecordInfo_t *pRecordStruct, sGeoInfo *pGeoStruct )
 /**
   * @brief  This function write the NDEF file with the geolocation data given in the structure.
   * @param  pGeoStruct : pointer on structure that contain the geolocation information.
-  * @retval NDEF_OK : the function is succesful.
+  * @retval NDEF_OK : the function is successful.
   * @retval NDEF_ERROR_MEMORY_INTERNAL : Cannot write to tag.
   * @retval NDEF_ERROR_NOT_FORMATED : CCFile data not supported or not present.
   * @retval NDEF_ERROR_MEMORY_TAG : Size not compatible with memory.

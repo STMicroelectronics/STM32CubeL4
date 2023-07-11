@@ -721,7 +721,7 @@ static void AudioRecorder_WavHeaderInit(uint8_t* WavHeaderBuffer,
 
   /* Write the file length ----------------------------------------------------*/
   /* The sampling time: this value will be be written back at the end of the 
-   recording opearation.  Example: 661500 Bytes = 0x000A17FC, byte[7]=0x00, byte[4]=0xFC */
+   recording operation.  Example: 661500 Bytes = 0x000A17FC, byte[7]=0x00, byte[4]=0xFC */
   WavHeaderBuffer[4] = 0xFC; //pWavHeader->AudioLength
   WavHeaderBuffer[5] = 0x17;
   WavHeaderBuffer[6] = 0x0A;

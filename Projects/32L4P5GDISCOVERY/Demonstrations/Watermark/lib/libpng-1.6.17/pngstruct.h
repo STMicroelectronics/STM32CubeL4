@@ -228,7 +228,7 @@ struct png_struct_def
    png_bytep sub_row;         /* buffer to save "sub" row when filtering */
    png_bytep up_row;          /* buffer to save "up" row when filtering */
    png_bytep avg_row;         /* buffer to save "avg" row when filtering */
-   png_bytep paeth_row;       /* buffer to save "Paeth" row when filtering */
+   png_bytep paeth_row;       /* buffer to save "Path" row when filtering */
 #endif
    png_size_t info_rowbytes;  /* Added in 1.5.4: cache of updated row bytes */
 

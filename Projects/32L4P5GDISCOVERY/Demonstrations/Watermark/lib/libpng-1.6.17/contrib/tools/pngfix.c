@@ -1596,7 +1596,7 @@ chunk_init(struct chunk * const chunk, struct file * const file)
    chunk->chunk_length = file->length;
    chunk->chunk_type = file->type;
 
-   /* Compresssed/uncompressed size information (from the zlib control structure
+   /* Compressed/uncompressed size information (from the zlib control structure
     * that is used to check the compressed data in a chunk.)
     */
    chunk->uncompressed_digits = 0;
@@ -2360,7 +2360,7 @@ zlib_advance(struct zlib *zlib, png_uint_32 nbytes)
       flush = Z_NO_FLUSH;
       out_bytes = 0;
 
-      /* NOTE: expression 3 is only evaluted on 'continue', because of the
+      /* NOTE: expression 3 is only evaluated on 'continue', because of the
        * 'break' at the end of this loop below.
        */
       for (;endrc == ZLIB_OK;
@@ -2661,7 +2661,7 @@ zlib_check(struct file *file, png_uint_32 offset)
              * this case, so do the optimization anyway.
              */
             if (zlib.cksum)
-               chunk_message(zlib.chunk, "zlib checkum");
+               chunk_message(zlib.chunk, "zlib checksum");
             break;
 
 
@@ -2926,7 +2926,7 @@ process_chunk(struct file *file, png_uint_32 file_crc, png_uint_32 next_length,
    }
 
    /* Control reaches this point if the chunk must be skipped.  For chunks other
-    * than IDAT this means that the zlib compressed data is fatally damanged and
+    * than IDAT this means that the zlib compressed data is fatally damaged and
     * the chunk will not be passed to libpng.  For IDAT it means that the end of
     * the IDAT stream has not yet been reached and we must handle the next
     * (IDAT) chunk.  If the LZ data in an IDAT stream cannot be read 'stop' must
@@ -3674,7 +3674,7 @@ usage(const char *prog)
    size_t i;
    static const char *usage_string[] = {
 "  Tests, optimizes and optionally fixes the zlib header in PNG files.",
-"  Optionally, when fixing, strips ancilliary chunks from the file.",
+"  Optionally, when fixing, strips ancillary chunks from the file.",
 0,
 "OPTIONS",
 "  OPERATION",

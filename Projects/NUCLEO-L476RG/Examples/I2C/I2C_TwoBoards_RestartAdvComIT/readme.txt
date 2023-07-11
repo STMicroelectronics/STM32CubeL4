@@ -126,12 +126,12 @@ Depending of IDE, to watch content of Terminal I/O note that
  - When resorting to MDK-ARM KEIL IDE:
    Command Code is displayed on debugger as follows: View --> Serial Viewer --> Debug (printf) Viewer
 
- - When resorting to AC6 SW4STM32 IDE:
-   In Debug configuration window\ Startup, in addition to "monitor reset halt" add the command "monitor arm semihosting enable"
-   Command Code is displayed on debugger as follows: Window--> Show View--> Console.
+ - When resorting to STM32CubeIDE:
+Command Code is displayed on debugger as follows: Window--> Show View--> Console.
+ In Debug configuration : 
 
- - When resorting to Atollic TrueSTUDIO project: Open ST-Link-Utility : 
-   Select ST-LINK --> Printf via SWO viewer -->Set the System clock to 80MHz --> Start
+- Window\Debugger, select the Debug probe : ST-LINK(OpenOCD)
+- Window\Startup,add the command "monitor arm semihosting enable"
 
 2- Request Command code :
     a. Type of command which need a specific data answer from Slave Device.

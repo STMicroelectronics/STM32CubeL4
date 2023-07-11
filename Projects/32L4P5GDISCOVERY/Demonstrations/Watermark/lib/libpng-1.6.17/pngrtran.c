@@ -1312,7 +1312,7 @@ png_init_read_transformations(png_structrp png_ptr)
 
       else if (png_ptr->screen_gamma != 0)
          /* The converse - assume the file matches the screen, note that this
-          * perhaps undesireable default can (from 1.5.4) be changed by calling
+          * perhaps undesirable default can (from 1.5.4) be changed by calling
           * png_set_alpha_mode (even if the alpha handling mode isn't required
           * or isn't changed from the default.)
           */
@@ -1880,7 +1880,7 @@ png_init_read_transformations(png_structrp png_ptr)
 
       png_ptr->transformations &= ~PNG_SHIFT;
 
-      /* significant bits can be in the range 1 to 7 for a meaninful result, if
+      /* significant bits can be in the range 1 to 7 for a meaningful result, if
        * the number of significant bits is 0 then no shift is done (this is an
        * error condition which is silently ignored.)
        */
@@ -2975,7 +2975,7 @@ png_do_gray_to_rgb(png_row_infop row_info, png_bytep row)
  *  values this results in an implicit assumption that the original PNG RGB
  *  values were linear.
  *
- *  Other integer coefficents can be used via png_set_rgb_to_gray().  Because
+ *  Other integer coefficients can be used via png_set_rgb_to_gray().  Because
  *  the API takes just red and green coefficients the blue coefficient is
  *  calculated to make the sum 32768.  This will result in different rounding
  *  to that used above.

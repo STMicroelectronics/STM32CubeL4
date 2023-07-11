@@ -103,7 +103,7 @@ typedef png_byte *png_const_bytep;
 #define PNG_WRITE_16BIT_SUPPORTED
 #define PNG_READ_16BIT_SUPPORTED
 
-/* This comes from pnglibconf.h afer 1.5: */
+/* This comes from pnglibconf.h after 1.5: */
 #define PNG_FP_1 100000
 #define PNG_GAMMA_THRESHOLD_FIXED\
    ((png_fixed_point)(PNG_GAMMA_THRESHOLD * PNG_FP_1))
@@ -838,7 +838,7 @@ store_freefile(png_store_file **ppf)
    }
 }
 
-/* Main interface to file storeage, after writing a new PNG file (see the API
+/* Main interface to file storage, after writing a new PNG file (see the API
  * below) call store_storefile to store the result with the given name and id.
  */
 static void
@@ -3841,7 +3841,7 @@ make_size_image(png_store* PNG_CONST ps, png_byte PNG_CONST colour_type,
                 * mask.
                 *
                 * The apparent wackiness of decrementing nfilter rather than
-                * incrementing is so that Paeth gets used in all images bigger
+                * incrementing is so that Path gets used in all images bigger
                 * than 1 row - it's the tricky one.
                 */
                png_set_filter(pp, 0/*method*/,
@@ -4068,7 +4068,7 @@ make_error(png_store* volatile psIn, png_byte PNG_CONST colour_type,
       ps->expect_warning = 0;
 
       /* Now write the whole image, just to make sure that the detected, or
-       * undetected, errro has not created problems inside libpng.
+       * undetected, error has not created problems inside libpng.
        */
       if (png_get_rowbytes(pp, pi) !=
           transform_rowsize(pp, colour_type, bit_depth))
@@ -4333,7 +4333,7 @@ standard_display_init(standard_display *dp, png_store* ps, png_uint_32 id,
    dp->npalette = 0;
    /* Preset the transparent color to black: */
    memset(&dp->transparent, 0, sizeof dp->transparent);
-   /* Preset the palette to full intensity/opaque througout: */
+   /* Preset the palette to full intensity/opaque throughout: */
    memset(dp->palette, 0xff, sizeof dp->palette);
 }
 
@@ -4602,7 +4602,7 @@ standard_info_part1(standard_display *dp, png_structp pp, png_infop pi)
     */
    standard_palette_validate(dp, pp, pi);
 
-   /* In any case always check for a tranparent color (notice that the
+   /* In any case always check for a transparent color (notice that the
     * colour type 3 case must not give a successful return on the get_tRNS call
     * with these arguments!)
     */
@@ -6054,7 +6054,7 @@ transform_image_validate(transform_display *dp, png_const_structp pp,
    store_image_check(dp->this.ps, pp, 0);
 
    /* Read the palette corresponding to the output if the output colour type
-    * indicates a palette, othewise set out_palette to garbage.
+    * indicates a palette, otherwise set out_palette to garbage.
     */
    if (out_ct == PNG_COLOR_TYPE_PALETTE)
    {
@@ -6843,7 +6843,7 @@ image_transform_png_set_rgb_to_gray_ini(PNG_CONST image_transform *this,
 
    else
    {
-      /* The default (built in) coeffcients, as above: */
+      /* The default (built in) coefficients, as above: */
       data.red_coefficient = 6968 / 32768.;
       data.green_coefficient = 23434 / 32768.;
       data.blue_coefficient = 2366 / 32768.;
@@ -7173,7 +7173,7 @@ image_transform_png_set_rgb_to_gray_mod(PNG_CONST image_transform *this,
          /* Now calculate the actual gray values.  Although the error in the
           * coefficients depends on whether they were specified on the command
           * line (in which case truncation to 15 bits happened) or not (rounding
-          * was used) the maxium error in an individual coefficient is always
+          * was used) the maximum error in an individual coefficient is always
           * 1/32768, because even in the rounding case the requirement that
           * coefficients add up to 32768 can cause a larger rounding error.
           *
@@ -7351,7 +7351,7 @@ image_transform_png_set_rgb_to_gray_mod(PNG_CONST image_transform *this,
       that->bluef = that->greenf = that->redf = gray;
       that->bluee = that->greene = that->rede = err;
 
-      /* The sBIT is the minium of the three colour channel sBITs. */
+      /* The sBIT is the minimum of the three colour channel sBITs. */
       if (that->red_sBIT > that->green_sBIT)
          that->red_sBIT = that->green_sBIT;
       if (that->red_sBIT > that->blue_sBIT)
@@ -8438,7 +8438,7 @@ gamma_info_imp(gamma_display *dp, png_structp pp, png_infop pi)
          int mode = dp->do_background - ALPHA_MODE_OFFSET;
 
          /* The gamma value is the output gamma, and is in the standard,
-          * non-inverted, represenation.  It provides a default for the PNG file
+          * non-inverted, representation.  It provides a default for the PNG file
           * gamma, but since the file has a gAMA chunk this does not matter.
           */
          PNG_CONST double sg = dp->screen_gamma;
@@ -9320,10 +9320,10 @@ gamma_image_validate(gamma_display *dp, png_const_structp pp,
     * Since the library must quantize the output to 8 or 16 bits there is
     * a fundamental limit on the accuracy of the output of +/-.5 - this
     * quantization limit is included in addition to the other limits
-    * specified by the paramaters to the API.  (Effectively, add .5
+    * specified by the parameters to the API.  (Effectively, add .5
     * everywhere.)
     *
-    * The behavior of the 'sbit' paramter is defined by section 12.5
+    * The behavior of the 'sbit' parameter is defined by section 12.5
     * (sample depth scaling) of the PNG spec.  That section forces the
     * decoder to assume that the PNG values have been scaled if sBIT is
     * present:
@@ -10759,7 +10759,7 @@ int main(int argc, char **argv)
 
    /* The following allows results to pass if they correspond to anything in the
     * transformed range [input-.5,input+.5]; this is is required because of the
-    * way libpng treates the 16_TO_8 flag when building the gamma tables in
+    * way libpng treats the 16_TO_8 flag when building the gamma tables in
     * releases up to 1.6.0.
     *
     * TODO: review this
@@ -10769,7 +10769,7 @@ int main(int argc, char **argv)
 
    /* Some default values (set the behavior for 'make check' here).
     * These values simply control the maximum error permitted in the gamma
-    * transformations.  The practial limits for human perception are described
+    * transformations.  The practical limits for human perception are described
     * below (the setting for maxpc16), however for 8 bit encodings it isn't
     * possible to meet the accepted capabilities of human vision - i.e. 8 bit
     * images can never be good enough, regardless of encoding.

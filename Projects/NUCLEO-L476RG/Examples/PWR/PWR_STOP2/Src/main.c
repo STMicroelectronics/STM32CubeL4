@@ -115,9 +115,13 @@ int main(void)
     __HAL_RCC_GPIOG_CLK_DISABLE();
     __HAL_RCC_GPIOH_CLK_DISABLE();
 
-
+    /* Suspend Tick increment to prevent wakeup by Systick interrupt. 
+    Otherwise the Systick interrupt will wake up the device within 1ms (HAL time base)*/
+    HAL_SuspendTick();
     /* Enter STOP 2 mode */
     HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+    /* Resume SysTick */
+    HAL_ResumeTick();
 
     /* Re-configure the system clock to 80 MHz based on MSI, enable and
        select PLL as system clock source (PLL is disabled in STOP mode) */

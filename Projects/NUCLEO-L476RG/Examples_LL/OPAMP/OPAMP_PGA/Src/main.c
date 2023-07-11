@@ -226,7 +226,7 @@ void Configure_OPAMP(void)
   /* Set OPAMP power range */
   /* Note: Hardware constraint (refer to description of the function          */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       OPAMP state:                                                       */
   /*       All OPAMP instances must be disabled.                              */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -447,7 +447,7 @@ void Generate_waveform_voltage(void)
   // LL_DAC_SetMode(DAC1, LL_DAC_CHANNEL_1, LL_DAC_MODE_NORMAL_OPERATION);
   
   /* Set the output for the selected DAC channel */
-  /* Note: On this STM32 serie, DAC channel output set to internal path       */
+  /* Note: On this STM32 series, DAC channel output set to internal path       */
   /*       with buffer enabled also connects the output to GPIO pin.          */
   LL_DAC_ConfigOutput(DAC1, LL_DAC_CHANNEL_1, LL_DAC_OUTPUT_MODE_NORMAL, LL_DAC_OUTPUT_BUFFER_ENABLE, LL_DAC_OUTPUT_CONNECT_INTERNAL);
   

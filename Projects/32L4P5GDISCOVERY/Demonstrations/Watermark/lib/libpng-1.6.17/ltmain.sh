@@ -546,7 +546,7 @@ func_require_term_colors ()
 
   # _G_HAVE_PLUSEQ_OP
   # Can be empty, in which case the shell is probed, "yes" if += is
-  # useable or anything else if it does not work.
+  # usable or anything else if it does not work.
   test -z "$_G_HAVE_PLUSEQ_OP" \
     && (eval 'x=a; x+=" b"; test "a b" = "$x"') 2>/dev/null \
     && _G_HAVE_PLUSEQ_OP=yes
@@ -854,7 +854,7 @@ func_mkdir_p ()
       # While some portion of DIR does not yet exist...
       while test ! -d "$_G_directory_path"; do
         # ...make a list in topmost first order.  Use a colon delimited
-	# list incase some portion of path contains whitespace.
+	# list in case some portion of path contains whitespace.
         _G_dir_list=$_G_directory_path:$_G_dir_list
 
         # If the last portion added has no slash in it, the list is done
@@ -5948,7 +5948,7 @@ base_name (const char *name)
   const char *base;
 
 #if defined HAVE_DOS_BASED_FILE_SYSTEM
-  /* Skip over the disk name in MSDOS pathnames. */
+  /* Skip over the disk name in MS-DOS pathnames. */
   if (isalpha ((unsigned char) name[0]) && name[1] == ':')
     name += 2;
 #endif

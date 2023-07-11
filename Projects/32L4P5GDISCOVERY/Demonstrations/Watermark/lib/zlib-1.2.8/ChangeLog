@@ -816,7 +816,7 @@ Changes in 1.2.0.5 (8 September 2003)
 - Adapt the zlib interface to the new DLL convention guidelines [Truta]
 - Introduce ZLIB_WINAPI macro to allow the export of functions using
   the WINAPI calling convention, for Visual Basic [Vollant, Truta]
-- Update msdos and win32 scripts and makefiles [Truta]
+- Update ms-dos and win32 scripts and makefiles [Truta]
 - Export symbols by name, not by ordinal, in win32/zlib.def [Truta]
 - Add contrib/ada [Anisimkov]
 - Move asm files from contrib/vstudio/vc70_32 to contrib/asm386 [Truta]
@@ -861,7 +861,7 @@ Changes in 1.2.0.5 (8 September 2003)
 - Add info about the use of ASMV, ASMINF and ZLIB_WINAPI in
   zlibCompileFlags [Truta]
 - Cygwin has vsnprintf [Wilson]
-- In Windows16, OS_CODE is 0, as in MSDOS [Truta]
+- In Windows16, OS_CODE is 0, as in MS-DOS [Truta]
 - In Cygwin, OS_CODE is 3 (Unix), not 11 (Windows32) [Wilson]
 
 Changes in 1.2.0.4 (10 August 2003)
@@ -936,7 +936,7 @@ Changes in 1.2.0.1 (17 March 2003)
 - Add "mostlyclean" and "maintainer-clean" targets to Makefile.in
 - Update contrib/inflate86 [Anderson]
 - Update contrib/testzlib, contrib/vstudio, contrib/minizip [Vollant]
-- Add msdos and win32 directories with makefiles [Truta]
+- Add ms-dos and win32 directories with makefiles [Truta]
 - More additions and improvements to the FAQ
 
 Changes in 1.2.0 (9 March 2003)
@@ -1022,7 +1022,7 @@ Changes in 1.1.3 (9 July 1998)
 - Do not redefine Byte on Mac (Brad Pettit & Jason Linhart)
 - define SEEK_END too if SEEK_SET is not defined (Albert Chin-A-Young)
 - avoid some warnings with Borland C (Tom Tanner)
-- fix a problem in contrib/minizip/zip.c for 16-bit MSDOS (Gilles Vollant)
+- fix a problem in contrib/minizip/zip.c for 16-bit MS-DOS (Gilles Vollant)
 - emulate utime() for WIN32 in contrib/untgz  (Gilles Vollant)
 - allow several arguments to configure (Tim Mooney, Frodo Looijaard)
 - use libdir and includedir in Makefile.in (Tim Mooney)
@@ -1058,7 +1058,7 @@ Changes in 1.1.2 (19 March 98)
 - some simplifications and slight speed-up to the inflate code (Mark)
 - fix gzeof on non-compressed files (Allan Schrum)
 - add -std1 option in configure for OSF1 to fix gzprintf (Martin Mokrejs)
-- use default value of 4K for Z_BUFSIZE for 16-bit MSDOS (Tim Wegner + Glenn)
+- use default value of 4K for Z_BUFSIZE for 16-bit MS-DOS (Tim Wegner + Glenn)
 - added os2/Makefile.def and os2/zlib.def (Andrew Zabolotny)
 - add shared lib support for UNIX_SV4.2MP (MATSUURA Takanori)
 - do not wrap extern "C" around system includes (Tom Lane)
@@ -1164,7 +1164,7 @@ Changes in 1.0.6 (19 Jan 1998)
 - check Z_FINISH in inflate (thanks to Marc Schluper)
 - Implement deflateCopy (thanks to Adam Costello)
 - make static libraries by default in configure, add --shared option.
-- move MSDOS or Windows specific files to directory msdos
+- move MS-DOS or Windows specific files to directory msdos
 - suppress the notion of partial flush to simplify the interface
   (but the symbol Z_PARTIAL_FLUSH is kept for compatibility with 1.0.4)
 - suppress history buffer provided by application to simplify the interface
@@ -1193,7 +1193,7 @@ Changes in 1.0.6 (19 Jan 1998)
 - add undocumented function zError to convert error code to string
   (for Tim Smithers)
 - Allow compilation of gzio with -DNO_DEFLATE to avoid the compression code.
-- Use default memcpy for Symantec MSDOS compiler.
+- Use default memcpy for Symantec MS-DOS compiler.
 - Add EXPORT keyword for check_func (needed for Windows DLL)
 - add current directory to LD_LIBRARY_PATH for "make test"
 - create also a link for libz.so.1
@@ -1256,7 +1256,7 @@ Changes in 1.0.3 (2 Jul 96)
 Changes in 1.0.2 (23 May 96)
 - added Windows DLL support
 - added a function zlibVersion (for the DLL support)
-- fixed declarations using Bytef in infutil.c (pb with MSDOS medium model)
+- fixed declarations using Bytef in infutil.c (pb with MS-DOS medium model)
 - Bytef is define's instead of typedef'd only for Borland C
 - avoid reading uninitialized memory in example.c
 - mention in README that the zlib format is now RFC1950
@@ -1266,7 +1266,7 @@ Changes in 1.0.2 (23 May 96)
 Changes in 1.0.1 (20 May 96) [1.0 skipped to avoid confusion]
 - fix array overlay in deflate.c which sometimes caused bad compressed data
 - fix inflate bug with empty stored block
-- fix MSDOS medium model which was broken in 0.99
+- fix MS-DOS medium model which was broken in 0.99
 - fix deflateParams() which could generated bad compressed data.
 - Bytef is define'd instead of typedef'ed (work around Borland bug)
 - added an INDEX file
@@ -1346,7 +1346,7 @@ Changes in 0.99 (27 Jan 96)
 - define enum out of inflate_blocks_state to allow compilation with C++
 
 Changes in 0.95 (16 Aug 95)
-- fix MSDOS small and medium model (now easier to adapt to any compiler)
+- fix MS-DOS small and medium model (now easier to adapt to any compiler)
 - inlined send_bits
 - fix the final (:-) bug for deflate with flush (output was correct but
   not completely flushed in rare occasions).
@@ -1356,7 +1356,7 @@ Changes in 0.95 (16 Aug 95)
   typedefs and because voidnp was not near in large model).
 
 Changes in 0.94 (13 Aug 95)
-- support MSDOS medium model
+- support MS-DOS medium model
 - fix deflate with flush (could sometimes generate bad output)
 - fix deflateReset (zlib header was incorrectly suppressed)
 - added support for VMS
@@ -1405,7 +1405,7 @@ Changes in 0.9 (1 May 95)
 - deflate(Z_FULL_FLUSH), inflateReset and inflateSync are now fully implemented
 - added a test of inflateSync in example.c
 - moved MAX_WBITS to zconf.h because users might want to change that.
-- document explicitly that zalloc(64K) on MSDOS must return a normalized
+- document explicitly that zalloc(64K) on MS-DOS must return a normalized
   pointer (zero offset)
 - added Makefiles for Microsoft C, Turbo C, Borland C++
 - faster crc32()
@@ -1422,7 +1422,7 @@ Changes in 0.8 (29 April 95)
 - avoid the ERROR symbol which is used by MS Windows
 
 Changes in 0.71 (14 April 95)
-- Fixed more MSDOS compilation problems :( There is still a bug with
+- Fixed more MS-DOS compilation problems :( There is still a bug with
   TurboC large model.
 
 Changes in 0.7 (14 April 95)
@@ -1441,7 +1441,7 @@ Changes in 0.6 (11 April 95)
 - fixed bug in gzread (don't read crc as data)
 - fixed bug in destroy (gzio.c) (don't return Z_STREAM_END for gzclose).
 - don't allocate big arrays in the stack (for MSDOS)
-- fix some MSDOS compilation problems
+- fix some MS-DOS compilation problems
 
 Changes in 0.5:
 - do real compression in deflate.c. Z_PARTIAL_FLUSH is supported but

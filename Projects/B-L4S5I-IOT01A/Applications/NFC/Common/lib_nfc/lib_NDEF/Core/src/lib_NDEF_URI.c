@@ -298,7 +298,7 @@ uint16_t NDEF_ReadURI( sRecordInfo_t *pRecordStruct, sURI_Info *pURI )
 
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData + 1; /* remove not usefull data */
+        PayloadSize -= *pData + 1; /* remove not useful data */
         pData += *pData + 1;
 
         memcpy( pURI->Information, pData, PayloadSize );
@@ -350,10 +350,10 @@ void NDEF_PrepareURIMessage( sURI_Info *pURI, uint8_t *pNDEFMessage, uint16_t *s
 /*               ID                 */  /* <---- Not Used  */
 /************************************/
 
-  /* We need to know the URI type in order to define if an abreviation is available */
+  /* We need to know the URI type in order to define if an abbreviation is available */
   type = getUriType( pURI->protocol );
 
-  /* URI : 1+URI for abreviate protocol*/
+  /* URI : 1+URI for abbreviate protocol*/
   if( type != URI_ID_0x00 )
     uriSize = 1 + strlen(pURI->URI_Message);
   else /*: 1+protocol+URI else*/
@@ -411,7 +411,7 @@ void NDEF_PrepareURIMessage( sURI_Info *pURI, uint8_t *pNDEFMessage, uint16_t *s
   Offset += URI_TYPE_STRING_LENGTH;
 
   pNDEFMessage[Offset++] = type;
-  if( type == URI_ID_0x00 ) // No abreviation
+  if( type == URI_ID_0x00 ) // No abbreviation
   {
     memcpy( &pNDEFMessage[Offset], pURI->protocol, strlen(pURI->protocol) );
     Offset += strlen(pURI->protocol);
@@ -511,7 +511,7 @@ char getUriType( char *protocol )
   else if( !memcmp( protocol, URI_ID_0x21_STRING, strlen(URI_ID_0x21_STRING) ) ) return URI_ID_0x21;
   else if( !memcmp( protocol, URI_ID_0x22_STRING, strlen(URI_ID_0x22_STRING) ) ) return URI_ID_0x22;
   else if( !memcmp( protocol, URI_ID_0x23_STRING, strlen(URI_ID_0x23_STRING) ) ) return URI_ID_0x23;
-  else return URI_ID_0x00; // No abreviation for this protocol	
+  else return URI_ID_0x00; // No abbreviation for this protocol	
 }
 
 

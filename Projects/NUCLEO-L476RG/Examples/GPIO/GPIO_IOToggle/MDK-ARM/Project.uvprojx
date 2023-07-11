@@ -13,7 +13,7 @@
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32L476RG</Device>
+          <Device>STM32L476RGTx</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32L4xx_DFP.1.0.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
@@ -32,7 +32,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32L476RG$SVD\STM32F41x.svd</SFDFile>
+          <SFDFile>$$Device:STM32L476RGTx$SVD\STM32L4x.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>

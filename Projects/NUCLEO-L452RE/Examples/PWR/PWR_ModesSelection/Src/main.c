@@ -99,7 +99,7 @@ int main(void)
   /* Enable backup domain for LSE/RTC control */
   HAL_PWR_EnableBkUpAccess();
   
-  /* Swith off LSE clock (to make sure RTC is off) */
+  /* Switch off LSE clock (to make sure RTC is off) */
   LSE_OFF_Config();
   
   /* Configure the main internal regulator output voltage (Range1 by default)*/ 

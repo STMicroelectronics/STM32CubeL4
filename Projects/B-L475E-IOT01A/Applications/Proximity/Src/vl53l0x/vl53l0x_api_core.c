@@ -983,7 +983,7 @@ VL53L0X_Error VL53L0X_set_vcsel_pulse_period(VL53L0X_DEV Dev,
 		* using the new VCSEL period.
 		*
 		* For the MSRC timeout, the same applies - this timeout being
-		* dependant on the pre-range vcsel period.
+		* dependent on the pre-range vcsel period.
 		*/
 		switch (VcselPeriodType) {
 		case VL53L0X_VCSEL_PERIOD_PRE_RANGE:

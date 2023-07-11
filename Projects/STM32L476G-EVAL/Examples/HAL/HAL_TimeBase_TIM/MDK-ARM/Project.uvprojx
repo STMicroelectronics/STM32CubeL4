@@ -13,7 +13,7 @@
       <pCCUsed>5060020::V5.06 (build 20)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32L476ZG</Device>
+          <Device>STM32L476ZGTx</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32L4xx_DFP.1.0.2</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
@@ -32,7 +32,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:STM32L476ZG$SVD\STM32F41x.svd</SFDFile>
+          <SFDFile>$$Device:STM32L476ZGTx$SVD\STM32L4x6.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>

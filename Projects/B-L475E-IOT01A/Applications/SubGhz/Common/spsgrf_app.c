@@ -380,7 +380,7 @@ void SdkEvalSetHasEeprom(uint8_t eeprom)
 }
 
 /**
-* @brief  this function intializes the spirit1 gpio irq for TX and Rx
+* @brief  this function initializes the spirit1 gpio irq for TX and Rx
 * @param  None
 * @retval None
 */
@@ -451,7 +451,7 @@ void Spirit1SetPayloadlength(uint8_t length)
 
 /**
 * @brief  this function sets the destination address
-* @param  uint8_t adress
+* @param  uint8_t address
 * @retval None
 */
 void Spirit1SetDestinationAddress(uint8_t address)

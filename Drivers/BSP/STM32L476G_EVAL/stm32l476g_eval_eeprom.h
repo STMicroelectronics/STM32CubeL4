@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -94,7 +93,7 @@ uint32_t  BSP_EEPROM_WriteBuffer(uint8_t* pBuffer, uint16_t WriteAddr, uint32_t 
 /* USER Callbacks: This function is declared as __weak in EEPROM driver and 
    should be implemented into user application.  
    BSP_EEPROM_TIMEOUT_UserCallback() function is called whenever a timeout condition 
-   occure during communication (waiting on an event that doesn't occur, bus 
+   occur during communication (waiting on an event that doesn't occur, bus 
    errors, busy devices ...). */
 void BSP_EEPROM_TIMEOUT_UserCallback(void);
 
@@ -126,4 +125,4 @@ HAL_StatusTypeDef       EEPROM_I2C_IO_IsDeviceReady(uint16_t DevAddress, uint32_
 
 #endif /* __STM32L476G_EVAL_EEPROM_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

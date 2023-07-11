@@ -42,7 +42,7 @@
 
  /*
   *  target platform do not provide stdint or use a different #define than above
-  *  to avoid seeing the message below addapt the #define list above or implement
+  *  to avoid seeing the message below adapt the #define list above or implement
   *  all type and delete these pragma
   */
 

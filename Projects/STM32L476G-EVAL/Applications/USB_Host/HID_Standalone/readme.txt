@@ -38,7 +38,7 @@ internally a 48-MHz clock which is coming from a specific output of two PLLs (PL
 When the application is started, the connected HID device (Mouse/Keyboard) is detected in HID mode and 
 gets initialized. The STM32 MCU behaves as a HID Host, it enumerates the device and extracts VID, PID, 
 manufacturer name, Serial no and product name information and displays it on the LCD screen. 
-This example is based on interacting with a HID device (Mouse/Keyboard) trough a HID routine.
+This example is based on interacting with a HID device (Mouse/Keyboard) through a HID routine.
 
 A menu is displayed and the user can select any operation from the menu using the Joystick buttons:
  - "Start HID" operation starts the appropriate HID application to the attached HID Device.
@@ -84,7 +84,7 @@ requirements, such as:
   - USB_Host/HID_Standalone/Src/menu.c                  HID State Machine
   - USB_Host/HID_Standalone/Src/usbh_conf.c             General low level driver configuration
   - USB_Host/HID_Standalone/Src/mouse.c                 HID mouse functions file
-  - USB_Host/HID_Standalone/Src/keybaord.c              HID keyboard functions file
+  - USB_Host/HID_Standalone/Src/keyboard.c              HID keyboard functions file
   - USB_Host/HID_Standalone/Inc/main.h                  Main program header file
   - USB_Host/HID_Standalone/Inc/stm32l4xx_it.h          Interrupt handlers header file
   - USB_Host/HID_Standalone/Inc/lcd_log_conf.h          LCD log configuration file

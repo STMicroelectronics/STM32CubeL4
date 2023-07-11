@@ -102,7 +102,7 @@ static void ConfigManager_Init( void)
 /**
  *	@brief  this function sends an IDN command to the PICC device
  *  @param  pResponse : pointer on the PICC device reply
- *  @retval PICC_SUCCESSCODE : the function is succesful 
+ *  @retval PICC_SUCCESSCODE : the function is successful 
  */
 static int8_t ConfigManager_IDN(uint8_t *pResponse)
 {

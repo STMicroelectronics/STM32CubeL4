@@ -135,7 +135,7 @@ void USR_KEYBRD_ProcessData(uint8_t data)
   }
   else if(data == '\r')
   {
-    /* Manage deletion of character and upadte cursor location */
+    /* Manage deletion of character and update cursor location */
     if( KeybrdCharYpos == KYBRD_FIRST_COLUMN) 
     {
       /* First character of first line to be deleted */

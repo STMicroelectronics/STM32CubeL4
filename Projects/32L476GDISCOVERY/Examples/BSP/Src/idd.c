@@ -130,7 +130,7 @@ void Idd_demo(void)
       /* un configure HW resources */
       SystemHardwareDeInit();
 
-      /* if function pointer exists, execute correponsing low power action */
+      /* if function pointer exists, execute corresponding low power action */
       if(IddTest[IddIndex].IddEnter != NULL)
       {
         IddTest[IddIndex].IddEnter();

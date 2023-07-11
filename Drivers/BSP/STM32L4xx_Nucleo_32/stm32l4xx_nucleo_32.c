@@ -5,17 +5,16 @@
   * @brief   This file provides set of firmware functions to manage:
   *          - LED available on STM32L4XX-Nucleo Kit 
   *            from STMicroelectronics.
-  *          - Gravitech 7segment shield available separatly.
+  *          - Gravitech 7segment shield available separately.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */ 
@@ -40,7 +39,7 @@
   */
 #define __STM32L4XX_NUCLEO_32_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L4XX_NUCLEO_32_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
-#define __STM32L4XX_NUCLEO_32_BSP_VERSION_SUB2   (0x04) /*!< [15:8]  sub2 version */
+#define __STM32L4XX_NUCLEO_32_BSP_VERSION_SUB2   (0x05) /*!< [15:8]  sub2 version */
 #define __STM32L4XX_NUCLEO_32_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L4XX_NUCLEO_32_BSP_VERSION        ((__STM32L4XX_NUCLEO_32_BSP_VERSION_MAIN << 24)\
                                                  |(__STM32L4XX_NUCLEO_32_BSP_VERSION_SUB1 << 16)\
@@ -449,4 +448,4 @@ HAL_StatusTypeDef BSP_DIGIT4_SEG7_Display(uint32_t Value)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

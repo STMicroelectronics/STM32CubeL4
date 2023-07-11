@@ -26,7 +26,7 @@
  * Jan-26-2003 -- Added runtime check for MMX support with cpuid instruction.
  * With -DUSE_MMX, only MMX code is compiled.  With -DNO_MMX, only non-MMX code
  * is compiled.  Without either option, runtime detection is enabled.  Runtime
- * detection should work on all modern cpus and the recomended algorithm (flip
+ * detection should work on all modern cpus and the recommended algorithm (flip
  * ID bit on eflags and then use the cpuid instruction) is used in many
  * multimedia applications.  Tested under win2k with gcc-2.95 and gas-2.12
  * distributed with cygwin3.  Compiling with gcc-2.95 -c inffast.S -o
@@ -36,14 +36,14 @@
  * Jan-28-2003 -- Tested Athlon XP... MMX mode is slower than no MMX (and
  * slower than compiler generated code).  Adjusted cpuid check to use the MMX
  * code only for Pentiums < P4 until I have more data on the P4.  Speed
- * improvment is only about 15% on the Athlon when compared with code generated
+ * improvement is only about 15% on the Athlon when compared with code generated
  * with MSVC++.  Not sure yet, but I think the P4 will also be slower using the
  * MMX mode because many of it's x86 ALU instructions execute in .5 cycles and
  * have less latency than MMX ops.  Added code to buffer the last 11 bytes of
  * the input stream since the MMX code grabs bits in chunks of 32, which
  * differs from the inffast.c algorithm.  I don't think there would have been
  * read overruns where a page boundary was crossed (a segfault), but there
- * could have been overruns when next_in ends on unaligned memory (unintialized
+ * could have been overruns when next_in ends on unaligned memory (uninitialized
  * memory read).
  *
  * Mar-13-2003 -- P4 MMX is slightly slower than P4 NO_MMX.  I created a C

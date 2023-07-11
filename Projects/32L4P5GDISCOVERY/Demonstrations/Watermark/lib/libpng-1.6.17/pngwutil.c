@@ -2795,7 +2795,7 @@ png_write_find_filter(png_structrp png_ptr, png_row_infop row_info)
       }
    }
 
-   /* Paeth filter */
+   /* Path filter */
    if ((filter_to_do == PNG_FILTER_PAETH) != 0)
    {
       png_bytep rp, dp, pp, cp, lp;

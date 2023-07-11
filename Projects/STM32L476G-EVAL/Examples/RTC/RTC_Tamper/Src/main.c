@@ -155,7 +155,7 @@ int main(void)
   /* Turn LED2 on */
   BSP_LED_On(LED2);
 
-  /* Reset flag after wrting of backup register in order to wait for new button press */
+  /* Reset flag after writing of backup register in order to wait for new button press */
   TamperStatus = RESET;
 
   /*##-5- Wait for the tamper button is pressed ##############################*/

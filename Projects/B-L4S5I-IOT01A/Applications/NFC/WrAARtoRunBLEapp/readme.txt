@@ -26,7 +26,7 @@ so that the BLE STM32 Profiles application is launched on the smartphone when it
 NFC antenna .
 
 First the NFC component is initialised, the LED2 goes ON to indicate Initialization is terminated.
-Then an AAR NDEF message is written such that when the smartphone approches the NFC antenna 
+Then an AAR NDEF message is written such that when the smartphone approaches the NFC antenna 
 the BLE STM32 Profiles application is launched on the smartphone.
 If the application is not already installed, the smartphone will automatically search it and download it 
 from the Google Play store (https://play.google.com/store/apps/details?id=com.stm.bluetoothlevalidation)

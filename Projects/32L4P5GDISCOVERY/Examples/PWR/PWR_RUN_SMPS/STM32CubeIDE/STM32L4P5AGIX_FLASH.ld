@@ -182,4 +182,6 @@ SECTIONS
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+  .ROM_While1_section : {*(.ROM_While1_section)} >ROM_While1
+  
 }

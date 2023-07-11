@@ -37,7 +37,7 @@
 typedef struct {
    uint8_t* qBuff;          /* queue buffer, , provided by init fct */
    uint32_t queueMaxSize;   /* size of the queue, provided by init fct (in bytes)*/
-   uint16_t elementSize;    /* -1 variable. If variable elemenet size the size is stored in the 4 first of the queue element */
+   uint16_t elementSize;    /* -1 variable. If variable element size the size is stored in the 4 first of the queue element */
    uint32_t first;          /* position of first element */
    uint32_t last;           /* position of last element */
    uint32_t  byteCount;     /* number of bytes in the queue */

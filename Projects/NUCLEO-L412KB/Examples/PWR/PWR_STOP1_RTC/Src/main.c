@@ -118,7 +118,7 @@ int main(void)
     /* Re-enable wakeup source */
     /* ## Setting the Wake up time ############################################*/
     /* RTC Wakeup Interrupt Generation: 
-      the wake-up counter is set to its maximum value to yield the longuest
+      the wake-up counter is set to its maximum value to yield the longest
       stop time to let the current reach its lowest operating point.
       The maximum value is 0xFFFF, corresponding to about 33 sec. when 
       RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16

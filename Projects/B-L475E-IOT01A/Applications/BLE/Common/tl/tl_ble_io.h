@@ -2,7 +2,7 @@
  ******************************************************************************
  * @file    tl_ble_io.h
  * @author  MCD Application Team
- * @brief   buttom wrapper to abstract TL from HW and SCHeduler
+ * @brief   bottom wrapper to abstract TL from HW and SCHeduler
  ******************************************************************************
  * @attention
  *
@@ -40,7 +40,7 @@ typedef enum
 
 /**
  * @brief Informs to the application about the status of the TL (busy/available).
- *        The applicaiton shall not send a new command when the status is set to TL_BLE_HCI_CmdBusy.
+ *        The application shall not send a new command when the status is set to TL_BLE_HCI_CmdBusy.
  *        At least, TL_BLE_HCI_UserEvtProc shall not be executed while the TL remains busy
  *        This __WEAK function has to be OVERLOADED by the application, because only the application
  *        knows which TASKs are currently running and should be paused/resumed 

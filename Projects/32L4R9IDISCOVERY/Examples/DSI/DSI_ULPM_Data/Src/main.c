@@ -381,6 +381,7 @@ static uint8_t LCD_Config(void)
   {
     return(LCD_ERROR);
   }
+  __HAL_LTDC_DISABLE(&LtdcHandle);
 
   /*********************/
   /* DSI CONFIGURATION */
@@ -658,6 +659,7 @@ static uint8_t LCD_Config(void)
 
   /* Enable DSI Wrapper */
   __HAL_DSI_WRAPPER_ENABLE(&DsiHandle);
+  __HAL_LTDC_ENABLE(&LtdcHandle);
 
   return LCD_OK;
 }

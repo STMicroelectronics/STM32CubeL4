@@ -49,7 +49,7 @@
   #define VDDA_APPLI                       ((uint32_t)3300)
   
   /* Value of comparator thresholds based on VrefInt */
-  /* (VrefInt voltage is approximatively 1.22V, refer to device datasheet     */
+  /* (VrefInt voltage is approximately 1.22V, refer to device datasheet     */
   /* for min/typ/max values).                                                 */
   /* (unit: mV).                                                              */
   #define VREFINT                          ((uint32_t)1220)

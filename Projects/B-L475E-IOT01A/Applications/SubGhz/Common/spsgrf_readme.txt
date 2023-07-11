@@ -27,7 +27,7 @@ SUbGhz SPSGRF Common files description:
                      - QI:           Configuration and management of SPIRIT QI.
                      - RADIO:        This file provides all the low level API to manage Analog and Digital radio part of SPIRIT.
                      - TIMER:        Configuration and management of SPIRIT timers.
-                     - Additionally at the begginning of spsgrf.h there is a section for SPSGRF registers mapping.
+                     - Additionally at the beginning of spsgrf.h there is a section for SPSGRF registers mapping.
  - spsgrf_types.h   is also part of the "component driver" but currently separated 
                     because sometime the application just needs these few definitions
 
@@ -194,7 +194,7 @@ SUbGhz SPSGRF Common files description:
   *   TBIT_TIME_64,      // Tbit time
   *   TCCA_TIME_3,       // Tcca time
   *   5,                 // max number of backoffs
-  *   0xFA21,            // BU counter seed
+  *   0xFA21,            // BY counter seed
   *   32                 // CU prescaler
   * };
   *
@@ -302,7 +302,7 @@ SUbGhz SPSGRF Common files description:
   * The most applications will require a Spirit IRQ notification on an microcontroller EXTI line.
   * Then, the user can check which IRQ has been raised using two different ways.
   *
-  * On the ISR of the EXTI line phisically linked to the Spirit pin configured for IRQ:
+  * On the ISR of the EXTI line physically linked to the Spirit pin configured for IRQ:
   *
   * <ul>
   * <li> Check <b>only one</b> Spirit IRQ (because the Spirit IRQ status register automatically blanks itself

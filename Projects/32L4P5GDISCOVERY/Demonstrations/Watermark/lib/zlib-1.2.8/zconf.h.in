@@ -278,9 +278,9 @@
 #  endif
 #endif
 
-/* The following definitions for FAR are needed only for MSDOS mixed
+/* The following definitions for FAR are needed only for MS-DOS mixed
  * model programming (small or medium model with some far allocations).
- * This was tested only with MSC; for other MSDOS compilers you may have
+ * This was tested only with MSC; for other MS-DOS compilers you may have
  * to define NO_MEMCPY in zutil.h.  If you don't need the mixed model,
  * just define FAR to be empty.
  */

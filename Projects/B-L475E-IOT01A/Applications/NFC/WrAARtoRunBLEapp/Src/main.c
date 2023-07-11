@@ -69,7 +69,7 @@ int main(void)
   /* Init of the Type Tag 4 component (M24SR)
      Thanks to a call to KillSession command during init no issue can occurs
      If customer modify the code to avoid Kill session command call,
-     he must retry Init until succes (session can be lock by RF ) */
+     he must retry Init until success (session can be lock by RF ) */
   while (TT4_Init() != SUCCESS);
   
   /* Set the LED2 on to indicate Init done */

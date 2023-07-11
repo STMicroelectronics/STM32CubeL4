@@ -547,7 +547,7 @@ int main(argc, argv)
     char *argv[];
 {
     Byte *compr, *uncompr;
-    uLong comprLen = 10000*sizeof(int); /* don't overflow on MSDOS */
+    uLong comprLen = 10000*sizeof(int); /* don't overflow on MS-DOS */
     uLong uncomprLen = comprLen;
     static const char* myVersion = ZLIB_VERSION;
 

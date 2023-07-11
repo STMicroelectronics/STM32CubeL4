@@ -48,7 +48,7 @@ extern uint8_t NDEF_Buffer [NFC_TT4_NDEF_MAX_SIZE];
 
 
   /**
-  * @brief  This fonction add AAR (Android Application Record) in the tag
+  * @brief  This function add AAR (Android Application Record) in the tag
   * @param  pAARStruct : pointer on structure that contain AAR information
   * @retval SUCCESS : AAR added
   * @retval ERROR : Not able to add AAR

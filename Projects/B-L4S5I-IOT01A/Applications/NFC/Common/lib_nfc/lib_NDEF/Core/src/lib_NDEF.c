@@ -314,14 +314,14 @@ static void NDEF_ParseSP( sRecordInfo_t *pRecordStruct )
   uint32_t RecordPosition = 0;
   sRecordInfo_t *pSPRecordStruct;
 
-  /* initialize variable with size of the payload and poiter on data */
+  /* initialize variable with size of the payload and pointer on data */
   PayloadSize = pRecordStruct->PayloadLength;
 
   pPayload = (uint8_t*)( pRecordStruct->PayloadBufferAdd );
 
   pSPRecordStruct = SPRecordStructAdd[0];
 
-  /* Initailize the number of record find in the SP payload */
+  /* Initialize the number of record find in the SP payload */
   pRecordStruct->NbOfRecordInSPPayload = 0;
 
   do

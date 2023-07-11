@@ -304,7 +304,7 @@ typedef struct {
 		 *	 reflectance.*/
 	FixPoint1616_t AmbientRateRtnMegaCps;
 		/*!< Return ambient rate (MCPS)\n these is a 16.16 fix point
-		 *	value, which is effectively a measure of the ambien
+		 *	value, which is effectively a measure of the ambient
 		 *	t light.*/
 
 	uint16_t EffectiveSpadRtnCount;

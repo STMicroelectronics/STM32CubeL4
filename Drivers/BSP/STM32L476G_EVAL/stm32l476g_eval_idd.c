@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -343,7 +342,7 @@ uint32_t BSP_IDD_GetValue(IDD_ModeTypdef LowPowerMode, uint32_t Calibration, uin
       return BSP_IDD_ERROR;
     }
     
-      /* Check if the continous conversion of regular channel is finished */
+      /* Check if the continuous conversion of regular channel is finished */
     if ((HAL_ADC_GetState(&heval_AdcHandle) & HAL_ADC_STATE_REG_EOC) == HAL_ADC_STATE_REG_EOC)
     {
       /*##-5- Get the converted value of regular channel  ########################*/
@@ -401,5 +400,5 @@ uint32_t BSP_IDD_GetValue(IDD_ModeTypdef LowPowerMode, uint32_t Calibration, uin
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
 

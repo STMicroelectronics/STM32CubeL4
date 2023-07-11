@@ -84,7 +84,7 @@ int main(void)
     /* Turn off LED2 */
     BSP_LED_Off(LED2); 
 
-   /* Set all GPIO in analog state to reduce power consumption,
+    /* Set all GPIO in analog state to reduce power consumption,
       except GPIOC to keep user button interrupt enabled */
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -116,10 +116,13 @@ int main(void)
     __HAL_RCC_GPIOH_CLK_DISABLE();
   
 
-
+    /* Suspend Tick increment to prevent wakeup by Systick interrupt. 
+    Otherwise the Systick interrupt will wake up the device within 1ms (HAL time base)*/
+    HAL_SuspendTick();
     /* Enter STOP 1 mode */
     HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
-    
+    /* Resume SysTick */
+    HAL_ResumeTick();
     /* ... STOP 1 mode ... */
 
     /* At Stop 1 mode exit, re-configure the system clock to 80 MHz based on MSI, 

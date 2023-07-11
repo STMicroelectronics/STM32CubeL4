@@ -481,7 +481,7 @@ void SystemRtcBackupWrite(uint32_t SaveIndex)
   */
 static void Display_DemoDescription(void)
 {
-  char desc[50];
+  char desc[58];
 
   /* Set LCD Foreground Layer  */
   BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);

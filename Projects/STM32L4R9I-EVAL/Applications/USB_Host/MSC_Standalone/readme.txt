@@ -38,7 +38,7 @@ When the application is started, the connected USB flash disk device is detected
 initialized. The STM32 MCU behaves as a MSC Host, it enumerates the device and extracts VID, PID, 
 manufacturer name, Serial no and product name information and displays it via the STLink Virtual Com Port 
 on a terminal. This application is based on read/write file and explore the USB flash disk content 
-trough a MSC routine.
+through a MSC routine.
 
 
 @note Care must be taken when using HAL_Delay(), this function provides accurate delay (in milliseconds)

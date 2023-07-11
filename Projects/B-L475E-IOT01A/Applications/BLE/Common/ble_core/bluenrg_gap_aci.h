@@ -1241,7 +1241,7 @@ typedef __packed struct _evt_gap_device_found{
   uint8_t    bdaddr_type;  /**< Type of the peer address (@ref PUBLIC_ADDR, @ref RANDOM_ADDR). */
   tBDAddr      bdaddr;       /**< Address of the peer device found during scanning. */
   uint8_t    data_length;  /**< Length of advertising or scan response data. */
-  uint8_t    data_RSSI[VARIABLE_SIZE]; /**< Advertising or scan response data + RSSI. RSSI is last octect (signed integer). */
+  uint8_t    data_RSSI[VARIABLE_SIZE]; /**< Advertising or scan response data + RSSI. RSSI is last octet (signed integer). */
 } PACKED evt_gap_device_found;
 ///@endcond 
 #endif

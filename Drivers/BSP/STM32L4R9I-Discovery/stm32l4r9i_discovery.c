@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -348,7 +347,7 @@ uint8_t BSP_JOY_Init(JOYMode_TypeDef Joy_Mode)
     HAL_GPIO_Init(SEL_JOY_GPIO_PORT, &GPIO_InitStruct);
 
     /* Configure other joystick pins */
-    BSP_IO_ConfigPin((RIGHT_JOY_PIN | LEFT_JOY_PIN | UP_JOY_PIN | DOWN_JOY_PIN), IO_MODE_INPUT_PU);
+    BSP_IO_ConfigPin((RIGHT_JOY_PIN | LEFT_JOY_PIN | UP_JOY_PIN | DOWN_JOY_PIN), IO_MODE_INPUT_PD);
   }
   else if(Joy_Mode == JOY_MODE_EXTI)
   {
@@ -1329,4 +1328,4 @@ void CAMERA_Delay(uint32_t Delay)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

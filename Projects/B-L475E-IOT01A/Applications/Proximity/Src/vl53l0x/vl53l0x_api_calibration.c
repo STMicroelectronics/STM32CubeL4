@@ -690,7 +690,7 @@ VL53L0X_Error VL53L0X_perform_ref_spad_management(VL53L0X_DEV Dev,
 	 * signal rate and should be performed once during initialization.
 	 *
 	 * Either aperture or non-aperture spads are applied but never both.
-	 * Firstly non-aperture spads are set, begining with 5 spads, and
+	 * Firstly non-aperture spads are set, beginning with 5 spads, and
 	 * increased one spad at a time until the closest measurement to the
 	 * target rate is achieved.
 	 *

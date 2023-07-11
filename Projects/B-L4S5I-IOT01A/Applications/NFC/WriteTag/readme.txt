@@ -25,7 +25,7 @@ This application aims at showing how to write NDEF messages to an ST25DV-I2C typ
 so that the associated application is launched on the smartphone when it comes near the NFC antenna.
 
 First the NFC component is initialised, the LED2 starts blinking to indicate Initialization is terminated.
-Then when the smartphone approches the NFC antenna and action will be taken by the smartphone 
+Then when the smartphone approaches the NFC antenna and action will be taken by the smartphone 
 depending on the NDEF message written on the tag.
 This example writes a different message each time the USER BUTTON is pressed:
  - URI:    the "www.st.com" website is opened by the browser

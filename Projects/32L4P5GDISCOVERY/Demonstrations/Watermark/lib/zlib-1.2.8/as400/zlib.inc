@@ -311,7 +311,7 @@
      D  method                       10I 0 value                                Compression method
      D  windowBits                   10I 0 value                                log2(window size)
      D  memLevel                     10I 0 value                                Mem/cmpress tradeoff
-     D  strategy                     10I 0 value                                Compression stategy
+     D  strategy                     10I 0 value                                Compression strategy
      D  version                        *   value options(*string)               Version string
      D  stream_size                  10i 0 value                                Stream struct. size
       *
@@ -331,7 +331,7 @@
      D deflateParams   PR            10I 0 extproc('deflateParams')             Change level & strat
      D  strm                               like(z_stream)                       Compression stream
      D  level                        10I 0 value                                Compression level
-     D  strategy                     10I 0 value                                Compression stategy
+     D  strategy                     10I 0 value                                Compression strategy
       *
      D deflateBound    PR            10U 0 extproc('deflateBound')              Change level & strat
      D  strm                               like(z_stream)                       Compression stream

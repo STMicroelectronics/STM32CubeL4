@@ -171,8 +171,8 @@ uint16_t NDEF_ReadSMS( sRecordInfo_t *pRecordStruct, sSMSInfo *pSMSStruct )
 
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData + 1; /* remove not usefull data */
-        pData += *pData + 1; /* set pointer on usefull data */
+        PayloadSize -= *pData + 1; /* remove not useful data */
+        pData += *pData + 1; /* set pointer on useful data */
 
         memcpy( pSMSStruct->Information, pData, PayloadSize );
         /* add end of string character */

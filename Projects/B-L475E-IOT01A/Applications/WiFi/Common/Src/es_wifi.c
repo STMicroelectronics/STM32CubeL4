@@ -2257,7 +2257,7 @@ ES_WIFI_Status_t ES_WIFI_StopServerMultiConn(ES_WIFIObject_t *Obj, ES_WIFI_Conn_
   * @param  Obj: pointer to the module handle
   * @param  Socket: number of the socket
   * @param  pdata: pointer to data
-  * @param  Reqlen : lenght of the data given as parameter
+  * @param  Reqlen : length of the data given as parameter
   * @param  SentLen : length of the data actually sent
   * @retval Operation Status.
   */

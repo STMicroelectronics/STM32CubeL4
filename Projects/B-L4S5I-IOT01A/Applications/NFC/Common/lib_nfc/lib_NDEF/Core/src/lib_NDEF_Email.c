@@ -221,7 +221,7 @@ uint16_t NDEF_ReadEmail( sRecordInfo_t *pRecordStruct, sEmailInfo *pEmailStruct 
 
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData + 1; /* remove not usefull data */
+        PayloadSize -= *pData + 1; /* remove not useful data */
         pData += *pData + 1;
 
         memcpy( pEmailStruct->Information, pData, PayloadSize );

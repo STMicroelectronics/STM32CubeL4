@@ -181,7 +181,7 @@ int main(void)
   /* Start ADC group regular conversion */
   /* Note: Hardware constraint (refer to description of the function          */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of this feature is conditioned to     */
+  /*       On this STM32 series, setting of this feature is conditioned to     */
   /*       ADC state:                                                         */
   /*       ADC must be enabled without conversion on going on group regular,  */
   /*       without ADC disable command on going.                              */
@@ -436,7 +436,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       All ADC instances of the ADC common group must be disabled.        */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -452,7 +452,7 @@ void Configure_ADC(void)
     /*       setting corresponding to default configuration from reset state. */
     
     /* Set ADC clock (conversion clock) common to several ADC instances */
-    /* Note: On this STM32 serie, if ADC group injected is used, some         */
+    /* Note: On this STM32 series, if ADC group injected is used, some         */
     /*       clock ratio constraints between ADC clock and AHB clock          */
     /*       must be respected.                                               */
     /*       Refer to reference manual.                                       */
@@ -480,7 +480,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   if (LL_ADC_IsEnabled(ADC1) == 0)
@@ -508,7 +508,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group regular.                                                  */
@@ -531,7 +531,7 @@ void Configure_ADC(void)
     LL_ADC_REG_SetOverrun(ADC1, LL_ADC_REG_OVR_DATA_OVERWRITTEN);
     
     /* Set ADC group regular sequencer */
-    /* Note: On this STM32 serie, ADC group regular sequencer is              */
+    /* Note: On this STM32 series, ADC group regular sequencer is              */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -552,7 +552,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group injected.                                                 */
@@ -578,7 +578,7 @@ void Configure_ADC(void)
     // LL_ADC_INJ_SetQueueMode(ADC1, LL_ADC_INJ_QUEUE_DISABLE);
     
     /* Set ADC group injected sequencer */
-    /* Note: On this STM32 serie, ADC group injected sequencer is             */
+    /* Note: On this STM32 series, ADC group injected sequencer is             */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -599,7 +599,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on either groups regular or injected.                              */
@@ -686,7 +686,7 @@ void Activate_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -953,7 +953,7 @@ void UserButton_Callback(void)
   LED_Off();
   
   /* Reset status variable of ADC group injected unitary conversion before    */
-  /* peforming a new ADC group injected conversion start.                     */
+  /* performing a new ADC group injected conversion start.                     */
   /* Note: Optionally, for this example purpose, check ADC unitary            */
   /*       conversion status before starting another ADC conversion.          */
 
@@ -974,7 +974,7 @@ void UserButton_Callback(void)
   /* Start ADC group injected conversion */
   /* Note: Hardware constraint (refer to description of the function          */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of this feature is conditioned to     */
+  /*       On this STM32 series, setting of this feature is conditioned to     */
   /*       ADC state:                                                         */
   /*       ADC must be enabled without conversion on going on group injected, */
   /*       without ADC disable command on going.                              */

@@ -222,7 +222,7 @@ typedef enum
 
 
 /******************************************************************************
- * Menu for optionnal feature configuration
+ * Menu for optional feature configuration
  ******************************************************************************/
 #define BLE_CFG_MENU_DEVICE_INFORMATION                                        0
 #define MENU_BATTERY                                                           0
@@ -503,7 +503,7 @@ typedef enum
  *****************************************************************************/
 /**
  * Supported requester to the MCU Low Power Manager - can be increased up  to 32
- * It lits a bit mapping of all user of the Low Power Manager
+ * It list a bit mapping of all user of the Low Power Manager
  */
 typedef enum
 {
