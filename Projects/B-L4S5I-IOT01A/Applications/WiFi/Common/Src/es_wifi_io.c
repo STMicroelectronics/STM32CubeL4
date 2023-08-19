@@ -210,6 +210,11 @@ int8_t SPI_WIFI_ResetModule(void)
 
   while (WIFI_IS_CMDDATA_READY())
   {
+    if (count > 4) 
+    {
+      WIFI_DISABLE_NSS();
+      return -1;
+    }
     Status = HAL_SPI_Receive(&hspi , &Prompt[count], 1, 0xFFFF);
     count += 2;
     if (((HAL_GetTick() - tickstart) > 0xFFFF) || (Status != HAL_OK))
