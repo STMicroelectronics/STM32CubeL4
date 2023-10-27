@@ -104,7 +104,7 @@ uint8_t MSC_Mode_Sense6_data[MODE_SENSE6_LEN] =
 /* USB Mass storage sense 10  Data */
 uint8_t MSC_Mode_Sense10_data[MODE_SENSE10_LEN] =
 {
-  0x07,     /* MODE DATA LENGTH. The number of bytes that follow. */
+  0x06,     /* MODE DATA LENGTH. The number of bytes that follow. */
   0x00,     /* MEDIUM TYPE. 00h for SBC devices. */
   0x00,     /* DEVICE-SPECIFIC PARAMETER. For SBC devices: 
              *   bit 7: WP. Set to 1 if the media is write-protected.
