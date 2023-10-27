@@ -2,13 +2,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics. 
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -1997,7 +1996,7 @@ VL53L0X_Error VL53L0X_SetDmaxCalParameters(VL53L0X_DEV Dev,
 	 * value are get from NVM */
 	if ((RangeMilliMeter == 0) || (SignalRateRtnMegaCps == 0)) {
 		/* NVM parameters */
-		/* Run VL53L0X_get_info_from_device wit option 4 to get
+		/* Run VL53L0X_get_info_from_device with option 4 to get
 		 * signal rate at 400 mm if the value have been already
 		 * get this function will return with no access to device */
 		VL53L0X_get_info_from_device(Dev, 4);

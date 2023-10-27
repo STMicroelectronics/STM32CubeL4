@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -49,7 +48,7 @@ extern UART_HandleTypeDef hDiscoUart;
 
 static  uint8_t http[1024];
 static  uint8_t  IP_Addr[4];
-static  int     LedState = 0; 
+static  int     LedState = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 #if defined (TERMINAL_USE)
@@ -132,7 +131,7 @@ static int wifi_start(void)
   if(WIFI_Init() ==  WIFI_STATUS_OK)
   {
     LOG(("ES-WIFI Initialized.\n"));
-    if(WIFI_GetMAC_Address(MAC_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) == WIFI_STATUS_OK)
     {
       LOG(("> eS-WiFi module MAC Address : %02X:%02X:%02X:%02X:%02X:%02X\n",
                MAC_Addr[0],
@@ -165,7 +164,7 @@ int wifi_connect(void)
   LOG(("\nConnecting to %s , %s\n",SSID,PASSWORD));
   if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
   {
-    if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetIP_Address(IP_Addr, sizeof(IP_Addr)) == WIFI_STATUS_OK)
     {
       LOG(("> es-wifi module connected: got IP Address : %d.%d.%d.%d\n",
                IP_Addr[0],
@@ -208,7 +207,7 @@ int wifi_server(void)
     uint16_t RemotePort;
 
 
-    while (WIFI_STATUS_OK != WIFI_WaitServerConnection(SOCKET,1000,RemoteIP,&RemotePort))
+    while (WIFI_STATUS_OK != WIFI_WaitServerConnection(SOCKET,1000,RemoteIP,sizeof(RemoteIP), &RemotePort))
     {
         LOG(("Waiting connection to  %d.%d.%d.%d\n",IP_Addr[0],IP_Addr[1],IP_Addr[2],IP_Addr[3]));
 
@@ -480,5 +479,4 @@ void SPI3_IRQHandler(void)
   HAL_SPI_IRQHandler(&hspi);
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

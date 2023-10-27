@@ -535,7 +535,7 @@ begin
   WriteLn('zlib version: ', zlibVersion);
   WriteLn('zlib compile flags: ', Format('0x%x', [zlibCompileFlags]));
 
-  comprLen := 10000 * SizeOf(Integer); (* don't overflow on MSDOS *)
+  comprLen := 10000 * SizeOf(Integer); (* don't overflow on MS-DOS *)
   uncomprLen := comprLen;
   GetMem(compr, comprLen);
   GetMem(uncompr, uncomprLen);

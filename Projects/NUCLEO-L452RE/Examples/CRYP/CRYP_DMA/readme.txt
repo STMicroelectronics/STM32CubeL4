@@ -8,13 +8,14 @@
   * @author  MCD Application Team
   * @brief   Description of the CRYP AES Algorithm in ECB mode with DMA Example
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -38,9 +39,12 @@ When resorting to IAR Embedded Workbench IDE, plain data, encrypted and decrypte
 data are displayed on debugger Terminal I/O as follows: View --> Terminal I/O.
 When resorting to MDK-ARM KEIL IDE, plain data, encrypted data and decrypted 
 data are displayed on debugger as follows:  View --> Serial Viewer --> Debug (printf) Viewer.
-When resorting to AC6 SW4STM32 IDE:
- In Debug configuration window\ Startup, in addition to "monitor reset halt" add the command "monitor arm semihosting enable"
- Command Code is displayed on debugger as follows: Window--> Show View--> Console.
+When resorting to STM32CubeIDE:
+Command Code is displayed on debugger as follows: Window--> Show View--> Console.
+ In Debug configuration : 
+
+- Window\Debugger, select the Debug probe : ST-LINK(OpenOCD)
+- Window\Startup,add the command "monitor arm semihosting enable"
  
 When all ciphering and deciphering operations are successful, LED2 is turned on.
 In case of ciphering or deciphering issue, LED2 toggles. 
@@ -85,5 +89,4 @@ In order to make the program work, you must do the following:
  - Run the example
 
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */

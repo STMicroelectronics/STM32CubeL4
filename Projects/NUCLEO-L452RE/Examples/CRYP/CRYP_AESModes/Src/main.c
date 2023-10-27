@@ -8,13 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -100,7 +99,7 @@ uint8_t aPlaintext256[64] =
                          0x7B,0x41,0x2B,0xAD,
                          0x10,0x37,0x6C,0xE6};
 
-/* Cyphertext */
+/* Ciphertext*/
 /* which is aPlaintext encrypted with AES 128 Mode CBC */
 uint8_t aCyphertext[AES_TEXT_SIZE] = {0x76, 0x49, 0xab, 0xac, 0x81, 0x19, 0xb2, 0x46,
                                       0xce, 0xe9, 0x8e, 0x9b, 0x12, 0xe9, 0x19, 0x7d,
@@ -1086,4 +1085,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

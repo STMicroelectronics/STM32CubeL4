@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -364,7 +363,7 @@
  *               13    |       1/96
  *               14    |       1/128
  *               15    |       1/256
- *   0   RCO_RATIO: Specifies the divsion ratio when RC oscillator is the clock source
+ *   0   RCO_RATIO: Specifies the division ratio when RC oscillator is the clock source
  *                0 - Division Ratio equal to 0
  *                1 - Division Ratio equal to 1/128
  *   \endcode
@@ -780,7 +779,7 @@
  *  \code
  *   Read Write
  *   Default value: 0x1A
- *   7  CW:              1 - CW Mode enabled - enables the generation of a continous wave carrier without any modulation
+ *   7  CW:              1 - CW Mode enabled - enables the generation of a continuous wave carrier without any modulation
  *                       0 - CW Mode disabled
  *
  *   6 BT_SEL:  Select BT value for GFSK
@@ -808,7 +807,7 @@
 #define MOD0_MOD_TYPE_MSK                   ((uint8_t)0x00) /*!< Modulation type MSK (the frequency deviation must be identical to a quarter of the data rate) */
 #define MOD0_MOD_TYPE_GMSK                  ((uint8_t)0x10) /*!< Modulation type GMSK (the frequency deviation must be identical to a quarter of the data rate) */
 #define MOD0_BT_SEL_BT_MASK                 ((uint8_t)0x00) /*!< Select the BT = 1 or BT = 0.5 valid only for GFSK or GMSK modulation*/
-#define MOD0_CW                             ((uint8_t)0x80) /*!< Set the Continous Wave (no modulation) transmit mode */
+#define MOD0_CW                             ((uint8_t)0x80) /*!< Set the Continuous Wave (no modulation) transmit mode */
 
 /**
  * @}
@@ -1106,7 +1105,7 @@
 #define    AGCCTRL2_BASE                        ((uint8_t)0x24) /*!< AGC freeze strategy, AGC attenuation  strategy, AGC measure time */
 
 #define AGCCTRL2_FREEZE_ON_STEADY_MASK          ((uint8_t)0x40) /*!< The attenuation settings will be frozen as soon as signal level
-                                             is betweeen min and max treshold (see AGCCTRL1) */
+                                             is between min and max threshold (see AGCCTRL1) */
 #define AGCCTRL2_FREEZE_ON_SYNC_MASK            ((uint8_t)0x20) /*!< The attenuation settings will be frozen as soon sync word is detected */
 #define AGCCTRL2_START_MAX_ATTENUATION_MASK     ((uint8_t)0x10) /*!< The AGC algorithm can start with MAX attenuation or MIN attenuation */
 
@@ -1231,7 +1230,7 @@
  *   2:0   control_len[2:0]: length of control field in bytes
  *   \endcode
  */
-#define    PCKTCTRL4_BASE                        ((uint8_t)0x30) /*!< lenghts of address and control field */
+#define    PCKTCTRL4_BASE                        ((uint8_t)0x30) /*!< lengths of address and control field */
 
 #define PCKTCTRL4_ADDRESS_LEN_MASK               ((uint8_t)0x18)
 #define PCKTCTRL4_CONTROL_LEN_MASK               ((uint8_t)0x07)
@@ -1269,7 +1268,7 @@
  *   3:0   LEN_WID[3:0]: length of length field in bits
  *   \endcode
  */
-#define    PCKTCTRL3_BASE                        ((uint8_t)0x31) /*!< packet format, RX mode, lenght of length field */
+#define    PCKTCTRL3_BASE                        ((uint8_t)0x31) /*!< packet format, RX mode, length of length field */
 
 #define    PCKTCTRL3_PCKT_FRMT_BASIC             ((uint8_t)0x00) /*!< Basic Packet Format */
 #define    PCKTCTRL3_PCKT_FRMT_MBUS              ((uint8_t)0x80) /*!< Wireless M-BUS Packet Format */
@@ -1380,10 +1379,10 @@
  *   Read Write
  *   Default value: 0x00
  *
- *   7:0   pktlen1[7:0]: lenght of packet in bytes (upper field) LENGHT/256
+ *   7:0   pktlen1[7:0]: length of packet in bytes (upper field) LENGTH/256
  *   \endcode
  */
-#define    PCKTLEN1_BASE                        ((uint8_t)0x34) /*!< lenght of packet in bytes (upper field) */
+#define    PCKTLEN1_BASE                        ((uint8_t)0x34) /*!< length of packet in bytes (upper field) */
 
 /**
  * @}
@@ -1399,10 +1398,10 @@
  *   Read Write
  *   Default value: 0x14
  *
- *   7:0   pktlen0[7:0]: lenght of packet in bytes (lower field) LENGHT%256
+ *   7:0   pktlen0[7:0]: length of packet in bytes (lower field) LENGTH%256
  *   \endcode
  */
-#define    PCKTLEN0_BASE                        ((uint8_t)0x35) /*!< lenght of packet in bytes (lower field) [PCKTLEN=PCKTLEN1x256+PCKTLEN0]*/
+#define    PCKTLEN0_BASE                        ((uint8_t)0x35) /*!< length of packet in bytes (lower field) [PCKTLEN=PCKTLEN1x256+PCKTLEN0]*/
 
 /**
  * @}
@@ -1443,7 +1442,7 @@
  *   7:0 MBUS_PRMBL[7:0]: MBUS preamble control
  *   \endcode
  */
-#define    MBUS_PRMBL_BASE                    ((uint8_t)0x3B) /*!< MBUS preamble lenght (in 01 bit pairs) */
+#define    MBUS_PRMBL_BASE                    ((uint8_t)0x3B) /*!< MBUS preamble length (in 01 bit pairs) */
 
 /**
  * @}
@@ -1488,10 +1487,10 @@
  */
 #define    MBUS_CTRL_BASE                          ((uint8_t)0x3D) /*!< MBUS sub-modes (S1, S2 short/long header, T1, T2, R2) */
 
-#define    MBUS_CTRL_MBUS_SUBMODE_S1_S2L           ((uint8_t)0x00) /*!< MBUS sub-modes S1 & S2L, header lenght min 279, sync 0x7696, Manchester */
-#define    MBUS_CTRL_MBUS_SUBMODE_S2_S1M_T2_OTHER  ((uint8_t)0x02) /*!< MBUS sub-modes S2, S1-m, T2 (only other to meter) short header, header lenght min 15, sync 0x7696, Manchester */
-#define    MBUS_CTRL_MBUS_SUBMODE_T1_T2_METER      ((uint8_t)0x06) /*!< MBUS sub-modes T1, T2 (only meter to other), header lenght min 19, sync 0x3D, 3 out of 6 */
-#define    MBUS_CTRL_MBUS_SUBMODE_R2               ((uint8_t)0x0A) /*!< MBUS sub-mode R2, header lenght min 39, sync 0x7696, Manchester */
+#define    MBUS_CTRL_MBUS_SUBMODE_S1_S2L           ((uint8_t)0x00) /*!< MBUS sub-modes S1 & S2L, header length min 279, sync 0x7696, Manchester */
+#define    MBUS_CTRL_MBUS_SUBMODE_S2_S1M_T2_OTHER  ((uint8_t)0x02) /*!< MBUS sub-modes S2, S1-m, T2 (only other to meter) short header, header length min 15, sync 0x7696, Manchester */
+#define    MBUS_CTRL_MBUS_SUBMODE_T1_T2_METER      ((uint8_t)0x06) /*!< MBUS sub-modes T1, T2 (only meter to other), header length min 19, sync 0x3D, 3 out of 6 */
+#define    MBUS_CTRL_MBUS_SUBMODE_R2               ((uint8_t)0x0A) /*!< MBUS sub-mode R2, header length min 39, sync 0x7696, Manchester */
 
 /**
  * @}
@@ -1984,7 +1983,7 @@
 
 #define    PROTOCOL0_PERS_TX_MASK                        ((uint8_t)0x01) /*!< Enables persistent transmission */
 #define    PROTOCOL0_PERS_RX_MASK                        ((uint8_t)0x02) /*!< Enables persistent reception */
-#define    PROTOCOL0_AUTO_ACK_MASK                       ((uint8_t)0x04) /*!< Enables auto acknowlegment */
+#define    PROTOCOL0_AUTO_ACK_MASK                       ((uint8_t)0x04) /*!< Enables auto acknowledgment */
 #define    PROTOCOL0_NACK_TX_MASK                        ((uint8_t)0x08) /*!< Writes field NO_ACK=1 on transmitted packet */
 #define    PROTOCOL0_NMAX_RETX_MASK                      ((uint8_t)0xF0) /*!< Retransmission mask */
 
@@ -2178,7 +2177,7 @@
  *   2:0     NBACKOFF_MAX[2:0]: Max number of back-off cycles.
  *   \endcode
  */
-#define    CSMA_CONFIG0_BASE                      ((uint8_t)0x67) /*!< CSMA/CA: CCA lenght; Max number of backoff cycles */
+#define    CSMA_CONFIG0_BASE                      ((uint8_t)0x67) /*!< CSMA/CA: CCA length; Max number of backoff cycles */
 
 /**
  * @}
@@ -3682,8 +3681,8 @@ typedef struct
 typedef enum
 {
   NORMAL_TX_MODE = 0x00,          /*!< Normal mode, no direct transmission is used */
-  DIRECT_TX_FIFO_MODE = 0x04,     /*!< Source is FIFO: payload bits are continuously read from the TX FIFO */
-  DIRECT_TX_GPIO_MODE = 0x08,     /*!< Source is GPIO: payload bits are continuously read from one of the GPIO ports and transmitted without any processing */
+  DIRECT_TX_FIFO_MODE = 0x04,     /*!< Source is FIFO: payload bits are continously read from the TX FIFO */
+  DIRECT_TX_GPIO_MODE = 0x08,     /*!< Source is GPIO: payload bits are continously read from one of the GPIO ports and transmitted without any processing */
   PN9_TX_MODE = 0x0C              /*!< A pseudorandom binary sequence is generated internally */
 }DirectTx;
 
@@ -3698,8 +3697,8 @@ typedef enum
 typedef enum
 {
   NORMAL_RX_MODE = 0x00,          /*!< Normal mode, no direct reception is used */
-  DIRECT_RX_FIFO_MODE = 0x10,     /*!< Destination is FIFO: payload bits are continuously written to the RX FIFO and not subjected to any processing*/
-  DIRECT_RX_GPIO_MODE = 0x20      /*!< Destination is GPIO: payload bits are continuously written to one of the GPIO ports and not subjected to any processing*/
+  DIRECT_RX_FIFO_MODE = 0x10,     /*!< Destination is FIFO: payload bits are continously written to the RX FIFO and not subjected to any processing*/
+  DIRECT_RX_GPIO_MODE = 0x20      /*!< Destination is GPIO: payload bits are continously written to one of the GPIO ports and not subjected to any processing*/
 }DirectRx;
 
 #define IS_DIRECT_RX(MODE)  (((MODE) == NORMAL_RX_MODE) || \
@@ -6226,7 +6225,7 @@ typedef enum{
  */
 
 /**
- * @defgroup Common_Exported_Varaibles     Common Exported Varaibles
+ * @defgroup Common_Exported_Varaibles     Common Exported Variables
  * @{
  */
 extern volatile SpiritStatus g_xStatus;
@@ -6724,4 +6723,3 @@ void SpiritRefreshStatus(void);
 #endif
 
 #endif /* __SPSGRF_H */
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

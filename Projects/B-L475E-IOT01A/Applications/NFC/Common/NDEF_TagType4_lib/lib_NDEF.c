@@ -6,19 +6,12 @@
  ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under MMY-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -71,7 +64,7 @@ void *SPRecordStructAdd[SP_MAX_RECORD] = { (void *)&SPRecordStruct1, (void *)&SP
   */
   
 /**
-  * @brief  This fonction check that the tag contain a NDEF message
+  * @brief  This function check that the tag contain a NDEF message
   * @param  None :
   * @retval SUCCESS : There is a NDEF file stored in tag
   * @retval ERROR : No NDEF in the tag. 
@@ -92,7 +85,7 @@ static uint16_t NDEF_IsNDEFPresent ( void )
 }
 
 /**
-  * @brief  This fonction identify the type of record
+  * @brief  This function identify the type of record
   * @param  pRecordStruct : pointer on the record structure to fill
   * @param  pPayload : pointer on the payload
   * @retval Status : Status of the operation.
@@ -170,7 +163,7 @@ static uint16_t NDEF_IdentifySPRecord ( sRecordInfo *pRecordStruct, uint8_t* pPa
 }
 
 /**
-  * @brief  This fonction parse the record header and dispatch regarding TNF value
+  * @brief  This function parse the record header and dispatch regarding TNF value
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval SUCCESS : record identified and structure filled
   * @retval ERROR : Not supported 
@@ -202,7 +195,7 @@ static uint16_t NDEF_ParseRecordHeader ( sRecordInfo *pRecordStruct )
 }  
 
 /**
-  * @brief  This fonction parse the Well Known type record
+  * @brief  This function parse the Well Known type record
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval None 
   */
@@ -255,7 +248,7 @@ static void NDEF_ParseWellKnownType ( sRecordInfo *pRecordStruct )
 }
 
 /**
-  * @brief  This fonction parse the Media type record
+  * @brief  This function parse the Media type record
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval None 
   */
@@ -270,7 +263,7 @@ static void NDEF_ParseMediaType ( sRecordInfo *pRecordStruct )
 }
 
 /**
-  * @brief  This fonction parse the Forum External type record
+  * @brief  This function parse the Forum External type record
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval None 
   */
@@ -283,7 +276,7 @@ static void NDEF_ParseForumExternalType ( sRecordInfo *pRecordStruct )
 }
 
 /**
-  * @brief  This fonction parse the URI type record
+  * @brief  This function parse the URI type record
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval None 
   */
@@ -308,7 +301,7 @@ static void NDEF_ParseURI(sRecordInfo *pRecordStruct)
 }
 
 /**
-  * @brief  This fonction parse the Smart Poster 
+  * @brief  This function parse the Smart Poster 
   * @param  pRecordStruct : pointer on the record structure to fill
   * @retval None 
   */
@@ -321,7 +314,7 @@ static void NDEF_ParseSP(sRecordInfo *pRecordStruct)
   uint32_t RecordPosition = 0;
   sRecordInfo *pSPRecordStruct;
   
-  /* initialize variable with size of the payload and poiter on data */
+  /* initialize variable with size of the payload and pointer on data */
   PayloadSize = ((uint32_t)(pRecordStruct->PayloadLength3)<<24) | ((uint32_t)(pRecordStruct->PayloadLength2)<<16) |
     ((uint32_t)(pRecordStruct->PayloadLength1)<<8)  | pRecordStruct->PayloadLength0;
   
@@ -329,7 +322,7 @@ static void NDEF_ParseSP(sRecordInfo *pRecordStruct)
   
   pSPRecordStruct = (sRecordInfo *)SPRecordStructAdd[0];
   
-  /* Initailize the number of record find in the SP payload */
+  /* Initialize the number of record find in the SP payload */
   pRecordStruct->NbOfRecordInSPPayload = 0;
   
   do
@@ -365,7 +358,7 @@ static void NDEF_ParseSP(sRecordInfo *pRecordStruct)
 
 
 /**
-  * @brief  This fonction identify the NDEF message stored in tag
+  * @brief  This function identify the NDEF message stored in tag
   * @param  pRecordStruct : Structure to fill with record information
   * @param  pNDEF : pointer on the NDEF message data
   * @retval SUCCESS : record struct filled
@@ -470,7 +463,7 @@ uint16_t NDEF_IdentifyNDEF ( sRecordInfo *pRecordStruct, uint8_t* pNDEF )
 }  
 
 /**
-  * @brief  This fonction read the NDEF content of the TAG
+  * @brief  This function read the NDEF content of the TAG
   * @param  pNDEF : pointer on the buffer to store NDEF data
   * @retval SUCCESS : NDEF file data retrieve and store in the buffer
   * @retval ERROR : not able to read NDEF
@@ -498,7 +491,7 @@ uint16_t NDEF_ReadNDEF( uint8_t* pNDEF)
 }
 
 /**
-  * @brief  This fonction write the NDEF in the TAG
+  * @brief  This function write the NDEF in the TAG
   * @param  pNDEF : pointer on the buffer containing the NDEF data
   * @retval SUCCESS : NDEF file data written in the tag
   * @retval ERROR : not able to store NDEF in tag
@@ -532,5 +525,4 @@ uint16_t NDEF_WriteNDEF( uint8_t *pNDEF)
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

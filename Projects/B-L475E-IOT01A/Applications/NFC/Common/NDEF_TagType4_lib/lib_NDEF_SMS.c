@@ -6,19 +6,12 @@
  ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under MMY-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -50,7 +43,7 @@ static void NDEF_FillSMSStruct( uint8_t* pPayload, uint32_t PayloadSize, sSMSInf
 static void NDEF_ReadURI_SMS ( sRecordInfo *pRecordStruct, sSMSInfo *pSMSStruct );
 
 /**
-  * @brief  This fonction fill SMS structure with information of NDEF message
+  * @brief  This function fill SMS structure with information of NDEF message
   * @param  pPayload : pointer on the payload data of the NDEF message
   * @param  PayloadSize : number of data in the payload
   * @param  pSMSStruct : pointer on the structure to fill
@@ -69,7 +62,7 @@ static void NDEF_FillSMSStruct( uint8_t* pPayload, uint32_t PayloadSize, sSMSInf
   *pSMSStruct->PhoneNumber = 0;
   *pSMSStruct->Message = 0;
   
-  /* Interresting information are stored before picture if any */
+  /* Interesting information are stored before picture if any */
   /* Moreover picture is not used in this demonstration SW */  
   pLastByteAdd = (uint8_t*)(pPayload + PayloadSize);
   
@@ -110,7 +103,7 @@ static void NDEF_FillSMSStruct( uint8_t* pPayload, uint32_t PayloadSize, sSMSInf
 }
 
 /**
-  * @brief  This fonction read the SMS and store data in a structure
+  * @brief  This function read the SMS and store data in a structure
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pSMSStruct : pointer on the structure to fill
   * @retval NONE 
@@ -141,7 +134,7 @@ static void NDEF_ReadURI_SMS ( sRecordInfo *pRecordStruct, sSMSInfo *pSMSStruct 
   */ 
 
 /**
-  * @brief  This fonction read NDEF and retrieve SMS information if any
+  * @brief  This function read NDEF and retrieve SMS information if any
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pSMSStruct : pointer on the structure to fill 
   * @retval SUCCESS : SMS information from NDEF have been retrieve
@@ -177,8 +170,8 @@ uint16_t NDEF_ReadSMS(sRecordInfo *pRecordStruct, sSMSInfo *pSMSStruct)
         
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData+1; /* remove not usefull data */
-        pData += *pData+1; /* set pointer on usefull data */
+        PayloadSize -= *pData+1; /* remove not useful data */
+        pData += *pData+1; /* set pointer on useful data */
         
         memcpy(pSMSStruct->Information, pData, PayloadSize);
         /* add end of string charactere */
@@ -193,9 +186,9 @@ uint16_t NDEF_ReadSMS(sRecordInfo *pRecordStruct, sSMSInfo *pSMSStruct)
 }
 
 /**
-  * @brief  This fonction write the NDEF file with the SMS data given in the structure
+  * @brief  This function write the NDEF file with the SMS data given in the structure
   * @param  pSMSStruct : pointer on structure that contain the SMS information
-  * @retval SUCCESS : the function is succesful
+  * @retval SUCCESS : the function is successful
   * @retval ERROR : Not able to store NDEF file inside tag.
   */
 uint16_t NDEF_WriteSMS ( sSMSInfo *pSMSStruct )
@@ -363,6 +356,5 @@ uint16_t NDEF_WriteSMS ( sSMSInfo *pSMSStruct )
   * @}
   */
 
-/******************* (C) COPYRIGHT 2013 STMicroelectronics *****END OF FILE****/
 
 

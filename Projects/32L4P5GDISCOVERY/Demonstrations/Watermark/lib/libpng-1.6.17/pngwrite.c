@@ -1105,7 +1105,7 @@ png_set_filter(png_structrp png_ptr, int method, int filters)
          {
             if (png_ptr->prev_row == NULL)
             {
-               png_warning(png_ptr, "Can't add Paeth filter after starting");
+               png_warning(png_ptr, "Can't add Path filter after starting");
                png_ptr->do_filter &= (png_byte)(~PNG_FILTER_PAETH);
             }
 
@@ -1288,7 +1288,7 @@ png_set_filter_heuristics(png_structrp png_ptr, int heuristic_method,
 
       /* Here is where we set the relative costs of the different filters.  We
        * should take the desired compression level into account when setting
-       * the costs, so that Paeth, for instance, has a high relative cost at low
+       * the costs, so that Path, for instance, has a high relative cost at low
        * compression levels, while it has a lower relative cost at higher
        * compression settings.  The filter types are in order of increasing
        * relative cost, so it would be possible to do this with an algorithm.
@@ -1343,7 +1343,7 @@ png_set_filter_heuristics_fixed(png_structrp png_ptr, int heuristic_method,
 
       /* Here is where we set the relative costs of the different filters.  We
        * should take the desired compression level into account when setting
-       * the costs, so that Paeth, for instance, has a high relative cost at low
+       * the costs, so that Path, for instance, has a high relative cost at low
        * compression levels, while it has a lower relative cost at higher
        * compression settings.  The filter types are in order of increasing
        * relative cost, so it would be possible to do this with an algorithm.

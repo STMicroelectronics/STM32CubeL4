@@ -9,21 +9,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2016 STMicroelectronics</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under ST MYLIBERTY SOFTWARE LICENSE AGREEMENT (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/myliberty  
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied,
-  * AND SPECIFICALLY DISCLAIMING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -42,7 +33,7 @@
   *           This module allows to build, write & read such data embedded in a NDEF message.
   * @section      Bluetooth_Library_Usage Bluetooth NDEF Library usage
   * @subsection   Bluetooth_Write_BrEdr How to write a Bluetooth Br/Edr OOB
-  *               1. Instanciate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
+  *               1. Instantiate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
   *                 - the `NDEF_BLUETOOTH_BREDR` type.
   *                 - the mandatory Device Address field.
   *                 - any other optional EIRs.
@@ -63,7 +54,7 @@
   *                      NDEF_AppendBluetoothOOB ( &w_bredr_oob, NULL );
   *                 @note Second parameter of `NDEF_AppendBluetoothOOB` can be used to specify an ID for the OOB record (useful for the NDEF Handover message, where specifying an ID is mandatory)
   * @subsection   Bluetooth_Write_Ble How to write a Bluetooth LE OOB
-  *               1. Instanciate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
+  *               1. Instantiate & initialize a `Ndef_Bluetooth_OOB_t` structure, specifying:
   *                 - the `NDEF_BLUETOOTH_BLE` type.
   *                 - the mandatory Device Address & LE Role fields.
   *                 - any other optional EIRs.
@@ -100,7 +91,7 @@
 
 
 /**
-  * @brief  This function copies an array, changing its endianness, usefull to convert data to BLE endianness.
+  * @brief  This function copies an array, changing its endianness, useful to convert data to BLE endianness.
   * @param  dst Pointer on 1st element of the destination array.
   * @param  src pointer on 1st element of the source array .
   * @param  length Number of element to copy.
@@ -551,4 +542,3 @@ uint32_t NDEF_GetBluetoothOOBLength( Ndef_Bluetooth_OOB_t *pBluetooth )
   * @}
   */
 
-/******************* (C) COPYRIGHT 2016 STMicroelectronics *****END OF FILE****/

@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the Power RUN SMPS Mode example.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -97,5 +98,4 @@ In order to make the program work, you must do the following :
  - Press user button within 5 seconds (while led1 is toggling) for SMPS 
  - Wait 10s and start measuring power consumption (B: 80 MHz RUN R1)
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */

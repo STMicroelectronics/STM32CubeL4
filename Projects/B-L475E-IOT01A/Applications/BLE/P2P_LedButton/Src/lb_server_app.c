@@ -6,13 +6,12 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.
  *
- * This software component is licensed by ST under Ultimate Liberty license SLA0044,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        http://www.st.com/SLA0044
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
  *
  ******************************************************************************
  */
@@ -35,7 +34,7 @@
 /* Private typedef -----------------------------------------------------------*/
 typedef struct
 {
-  uint8_t       Notification_Button_Status; // used to chek if LB Router can received push button information
+  uint8_t       Notification_Button_Status; // used to check if LB Router can received push button information
   LBR_ButtonCharValue_t      ButtonStatusToClient;
   uint16_t connHandleWithLbRouteur; //Smart Phone 1
 } LB_End_Dev_Context_t;
@@ -176,4 +175,3 @@ void LBS_App_Notification(LBS_App_Notification_evt_t *pNotification)
 
 #endif //END_DEVICE
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

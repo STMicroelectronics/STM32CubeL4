@@ -9,24 +9,15 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2016 STMicroelectronics</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under ST MYLIBERTY SOFTWARE LICENSE AGREEMENT (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/myliberty  
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied,
-  * AND SPECIFICALLY DISCLAIMING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "lib_NDEF_Wifi.h"
@@ -61,7 +52,7 @@
                   - Version2
                   
                 To write a Wifi OOB, the user must:
-                1. Instanciate & initialize a `sWifiTokenInfo` structure, such as:
+                1. Instantiate & initialize a `sWifiTokenInfo` structure, such as:
                 
                        sWifiTokenInfo wps_oob = {.NetworkSSID        = "MY_SSID",
                                                  .AuthenticationType = NDEF_WIFI_AUTHENTICATION_NONE,
@@ -166,7 +157,7 @@ static void NDEF_FillWifiTokenStruct( uint8_t* pPayload, uint32_t PayloadSize, s
 }
 
 /**
-  * @brief  This fonction reads the WifiToken and store data in a structure.
+  * @brief  This function reads the WifiToken and store data in a structure.
 	* @param	pRecordStruct Pointer on the record structure.
 	* @param	pWifiTokenStruct Pointer on the structure to fill.
   * @retval NONE 
@@ -188,7 +179,7 @@ static void NDEF_Read_WifiToken ( struct sRecordInfo *pRecordStruct, sWifiTokenI
 
 
 /**
-  * @brief  This fonction reads a NDEF record and retrieves a WifiToken information if any.
+  * @brief  This function reads a NDEF record and retrieves a WifiToken information if any.
   * @param	pRecordStruct Pointer on the record structure.
 	* @param	pWifiTokenStruct Pointer on a `sWifiTokenInfo` structure to fill with the WifiToken information.
   * @retval NDEF_OK WifiToken information from NDEF have been retrieved.
@@ -209,7 +200,7 @@ uint16_t NDEF_ReadWifiToken(struct sRecordInfo *pRecordStruct, sWifiTokenInfo *p
 
 
 /**
-  * @brief  This fonction writes a NDEF message built with the WifiToken data given in the structure.
+  * @brief  This function writes a NDEF message built with the WifiToken data given in the structure.
 	* @param	pWifiTokenStruct Pointer on the structure containing the WifiToken information.
   * @retval NDEF_OK The NDEF message has been successfully written.
 	* @retval NDEF_ERROR Not able to store the NDEF message inside the tag.
@@ -362,6 +353,5 @@ uint16_t NDEF_WriteWifiToken ( sWifiTokenInfo *pWifiTokenStruct )
 
 
 
-/******************* (C) COPYRIGHT 2016 STMicroelectronics *****END OF FILE****/
 
 

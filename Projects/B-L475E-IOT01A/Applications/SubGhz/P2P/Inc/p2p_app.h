@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -248,7 +247,7 @@ typedef struct
   int32_t CsmaRSSIThreshold;/*!<RSSI Threshold for CSMA*/
   uint8_t CsmaOverrideFail;
   uint8_t CsmaCcaPeriod; /*!< RSSI meas cycle = (CsmaCcaPeriod+1)*64*TBIT*/
-  uint8_t CsmaCcaLength; /*!<times of CsmaCcaPeriod for ch assesment */
+  uint8_t CsmaCcaLength; /*!<times of CsmaCcaPeriod for ch assessment */
   uint8_t CsmaMaxNb; /*!<Max N backoff */
   uint16_t CsmaBuSeed; /*!<seed for rand in (2^rand)* presc */
   uint8_t CsmaBuPrescaler; /*!<presc for (2^rand)*presc */
@@ -279,4 +278,3 @@ void Set_KeyStatus(FlagStatus val);
 
 #endif /* __P2P_APP_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

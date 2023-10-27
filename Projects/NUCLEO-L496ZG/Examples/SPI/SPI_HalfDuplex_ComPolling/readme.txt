@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the SPI Half Duplex Polling example.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -53,7 +54,7 @@ the configuration of the needed SPI resources according to the used hardware (CL
 GPIO). You may update this function to change SPI configuration.
 
 The communication is handled with direct register access. 
-On slave side, a state machine manage the differents communication step, to handle
+On slave side, a state machine manage the different communication step, to handle
 two kinds of communication:
  - register read : master use this operation to get a value from the slave.
  - register write: master use this operation to update a value on slave side.
@@ -128,6 +129,5 @@ In order to make the program work, you must do the following:
     o Comment "#define MASTER_BOARD" and load the project in Slave Board
  - Run the example
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */
  

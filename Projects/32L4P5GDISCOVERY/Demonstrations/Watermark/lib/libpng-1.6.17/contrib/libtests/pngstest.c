@@ -1110,7 +1110,7 @@ get_pixel(png_uint_32 format))(Pixel *p, png_const_voidp pb)
    }
 }
 
-/* Convertion between pixel formats.  The code above effectively eliminates the
+/* Conversion between pixel formats.  The code above effectively eliminates the
  * component ordering changes leaving three basic changes:
  *
  * 1) Remove an alpha channel by pre-multiplication or compositing on a
@@ -2153,7 +2153,7 @@ typedef struct
    /* Precalculated values: */
    int          in_opaque;   /* Value of input alpha that is opaque */
    int          is_palette;  /* Sample values come from the palette */
-   int          accumulate;  /* Accumlate component errors (don't log) */
+   int          accumulate;  /* Accumulate component errors (don't log) */
    int          output_8bit; /* Output is 8 bit (else 16 bit) */
 
    void (*in_gp)(Pixel*, png_const_voidp);
@@ -2626,7 +2626,7 @@ cmppixel(Transform *transform, png_const_voidp in, png_const_voidp out,
       if (maxerr <= transform->error[limit])
          return 1; /* within the error limits */
 
-      /* Handle a component mis-match; log it, just return an error code, or
+      /* Handle a component mismatch; log it, just return an error code, or
        * accumulate it.
        */
       if (transform->accumulate)
@@ -2843,7 +2843,7 @@ compare_two_images(Image *a, Image *b, int via_linear,
                result = 0;
          }
 
-         /* If reqested copy the error values back from the Transform. */
+         /* If requested copy the error values back from the Transform. */
          if (a->opts & ACCUMULATE)
          {
             tr.error_ptr[0] = tr.error[0];
@@ -3038,7 +3038,7 @@ compare_two_images(Image *a, Image *b, int via_linear,
       }
    }
 
-   /* If reqested copy the error values back from the Transform. */
+   /* If requested copy the error values back from the Transform. */
    if (a->opts & ACCUMULATE)
    {
       tr.error_ptr[0] = tr.error[0];

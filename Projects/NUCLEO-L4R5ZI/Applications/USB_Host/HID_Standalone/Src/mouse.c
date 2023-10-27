@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -185,8 +184,8 @@ void USR_MOUSE_ProcessData(HID_MOUSE_Info_TypeDef *data)
 
 /**
   * @brief  Handles mouse scroll to update the mouse position on display window.
-  * @param  x: USB HID Mouse X co-ordinate
-  * @param  y: USB HID Mouse Y co-ordinate
+  * @param  x: USB HID Mouse X coordinate
+  * @param  y: USB HID Mouse Y coordinate
   * @retval None
   */
 static void HID_MOUSE_UpdatePosition(int8_t x, int8_t y)
@@ -296,4 +295,3 @@ void HID_MOUSE_ButtonReleased(uint8_t button_idx)
   }
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2019 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -355,7 +354,7 @@ void SystemClock_Config(void)
 static void OSPI_WriteEnable(OSPI_HandleTypeDef *hospi)
 {
   OSPI_RegularCmdTypeDef  sCommand;
-  uint8_t reg[2];
+  OSPI_AutoPollingTypeDef sConfig;
 
   /* Enable write operations ------------------------------------------ */
   sCommand.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
@@ -387,19 +386,23 @@ static void OSPI_WriteEnable(OSPI_HandleTypeDef *hospi)
   sCommand.NbData         = 1;
   sCommand.DummyCycles    = DUMMY_CLOCK_CYCLES_READ_REG;
 
-  do
+  if (HAL_OSPI_Command(hospi, &sCommand, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
   {
-    if (HAL_OSPI_Command(hospi, &sCommand, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
-    {
-      Error_Handler();
-    }
+    Error_Handler();
+  }
 
-    if (HAL_OSPI_Receive(hospi, reg, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
-    {
-      Error_Handler();
-    }
-  } while((reg[0] & WRITE_ENABLE_MASK_VALUE) != WRITE_ENABLE_MATCH_VALUE);
+  sConfig.Match         = WRITE_ENABLE_MATCH_VALUE;
+  sConfig.Mask          = WRITE_ENABLE_MASK_VALUE;
+  sConfig.MatchMode     = HAL_OSPI_MATCH_MODE_AND;
+  sConfig.Interval      = AUTO_POLLING_INTERVAL;
+  sConfig.AutomaticStop = HAL_OSPI_AUTOMATIC_STOP_ENABLE;
+
+  if (HAL_OSPI_AutoPolling(hospi, &sConfig, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
+
 
 /**
   * @brief  This function read the SR of the memory and wait the EOP.
@@ -409,7 +412,7 @@ static void OSPI_WriteEnable(OSPI_HandleTypeDef *hospi)
 static void OSPI_AutoPollingMemReady(OSPI_HandleTypeDef *hospi)
 {
   OSPI_RegularCmdTypeDef  sCommand;
-  uint8_t reg[2];
+  OSPI_AutoPollingTypeDef sConfig;
 
   /* Configure automatic polling mode to wait for memory ready ------ */
   sCommand.OperationType      = HAL_OSPI_OPTYPE_COMMON_CFG;
@@ -430,18 +433,21 @@ static void OSPI_AutoPollingMemReady(OSPI_HandleTypeDef *hospi)
   sCommand.DQSMode            = HAL_OSPI_DQS_DISABLE;
   sCommand.SIOOMode           = HAL_OSPI_SIOO_INST_EVERY_CMD;
 
-  do
+  if (HAL_OSPI_Command(hospi, &sCommand, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
   {
-    if (HAL_OSPI_Command(hospi, &sCommand, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
-    {
-      Error_Handler();
-    }
+    Error_Handler();
+  }
 
-    if (HAL_OSPI_Receive(hospi, reg, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
-    {
-      Error_Handler();
-    }
-  } while((reg[0] & MEMORY_READY_MASK_VALUE) != MEMORY_READY_MATCH_VALUE);
+  sConfig.Match         = MEMORY_READY_MATCH_VALUE;
+  sConfig.Mask          = MEMORY_READY_MASK_VALUE;
+  sConfig.MatchMode     = HAL_OSPI_MATCH_MODE_AND;
+  sConfig.Interval      = AUTO_POLLING_INTERVAL;
+  sConfig.AutomaticStop = HAL_OSPI_AUTOMATIC_STOP_ENABLE;
+
+  if (HAL_OSPI_AutoPolling(hospi, &sConfig, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /**
@@ -627,4 +633,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

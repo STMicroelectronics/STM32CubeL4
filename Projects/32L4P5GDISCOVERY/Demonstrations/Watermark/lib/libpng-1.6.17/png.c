@@ -703,7 +703,7 @@ png_convert_to_rfc1123_buffer(char out[29], png_const_timep ptime)
 
    {
       size_t pos = 0;
-      char number_buf[5]; /* enough for a four-digit year */
+      char number_buf[5]={0x0};  /* enough for a four-digit year */
 
 #     define APPEND_STRING(string) pos = png_safecat(out, 29, pos, (string))
 #     define APPEND_NUMBER(format, value)\
@@ -1984,7 +1984,7 @@ png_icc_check_header(png_const_structrp png_ptr, png_colorspacerp colorspace,
     */
 
    /* Data checks (could be skipped).  These checks must be independent of the
-    * version number; however, the version number doesn't accomodate changes in
+    * version number; however, the version number doesn't accommodate changes in
     * the header fields (just the known tags and the interpretation of the
     * data.)
     */

@@ -5,12 +5,9 @@
 * Date               : 26-Jun-2014
 * Description        : Header file with GAP commands for BlueNRG
 ********************************************************************************
-* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
-* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
-* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
-* CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
-* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+* This software is licensed under terms that can be found in the LICENSE file
+* in the root directory of this software component.
+* If no LICENSE file comes with this software, it is provided AS-IS.
 *******************************************************************************/
 
 #ifndef __BLUENRG_GAP_ACI_H__
@@ -1244,7 +1241,7 @@ typedef __packed struct _evt_gap_device_found{
   uint8_t    bdaddr_type;  /**< Type of the peer address (@ref PUBLIC_ADDR, @ref RANDOM_ADDR). */
   tBDAddr      bdaddr;       /**< Address of the peer device found during scanning. */
   uint8_t    data_length;  /**< Length of advertising or scan response data. */
-  uint8_t    data_RSSI[VARIABLE_SIZE]; /**< Advertising or scan response data + RSSI. RSSI is last octect (signed integer). */
+  uint8_t    data_RSSI[VARIABLE_SIZE]; /**< Advertising or scan response data + RSSI. RSSI is last octet (signed integer). */
 } PACKED evt_gap_device_found;
 ///@endcond 
 #endif

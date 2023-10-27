@@ -6,13 +6,12 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.
  *
- * This software component is licensed by ST under Ultimate Liberty license SLA0044,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        http://www.st.com/SLA0044
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
  *
  ******************************************************************************
  */
@@ -86,7 +85,7 @@ int main(void)
    *
    * This section should be removed in production.
    * The Firmware used the RTC IP to implement the TimerServer. During development, it is common to trigger the nreset
-   * to restart the application as this would be done on power ON. However, in that case, the RTC domain is not reseted
+   * to restart the application as this would be done on power ON. However, in that case, the RTC domain is not reset
    * The following implementation resets the RTC domain so that the device behaves in a similar way on nreset to power ON.
    */
 
@@ -541,7 +540,7 @@ void SCH_Idle ( void )
 /**
  * @brief This function OVERLOADEDs the one defined as __WEAK in the TL (transport layer), because
  *        only the application knows which TASKs are currently running and should be paused/resumed.
- *        The applicaiton shall not send a new command when TL the status is set to TL_BLE_HCI_CmdBusy.
+ *        The application shall not send a new command when TL the status is set to TL_BLE_HCI_CmdBusy.
  *        At least, TL_BLE_HCI_UserEvtProc shall not be executed while the TL remains busy
  * @param status
  * @retval None
@@ -609,4 +608,3 @@ void HW_TS_RTC_Int_AppNot(uint32_t eTimerProcessID, uint8_t ubTimerID, HW_TS_pTi
 
 
 
-/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

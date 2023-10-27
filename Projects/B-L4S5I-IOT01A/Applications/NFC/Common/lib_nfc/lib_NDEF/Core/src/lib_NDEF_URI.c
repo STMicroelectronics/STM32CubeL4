@@ -8,21 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2015 STMicroelectronics</center></h2>
+  * Copyright (c) 2015 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under ST MYLIBERTY SOFTWARE LICENSE AGREEMENT (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/myliberty  
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied,
-  * AND SPECIFICALLY DISCLAIMING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -307,7 +298,7 @@ uint16_t NDEF_ReadURI( sRecordInfo_t *pRecordStruct, sURI_Info *pURI )
 
         /* The instruction content the UTF-8 language code that is not used here */
         pData = (uint8_t*)pSPRecordStruct->PayloadBufferAdd;
-        PayloadSize -= *pData + 1; /* remove not usefull data */
+        PayloadSize -= *pData + 1; /* remove not useful data */
         pData += *pData + 1;
 
         memcpy( pURI->Information, pData, PayloadSize );
@@ -359,10 +350,10 @@ void NDEF_PrepareURIMessage( sURI_Info *pURI, uint8_t *pNDEFMessage, uint16_t *s
 /*               ID                 */  /* <---- Not Used  */
 /************************************/
 
-  /* We need to know the URI type in order to define if an abreviation is available */
+  /* We need to know the URI type in order to define if an abbreviation is available */
   type = getUriType( pURI->protocol );
 
-  /* URI : 1+URI for abreviate protocol*/
+  /* URI : 1+URI for abbreviate protocol*/
   if( type != URI_ID_0x00 )
     uriSize = 1 + strlen(pURI->URI_Message);
   else /*: 1+protocol+URI else*/
@@ -420,7 +411,7 @@ void NDEF_PrepareURIMessage( sURI_Info *pURI, uint8_t *pNDEFMessage, uint16_t *s
   Offset += URI_TYPE_STRING_LENGTH;
 
   pNDEFMessage[Offset++] = type;
-  if( type == URI_ID_0x00 ) // No abreviation
+  if( type == URI_ID_0x00 ) // No abbreviation
   {
     memcpy( &pNDEFMessage[Offset], pURI->protocol, strlen(pURI->protocol) );
     Offset += strlen(pURI->protocol);
@@ -520,7 +511,7 @@ char getUriType( char *protocol )
   else if( !memcmp( protocol, URI_ID_0x21_STRING, strlen(URI_ID_0x21_STRING) ) ) return URI_ID_0x21;
   else if( !memcmp( protocol, URI_ID_0x22_STRING, strlen(URI_ID_0x22_STRING) ) ) return URI_ID_0x22;
   else if( !memcmp( protocol, URI_ID_0x23_STRING, strlen(URI_ID_0x23_STRING) ) ) return URI_ID_0x23;
-  else return URI_ID_0x00; // No abreviation for this protocol	
+  else return URI_ID_0x00; // No abbreviation for this protocol	
 }
 
 
@@ -536,4 +527,3 @@ char getUriType( char *protocol )
   * @}
   */
 
-/******************* (C) COPYRIGHT 2015 STMicroelectronics *****END OF FILE****/

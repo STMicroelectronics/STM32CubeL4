@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the ADC_SingleConversion_TriggerTimer_DMA_LP example.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2018 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2018 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -41,7 +42,7 @@ System clock and power are optimized for the lowest power consumption
 Power consumption optimization options:
 Compilation switches are available in main.h file to select optimizations:
  - OPTION_PWR_OPTIM_CPU_LOW_POWER_MODE_SLEEP (default: enabled): Set CPU in low-power mode "sleep" in idle phases (out of ADC, DMA or TIM interruption threads).
- - OPTION_PWR_OPTIM_ADC_DISABLE (default: enabled): Set ADC in the deepest low-power mode possible in idle phases (between ADC conversions). Relevant for ADC conversion triggers at low frequency (below 1kHz approximatively for configuration of this example): less ADC idle current consumption, but more CPU activity to manage ADC activation.
+ - OPTION_PWR_OPTIM_ADC_DISABLE (default: enabled): Set ADC in the deepest low-power mode possible in idle phases (between ADC conversions). Relevant for ADC conversion triggers at low frequency (below 1kHz approximately for configuration of this example): less ADC idle current consumption, but more CPU activity to manage ADC activation.
  - OPTION_MONITOR_CPU_ACTIVITY (default: disabled): Monitor CPU activity: when CPU is active (used by ADC, DMA or TIM interruption threads), turn LED on. This induces extra power consumption.
  - OPTION_THRESHOLD_DEBUG (default: disabled): Monitor converted values: when value is higher than 2048, turn LED on. This induces extra power consumption. To be used for debug.
  WARNING 1: OPTION_MONITOR_CPU_ACTIVITY and OPTION_THRESHOLD_DEBUG shouldn't be used at the same time.
@@ -110,5 +111,4 @@ In order to make the program work, you must do the following :
  - Rebuild all files and load your image into target memory
  - Run the example
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */

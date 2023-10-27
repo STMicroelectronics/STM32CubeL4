@@ -8,13 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -58,6 +57,8 @@ static const uint8_t CRC7_DATA8_TEST17[17] = {0x12,0x34,0xBA,0x71,0xAD,
 static const uint8_t CRC7_DATA8_TEST1[1]   = {0x19};                                                
 static const uint8_t CRC7_DATA8_TEST2[2]   = {0xAB,0xCD};
 
+uint32_t * CRC7_DATA8_PTR_TEST1 = (uint32_t *)CRC7_DATA8_TEST1;
+uint32_t * CRC7_DATA8_PTR_TEST2 = (uint32_t *)CRC7_DATA8_TEST2;
        
 
 /* Expected CRC Values */
@@ -201,7 +202,7 @@ int main(void)
     is not re-initialized, instead the previously computed CRC is used
     as initial value. */
 
-  uwCRCValue = HAL_CRC_Accumulate(&CrcHandle, (uint32_t *)&CRC7_DATA8_TEST1, BUFFER_SIZE_1);
+  uwCRCValue = HAL_CRC_Accumulate(&CrcHandle, (uint32_t *)CRC7_DATA8_PTR_TEST1, BUFFER_SIZE_1);
 
   /* Compare the CRC value to the expected one */
   if (uwCRCValue != uwExpectedCRCValue_3)
@@ -222,7 +223,7 @@ int main(void)
     This is done with a call to HAL_CRC_Calculate() instead of 
     HAL_CRC_Accumulate(). */
 
-  uwCRCValue = HAL_CRC_Calculate(&CrcHandle, (uint32_t *)&CRC7_DATA8_TEST2, BUFFER_SIZE_2);
+  uwCRCValue = HAL_CRC_Calculate(&CrcHandle, (uint32_t *)CRC7_DATA8_PTR_TEST2, BUFFER_SIZE_2);
 
   /* Compare the CRC value to the expected one */
   if (uwCRCValue != uwExpectedCRCValue_4)
@@ -357,4 +358,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

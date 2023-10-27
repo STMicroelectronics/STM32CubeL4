@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -104,7 +103,7 @@ static int8_t CDC_Itf_Init(void)
 
   /*##-2- Put UART peripheral in IT reception process ########################*/
   /* Any data received will be stored in "UserTxBuffer" buffer  */
-  if(HAL_UART_Receive_IT(&UartHandle, (uint8_t *)UserTxBuffer, 1) != HAL_OK)
+  if(HAL_UART_Receive_IT(&UartHandle, (uint8_t *)(UserTxBuffer + UserTxBufPtrIn), 1) != HAL_OK)
   {
     /* Transfer error in reception process */
     Error_Handler();
@@ -448,4 +447,3 @@ static void Error_Handler(void)
   /* Add your own code here */
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

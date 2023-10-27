@@ -8,21 +8,12 @@
  ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2015 STMicroelectronics</center></h2>
+  * Copyright (c) 2015 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under ST MYLIBERTY SOFTWARE LICENSE AGREEMENT (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/myliberty  
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied,
-  * AND SPECIFICALLY DISCLAIMING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -94,7 +85,7 @@ extern uint8_t TT5Tag[];
   */
 
 /**
-  * @brief  This fonction read the data stored in NDEF file at defined offset.
+  * @brief  This function read the data stored in NDEF file at defined offset.
   * @param  Offset : Offset in the NDEF file.
   * @param  DataSize : Number of byte to read.
   * @param  pData : pointer on buffer to store read data.
@@ -245,7 +236,7 @@ uint16_t ReadData( uint16_t Offset , uint16_t DataSize , uint8_t* pData )
 }
 
 /**
-  * @brief  This fonction write data in NDEF file at defined offset.
+  * @brief  This function write data in NDEF file at defined offset.
   * @param  Offset : Offset in the NDEF file.
   * @param  DataSize : Number of byte to write.
   * @param  pData : pointer on buffer to copy.
@@ -278,7 +269,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
       memcpy( &(TT1Tag[index]), pData+2, DataSize );
       /* Write the terminating TLV [0xFE] */
       TT1Tag[index+DataSize] = 0xFE;
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT1_WriteNDEF( );
@@ -307,7 +298,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
       memcpy( &(TT2Tag[index]), pData+2, DataSize );
       /* Write the terminating TLV [0xFE] */
       TT2Tag[index+DataSize] = 0xFE;
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT2_WriteNDEF( );
@@ -331,7 +322,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
         sum += TT3AttribInfo[i];
       TT3AttribInfo[14] = ( sum&0xFF00 ) >> 8;
       TT3AttribInfo[15] = sum & 0x00FF;
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT3_WriteNDEF( );
@@ -344,7 +335,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
       if( DataSize > NFCT4A_MAX_NDEFMEMORY )
         return NDEF_ERROR_MEMORY_INTERNAL;
       memcpy( &(CardNDEFfileT4A[Offset]), pData, DataSize );
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT4_WriteNDEF( );
@@ -357,7 +348,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
       if( DataSize > NFCT4_MAX_NDEFMEMORY )
         return NDEF_ERROR_MEMORY_INTERNAL;
       memcpy( &(CardNDEFfileT4B[Offset]), pData, DataSize );
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT4_WriteNDEF( );
@@ -388,7 +379,7 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
       memcpy( &(TT5Tag[index]), pData + 2, DataSize );
       /* Write the terminating TLV [0xFE] */
       TT5Tag[index+DataSize] = 0xFE;
-      /* Update the phisical tag if needed */
+      /* Update the physical tag if needed */
       #if defined(ST95HF) || defined(CR95HF)
       if( devicemode == PCD )
         return PCDNFCT5_WriteNDEF( );
@@ -414,4 +405,3 @@ uint16_t WriteData( uint16_t Offset, uint32_t DataSize, uint8_t* pData )
   * @}
   */ 
 
-/******************* (C) COPYRIGHT 2015 STMicroelectronics *****END OF FILE****/

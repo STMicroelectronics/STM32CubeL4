@@ -8,13 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -39,7 +38,7 @@
   * @{
   */
 #define NDEF_SESSION_CLOSED                 0xDEADBEEF
-/* M24SR buffer size is 0xF6 can be retrieve dynamicaly in CC file */
+/* M24SR buffer size is 0xF6 can be retrieve dynamically in CC file */
 #define M24SR_READ_MAX_NBBYTE               0xF6 
 #define M24SR_WRITE_MAX_NBBYTE              0xF6
 /**
@@ -77,10 +76,10 @@ static uint16_t NDEF_FileID = 0xDEAD;
   */
 
 /**
-  * @brief  This fonction initialize the M24SR
+  * @brief  This function initialize the M24SR
   * @param  CCBuffer : pointer on the buffer to store CC file
   * @param  size : number of byte of data to read
-  * @retval SUCCESS : Initalization done
+  * @retval SUCCESS : Initialization done
   * @retval ERROR : Not able to Initialize. 
   */
 uint16_t NFC_TT4_Initialization ( uint8_t* CCBuffer, uint8_t size )
@@ -88,7 +87,7 @@ uint16_t NFC_TT4_Initialization ( uint8_t* CCBuffer, uint8_t size )
   uint16_t status = ERROR;
   uint16_t trials = 5; /* wait 1sec, driver is configured to let 200ms for command to complete */
                        /* which is enough for all commands except GetSession if RF session is already opened */
-                       /* Smartphone generaly release the session within the second, but customer can modify this value */
+                       /* Smartphone generally release the session within the second, but customer can modify this value */
   
   /* Perform HW initialization */
   M24SR_Init(M24SR_I2C_ADDR, M24SR_I2C_GPO_MODE);
@@ -141,7 +140,7 @@ uint16_t NFC_TT4_Initialization ( uint8_t* CCBuffer, uint8_t size )
 }
 
 /**
-  * @brief  This fonction retrieve the NDEF file ID of NDEF file present in M24SR
+  * @brief  This function retrieve the NDEF file ID of NDEF file present in M24SR
   * @param  NDEF_fileID : To store NDEF ID
   * @retval SUCCESS : File ID read
   * @retval ERROR : Not able to read file ID. 
@@ -161,10 +160,10 @@ uint16_t NFC_TT4_GetNDEFFileId ( uint16_t *NDEF_fileID )
 
 
 /**
-  * @brief  This fonction configure the M24SR to access NDEF message by I2C
+  * @brief  This function configure the M24SR to access NDEF message by I2C
   * @param  NDEF_fileID : NDEF identification to select NDEF in M24SR
   * @param  Priority: 2 options: check if M24SR available to open session (no RF session on going)
-  *                               Kill RF session and open I2C sesssion.
+  *                               Kill RF session and open I2C session.
   * @retval SUCCESS : Session is opened
   * @retval ERROR : Not able to open session. 
   */
@@ -173,7 +172,7 @@ uint16_t NFC_TT4_OpenNDEFSession ( uint16_t NDEF_fileID, uint16_t Priority )
   uint16_t status = ERROR;
   uint16_t trials = 5; /* wait 1sec, driver is configured to let 200ms for command to complete */
                        /* which is enough for all commands except GetSession if RF session is already opened */
-                       /* Smartphone generaly release the session within the second, but customer can modify this value */
+                       /* Smartphone generally release the session within the second, but customer can modify this value */
   
   if(NDEFSessionOpenID == NDEF_SESSION_CLOSED)
   {
@@ -228,7 +227,7 @@ uint16_t NFC_TT4_OpenNDEFSession ( uint16_t NDEF_fileID, uint16_t Priority )
 }
 
 /**
-  * @brief  This fonction close the NDEF Session.
+  * @brief  This function close the NDEF Session.
   * @param  NDEF_fileID : NDEF identification to select NDEF in M24SR
   * @retval SUCCESS : Session is closed
   * @retval ERROR : Not able to close session. 
@@ -258,7 +257,7 @@ uint16_t NFC_TT4_CloseNDEFSession ( uint16_t NDEF_fileID )
 }
 
 /**
-  * @brief  This fonction read the data stored in M24SR at defined offset
+  * @brief  This function read the data stored in M24SR at defined offset
   * @param  Offset : Offset in the NDEF file in M24SR
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to store read data
@@ -287,7 +286,7 @@ uint16_t NFC_TT4_ReadData ( uint16_t Offset , uint16_t DataSize , uint8_t* pData
 }
 
 /**
-  * @brief  This fonction read the data stored in M24SR at defined offset without NDEF concideration
+  * @brief  This function read the data stored in M24SR at defined offset without NDEF concideration
   * @param  Offset : Offset in the NDEF file in M24SR
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to store read data
@@ -316,7 +315,7 @@ uint16_t NFC_TT4_ForceReadData ( uint16_t Offset , uint16_t DataSize , uint8_t* 
 }
 
 /**
-  * @brief  This fonction write data in M24SR at defined offset
+  * @brief  This function write data in M24SR at defined offset
   * @param  Offset : Offset in the NDEF file in M24SR
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to copy in M24SR
@@ -345,9 +344,9 @@ uint16_t NFC_TT4_WriteData ( uint16_t Offset , uint16_t DataSize , uint8_t* pDat
 }
 
 /**
-  * @brief  This fonction activate the need of a password for next read access
+  * @brief  This function activate the need of a password for next read access
   * @param  pCurrentWritePassword : Write password is needed to have the right to enable Read Password
-  * @param  pNewPassword : The password that will be requiered for next read access
+  * @param  pNewPassword : The password that will be required for next read access
   * @retval SUCCESS : Read password is activated
   * @retval ERROR : operation does not complete  
   */
@@ -372,9 +371,9 @@ uint16_t NFC_TT4_EnableReadPassword( uint8_t* pCurrentWritePassword, uint8_t* pN
 }
 
 /**
-  * @brief  This fonction desactivate the need of a password for next read access
+  * @brief  This function deactivate the need of a password for next read access
   * @param  pCurrentWritePassword : Write password is needed to have the right to disable Read Password
-  * @retval SUCCESS : Read password is desactivated
+  * @retval SUCCESS : Read password is deactivated
   * @retval ERROR : operation does not complete  
   */
 uint16_t NFC_TT4_DisableReadPassword( uint8_t* pCurrentWritePassword)
@@ -397,9 +396,9 @@ uint16_t NFC_TT4_DisableReadPassword( uint8_t* pCurrentWritePassword)
 }
 
 /**
-  * @brief  This fonction activate the need of a password for next write access
+  * @brief  This function activate the need of a password for next write access
   * @param  pCurrentWritePassword : Write password must be prensented to have the right to modify write Password
-  * @param  pNewPassword : The password that will be requiered for next write access
+  * @param  pNewPassword : The password that will be required for next write access
   * @retval SUCCESS : Write password is activated
   * @retval ERROR : operation does not complete   
   */
@@ -424,9 +423,9 @@ uint16_t NFC_TT4_EnableWritePassword( uint8_t* pCurrentWritePassword, uint8_t* p
 }
 
 /**
-  * @brief  This fonction desactivate the need of a password for next write access
+  * @brief  This function deactivate the need of a password for next write access
   * @param  pCurrentWritePassword : Write password must be prensented to have the right to disable it
-  * @retval SUCCESS : Write password is desactivated
+  * @retval SUCCESS : Write password is deactivated
   * @retval ERROR : operation does not complete   
   */
 uint16_t NFC_TT4_DisableWritePassword( uint8_t* pCurrentWritePassword)
@@ -448,7 +447,7 @@ uint16_t NFC_TT4_DisableWritePassword( uint8_t* pCurrentWritePassword)
 }
 
 /**
-  * @brief  This fonction desactivate the need of read and write password for next access
+  * @brief  This function deactivate the need of read and write password for next access
   * @param  pSuperUserPassword : I2C super user password to overwrite read and write password
   * @retval SUCCESS : M24SR access is now free (no password needed)
   * @retval ERROR : operation does not complete   
@@ -480,7 +479,7 @@ uint16_t NFC_TT4_DisableAllPassword( uint8_t* pSuperUserPassword)
 }
 
 /**
-  * @brief  This fonction enable read only mode
+  * @brief  This function enable read only mode
   * @param  pCurrentWritePassword : Write password is needed to have right to enable read only mode
   * @retval SUCCESS : M24SR access is now forbidden in write mode
   * @retval ERROR : operation does not complete   
@@ -504,7 +503,7 @@ uint16_t NFC_TT4_EnableReadOnly( uint8_t* pCurrentWritePassword)
 }
 
 /**
-  * @brief  This fonction disable read only mode
+  * @brief  This function disable read only mode
   * @param  pCurrentWritePassword : Write password is needed to have right to disable read only mode
   * @retval SUCCESS : M24SR write access is now allowed 
   * @retval ERROR : operation does not complete   
@@ -529,7 +528,7 @@ uint16_t NFC_TT4_DisableReadOnly( uint8_t* pCurrentWritePassword)
 }
 
 /**
-  * @brief  This fonction enable write only mode
+  * @brief  This function enable write only mode
   * @param  pCurrentWritePassword : Write password is needed to have right to enable write only mode
   * @retval SUCCESS : M24SR access is now forbidden in read mode
   * @retval ERROR : operation does not complete   
@@ -553,7 +552,7 @@ uint16_t NFC_TT4_EnableWriteOnly( uint8_t* pCurrentWritePassword)
 }
 
 /**
-  * @brief  This fonction disable write only mode
+  * @brief  This function disable write only mode
   * @param  pCurrentWritePassword : Write password is needed to have right to disable write only mode
   * @retval SUCCESS : M24SR read access is now allowed 
   * @retval ERROR : operation does not complete   
@@ -564,7 +563,7 @@ uint16_t NFC_TT4_DisableWriteOnly( uint8_t* pCurrentWritePassword)
   
   if(M24SR_Verify(M24SR_I2C_ADDR, M24SR_I2C_PWD ,0x10 ,I2CPassword ) == M24SR_PWD_CORRECT)
   {
-    M24SR_DisablePermanentState(M24SR_I2C_ADDR, M24SR_READ_PWD ); /* disable write only -> enable write acces */
+    M24SR_DisablePermanentState(M24SR_I2C_ADDR, M24SR_READ_PWD ); /* disable write only -> enable write access */
     M24SR_DisableVerificationRequirement(M24SR_I2C_ADDR, M24SR_READ_PWD );
     status = SUCCESS;
   }
@@ -610,6 +609,5 @@ uint16_t NFC_TT4_ManageGPO( uint8_t gpo_config, uint8_t mode)
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 

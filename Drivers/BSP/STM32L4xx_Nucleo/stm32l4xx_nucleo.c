@@ -10,13 +10,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2015 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2015 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -46,7 +45,7 @@
   */
 #define __STM32L4XX_NUCLEO_BSP_VERSION_MAIN   (0x02) /*!< [31:24] main version */
 #define __STM32L4XX_NUCLEO_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
-#define __STM32L4XX_NUCLEO_BSP_VERSION_SUB2   (0x07) /*!< [15:8]  sub2 version */
+#define __STM32L4XX_NUCLEO_BSP_VERSION_SUB2   (0x08) /*!< [15:8]  sub2 version */
 #define __STM32L4XX_NUCLEO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L4XX_NUCLEO_BSP_VERSION       ((__STM32L4XX_NUCLEO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32L4XX_NUCLEO_BSP_VERSION_SUB1 << 16)\
@@ -380,7 +379,7 @@ JOYState_TypeDef BSP_JOY_GetState(void)
   /* Wait for the end of conversion */
   HAL_ADC_PollForConversion(&hnucleo_Adc, 10);
 
-  /* Check if the continous conversion of regular channel is finished */
+  /* Check if the continuous conversion of regular channel is finished */
   if (HAL_ADC_GetState(&hnucleo_Adc) & HAL_ADC_STATE_REG_EOC)
   {
     /* Get the converted value of regular channel */
@@ -1137,4 +1136,4 @@ static void ADCx_DeInit(void)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

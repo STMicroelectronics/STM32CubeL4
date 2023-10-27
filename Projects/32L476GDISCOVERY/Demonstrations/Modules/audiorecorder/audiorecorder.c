@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -722,7 +721,7 @@ static void AudioRecorder_WavHeaderInit(uint8_t* WavHeaderBuffer,
 
   /* Write the file length ----------------------------------------------------*/
   /* The sampling time: this value will be be written back at the end of the 
-   recording opearation.  Example: 661500 Bytes = 0x000A17FC, byte[7]=0x00, byte[4]=0xFC */
+   recording operation.  Example: 661500 Bytes = 0x000A17FC, byte[7]=0x00, byte[4]=0xFC */
   WavHeaderBuffer[4] = 0xFC; //pWavHeader->AudioLength
   WavHeaderBuffer[5] = 0x17;
   WavHeaderBuffer[6] = 0x0A;
@@ -800,4 +799,3 @@ static void AudioRecorder_WavHeaderInit(uint8_t* WavHeaderBuffer,
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -6,13 +6,12 @@
 ******************************************************************************
 * @attention
 *
-* <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-* All rights reserved.</center></h2>
+* Copyright (c) 2019 STMicroelectronics.
+* All rights reserved.
 *
-* This software component is licensed by ST under Ultimate Liberty license SLA0044,
-* the "License"; You may not use this file except in compliance with the
-* License. You may obtain a copy of the License at:
-*                        http://www.st.com/SLA0044
+* This software is licensed under terms that can be found in the LICENSE file
+* in the root directory of this software component.
+* If no LICENSE file comes with this software, it is provided AS-IS.
 *
 ******************************************************************************
 */
@@ -750,7 +749,7 @@ void watermark_png(void)
       Dma2dHandle.LayerCfg[1].AlphaMode = DMA2D_COMBINE_ALPHA; /* Keep original Alpha from ARGB8888 input */
       Dma2dHandle.LayerCfg[1].InputAlpha = 0x8F; /* Fully opaque */
       Dma2dHandle.LayerCfg[1].InputColorMode = DMA2D_OUTPUT_ARGB8888;
-      Dma2dHandle.LayerCfg[1].InputOffset = pngLoader.logo_width - w; /* No offset in input excpet the last logo */
+      Dma2dHandle.LayerCfg[1].InputOffset = pngLoader.logo_width - w; /* No offset in input except the last logo */
       Dma2dHandle.LayerCfg[1].RedBlueSwap   = DMA2D_RB_REGULAR;      /* No R&B swap for the input image */
       Dma2dHandle.LayerCfg[1].AlphaInverted = DMA2D_REGULAR_ALPHA;   /* No alpha inversion for the input image */
       Dma2dHandle.Instance = DMA2D;
@@ -774,7 +773,7 @@ void watermark_png(void)
         Error_Handler();
       }
 
-      /* Configure Backgroung layer (ie layer 1) */
+      /* Configure Background layer (ie layer 1) */
       if(HAL_DMA2D_ConfigLayer(&Dma2dHandle, 0) != HAL_OK) {
         Error_Handler();
       }
@@ -1497,4 +1496,3 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

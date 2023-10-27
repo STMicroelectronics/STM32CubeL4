@@ -8,13 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -286,7 +285,7 @@ static void ADC_Config(void)
   sConfig.Channel      = ADCx_CHANNELa;
   sConfig.Rank         = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_47CYCLES_5;
-  
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
   if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
   {
     /* Channel Configuration Error */
@@ -412,4 +411,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

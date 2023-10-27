@@ -15,13 +15,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -327,7 +326,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       All ADC instances of the ADC common group must be disabled.        */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -370,7 +369,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   if (LL_ADC_IsEnabled(ADC1) == 0)
@@ -398,7 +397,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group regular.                                                  */
@@ -426,7 +425,7 @@ void Configure_ADC(void)
     LL_ADC_REG_SetOverrun(ADC1, LL_ADC_REG_OVR_DATA_OVERWRITTEN);
     
     /* Set ADC group regular sequencer */
-    /* Note: On this STM32 serie, ADC group regular sequencer is              */
+    /* Note: On this STM32 series, ADC group regular sequencer is              */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -447,7 +446,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group injected.                                                 */
@@ -473,7 +472,7 @@ void Configure_ADC(void)
     // LL_ADC_INJ_SetQueueMode(ADC1, LL_ADC_INJ_QUEUE_DISABLE);
     
     /* Set ADC group injected sequencer */
-    /* Note: On this STM32 serie, ADC group injected sequencer is             */
+    /* Note: On this STM32 series, ADC group injected sequencer is             */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -494,7 +493,7 @@ void Configure_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on either groups regular or injected.                              */
@@ -610,7 +609,7 @@ void Configure_ADC_slave(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   if (LL_ADC_IsEnabled(ADC2) == 0)
@@ -638,7 +637,7 @@ void Configure_ADC_slave(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group regular.                                                  */
@@ -668,7 +667,7 @@ void Configure_ADC_slave(void)
     LL_ADC_REG_SetOverrun(ADC2, LL_ADC_REG_OVR_DATA_OVERWRITTEN);
     
     /* Set ADC group regular sequencer */
-    /* Note: On this STM32 serie, ADC group regular sequencer is              */
+    /* Note: On this STM32 series, ADC group regular sequencer is              */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -689,7 +688,7 @@ void Configure_ADC_slave(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled or enabled without conversion on going        */
   /*       on group injected.                                                 */
@@ -715,7 +714,7 @@ void Configure_ADC_slave(void)
     // LL_ADC_INJ_SetQueueMode(ADC1, LL_ADC_INJ_QUEUE_DISABLE);
     
     /* Set ADC group injected sequencer */
-    /* Note: On this STM32 serie, ADC group injected sequencer is             */
+    /* Note: On this STM32 series, ADC group injected sequencer is             */
     /*       fully configurable: sequencer length and each rank               */
     /*       affectation to a channel are configurable.                       */
     /*       Refer to description of function                                 */
@@ -796,7 +795,7 @@ void Activate_ADC(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -929,7 +928,7 @@ void Activate_ADC_slave(void)
   
   /* Note: Hardware constraint (refer to description of the functions         */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       ADC state:                                                         */
   /*       ADC must be disabled.                                              */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -1200,7 +1199,7 @@ void UserButton_Callback(void)
   /* Start ADC group regular conversion */
   /* Note: Hardware constraint (refer to description of the function          */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of this feature is conditioned to     */
+  /*       On this STM32 series, setting of this feature is conditioned to     */
   /*       ADC state:                                                         */
   /*       ADC must be enabled without conversion on going on group regular,  */
   /*       without ADC disable command on going.                              */
@@ -1364,4 +1363,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -6,19 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under MMY-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -47,7 +40,7 @@ extern uint8_t NDEF_Buffer [NFC_TT4_NDEF_MAX_SIZE];
 static void NDEF_Parse_WellKnowType(sRecordInfo *pRecordStruct, sURI_Info* pURI );
 
 /**
-  * @brief  This fonction read the URI information and store data in a structure
+  * @brief  This function read the URI information and store data in a structure
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pURI : pointer on the structure to fill
   * @retval NONE 
@@ -268,7 +261,7 @@ static void NDEF_Parse_WellKnowType(sRecordInfo *pRecordStruct, sURI_Info* pURI 
   */ 
 
 /**
-  * @brief  This fonction read NDEF and retrieve URI information if any
+  * @brief  This function read NDEF and retrieve URI information if any
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pURI : pointer on the structure to fill 
   * @retval SUCCESS : URI information from NDEF have been retrieved
@@ -318,9 +311,9 @@ uint16_t NDEF_ReadURI(sRecordInfo *pRecordStruct, sURI_Info *pURI)
 }
 
 /**
-  * @brief  This fonction write the NDEF file with the URI data given in the structure
+  * @brief  This function write the NDEF file with the URI data given in the structure
   * @param  pURI : pointer on structure that contain the URI information
-  * @retval SUCCESS : the function is succesful
+  * @retval SUCCESS : the function is successful
   * @retval ERROR : Not able to store NDEF file inside tag.
   */
 uint16_t NDEF_WriteURI ( sURI_Info *pURI)
@@ -359,10 +352,10 @@ uint16_t NDEF_WriteURI ( sURI_Info *pURI)
   Offset = FIRST_RECORD_OFFSET;
   infoSize = 0;
   
-  /* We need to know the URI type in order to define if an abreviation is available */
+  /* We need to know the URI type in order to define if an abbreviation is available */
   type = getUriType(pURI->protocol);
   
-  /* URI : 1+URI for abreviate protocol*/
+  /* URI : 1+URI for abbreviate protocol*/
   if (type != URI_ID_0x00)
     uriSize = 1+strlen(pURI->URI_Message);
   else /*: 1+protocol+URI else*/
@@ -420,7 +413,7 @@ uint16_t NDEF_WriteURI ( sURI_Info *pURI)
   Offset+=URI_TYPE_STRING_LENGTH;
   
   NDEF_Buffer[Offset++]=type;
-  if (type == URI_ID_0x00) /* No abreviation */
+  if (type == URI_ID_0x00) /* No abbreviation */
   {
     memcpy(&NDEF_Buffer[Offset], pURI->protocol, strlen(pURI->protocol));
     Offset+=strlen(pURI->protocol);
@@ -515,7 +508,7 @@ char getUriType(char *protocol)
   else if(!memcmp( protocol, URI_ID_0x21_STRING, strlen(URI_ID_0x21_STRING)))  return URI_ID_0x21;
   else if(!memcmp( protocol, URI_ID_0x22_STRING, strlen(URI_ID_0x22_STRING)))  return URI_ID_0x22;
   else if(!memcmp( protocol, URI_ID_0x23_STRING, strlen(URI_ID_0x23_STRING)))  return URI_ID_0x23;  
-  else return URI_ID_0x00; /* No abreviation for this protocol  */
+  else return URI_ID_0x00; /* No abbreviation for this protocol  */
 }
 
 
@@ -531,7 +524,6 @@ char getUriType(char *protocol)
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 
 

@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   This application writes NDEF messages on ST25DV-I2C type 5 NFC tag.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
    @endverbatim
@@ -24,7 +25,7 @@ This application aims at showing how to write NDEF messages to an ST25DV-I2C typ
 so that the associated application is launched on the smartphone when it comes near the NFC antenna.
 
 First the NFC component is initialised, the LED2 starts blinking to indicate Initialization is terminated.
-Then when the smartphone approches the NFC antenna and action will be taken by the smartphone 
+Then when the smartphone approaches the NFC antenna and action will be taken by the smartphone 
 depending on the NDEF message written on the tag.
 This example writes a different message each time the USER BUTTON is pressed:
  - URI:    the "www.st.com" website is opened by the browser
@@ -84,5 +85,4 @@ In order to make the program work, you must do the following :
   - Rebuild all files and load your image into target memory
   - Run the example
  
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */

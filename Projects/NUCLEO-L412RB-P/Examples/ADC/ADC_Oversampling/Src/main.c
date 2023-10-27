@@ -9,13 +9,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2018 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2018 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -426,7 +425,7 @@ void SystemClock_Config(void)
   *           - Sequencer discont:      disabled: sequence done in 1 scan (default configuration from reset state)
   *           - Sequencer rank 1:       first channel available      (default configuration from reset state)
   *         - Channel
-  *           - Sampling time:          ADCx ADCx_CHANNELa set to sampling time 47.5 ADC clock cycles (on this STM32 serie, sampling time is channel wise)
+  *           - Sampling time:          ADCx ADCx_CHANNELa set to sampling time 47.5 ADC clock cycles (on this STM32 series, sampling time is channel wise)
   *           - Differential mode:      single ended                 (default configuration from reset state)
   *         - Analog watchdog
   *           Feature not used: all parameters let to default configuration from reset state
@@ -463,7 +462,7 @@ __STATIC_INLINE void Configure_ADC(void)
   
   /* Configuration of HAL ADC handle init structure:                          */
   /* parameters of scope ADC instance and ADC group regular.                  */
-  /* Note: On this STM32 serie, ADC group regular sequencer is                */
+  /* Note: On this STM32 series, ADC group regular sequencer is                */
   /*       fully configurable: sequencer length and each rank                 */
   /*       affectation to a channel are configurable.                         */
   AdcHandle.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV2;
@@ -506,7 +505,7 @@ __STATIC_INLINE void Configure_ADC(void)
   /*## channels mapped on group regular         ##############################*/
   
   /* Configuration of channel on ADCx regular group on sequencer rank 1 */
-  /* Note: On this STM32 serie, ADC group regular sequencer is                */
+  /* Note: On this STM32 series, ADC group regular sequencer is                */
   /*       fully configurable: sequencer length and each rank                 */
   /*       affectation to a channel are configurable.                         */
   sConfig.Channel      = ADCx_CHANNELa;               /* ADC channel selection */
@@ -615,4 +614,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

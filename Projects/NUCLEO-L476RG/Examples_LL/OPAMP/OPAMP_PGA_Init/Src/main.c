@@ -11,13 +11,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -226,7 +225,7 @@ void Configure_OPAMP(void)
   /* Set OPAMP power range */
   /* Note: Hardware constraint (refer to description of the function          */
   /*       below):                                                            */
-  /*       On this STM32 serie, setting of these features is conditioned to   */
+  /*       On this STM32 series, setting of these features is conditioned to   */
   /*       OPAMP state:                                                       */
   /*       All OPAMP instances must be disabled.                              */
   /* Note: In this example, all these checks are not necessary but are        */
@@ -442,7 +441,7 @@ void Generate_waveform_voltage(void)
   // LL_DAC_SetMode(DAC1, LL_DAC_CHANNEL_1, LL_DAC_MODE_NORMAL_OPERATION);
   
   /* Set the output for the selected DAC channel */
-  /* Note: On this STM32 serie, DAC channel output set to internal path       */
+  /* Note: On this STM32 series, DAC channel output set to internal path       */
   /*       with buffer enabled also connects the output to GPIO pin.          */
   LL_DAC_ConfigOutput(DAC1, LL_DAC_CHANNEL_1, LL_DAC_OUTPUT_MODE_NORMAL, LL_DAC_OUTPUT_BUFFER_ENABLE, LL_DAC_OUTPUT_CONNECT_INTERNAL);
   
@@ -719,4 +718,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -8,13 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -101,13 +100,13 @@ int main(void)
     if (READ_REG(RTC->BKP4R) == 0)
     {
        /* Mark that this is the first main() run */
-       WRITE_REG( RTC->BKP4R, 0x1 );
+       WRITE_REG(RTC->BKP4R, 0x1);
        /* Initialize RTC back-up registers, used to
           mark code progress or unexpected Firewall resets   */
-       WRITE_REG( RTC->BKP0R, 0x0 ); 
-       WRITE_REG( RTC->BKP1R, 0x0 );
-       WRITE_REG( RTC->BKP2R, 0x0 );
-       WRITE_REG( RTC->BKP3R, 0x0 );                
+       WRITE_REG(RTC->BKP0R, 0x0); 
+       WRITE_REG(RTC->BKP1R, 0x0);
+       WRITE_REG(RTC->BKP2R, 0x0);
+       WRITE_REG(RTC->BKP3R, 0x0);                
                 
        /* Clear RCC reset indication flags to be
           able to detect a Firewall reset */
@@ -129,7 +128,7 @@ int main(void)
                    
         /* Reset BKP4R to ensure a restart from a clean slate 
            at the software next relaunch. */   
-        WRITE_REG( RTC->BKP4R, 0x0 );
+        WRITE_REG(RTC->BKP4R, 0x0);
          
         /* Turn on LED2 */
         BSP_LED_On(LED2);
@@ -145,9 +144,9 @@ int main(void)
            The reset was expected, the test moves on */
            
         /* Mark that this is the second main() run */   
-        WRITE_REG( RTC->BKP4R, 0x2 );
+        WRITE_REG(RTC->BKP4R, 0x2);
         /* Reset RTC back-up register BKP0R */              
-        WRITE_REG( RTC->BKP0R, 0x0 ); 
+        WRITE_REG(RTC->BKP0R, 0x0); 
         /* Clear RCC reset indication flags */
         __HAL_RCC_CLEAR_RESET_FLAGS();     
       }
@@ -155,7 +154,7 @@ int main(void)
       {
         /* Example unsuccessful end; for debugging purposes, mark
            code incorrect end in filling up RTC back-up register BKP1R */
-        WRITE_REG( RTC->BKP1R, 0x1 );     
+        WRITE_REG(RTC->BKP1R, 0x1);     
         Error_Handler();
       }
     }           
@@ -235,7 +234,7 @@ int main(void)
        RTC back-up register BKP0R to 2 */   
     if (READ_REG(RTC->BKP4R) == 2)
     {
-      WRITE_REG( RTC->BKP0R, 0x2 ); 
+      WRITE_REG(RTC->BKP0R, 0x2); 
     }    
     
     /**************************************************************************/
@@ -258,7 +257,7 @@ int main(void)
         expected.
         For debugging purposes, mark code incorrect end in filling up RTC  
         back-up register BKP3R */    
-      WRITE_REG( RTC->BKP3R, 0x1 ); 
+      WRITE_REG(RTC->BKP3R, 0x1); 
       Error_Handler();
     }
     
@@ -270,13 +269,17 @@ int main(void)
     /* Mark that the protected code access as well as the 
       protected volatile data segment access were successful 
       in setting  RTC back-up register BKP0R to 1 */
-    WRITE_REG( RTC->BKP0R, 0x1 ); 
-    
-   
-    
+    WRITE_REG(RTC->BKP0R, 0x1);
+
+    /* Add a little delay to prevent latency issue of writing 
+    to back up register before software  reset */
+    HAL_Delay(1);
+
+
+
     /**************************************************************************/
     /*                                                                        */
-    /*                 Purposedly trigger a Firewall Reset                    */
+    /*                 Purposely trigger a Firewall Reset                    */
     /*                                                                        */  
     /**************************************************************************/ 
      
@@ -288,7 +291,7 @@ int main(void)
        occurred as a Firewall reset was expected.
        For debugging purposes, mark code incorrect end in filling up RTC  
        back-up register BKP2R */
-      WRITE_REG( RTC->BKP2R, 0x1 ); 
+      WRITE_REG(RTC->BKP2R, 0x1); 
       Error_Handler();
                           
      return  check_vdata[0];
@@ -361,7 +364,7 @@ void Error_Handler(void)
 {
   /* Re-initialize BKP4R to ensure a restart
     from a clean slate at the software next relaunch. */   
-  WRITE_REG( RTC->BKP4R, 0x0 );
+  WRITE_REG(RTC->BKP4R, 0x0);
   while(1)
   {
     /* In case of error, LED2 transmits a sequence of three dots, three dashes, three dots */
@@ -464,4 +467,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

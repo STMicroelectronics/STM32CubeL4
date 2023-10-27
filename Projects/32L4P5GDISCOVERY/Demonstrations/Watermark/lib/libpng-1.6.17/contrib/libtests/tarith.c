@@ -176,7 +176,7 @@ int validation_ascii_to_fp(int count, int argc, char **argv)
       }
       else if (PNG_FP_IS_POSITIVE(state) && !(test > 0))
       {
-         fprintf(stderr, "%g[%d] -> '%s' but postive value not so reported\n",
+         fprintf(stderr, "%g[%d] -> '%s' but positive value not so reported\n",
             test, precision, buffer);
          failed = 1;
          assert(!PNG_FP_IS_NEGATIVE(state));
@@ -940,7 +940,7 @@ int validation_gamma(int argc, char **argv)
 
 /**************************** VALIDATION TESTS ********************************/
 /* Various validation routines are included herein, they require some
- * definition for png_warning and png_error, seetings of VALIDATION:
+ * definition for png_warning and png_error, settings of VALIDATION:
  *
  * 1: validates the ASCII to floating point conversions
  * 2: validates png_muldiv

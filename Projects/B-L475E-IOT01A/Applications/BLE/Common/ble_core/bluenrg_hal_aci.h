@@ -5,12 +5,9 @@
 * Date               : 26-Jun-2014
 * Description        : Header file with HCI commands for BlueNRG
 ********************************************************************************
-* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
-* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
-* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
-* CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
-* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+* This software is licensed under terms that can be found in the LICENSE file
+* in the root directory of this software component.
+* If no LICENSE file comes with this software, it is provided AS-IS.
 *******************************************************************************/
 
 #ifndef __BLUENRG_HAL_ACI_H__
@@ -29,7 +26,7 @@
  */
 
 /**
- * @brief This command retrieves the buid number of the firmware.
+ * @brief This command retrieves the build number of the firmware.
  * @param[out] build_number Build number identifying the firmware release.
  * @return Value indicating success or error code.
  */
@@ -72,7 +69,7 @@ tBleStatus aci_hal_read_config_data(uint8_t offset, uint16_t data_len, uint8_t *
  *        TX power level from the command, i.e. the 2nd command overwrites the previous TX power
  *        level. The new TX power level remains until another Set TX Power command, or the system
  *        reboots.\n
- * @param en_high_power Can be only 0 or 1. Set high power bit on or off. It is strongly adviced to use the
+ * @param en_high_power Can be only 0 or 1. Set high power bit on or off. It is strongly advised to use the
  *             right value, depending on the selected hardware configuration for the RF network:
  *             normal mode or high power mode.
  * @param pa_level Can be from 0 to 7. Set the PA level value.

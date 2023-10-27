@@ -6,19 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under MMY-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -49,7 +42,7 @@ extern uint8_t NDEF_Buffer [NFC_TT4_NDEF_MAX_SIZE];
 static void NDEF_Extract_M24SRDiscoveryApp_Input ( sRecordInfo *pRecordStruct, sMyAppInfo *pMyAppStruct );
 
 /**
-  * @brief  This fonction read the NDEF file and store application data in a structure
+  * @brief  This function read the NDEF file and store application data in a structure
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pMyAppStruct : pointer on the structure to fill
   * @retval NONE 
@@ -119,7 +112,7 @@ static void NDEF_Extract_M24SRDiscoveryApp_Input ( sRecordInfo *pRecordStruct, s
   */ 
 
 /**
-  * @brief  This fonction read NDEF and retrieve Application information if any
+  * @brief  This function read NDEF and retrieve Application information if any
   * @param  pRecordStruct : Pointer on the record structure
   * @param  pMyAppStruct : pointer on the structure to fill 
   * @retval SUCCESS : Application information from NDEF have been retrieved
@@ -143,10 +136,10 @@ uint16_t NDEF_ReadMyApp(sRecordInfo *pRecordStruct, sMyAppInfo *pMyAppStruct)
 }
 
 /**
-  * @brief  This fonction write the NDEF file with the Application data given in the structure
+  * @brief  This function write the NDEF file with the Application data given in the structure
   * @brief  Only used for debug purpose in this firmware version
   * @param  pMyAppStruct : pointer on structure that contain the application information
-  * @retval SUCCESS : the function is succesful
+  * @retval SUCCESS : the function is successful
   * @retval ERROR : Not able to store NDEF file inside tag.
   */
 uint16_t NDEF_WriteMyApp(sMyAppInfo *pMyAppStruct)
@@ -279,6 +272,5 @@ uint16_t NDEF_WriteMyApp(sMyAppInfo *pMyAppStruct)
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 

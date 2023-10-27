@@ -10,13 +10,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -109,7 +108,7 @@ void SystemClock_Config(void);
 static void FlushBuffer8(uint8_t* pBuffer1, uint16_t BufferLength);
 static void Error_Handler(void);
 
-#if defined(__GNUC__) && defined(MASTER_BOARD) && defined(SW4STM32)
+#if defined(__GNUC__) && defined(MASTER_BOARD)
 extern void initialise_monitor_handles(void);	/*rtt*/
 #endif
 
@@ -122,7 +121,7 @@ extern void initialise_monitor_handles(void);	/*rtt*/
   */
 int main(void)
 {
-#if defined(__GNUC__) && defined(MASTER_BOARD) && defined(SW4STM32)
+#if defined(__GNUC__) && defined(MASTER_BOARD)
   initialise_monitor_handles();	/*rtt*/
 
 #endif
@@ -608,4 +607,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

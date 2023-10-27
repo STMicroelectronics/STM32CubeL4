@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -139,7 +138,7 @@ uint8_t BSP_TS_GetState(TS_StateTypeDef *TS_State)
   uint8_t  ts_status = TS_OK;
   uint16_t x[TS_MAX_NB_TOUCH]; /* Initial x value */
   uint16_t y[TS_MAX_NB_TOUCH]; /* Initial y value */
-  int16_t  xc, yc;   /* Coordinates transfered to center screen */
+  int16_t  xc, yc;   /* Coordinates transferred to center screen */
   int16_t  xr, yr;   /* Coordinates after rotation */
   uint32_t index;
   uint32_t weight = 0;
@@ -372,4 +371,4 @@ uint8_t BSP_TS_ITGetStatus(void)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

@@ -31,11 +31,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>UART_ReceptionToIdle_CircularDMA.ioc</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/UART_ReceptionToIdle_CircularDMA.ioc</locationURI>
-		</link>
-		<link>
 			<name>Doc/readme.txt</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/readme.txt</locationURI>

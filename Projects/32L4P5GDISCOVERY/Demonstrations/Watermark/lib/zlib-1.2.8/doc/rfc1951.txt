@@ -206,7 +206,7 @@ RFC 1951      DEFLATE Compressed Data Format Specification      May 1996
    pair <length, backward distance>.  The representation used in the
    "deflate" format limits distances to 32K bytes and lengths to 258
    bytes, but does not limit the size of a block, except for
-   uncompressible blocks, which are limited as noted above.
+   incompressible blocks, which are limited as noted above.
 
    Each type of value (literals, distances, and lengths) in the
    compressed data is represented using a Huffman code, using one code

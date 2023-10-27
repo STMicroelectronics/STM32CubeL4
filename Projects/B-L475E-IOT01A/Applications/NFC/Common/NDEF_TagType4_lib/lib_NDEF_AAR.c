@@ -6,19 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
+  * Copyright (c) 2014 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under MMY-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -55,7 +48,7 @@ extern uint8_t NDEF_Buffer [NFC_TT4_NDEF_MAX_SIZE];
 
 
   /**
-  * @brief  This fonction add AAR (Android Application Record) in the tag
+  * @brief  This function add AAR (Android Application Record) in the tag
   * @param  pAARStruct : pointer on structure that contain AAR information
   * @retval SUCCESS : AAR added
   * @retval ERROR : Not able to add AAR
@@ -169,6 +162,5 @@ uint16_t NDEF_AddAAR ( sAARInfo *pAARStruct )
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 

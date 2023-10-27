@@ -6,13 +6,12 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.
  *
- * This software component is licensed by ST under Ultimate Liberty license SLA0044,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        http://www.st.com/SLA0044
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
  *
  ******************************************************************************
  */
@@ -215,7 +214,7 @@ typedef enum
 
 
 /******************************************************************************
- * Menu for optionnal feature configuration
+ * Menu for optional feature configuration
  ******************************************************************************/
 #define BLE_CFG_MENU_DEVICE_INFORMATION                                        0
 #define MENU_BATTERY                                                           0
@@ -496,7 +495,7 @@ typedef enum
  *****************************************************************************/
 /**
  * Supported requester to the MCU Low Power Manager - can be increased up  to 32
- * It lits a bit mapping of all user of the Low Power Manager
+ * It list a bit mapping of all user of the Low Power Manager
  */
 typedef enum
 {
@@ -551,4 +550,3 @@ typedef enum
 
 #endif /*__CONFIG_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -325,7 +325,7 @@ Version 1.0.1 [March 14, 1998]
   Fixed a problem with value of "channels" returned by png_read_update_info()
 
 Version 1.0.1a [April 21, 1998]
-  Optimized Paeth calculations by replacing abs() function calls with intrinsics
+  Optimized Path calculations by replacing abs() function calls with intrinsics
   plus other loop optimizations. Improves avg decoding speed by about 20%.
   Commented out i386istic "align" compiler flags in makefile.lnx.
   Reduced the default warning level in some makefiles, to make them consistent.
@@ -3683,7 +3683,7 @@ Version 1.5.7beta01 [November 4, 2011]
     splits adjacent @ signs with a space; this changes the concatentation
     token from @-@-@ to PNG_JOIN; that should work with all compiler
     preprocessors.
-  Paeth filter speed improvements from work by Siarhei Siamashka. This
+  Path filter speed improvements from work by Siarhei Siamashka. This
     changes the 'Paeth' reconstruction function to improve the GCC code
     generation on x86. The changes are only part of the suggested ones;
     just the changes that definitely improve speed and remain simple.

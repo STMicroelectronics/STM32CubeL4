@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of NUCLEO-L412KB Rev C Demo
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2018 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2018 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -57,7 +58,7 @@ go over very different ranges every second and an amperemeter may not give the c
 The graphic tool is available at
 www.st.com/stm32softwaretools
 with order code: STM32CubeMonPwr
-It allows to observe the power consumption measured for each mode with the one-second period peaks occuring when
+It allows to observe the power consumption measured for each mode with the one-second period peaks occurring when
 the display is updated every second.
 
 
@@ -106,5 +107,4 @@ In order to make the program work, you must do the following :
   - Rebuild all files and load your image into target memory
   - Run the example
 
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */

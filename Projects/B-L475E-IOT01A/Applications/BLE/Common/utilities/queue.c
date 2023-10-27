@@ -6,13 +6,12 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.
  *
- * This software component is licensed by ST under Ultimate Liberty license SLA0044,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        http://www.st.com/SLA0044
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
  *
  ******************************************************************************
  */
@@ -40,9 +39,9 @@
 /* Public functions ----------------------------------------------------------*/
 
 /**
-  * @brief   Initilaiilze queue strcuture .
-  * @note   This function is used to initialize the global queue strcuture.  
-  * @param  q: pointer on queue strcture to be initialised 
+  * @brief   Initilaiilze queue structure .
+  * @note   This function is used to initialize the global queue structure.  
+  * @param  q: pointer on queue structure to be initialised 
   * @param  queueBuffer: pointer on Queue Buffer
   * @param  queueSize:  Size of Queue Buffer
   * @param  elementSize: Size of an element in the queue. if =0, the queue will manage variable sizze elements
@@ -102,7 +101,7 @@ uint8_t* CircularQueue_Add(queue_t *q, uint8_t* x, uint16_t elementSize, uint32_
       curBuffPosition = q->last;
 
       /* store the element  */
-      /* store fisrt the element size if element size is varaible */
+      /* store first the element size if element size is variable */
       if (q->elementSize == 0) 
       {
         q->qBuff[curBuffPosition++]= elementSize & 0xFF;

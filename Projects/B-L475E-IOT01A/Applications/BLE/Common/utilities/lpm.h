@@ -6,13 +6,12 @@
  ******************************************************************************
  * @attention
  *
- * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
- * All rights reserved.</center></h2>
+ * Copyright (c) 2017 STMicroelectronics.
+ * All rights reserved.
  *
- * This software component is licensed by ST under Ultimate Liberty license SLA0044,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        http://www.st.com/SLA0044
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
  *
  ******************************************************************************
  */
@@ -94,7 +93,7 @@ extern "C" {
    *         enters Sleep mode. Otherwise, it enters either Stop Mode or Off Mode.
    *         The default System clock request for all users is set to System clock switched Off
    * @param  id: process Id - value shall be between 0 and 31
-   * @param  mode: System Clock Activty
+   * @param  mode: System Clock Activity
    * @retval None
    */
   void LPM_SetStopMode(uint32_t id, LPM_StopModeSel_t mode);
@@ -178,4 +177,3 @@ extern "C" {
 
 #endif /*__LPM__H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

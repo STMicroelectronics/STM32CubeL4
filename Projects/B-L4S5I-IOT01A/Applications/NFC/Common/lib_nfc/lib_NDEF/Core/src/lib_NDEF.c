@@ -8,21 +8,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2015 STMicroelectronics</center></h2>
+  * Copyright (c) 2015 STMicroelectronics.
+  * All rights reserved.
   *
-  * Licensed under ST MYLIBERTY SOFTWARE LICENSE AGREEMENT (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/myliberty  
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied,
-  * AND SPECIFICALLY DISCLAIMING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -323,14 +314,14 @@ static void NDEF_ParseSP( sRecordInfo_t *pRecordStruct )
   uint32_t RecordPosition = 0;
   sRecordInfo_t *pSPRecordStruct;
 
-  /* initialize variable with size of the payload and poiter on data */
+  /* initialize variable with size of the payload and pointer on data */
   PayloadSize = pRecordStruct->PayloadLength;
 
   pPayload = (uint8_t*)( pRecordStruct->PayloadBufferAdd );
 
   pSPRecordStruct = SPRecordStructAdd[0];
 
-  /* Initailize the number of record find in the SP payload */
+  /* Initialize the number of record find in the SP payload */
   pRecordStruct->NbOfRecordInSPPayload = 0;
 
   do
@@ -744,4 +735,3 @@ uint16_t NDEF_ClearNDEF(void)
   * @}
   */
 
-/******************* (C) COPYRIGHT 2015 STMicroelectronics *****END OF FILE****/

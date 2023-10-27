@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2019 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -87,49 +86,54 @@ int main(void)
     BSP_LED_Off(LED1);
     BSP_LED_Off(LED2);
 
-      /* Enable GPIOs clock */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOF_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();        
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOI_CLK_ENABLE();
+    /* Enable GPIOs clock */
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    __HAL_RCC_GPIOE_CLK_ENABLE();
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    __HAL_RCC_GPIOG_CLK_ENABLE();        
+    __HAL_RCC_GPIOH_CLK_ENABLE();
+    __HAL_RCC_GPIOI_CLK_ENABLE();
 
-  /* Set all GPIO in analog state to reduce power consumption,                */
-  /*   except GPIOC to keep user button interrupt enabled                     */
-  /* Note: Debug using ST-Link is not possible during the execution of this   */
-  /*       example because communication between ST-link and the device       */
-  /*       under test is done through UART. All GPIO pins are disabled (set   */
-  /*       to analog input mode) including  UART I/O pins.                    */
-  GPIO_InitStructure.Pin = GPIO_PIN_All;
-  GPIO_InitStructure.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStructure.Pull = GPIO_NOPULL;
+    /* Set all GPIO in analog state to reduce power consumption,                */
+    /*   except GPIOC to keep user button interrupt enabled                     */
+    /* Note: Debug using ST-Link is not possible during the execution of this   */
+    /*       example because communication between ST-link and the device       */
+    /*       under test is done through UART. All GPIO pins are disabled (set   */
+    /*       to analog input mode) including  UART I/O pins.                    */
+    GPIO_InitStructure.Pin = GPIO_PIN_All;
+    GPIO_InitStructure.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStructure.Pull = GPIO_NOPULL;
 
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStructure); 
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStructure); 
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStructure);
-  HAL_GPIO_Init(GPIOF, &GPIO_InitStructure); 
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStructure);    
-  HAL_GPIO_Init(GPIOH, &GPIO_InitStructure);
-  HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStructure); 
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStructure); 
+    HAL_GPIO_Init(GPIOE, &GPIO_InitStructure);
+    HAL_GPIO_Init(GPIOF, &GPIO_InitStructure); 
+    HAL_GPIO_Init(GPIOG, &GPIO_InitStructure);    
+    HAL_GPIO_Init(GPIOH, &GPIO_InitStructure);
+    HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
 
-  /* Disable GPIOs clock */
-  __HAL_RCC_GPIOA_CLK_DISABLE();
-  __HAL_RCC_GPIOB_CLK_DISABLE();
-  __HAL_RCC_GPIOD_CLK_DISABLE();
-  __HAL_RCC_GPIOE_CLK_DISABLE();
-  __HAL_RCC_GPIOF_CLK_DISABLE();  
-  __HAL_RCC_GPIOG_CLK_DISABLE();  
-  __HAL_RCC_GPIOH_CLK_DISABLE();
-  __HAL_RCC_GPIOI_CLK_DISABLE();
+    /* Disable GPIOs clock */
+    __HAL_RCC_GPIOA_CLK_DISABLE();
+    __HAL_RCC_GPIOB_CLK_DISABLE();
+    __HAL_RCC_GPIOD_CLK_DISABLE();
+    __HAL_RCC_GPIOE_CLK_DISABLE();
+    __HAL_RCC_GPIOF_CLK_DISABLE();  
+    __HAL_RCC_GPIOG_CLK_DISABLE();  
+    __HAL_RCC_GPIOH_CLK_DISABLE();
+    __HAL_RCC_GPIOI_CLK_DISABLE();
 
-
+    /* Suspend Tick increment to prevent wakeup by Systick interrupt.         */
+    /* Otherwise the Systick interrupt will wake up the device within 1ms     */
+    /* (HAL time base).                                                       */
+    HAL_SuspendTick();
     /* Enter STOP 1 mode */
     HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
-    
+    /* Resume SysTick */
+    HAL_ResumeTick();
+
     /* ... STOP 1 mode ... */
 
     /* Re-configure the system clock to 120 MHz based on MSI, enable and
@@ -334,4 +338,3 @@ void assert_failed(char *file, uint32_t line)
   * @}
   */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -36,7 +35,7 @@
   * @{
   */
 #define NDEF_SESSION_CLOSED                 0xDEADBEEF
-/* COMPONENT buffer size is 0xF6 can be retrieve dynamicaly in CC file */
+/* COMPONENT buffer size is 0xF6 can be retrieve dynamically in CC file */
 #define COMPONENT_READ_MAX_NBBYTE               0xF6 
 #define COMPONENT_WRITE_MAX_NBBYTE              0xF6
 /**
@@ -89,10 +88,10 @@ static uint32_t NDEFSessionOpenID=NDEF_SESSION_CLOSED;
   */
 
 /**
-  * @brief  This fonction initialize the COMPONENT
+  * @brief  This function initialize the COMPONENT
   * @param  CCBuffer : pointer on the buffer to store CC file
   * @param  size : number of byte of data to read
-  * @retval SUCCESS : Initalization done
+  * @retval SUCCESS : Initialization done
   * @retval ERROR : Not able to Initialize. 
   */
 uint16_t NFC_TT4_Initialization ( uint8_t* CCBuffer, uint8_t size )
@@ -104,10 +103,10 @@ uint16_t NFC_TT4_Initialization ( uint8_t* CCBuffer, uint8_t size )
 
 
 /**
-  * @brief  This fonction configure the COMPONENT to access NDEF message by I2C
+  * @brief  This function configure the COMPONENT to access NDEF message by I2C
   * @param  NDEF_fileID : NDEF identification to select NDEF in COMPONENT
   * @param  Priority: 2 options: check if COMPONENT available to open session (no RF session on going)
-  *                               Kill RF session and open I2C sesssion.
+  *                               Kill RF session and open I2C session.
   * @retval SUCCESS : Session is opened
   * @retval ERROR : Not able to open session. 
   */
@@ -117,7 +116,7 @@ uint16_t NFC_TT4_OpenNDEFSession ( uint16_t NDEF_fileID, uint16_t Priority )
 }
 
 /**
-  * @brief  This fonction close the NDEF Session.
+  * @brief  This function close the NDEF Session.
   * @param  NDEF_fileID : NDEF identification to select NDEF in COMPONENT
   * @retval SUCCESS : Session is closed
   * @retval ERROR : Not able to close session. 
@@ -128,7 +127,7 @@ uint16_t NFC_TT4_CloseNDEFSession ( uint16_t NDEF_fileID )
 }
 
 /**
-  * @brief  This fonction read the data stored in COMPONENT at defined offset
+  * @brief  This function read the data stored in COMPONENT at defined offset
   * @param  Offset : Offset in the NDEF file in COMPONENT
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to store read data
@@ -140,7 +139,7 @@ uint16_t NFC_TT4_ReadData ( uint16_t Offset , uint16_t DataSize , uint8_t* pData
 }
 
 /**
-  * @brief  This fonction read the data stored in COMPONENT at defined offset without NDEF concideration
+  * @brief  This function read the data stored in COMPONENT at defined offset without NDEF concideration
   * @param  Offset : Offset in the NDEF file in COMPONENT
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to store read data
@@ -152,7 +151,7 @@ uint16_t NFC_TT4_ForceReadData ( uint16_t Offset , uint16_t DataSize , uint8_t* 
 }
 
 /**
-  * @brief  This fonction write data in COMPONENT at defined offset
+  * @brief  This function write data in COMPONENT at defined offset
   * @param  Offset : Offset in the NDEF file in COMPONENT
   * @param  DataSize : Number of byte to read
   * @param  pData : pointer on buffer to copy in COMPONENT
@@ -176,6 +175,5 @@ uint16_t NFC_TT4_WriteData ( uint16_t Offset , uint16_t DataSize , uint8_t* pDat
   * @}
   */
 
-/******************* (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 

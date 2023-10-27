@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -74,8 +73,8 @@ extern  SPI_HandleTypeDef hspi;
   */
 int main(void)
 {
-  uint8_t  MAC_Addr[6];
-  uint8_t  IP_Addr[4];
+  uint8_t  MAC_Addr[6] = {0};
+  uint8_t  IP_Addr[4] = {0};
   uint8_t TxData[] = "STM32 : Hello!\n";
   int32_t Socket = -1;
   uint16_t Datalen;
@@ -120,7 +119,7 @@ int main(void)
   if(WIFI_Init() ==  WIFI_STATUS_OK)
   {
     TERMOUT("> WIFI Module Initialized.\n");
-    if(WIFI_GetMAC_Address(MAC_Addr) == WIFI_STATUS_OK)
+    if(WIFI_GetMAC_Address(MAC_Addr, sizeof(MAC_Addr)) == WIFI_STATUS_OK)
     {
       TERMOUT("> es-wifi module MAC Address : %X:%X:%X:%X:%X:%X\n",
                MAC_Addr[0],
@@ -139,7 +138,7 @@ int main(void)
     if( WIFI_Connect(SSID, PASSWORD, WIFI_ECN_WPA2_PSK) == WIFI_STATUS_OK)
     {
       TERMOUT("> es-wifi module connected \n");
-      if(WIFI_GetIP_Address(IP_Addr) == WIFI_STATUS_OK)
+      if(WIFI_GetIP_Address(IP_Addr, sizeof(IP_Addr)) == WIFI_STATUS_OK)
       {
         TERMOUT("> es-wifi module got IP Address : %d.%d.%d.%d\n",
                IP_Addr[0],
@@ -332,4 +331,3 @@ void SPI3_IRQHandler(void)
 {
   HAL_SPI_IRQHandler(&hspi);
 }
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -7,13 +7,14 @@
   * @author  MCD Application Team
   * @brief   Description of the USB Host HID example.
   ******************************************************************************
+  * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics. All rights reserved.
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license SLA0044,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                       http://www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   @endverbatim
@@ -31,13 +32,19 @@ HID Device such as a Mouse or a Keyboard.
 
 At the beginning of the main program the HAL_Init() function is called to reset all the peripherals,
 initialize the Flash interface and the systick. The user is provided with the SystemClock_Config()
-function to configure the system clock (SYSCLK) to run at 120 MHz. The Full Speed (FS) USB module uses
-internally a 48-MHz clock which is coming from a specific output of two PLLs (PLL or PLL SAI) or from MSI
+function to configure the system clock (SYSCLK) to run at 120 MHz.
+
+By default HSE on-board oscillator from X3 crystal is not provided.
+It is recommended to use the bypass HSE clock STlink MCO Output fixed to 8-MHz as input clock for the MCU.
+The configuration must be:
+ – SB147 OFF
+ – SB109 and SB148 ON
+ – SB12 and SB13 OFF
 
 When the application is started, the connected HID device (Mouse/Keyboard) is detected in HID mode and 
 gets initialized. The STM32 MCU behaves as a HID Host, it enumerates the device and extracts VID, PID, 
 manufacturer name, Serial no and product name information and displays it on the LCD screen. 
-This application is based on interacting with a HID device (Mouse/Keyboard) trough a HID routine.
+This application is based on interacting with a HID device (Mouse/Keyboard) through a HID routine.
 
 A menu is displayed and the user can select any operation from the menu using the Joystick buttons:
  - "Start HID" operation starts the appropriate HID application to the attached HID Device.
@@ -83,7 +90,7 @@ requirements, such as:
   - USB_Host/HID_Standalone/Src/menu.c                  HID State Machine
   - USB_Host/HID_Standalone/Src/usbh_conf.c             General low level driver configuration
   - USB_Host/HID_Standalone/Src/mouse.c                 HID mouse functions file
-  - USB_Host/HID_Standalone/Src/keybaord.c              HID keyboard functions file
+  - USB_Host/HID_Standalone/Src/keyboard.c              HID keyboard functions file
   - USB_Host/HID_Standalone/Inc/main.h                  Main program header file
   - USB_Host/HID_Standalone/Inc/stm32l4xx_it.h          Interrupt handlers header file
   - USB_Host/HID_Standalone/Inc/lcd_log_conf.h          LCD log configuration file
@@ -110,5 +117,4 @@ In order to make the program work, you must do the following :
  - Rebuild all files and load your image into target memory
  - Run the application
  
- * <h3><center>&copy; COPYRIGHT STMicroelectronics</center></h3>
  */
