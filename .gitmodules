@@ -6,3 +6,47 @@
 	path = Drivers/CMSIS/Device/ST/STM32L4xx
 	url = https://github.com/STMicroelectronics/cmsis_device_l4.git
 	branch = master
+[submodule "Drivers/BSP/B-L4S5I-IOT01"]
+	path = Drivers/BSP/B-L4S5I-IOT01
+	url = https://github.com/STMicroelectronics/b-l4s5i-iot01a-bsp.git
+	branch = main
+[submodule "Drivers/BSP/B-L475E-IOT01"]
+	path = Drivers/BSP/B-L475E-IOT01
+	url = https://github.com/STMicroelectronics/b-l475e-iot01a-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4xx_Nucleo"]
+	path = Drivers/BSP/STM32L4xx_Nucleo
+	url = https://github.com/STMicroelectronics/stm32l4xx-nucleo-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4xx_Nucleo_32"]
+	path = Drivers/BSP/STM32L4xx_Nucleo_32
+	url = https://github.com/STMicroelectronics/stm32l4xx-nucleo-32-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4xx_Nucleo_144"]
+	path = Drivers/BSP/STM32L4xx_Nucleo_144
+	url = https://github.com/STMicroelectronics/stm32l4xx-nucleo-144-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4P5G-Discovery"]
+	path = Drivers/BSP/STM32L4P5G-Discovery
+	url = https://github.com/STMicroelectronics/stm32l4p5g-dk-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4R9I-Discovery"]
+	path = Drivers/BSP/STM32L4R9I-Discovery
+	url = https://github.com/STMicroelectronics/32l4r9idiscovery-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L476G-Discovery"]
+	path = Drivers/BSP/STM32L476G-Discovery
+	url = https://github.com/STMicroelectronics/32l476gdiscovery-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L496G-Discovery"]
+	path = Drivers/BSP/STM32L496G-Discovery
+	url = https://github.com/STMicroelectronics/32l496gdiscovery-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L4R9I_EVAL"]
+	path = Drivers/BSP/STM32L4R9I_EVAL
+	url = https://github.com/STMicroelectronics/stm32l4r9i-eval-bsp.git
+	branch = main
+[submodule "Drivers/BSP/STM32L476G_EVAL"]
+	path = Drivers/BSP/STM32L476G_EVAL
+	url = https://github.com/STMicroelectronics/stm32l476g-eval-bsp.git
+	branch = main
