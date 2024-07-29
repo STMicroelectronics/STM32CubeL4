@@ -87,13 +87,14 @@ SECTIONS
     . = ALIGN(8);
   } >FLASH
 
-  .ARM.extab   : 
-  { 
-  . = ALIGN(8);
+  .ARM.extab (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  {
+    . = ALIGN(8);
   *(.ARM.extab* .gnu.linkonce.armextab.*)
   . = ALIGN(8);
   } >FLASH
-  .ARM : {
+  .ARM (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  {
 	. = ALIGN(8);
     __exidx_start = .;
     *(.ARM.exidx*)
@@ -114,7 +115,7 @@ _qspi_init_base = LOADADDR(.qspi);
     _qspi_end = .;         /* define a global symbols at end of qspi */
     
   } >QSPI
-  .preinit_array     :
+  .preinit_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
   {
 	. = ALIGN(8);
     PROVIDE_HIDDEN (__preinit_array_start = .);
@@ -123,7 +124,7 @@ _qspi_init_base = LOADADDR(.qspi);
 	. = ALIGN(8);
   } >FLASH
   
-  .init_array :
+  .init_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
   {
 	. = ALIGN(8);
     PROVIDE_HIDDEN (__init_array_start = .);
@@ -132,7 +133,7 @@ _qspi_init_base = LOADADDR(.qspi);
     PROVIDE_HIDDEN (__init_array_end = .);
 	. = ALIGN(8);
   } >FLASH
-  .fini_array :
+  .fini_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
   {
 	. = ALIGN(8);
     PROVIDE_HIDDEN (__fini_array_start = .);

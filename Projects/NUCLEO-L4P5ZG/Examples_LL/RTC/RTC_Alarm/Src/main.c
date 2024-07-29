@@ -58,8 +58,8 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Buffers used for displaying Time and Date */
-uint8_t aShowTime[] = "hh:ms:ss";
-uint8_t aShowDate[] = "dd/mm/aaaa";
+uint8_t aShowTime[16] = "hh:ms:ss";
+uint8_t aShowDate[16] = "dd/mm/aaaa";
 
 #if (USE_TIMEOUT == 1)
 uint32_t Timeout = 0; /* Variable used for Timeout management */
@@ -496,7 +496,7 @@ void SystemClock_Config(void)
   {
   };
   
-  /* Insure 1µs transition state at intermediate medium speed clock based on DWT*/
+  /* Insure 1ï¿½s transition state at intermediate medium speed clock based on DWT*/
   CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
   DWT->CYCCNT = 0;

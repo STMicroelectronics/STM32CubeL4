@@ -210,7 +210,7 @@ int8_t SPI_WIFI_ResetModule(void)
 
   while (WIFI_IS_CMDDATA_READY())
   {
-    if (count > 4) 
+    if (count > 4)
     {
       WIFI_DISABLE_NSS();
       return -1;
