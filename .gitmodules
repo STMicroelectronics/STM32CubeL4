@@ -50,3 +50,131 @@
 	path = Drivers/BSP/STM32L476G_EVAL
 	url = https://github.com/STMicroelectronics/stm32l476g-eval-bsp.git
 	branch = main
+[submodule "Drivers/BSP/Components/Common"]
+	path = Drivers/BSP/Components/Common
+	url = https://github.com/STMicroelectronics/stm32-bsp-common.git
+	branch = main
+[submodule "Drivers/BSP/Components/cs42l51"]
+	path = Drivers/BSP/Components/cs42l51
+	url = https://github.com/STMicroelectronics/stm32-cs42l51.git
+	branch = main
+[submodule "Drivers/BSP/Components/cs43l22"]
+	path = Drivers/BSP/Components/cs43l22
+	url = https://github.com/STMicroelectronics/stm32-cs43l22.git
+	branch = main
+[submodule "Drivers/BSP/Components/cy8c4014lqi"]
+	path = Drivers/BSP/Components/cy8c4014lqi
+	url = https://github.com/STMicroelectronics/stm32-cy8c4014lqi.git
+	branch = main
+[submodule "Drivers/BSP/Components/ft3x67"]
+	path = Drivers/BSP/Components/ft3x67
+	url = https://github.com/STMicroelectronics/stm32-ft3x67.git
+	branch = main
+[submodule "Drivers/BSP/Components/ft6x06"]
+	path = Drivers/BSP/Components/ft6x06
+	url = https://github.com/STMicroelectronics/stm32-ft6x06.git
+	branch = main
+[submodule "Drivers/BSP/Components/ft5336"]
+	path = Drivers/BSP/Components/ft5336
+	url = https://github.com/STMicroelectronics/stm32-ft5336.git
+	branch = main
+[submodule "Drivers/BSP/Components/hts221"]
+	path = Drivers/BSP/Components/hts221
+	url = https://github.com/STMicroelectronics/stm32-hts221.git
+	branch = main
+[submodule "Drivers/BSP/Components/hx8347g"]
+	path = Drivers/BSP/Components/hx8347g
+	url = https://github.com/STMicroelectronics/stm32-hx8347g.git
+	branch = main
+[submodule "Drivers/BSP/Components/hx8347i"]
+	path = Drivers/BSP/Components/hx8347i
+	url = https://github.com/STMicroelectronics/stm32-hx8347i.git
+	branch = main
+[submodule "Drivers/BSP/Components/iss66wvh8m8"]
+	path = Drivers/BSP/Components/iss66wvh8m8
+	url = https://github.com/STMicroelectronics/stm32-iss66wvh8m8.git
+	branch = main
+[submodule "Drivers/BSP/Components/l3gd20"]
+	path = Drivers/BSP/Components/l3gd20
+	url = https://github.com/STMicroelectronics/stm32-l3gd20.git
+	branch = main
+[submodule "Drivers/BSP/Components/lis3mdl"]
+	path = Drivers/BSP/Components/lis3mdl
+	url = https://github.com/STMicroelectronics/stm32-lis3mdl.git
+	branch = main
+[submodule "Drivers/BSP/Components/lps22hb"]
+	path = Drivers/BSP/Components/lps22hb
+	url = https://github.com/STMicroelectronics/stm32-lps22hb.git
+	branch = main
+[submodule "Drivers/BSP/Components/ls016b8uy"]
+	path = Drivers/BSP/Components/ls016b8uy
+	url = https://github.com/STMicroelectronics/stm32-ls016b8uy.git
+	branch = main
+[submodule "Drivers/BSP/Components/lsm6dsl"]
+	path = Drivers/BSP/Components/lsm6dsl
+	url = https://github.com/STMicroelectronics/stm32-lsm6dsl.git
+	branch = main
+[submodule "Drivers/BSP/Components/lsm303c"]
+	path = Drivers/BSP/Components/lsm303c
+	url = https://github.com/STMicroelectronics/stm32-lsm303c.git
+	branch = main
+[submodule "Drivers/BSP/Components/lsm303dlhc"]
+	path = Drivers/BSP/Components/lsm303dlhc
+	url = https://github.com/STMicroelectronics/stm32-lsm303dlhc.git
+	branch = main
+[submodule "Drivers/BSP/Components/m24sr"]
+	path = Drivers/BSP/Components/m24sr
+	url = https://github.com/STMicroelectronics/stm32-m24sr.git
+	branch = main
+[submodule "Drivers/BSP/Components/mfxstm32l152"]
+	path = Drivers/BSP/Components/mfxstm32l152
+	url = https://github.com/STMicroelectronics/stm32-mfxstm32l152.git
+	branch = main
+[submodule "Drivers/BSP/Components/mx25lm51245g"]
+	path = Drivers/BSP/Components/mx25lm51245g
+	url = https://github.com/STMicroelectronics/stm32-mx25lm51245g.git
+	branch = main
+[submodule "Drivers/BSP/Components/mx25r6435f"]
+	path = Drivers/BSP/Components/mx25r6435f
+	url = https://github.com/STMicroelectronics/stm32-mx25r6435f.git
+	branch = main
+[submodule "Drivers/BSP/Components/n25q128a"]
+	path = Drivers/BSP/Components/n25q128a
+	url = https://github.com/STMicroelectronics/stm32-n25q128a.git
+	branch = main
+[submodule "Drivers/BSP/Components/n25q256a"]
+	path = Drivers/BSP/Components/n25q256a
+	url = https://github.com/STMicroelectronics/stm32-n25q256a.git
+	branch = main
+[submodule "Drivers/BSP/Components/ov9655"]
+	path = Drivers/BSP/Components/ov9655
+	url = https://github.com/STMicroelectronics/stm32-ov9655.git
+	branch = main
+[submodule "Drivers/BSP/Components/rk043fn48h"]
+	path = Drivers/BSP/Components/rk043fn48h
+	url = https://github.com/STMicroelectronics/stm32-rk043fn48h.git
+	branch = main
+[submodule "Drivers/BSP/Components/st25dv"]
+	path = Drivers/BSP/Components/st25dv
+	url = https://github.com/STMicroelectronics/stm32-st25dv.git
+	branch = main
+[submodule "Drivers/BSP/Components/st7735"]
+	path = Drivers/BSP/Components/st7735
+	url = https://github.com/STMicroelectronics/stm32-st7735.git
+	branch = main
+[submodule "Drivers/BSP/Components/st7789h2"]
+	path = Drivers/BSP/Components/st7789h2
+	url = https://github.com/STMicroelectronics/stm32-st7789h2.git
+	branch = main
+[submodule "Drivers/BSP/Components/stmpe811"]
+	path = Drivers/BSP/Components/stmpe811
+	url = https://github.com/STMicroelectronics/stm32-stmpe811.git
+	branch = main
+[submodule "Drivers/BSP/Components/stmpe1600"]
+	path = Drivers/BSP/Components/stmpe1600
+	url = https://github.com/STMicroelectronics/stm32-stmpe1600.git
+	branch = main
+[submodule "Drivers/BSP/Components/wm8994"]
+	path = Drivers/BSP/Components/wm8994
+	url = https://github.com/STMicroelectronics/stm32-wm8994.git
+	branch = main
