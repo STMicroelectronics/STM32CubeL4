@@ -96,37 +96,36 @@ int main(void)
           Yields a 4 MHz / 16 = 250 KHz external clock */
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_MSI, RCC_MCODIV_16);
 
-  /*##-3- Transmit over an infinite loop */
+  /* Transmit operations */
+  if(HAL_OK != HAL_PSSI_Transmit(&hpssi, (uint8_t *)pData16, sizeof(pData16), 0xFFFF))
+  {
+    Error_Handler();
+  }
+
+  if(HAL_PSSI_DeInit(&hpssi) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Modify bus width */
+  hpssi.Init.BusWidth = HAL_PSSI_16LINES;
+  if(HAL_PSSI_Init(&hpssi) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Transmit operations */
+  if(HAL_OK != HAL_PSSI_Transmit(&hpssi, (uint8_t *)pData16_16lines, sizeof(pData16_16lines), 0xFFFF))
+  {
+    Error_Handler();
+  }
+
+  /*Turn LED1 on*/
+  BSP_LED_On(LED1);
+
+  /*infinite loop */
   while (1)
   {
-    /* Transmit operations */
-    if(HAL_OK != HAL_PSSI_Transmit(&hpssi, (uint8_t *)pData16, sizeof(pData16), 0xFFFF))
-    {
-      Error_Handler();
-    }
-
-    HAL_Delay(100);
-    BSP_LED_Toggle(LED1);
-    /* Modify bus width */
-    hpssi.Init.BusWidth = HAL_PSSI_16LINES;
-    if(HAL_PSSI_Init(&hpssi) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Transmit operations */
-    if(HAL_OK != HAL_PSSI_Transmit(&hpssi, (uint8_t *)pData16_16lines, sizeof(pData16_16lines), 0xFFFF))
-    {
-      Error_Handler();
-    }
-
-    HAL_Delay(100);
-    /* Modify bus width */
-    hpssi.Init.BusWidth = HAL_PSSI_8LINES;
-    if(HAL_PSSI_Init(&hpssi) != HAL_OK)
-    {
-      Error_Handler();
-    }
   }
 }
 

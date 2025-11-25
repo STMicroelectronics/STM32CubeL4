@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OCLastSavedByProductVersion</name>
-          <state>7.30.1.7765</state>
+          <state>7.10.3.6927</state>
         </option>
         <option>
           <name>OCDownloadAttachToProgram</name>
@@ -520,7 +520,7 @@
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>4</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -717,10 +717,6 @@
         <option>
           <name>OCJetEmuParams</name>
           <state>1</state>
-        </option>
-        <option>
-          <name>IjetPreferETB</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -1197,7 +1193,7 @@
         <option>
           <name>CCSTLinkResetList</name>
           <version>1</version>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>CCCpuClockEdit</name>
@@ -1263,7 +1259,7 @@
         </option>
         <option>
           <name>CCXds100InterfaceList</name>
-          <version>2</version>
+          <version>1</version>
           <state>0</state>
         </option>
         <option>

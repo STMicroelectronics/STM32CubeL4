@@ -133,6 +133,7 @@ static void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   RCC_OscInitTypeDef RCC_OscInitStruct;
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+  RCC_CRSInitTypeDef RCC_CRSInitStruct = {0};
   
   /* Enable the HSI48 Oscillator */
   RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI48;
@@ -158,6 +159,27 @@ static void SystemClock_Config(void)
     /* Initialization Error */
     Error_Handler();
   }
+  
+     /*Configure the clock recovery system (CRS)**********************************/
+  
+   /* Enable CRS Clock */
+  __HAL_RCC_CRS_CLK_ENABLE();
+    
+  /* Default Synchro Signal division factor (not divided) */
+  RCC_CRSInitStruct.Prescaler = RCC_CRS_SYNC_DIV1;
+  
+  /* Set the SYNCSRC[1:0] bits according to CRS_Source value */
+  RCC_CRSInitStruct.Source = RCC_CRS_SYNC_SOURCE_USB;
+  
+  /* HSI48 is synchronized with USB SOF at 1KHz rate */
+  RCC_CRSInitStruct.ReloadValue =  __HAL_RCC_CRS_RELOADVALUE_CALCULATE(48000000, 1000);
+  RCC_CRSInitStruct.ErrorLimitValue = RCC_CRS_ERRORLIMIT_DEFAULT;
+  
+  /* Set the TRIM[5:0] to the default value*/
+  RCC_CRSInitStruct.HSI48CalibrationValue = 0x20; 
+  
+  /* Start automatic synchronization */ 
+  HAL_RCCEx_CRSConfig (&RCC_CRSInitStruct);
 
   /* Enable MSI Auto-calibration through LSE */
   HAL_RCCEx_EnableMSIPLLMode();

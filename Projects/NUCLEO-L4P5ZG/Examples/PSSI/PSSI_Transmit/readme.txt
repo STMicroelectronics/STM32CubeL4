@@ -41,7 +41,7 @@ In this example, transmission is set to 16-bit width data with bus width varying
 MSI clock divided by 16 yields the master clock to drive PSSI peripheral.
 
 NUCLEO-L4P5ZG (144 pins) LEDs are used to monitor the example status:
-  - LED1 (GREEN) toggles each time the bus width is modified
+  - LED1 (GREEN) is ON when the example runs successfully
   - LED3 (RED) is ON when a time out or initialization error is detected
 
 User can monitor on an oscilloscope the relevant GPIO pins to check PSSI_Di lines behavior

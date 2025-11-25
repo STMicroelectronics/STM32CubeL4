@@ -45,7 +45,7 @@
         </option>
         <option>
           <name>MemFile</name>
-          <state>C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\arm\config\debugger\ST\STM32L486x.ddf</state>
+          <state></state>
         </option>
         <option>
           <name>RunToEnable</name>

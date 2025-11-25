@@ -70,17 +70,546 @@
 <div class="col-sm-12 col-lg-8">
 <h1 id="update-history">Update History</h1>
 <div class="collapse">
-<input type="checkbox" id="collapse-section31" checked aria-hidden="true"> <label for="collapse-section31" aria-hidden="true">V1.18.1 / 28-June-2024</label>
+<input type="checkbox" id="collapse-section32" checked aria-hidden="true"> <label for="collapse-section32" aria-hidden="true">V1.18.2 / 14-November-2025</label>
 <div>
 <h2 id="main-changes">Main Changes</h2>
 <h3 id="maintenance-release-of-stm32cubel4-firmware-package">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
+<ul>
+<li>General updates to fix known defects and implementation enhancements.</li>
+<li><strong>SLA0044</strong> Legal terms updated to latest revision <strong>(Rev 6 / October 2025)</strong></li>
+<li><strong>SLA0048</strong> Legal terms updated to latest revision <strong>(Rev 5 / October 2025)</strong></li>
+<li>Upgrade of <strong>USB Device</strong> library to new version <strong>V2.11.5</strong></li>
+<li>Upgrade of <strong>USB Host</strong> library to new version <strong>V3.5.4</strong></li>
+<li>Add the “GPIO_Demo” example for all supported STM32L4xx Nucleo boards.
+<ul>
+<li>This example provides the source code for the demonstration binary package, available for download on the specific Nucleo webpages.</li>
+</ul></li>
+<li>Upgrade HAL drivers to be compliant with Synopsys Coverity static analysis tool.</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><strong>SBOM</strong>
+<ul>
+<li>Deliver SBOM in <a href="sbom_cdx.json">CycloneDX v1.5 format</a></li>
+</ul></li>
+<li><strong>CMSIS Device</strong> updates
+<ul>
+<li>Allow redefinition of the macro ‘VECT_TAB_OFFSET’ externally from the IDE, makefile, or command line.</li>
+<li>Fix Capture Compare register TIMx_CCR5 defintion.</li>
+</ul></li>
+<li><strong>HAL/LL Drivers</strong> updates
+<ul>
+<li>HAL code quality enhancement for MISRA-C 2012 Rule-8.13 by adding ‘const’ qualifier.</li>
+<li>HAL code quality enhancement for MISRA-C 2012 Rule-12.2 by adding ‘UL’ qualifier on defined const.</li>
+<li>Upgrated HAL drivers to be compliant with Synopsys Coverity static analysis tool.</li>
+<li><strong>HAL ADC</strong> update
+<ul>
+<li>Add busy-state check in before aborting DMA.</li>
+<li>Fix length param definition in HAL_ADCEx_MultiModeStart_DMA() API.</li>
+</ul></li>
+<li><strong>HAL DAC</strong> update
+<ul>
+<li>Update the check for software trigger enablement by adding a verification of the Trigger selection.</li>
+</ul></li>
+<li><strong>HAL I2C</strong> update
+<ul>
+<li>Improvement and simplification IsDeviceReady() function.</li>
+<li>Move variable tmp declaration at the beginning in I2C_TransferCofig() function.</li>
+<li>Update HAL_I2C_IsDeviceReady() API to take into account the number of trials.</li>
+<li>Add support for memory transfer mode to the HAL_I2C_Master_Abort_IT() API.</li>
+</ul></li>
+<li><strong>HAL FMC</strong> update
+<ul>
+<li>Change “deviceaddress” variable as volatile in HAL_NAND_Read_Page_8b(), HAL_NAND_Read_SpareArea_8b(), HAL_NAND_Read_Page_16b() and HAL_NAND_Read_SpareArea_16b() APIs to avoid compiler optimizations and ensure correct data reads.</li>
+</ul></li>
+<li><strong>HAL OSPI</strong> update
+<ul>
+<li>Add HAL_OSPI_IsMemoryMapped() API.</li>
+<li>change ChipSelectHighTime max limits to 64 to feat with specification.</li>
+</ul></li>
+<li><strong>HAL QSPI</strong> update
+<ul>
+<li>Race condition with QSPI data transfer (DMA).</li>
+</ul></li>
+<li><strong>HAL SPI</strong> update
+<ul>
+<li>Check data size before changing state in reception API.</li>
+<li>Replace SD defines by MMC defines in HAL_MMC_IRQHandler() API.</li>
+<li>Add note to clarify HAL_SPI_Receive() API behavior in master mode.</li>
+<li>Add units to physical measurements.</li>
+<li>Avoid buffer overflow in SPI_WaitFifoStateUntilTimeout().</li>
+</ul></li>
+<li><strong>HAL TIM</strong> update
+<ul>
+<li>Fix update flag (UIF) clearing in TIM_Base_SetConfig.</li>
+<li>Update HAL_TIMEx_ConfigBreakInput() API to fix MISRAC 2012 Rule-16.1 violation.</li>
+<li>Update TIM_CCER_CCxE_MASK to support internal TIM Channel5 and TIM Channel6.</li>
+<li>Fix complementary channel systematically disabled by TIM_OCx_SetConfig().</li>
+</ul></li>
+<li><strong>HAL UART</strong> update
+<ul>
+<li>Correct DMA Rx abort procedure impact on ongoing Tx transfer in polling mode.</li>
+<li>Correct references to HAL_UARTEx_WakeupCallback and to HAL_UART_WAKEUP_CB_ID define, according to serie capabilities.</li>
+<li>Provide accurate position in RxEventCallback when ReceptionToIdle mode is used with DMA, when UART and DMA interrupts process is delayed.</li>
+<li>Fix transfer count underflow when using polling mode.</li>
+</ul></li>
+<li><strong>HAL SDMMC</strong> update
+<ul>
+<li>Add a check condition before aborting DMA in HAL_MMC_IRQHandler() API.</li>
+</ul></li>
+<li><strong>HAL DMA</strong> update
+<ul>
+<li>Fix DMA channel mask calculation bug for DMA2.</li>
+<li>Update HAL DMA request defines to reference LL DMAMUX define.</li>
+</ul></li>
+<li><strong>HAL RTC</strong> update
+<ul>
+<li>Add missing enumerator ‘HAL_RTC_SSRU_EVENT_CB_ID’ to the enumerated type ‘HAL_RTC_CallbackIDTypeDef’.</li>
+<li>Avoid entering initialization mode when calling HAL_RTC_Init() API if the RTC is already configured in binary mode to prevent unwanted reset of the SSR register.</li>
+</ul></li>
+<li><strong>HAL USB</strong> update
+<ul>
+<li>Fix the condition on EONUM flag of DOEPCTLx register in HAL_PCD_IRQHandler() to correctly check on the frame number parity.</li>
+</ul></li>
+<li><strong>LL RNG</strong> update
+<ul>
+<li>Update the LL RNG driver to support access to the HTCR register.</li>
+<li>Alignment of LL RNG API naming across the STM32 series.
+<ul>
+<li>LL_RNG_SetConditioningResetBit() -&gt; LL_RNG_EnableCondReset()</li>
+<li>LL_RNG_ResetConditioningResetBit() -&gt; LL_RNG_DisableCondReset()</li>
+<li>LL_RNG_IsResetConditioningBitSet() -&gt; LL_RNG_IsEnabledCondReset()</li>
+<li>LL_RNG_IsNistComplianceEnabled() -&gt; LL_RNG_IsEnabledNistCompliance()</li>
+<li>LL_RNG_SetHealthconfiguration() -&gt; LL_RNG_SetHealthConfig()</li>
+<li>LL_RNG_GetHealthconfiguration() -&gt; LL_RNG_GetHealthConfig()</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>BSP</strong> updates
+<ul>
+<li><strong>BSP STM32L4P5G-Discovery</strong>
+<ul>
+<li>Resolve the issue where PSRAM Memory Mapped Mode fails to perform write operations.</li>
+</ul></li>
+<li><strong>BSP component lps22hb</strong>
+<ul>
+<li>Convert raw temperature by casting ‘tmp’ to ‘int16_t’ for negative values accuracy.</li>
+</ul></li>
+</ul></li>
+<li><strong>Middleware</strong> updates:
+<ul>
+<li>Upgrade of <strong>USB Device</strong> library to new version <strong>V2.11.5</strong></li>
+<li>Upgrade of <strong>USB Host</strong> library to new version <strong>V3.5.4</strong></li>
+</ul></li>
+<li><strong>Projects</strong> updates
+<ul>
+<li><strong>All Nucleo boards</strong>
+<ul>
+<li>Add the “GPIO_Demo” example for all supported STM32L4xx Nucleo boards.
+<ul>
+<li>This example provides the source code for the demonstration binary package, available for download on the specific Nucleo webpages.</li>
+</ul></li>
+</ul></li>
+<li><strong>B-L4S5I-IOT01A\WiFi</strong>
+<ul>
+<li>Fix start client connection for UDP sockets.</li>
+</ul></li>
+</ul></li>
+<li>For the complete list of changes, please refer to the release notes of each firmware component</li>
+</ul>
+<h2 id="components">Components</h2>
+<p><strong>Drivers</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>STM32L4xx CMSIS</strong></td>
+<td style="text-align: left;"><strong>V1.7.5</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/cmsis-device-l4/blob/master/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>STM32L4xx HAL</strong></td>
+<td style="text-align: left;"><strong>V1.13.6</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-hal-driver/blob/master/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP B-L4S5I-IOT01</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/b-l4s5i-iot01a-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP B-L475E-IOT01</td>
+<td style="text-align: left;">V1.1.8</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/b-l475e-iot01a-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L476G_EVAL</td>
+<td style="text-align: left;">V2.1.8</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l476g-eval-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4R9I_EVAL</td>
+<td style="text-align: left;">V1.1.3</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4r9i-eval-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L476G-Discovery</td>
+<td style="text-align: left;">V2.0.7</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/32l476gdiscovery-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L496G-Discovery</td>
+<td style="text-align: left;">V1.1.8</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/32l496gdiscovery-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BSP STM32L4P5G-Discovery</strong>*</td>
+<td style="text-align: left;"><strong>V1.1.3</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4p5g-dk-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4R9I-Discovery</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/32l4r9idiscovery-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo</td>
+<td style="text-align: left;">V2.1.8</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-nucleo-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_32</td>
+<td style="text-align: left;">V1.0.5</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-nucleo-32-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP STM32L4xx_Nucleo_144</td>
+<td style="text-align: left;">V1.0.9</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-nucleo-144-bsp/blob/main/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BSP Adafruit Shield (reference ID 802)</td>
+<td style="text-align: left;">V3.0.6</td>
+<td style="text-align: center;"><a href="Drivers/BSP/Adafruit_Shield/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP Common</td>
+<td style="text-align: left;">V5.1.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-bsp-common/blob/v5.1.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cs42l51</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-cs42l51/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP cs43l22</td>
+<td style="text-align: left;">V2.0.4</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-cs43l22/blob/v2.0.4/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP cy8c4014lqi</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-cy8c4014lqi/blob/v1.0.0/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft3x67</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-ft3x67/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP ft6x06</td>
+<td style="text-align: left;">V1.0.3</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-ft6x06/blob/v1.0.3/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ft5336</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-ft5336/blob/v1.0.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hts221</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-hts221/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP hx8347g</td>
+<td style="text-align: left;">V1.1.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-hx8347g/blob/v1.1.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP hx8347i</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-hx8347i/blob/v1.0.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP iss66wvh8m8</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-iss66wvh8m8/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP l3gd20</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-l3gd20/blob/v2.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lis3mdl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-lis3mdl/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BSP lps22hb</strong></td>
+<td style="text-align: left;"><strong>V1.0.2</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-lps22hb/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ls016b8uy</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-ls016b8uy/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm303c</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-lsm303c/blob/v2.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP lsm303dlhc</td>
+<td style="text-align: left;">V2.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-lsm303c/blob/v2.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP lsm6dsl</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-lsm6dsl/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP m24sr</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-m24sr/blob/v1.1.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mfxstm32l152</td>
+<td style="text-align: left;">V2.0.4</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mfxstm32l152/blob/v2.0.5/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP mx25lm51245g</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mx25lm51245g/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP mx25r6435f</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mx25r6435f/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP n25q128a</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-n25q128a/blob/v1.0.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP n25q256a</td>
+<td style="text-align: left;">V1.0.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-n25q256a/blob/v1.0.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP ov9655</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-ov9655/blob/v1.0.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP rk043fn48h</td>
+<td style="text-align: left;">V1.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-rk043fn48h/blob/v1.0.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP st25dv</td>
+<td style="text-align: left;">V1.0.0</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-st25dv/blob/v1.0.0/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP st7735</td>
+<td style="text-align: left;">V1.1.5</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-st7735/blob/v1.1.5/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP st7789h2</td>
+<td style="text-align: left;">V1.1.4</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-st7789h2/blob/v1.1.5/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP stmpe811</td>
+<td style="text-align: left;">V2.0.2</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-stmpe811/blob/v2.0.3/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BSP stmpe1600</td>
+<td style="text-align: left;">V1.1.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-stmpe1600/blob/v1.1.1/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BSP wm8994</td>
+<td style="text-align: left;">V2.3.1</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-wm8994/blob/v2.3.1/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p><strong>Middlewares</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>STM32 USB Host Library</strong></td>
+<td style="text-align: left;"><strong>V3.5.4</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-host/blob/v3.5.2/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>STM32 USB Device Library</strong></td>
+<td style="text-align: left;"><strong>V2.11.5</strong> <span class="icon-st-update"></span></td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">STM32 TouchSensing Library</td>
+<td style="text-align: left;">V2.2.4</td>
+<td style="text-align: center;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FatFS</td>
+<td style="text-align: left;">R0.12c</td>
+<td style="text-align: center;"><a href="Middlewares/Third_Party/FatFs/src/00history.txt">FatFS release notes</a> <strong>ST modified 20191011</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FreeRTOS</td>
+<td style="text-align: left;">V10.3.1</td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a> <strong>ST modified 20200831</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">ST release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">STemWin</td>
+<td style="text-align: left;">V5.44</td>
+<td style="text-align: center;"><a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p><strong>Utilities</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: center;">Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CPU</td>
+<td style="text-align: left;">V1.1.4</td>
+<td style="text-align: center;"><a href="Utilities/CPU/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fonts</td>
+<td style="text-align: left;">V1.0.3</td>
+<td style="text-align: center;"><a href="Utilities/Fonts/Release_Notes.html">release notes</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Log</td>
+<td style="text-align: left;">V1.0.4</td>
+<td style="text-align: center;"><a href="Utilities/Log/Release_Notes.html">release notes</a></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>MDK-ARM projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
+<li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
+<li>The following projects are not supported with STM32CubeIDE toolchain (Debug and Release):
+<ul>
+<li>B-L475E-IOT01A/Applications/Proximity</li>
+<li>B-L475E-IOT01A/Examples/BSP</li>
+<li>NUCLEO-L476RG/Examples/FIREWALL/FIREWALL_VolatileData_Shared</li>
+<li>NUCLEO-L496ZG/Examples/FIREWALL/FIREWALL_VolatileData_Shared</li>
+<li>STM32L476G-EVAL/Demonstrations/MB1144</li>
+</ul></li>
+<li>The following projects are not supported with STM32CubeIDE toolchain (Release):
+<ul>
+<li>32L496GDISCOVERY/Examples/QSPI/QSPI_MemoryMapped</li>
+<li>32L496GDISCOVERY/Examples/QSPI/QSPI_PreInitConfig</li>
+</ul></li>
+<li>The following projects are not supported with STM32CubeIDE toolchain (Debug):
+<ul>
+<li>NUCLEO-L4P5ZG/Examples/PWR/PWR_LPRUN_SRAM1</li>
+<li>32L4P5GDISCOVERY/Examples/HASH/HASH_HMAC_SHA224MD5_IT_DMA_Suspension</li>
+</ul></li>
+</ul>
+<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<ul>
+<li>IAR Embedded Workbench for ARM (EWARM) toolchain <strong>V8.50.9</strong></li>
+<li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.32 minimum (ARM Compiler 5 (“AC5-like Warnings” selected))
+<ul>
+<li>Note : MDK-ARM 5.38 comes by default with AC6 only. To use it with AC5, please follow the steps available in this AN:
+<ul>
+<li>https://developer.arm.com/documentation/ka005073/latest/</li>
+</ul></li>
+</ul></li>
+<li>STM32CubeIDE <strong>v1.15.0</strong></li>
+</ul>
+</div>
+</div>
+<div class="collapse">
+<input type="checkbox" id="collapse-section31" aria-hidden="true"> <label for="collapse-section31" aria-hidden="true">V1.18.1 / 28-June-2024</label>
+<div>
+<h2 id="main-changes-1">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-1">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>General updates to fix known defects and implementation enhancements.</li>
 <li>General fixes to support GCC12 in all STM32CubeIDE projects.</li>
 <li>Upgrade <strong>USB Device</strong> Lib to use <strong>V2.11.3</strong>.</li>
 <li>Upgrade <strong>USB Host</strong> Lib to use <strong>V3.5.2</strong>.</li>
 </ul>
-<h2 id="contents">Contents</h2>
+<h2 id="contents-1">Contents</h2>
 <ul>
 <li><strong>HAL/LL Drivers</strong> updates
 <ul>
@@ -257,7 +786,7 @@
 </ul></li>
 <li>For the complete list of changes, please refer to the release notes of each firmware component</li>
 </ul>
-<h2 id="components">Components</h2>
+<h2 id="components-1">Components</h2>
 <p><strong>Drivers</strong></p>
 <table>
 <thead>
@@ -566,7 +1095,7 @@
 <tr class="odd">
 <td style="text-align: left;">FreeRTOS</td>
 <td style="text-align: left;">V10.3.1</td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a> <strong>ST modified 20200831</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">ST release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a> <strong>ST modified 20200831</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">ST release notes</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STemWin</td>
@@ -606,7 +1135,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations">Known Limitations</h2>
+<h2 id="known-limitations-1">Known Limitations</h2>
 <ul>
 <li>MDK-ARM projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
@@ -628,7 +1157,7 @@
 <li>32L4P5GDISCOVERY/Examples/HASH/HASH_HMAC_SHA224MD5_IT_DMA_Suspension</li>
 </ul></li>
 </ul>
-<h2 id="development-toolchains-and-compilers">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain <strong>V8.50.9</strong></li>
 <li>RealView Microcontroller Development Kit (MDK-ARM) toolchain V5.32 minimum (ARM Compiler 5 (“AC5-like Warnings” selected))
@@ -645,8 +1174,8 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section30" aria-hidden="true"> <label for="collapse-section30" aria-hidden="true">V1.18.0 / 07-June-2023</label>
 <div>
-<h2 id="main-changes-1">Main Changes</h2>
-<h3 id="maintenance-release-of-stm32cubel4-firmware-package-1">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
+<h2 id="main-changes-2">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-2">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>General updates to fix known defects and implementation enhancements.</li>
 <li>Deploy the support of STM32CubeIDE toolchain on all projects
@@ -656,7 +1185,7 @@
 <li>Upgrade <strong>USB Device</strong> Lib to use <strong>V2.11.1</strong>.</li>
 <li>Upgrade <strong>USB Host</strong> Lib to use <strong>V3.5.1</strong>.</li>
 </ul>
-<h2 id="contents-1">Contents</h2>
+<h2 id="contents-2">Contents</h2>
 <ul>
 <li><strong>CMSIS</strong>
 <ul>
@@ -880,7 +1409,7 @@
 <li>For the complete list of changes, please refer to the release notes of each firmware component<br />
 </li>
 </ul>
-<h2 id="components-1">Components</h2>
+<h2 id="components-2">Components</h2>
 <p><br />
 </p>
 <p><strong>Drivers</strong></p>
@@ -1191,7 +1720,7 @@
 <tr class="odd">
 <td style="text-align: left;">FreeRTOS</td>
 <td style="text-align: left;">V10.3.1</td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a> <strong>ST modified 20200831</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">ST release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a> <strong>ST modified 20200831</strong> <a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">ST release notes</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">STemWin</td>
@@ -1231,7 +1760,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-1">Known Limitations</h2>
+<h2 id="known-limitations-2">Known Limitations</h2>
 <ul>
 <li>MDK-ARM projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
@@ -1253,7 +1782,7 @@
 <li>32L4P5GDISCOVERY/Examples/HASH/HASH_HMAC_SHA224MD5_IT_DMA_Suspension</li>
 </ul></li>
 </ul>
-<h2 id="development-toolchains-and-compilers-1">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -1270,8 +1799,8 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section29"  aria-hidden="true"> <label for="collapse-section29" aria-hidden="true">V1.17.2 / 15-April-2022</label>
 <div>
-<h2 id="main-changes-2">Main Changes</h2>
-<h3 id="maintenance-release-of-stm32cubel4-firmware-package-2">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
+<h2 id="main-changes-3">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-3">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>Update of <strong>HAL/LL</strong> drivers to include latest corrections
 <ul>
@@ -1279,7 +1808,7 @@
 </ul></li>
 <li>HAL code quality enhancement for MISRA-C Rule-8.13 by adding const qualifiers</li>
 </ul>
-<h2 id="contents-2">Contents</h2>
+<h2 id="contents-3">Contents</h2>
 <ul>
 <li><strong>HAL/LL Drivers</strong> updates
 <ul>
@@ -1364,7 +1893,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="components-2">Components</h2>
+<h2 id="components-3">Components</h2>
 <p><strong>Drivers</strong></p>
 <table>
 <thead>
@@ -1387,15 +1916,15 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section28" aria-hidden="true"> <label for="collapse-section28" aria-hidden="true">V1.17.1 / 26-November-2021</label>
 <div>
-<h2 id="main-changes-3">Main Changes</h2>
-<h3 id="maintenance-release-of-stm32cubel4-firmware-package-3">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
+<h2 id="main-changes-4">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-4">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections</li>
 <li>Update of <strong>FW projects</strong> following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
 <p><br />
 </p>
-<h2 id="contents-3">Contents</h2>
+<h2 id="contents-4">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -1452,7 +1981,7 @@
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
-<h2 id="components-3">Components</h2>
+<h2 id="components-4">Components</h2>
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
@@ -1769,7 +2298,7 @@
 <tr class="even">
 <td style="text-align: left;">FreeRTOS</td>
 <td style="text-align: left;">V10.3.1</td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -1814,13 +2343,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-2">Known Limitations</h2>
+<h2 id="known-limitations-3">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-2">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -1872,15 +2401,15 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section27" aria-hidden="true"> <label for="collapse-section27" aria-hidden="true">V1.17.0 / 11-February-2021</label>
 <div>
-<h2 id="main-changes-4">Main Changes</h2>
-<h3 id="maintenance-release-of-stm32cubel4-firmware-package-4">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
+<h2 id="main-changes-5">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-5">Maintenance release of <strong>STM32CubeL4</strong> Firmware package</h3>
 <ul>
 <li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections</li>
 <li>Update of <strong>FW projects</strong> following changes in latest version of HAL/LL and Middlewares</li>
 </ul>
 <p><br />
 </p>
-<h2 id="contents-4">Contents</h2>
+<h2 id="contents-5">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -1942,7 +2471,7 @@
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
-<h2 id="components-4">Components</h2>
+<h2 id="components-5">Components</h2>
 <p><small>The components flagged by “<span class="icon-st-update"></span>” have changed since the previous release. “<span class="icon-st-add"></span>” are new.</small></p>
 <p><br />
 </p>
@@ -2259,7 +2788,7 @@
 <tr class="even">
 <td style="text-align: left;">FreeRTOS</td>
 <td style="text-align: left;">V10.3.1 <span class="icon-st-update"></span></td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -2304,13 +2833,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-3">Known Limitations</h2>
+<h2 id="known-limitations-4">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-3">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -2362,8 +2891,8 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section26" aria-hidden="true"> <label for="collapse-section26" aria-hidden="true">V1.16.0 / 26-June-2020</label>
 <div>
-<h2 id="main-changes-5">Main Changes</h2>
-<h3 id="maintenance-release-of-stm32cubel4-firmware-package-5">Maintenance release of STM32CubeL4 Firmware package</h3>
+<h2 id="main-changes-6">Main Changes</h2>
+<h3 id="maintenance-release-of-stm32cubel4-firmware-package-6">Maintenance release of STM32CubeL4 Firmware package</h3>
 <ul>
 <li>Update of <strong>CMSIS</strong> and <strong>HAL/LL</strong> drivers to include latest corrections
 <ul>
@@ -2373,7 +2902,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="contents-5">Contents</h2>
+<h2 id="contents-6">Contents</h2>
 <ul>
 <li><strong>CMSIS Core</strong> updates
 <ul>
@@ -2437,7 +2966,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-5">Components</h2>
+<h2 id="components-6">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -2746,7 +3275,7 @@
 <tr class="even">
 <td style="text-align: left;"><strong>FreeRTOS</strong></td>
 <td style="text-align: left;"><strong>V10.2.1</strong></td>
-<td style="text-align: left;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: left;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -2789,13 +3318,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-4">Known Limitations</h2>
+<h2 id="known-limitations-5">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-4">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-5">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.4 + ST-Link
 <ul>
@@ -2844,13 +3373,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section25" aria-hidden="true"> <label for="collapse-section25" aria-hidden="true">V1.15.1 / 07-February-2020</label>
 <div>
-<h2 id="main-changes-6">Main Changes</h2>
+<h2 id="main-changes-7">Main Changes</h2>
 <h3 id="patch-release-of-stm32cubel4-firmware-package">Patch release of STM32CubeL4 Firmware package</h3>
 <ul>
 <li>Update of CMIS devices to add bits definitions in OCTOSPI registers</li>
 <li>Update of HAL/LL drivers to include latest corrections of GPIO, I2C, RTC, SDMMC, UTILS drivers</li>
 </ul>
-<h2 id="contents-6">Contents</h2>
+<h2 id="contents-7">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -2889,7 +3418,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-6">Components</h2>
+<h2 id="components-7">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -3166,7 +3695,7 @@
 <tr class="even">
 <td style="text-align: left;">FreeRTOS</td>
 <td style="text-align: left;">V10.2.1</td>
-<td style="text-align: left;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: left;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -3214,13 +3743,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-5">Known Limitations</h2>
+<h2 id="known-limitations-6">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-5">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-6">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
 <ul>
@@ -3268,14 +3797,14 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section24" aria-hidden="true"> <label for="collapse-section24" aria-hidden="true">V1.15.0 / 22-November-2019</label>
 <div>
-<h2 id="main-changes-7">Main Changes</h2>
+<h2 id="main-changes-8">Main Changes</h2>
 <h3 id="add-support-of-stm32l4p5xx-and-stm32l4q5xx-devices">Add support of STM32L4P5xx and STM32L4Q5xx devices</h3>
 <ul>
 <li>New <strong>PKA</strong> and <strong>PSSI</strong> peripherals</li>
 <li>Updated <strong>PWR</strong> peripheral for finer SRAM2 retention in standby mode</li>
 <li>Updated <strong>RNG</strong> peripheral to open entropy configuration</li>
 </ul>
-<h2 id="contents-7">Contents</h2>
+<h2 id="contents-8">Contents</h2>
 <ul>
 <li><strong>CMSIS Device</strong> updates
 <ul>
@@ -3330,7 +3859,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="components-7">Components</h2>
+<h2 id="components-8">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -3607,7 +4136,7 @@
 <tr class="even">
 <td style="text-align: left;"><strong>FreeRTOS</strong></td>
 <td style="text-align: left;"><strong>V10.2.1</strong></td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -3655,13 +4184,13 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-6">Known Limitations</h2>
+<h2 id="known-limitations-7">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
 <li>STM32L4R9I-EVAL STemWin MB1315 Demonstration is compatible only with IAR v7.80.4 version and below</li>
 </ul>
-<h2 id="development-toolchains-and-compilers-6">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-7">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.32.3 + ST-Link
 <ul>
@@ -3707,13 +4236,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section4" aria-hidden="true"> <label for="collapse-section4" aria-hidden="true">V1.14.0 / 03-April-2019</label>
 <div>
-<h2 id="main-changes-8">Main Changes</h2>
+<h2 id="main-changes-9">Main Changes</h2>
 <h3 id="maintenance-release">Maintenance release</h3>
 <ul>
 <li><p>New <strong>HAL MMC</strong> driver release</p></li>
 <li><p>Demonstrations binaries are no more delivered within the STM32CubeL4 MCU package. They are available for download, in addition to their required media files if any, in a standalone package accessible through each hardware board official webpage. Please refer to the corresponding demonstration binary readme.txt to get webpage for each board.</p></li>
 </ul>
-<h2 id="contents-8">Contents</h2>
+<h2 id="contents-9">Contents</h2>
 <ul>
 <li><strong>CMSIS Core</strong> updates
 <ul>
@@ -3772,7 +4301,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="components-8">Components</h2>
+<h2 id="components-9">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption><strong>Drivers</strong></caption>
@@ -4039,7 +4568,7 @@
 <tr class="even">
 <td style="text-align: left;"><strong>FreeRTOS</strong></td>
 <td style="text-align: center;">V10.0.1</td>
-<td style="text-align: center;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a></td>
+<td style="text-align: center;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -4087,7 +4616,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-7">Known Limitations</h2>
+<h2 id="known-limitations-8">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications.</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL demonstrations.</li>
@@ -4095,7 +4624,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="development-toolchains-and-compilers-7">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-8">Development Toolchains and Compilers</h2>
 <ul>
 <li>IAR Embedded Workbench for ARM (EWARM) toolchain V8.30.1 + ST-Link
 <ul>
@@ -4136,13 +4665,13 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section3" aria-hidden="true"> <label for="collapse-section3" aria-hidden="true">V1.13.0 / 27-July-2018</label>
 <div>
-<h2 id="main-changes-9">Main Changes</h2>
+<h2 id="main-changes-10">Main Changes</h2>
 <h3 id="add-support-of-stm32l412xx-and-stm32l422xx-devices">Add support of STM32L412xx and STM32L422xx devices</h3>
 <ul>
 <li>New RTC peripheral to improve power consumption performance</li>
 <li>Updated LPTIM peripheral to make both low power timer instances operational in Stop 2 mode</li>
 </ul>
-<h2 id="contents-9">Contents</h2>
+<h2 id="contents-10">Contents</h2>
 <ul>
 <li><span style="font-weight: bold;">CMSIS Device</span> updates
 <ul>
@@ -4514,7 +5043,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="components-9">Components</h2>
+<h2 id="components-10">Components</h2>
 <p>Note: in the tables below, components in <span style="font-weight: bold;">bold</span> have changed since previous release</p>
 <table>
 <caption>Drivers</caption>
@@ -4761,7 +5290,7 @@
 <tr class="odd">
 <td style="text-align: left;"><span style="font-weight: bold;">FreeRTOS V10.0.1 ST modified 20180730</span></td>
 <td style="text-align: left;"><span style="font-weight: bold;">V10.0.1 ST modified 20180730</span></td>
-<td style="text-align: left;"><a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">FreeRTOS release notes</a><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">, ST_release_notes</a></td>
+<td style="text-align: left;"><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">FreeRTOS release notes</a><a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">, ST_release_notes</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span style="font-weight: bold;">STemWin</span></td>
@@ -4804,7 +5333,7 @@
 </table>
 <p><br />
 </p>
-<h2 id="known-limitations-8">Known Limitations</h2>
+<h2 id="known-limitations-9">Known Limitations</h2>
 <ul>
 <li>SW4STM32 project is not provided for STM32L476G-EVAL demonstration nor for NUCLEO-L412RB-P USB Device applications</li>
 <li>MDK-ARM and SW4STM32 projects are not provided for STM32L4R9I-EVAL and STM32LR49I-Discovery demonstrations</li>
@@ -4812,7 +5341,7 @@
 </ul>
 <p><br />
 </p>
-<h2 id="development-toolchains-and-compilers-8">Development Toolchains and Compilers</h2>
+<h2 id="development-toolchains-and-compilers-9">Development Toolchains and Compilers</h2>
 <ul>
 <li><p>IAR Embedded Workbench for ARM (EWARM) toolchain V8.20.2 + ST-Link</p>
 <ul>
@@ -4859,7 +5388,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section1" aria-hidden="true"> <label for="collapse-section1" aria-hidden="true">V1.12.0 / 22-May-2018</label>
 <div>
-<h2 id="main-changes-10">Main Changes</h2>
+<h2 id="main-changes-11">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL callback registration feature</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">The feature <span style="font-weight: bold;">disabled by default</span> is available for the following HAL drivers:</span></p>
 <ul>
@@ -5176,7 +5705,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32 USB Device Library V2.5.0</span></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">FatFS R0.12c<span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FatFs/src/00history.txt">release notes</a>) ST modified 20170710 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
-<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20171008<span style="font-weight: bold;"></span> (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20171008<span style="font-weight: bold;"></span> (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">STemWin Version STemWinLibrary5.40 build 20170629</span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -5239,7 +5768,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section5" aria-hidden="true"> <label for="collapse-section5" aria-hidden="true">V1.11.0 / 22-December-2017</label>
 <div>
-<h2 id="main-changes-11">Main Changes</h2>
+<h2 id="main-changes-12">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release to add support of</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">external SMPS PWR examples for NUCLEO-L4R5ZI-P (MB1312/S) board</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Reduce package size by gathering all Demonstration media files under  "\Utilities\Media" folder</span></span></p>
 <ul>
@@ -5528,7 +6057,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">FatFS R0.12c<span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FatFs/src/00history.txt">release notes</a>) ST modified 20170710 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
-<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> ST modified 20171008</span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> ST modified 20171008</span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">STemWin Version STemWinLibrary5.40 build 20170629</span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -5590,7 +6119,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section6" aria-hidden="true"> <label for="collapse-section6" aria-hidden="true">V1.10.0 / 13-October-2017</label>
 <div>
-<h2 id="main-changes-12">Main Changes</h2>
+<h2 id="main-changes-13">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R9I-EVAL (MB1313) and STM32L4R9I-Discovery (MB1311) boards</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Maintenance release of CMSIS Device files, HAL and LL drivers</span></li>
@@ -5873,7 +6402,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">FatFS R0.12c<span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FatFs/src/00history.txt">release notes</a>) ST modified 20170710 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
-<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20170303<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20170303<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;">STemWin Version STemWinLibrary5.40 build 20170629</span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -5934,7 +6463,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section7" aria-hidden="true"> <label for="collapse-section7" aria-hidden="true">V1.9.0 / 25-August-2017</label>
 <div>
-<h2 id="main-changes-13">Main Changes</h2>
+<h2 id="main-changes-14">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L4R5xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R7xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4R9xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S5xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S7xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4S9xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DSI, OctoSPI (OSPI), GFXMMU and LTDC peripherals </span></li>
@@ -6361,7 +6890,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;">FatFS R0.12c</span><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt; font-weight: bold;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FatFs/src/00history.txt">release notes</a>) <span style="font-weight: bold;">ST modified 20170710</span> (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"></span></li>
-<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20170303<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-family: Verdana; font-size: 10pt;">FreeRTOS V9.0.0</span><span style="font-family: Verdana; font-size: 10pt;"><span class="Apple-converted-space"></span></span><span style="font-family: Verdana; font-size: 10pt;"></span> <span style="font-family: Verdana; font-size: 10pt;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-weight: bold;"> </span>ST modified 20170303<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-family: Verdana; font-size: 10pt; font-weight: bold;">STemWin Version STemWinLibrary5.40 build 20170629</span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;"></span><span style="font-family: Verdana; font-size: 10pt;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -6595,7 +7124,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section9"  aria-hidden="true"> <label for="collapse-section9" aria-hidden="true">V1.8.0 / 21-April-2017</label>
 <div>
-<h2 id="main-changes-14">Main Changes</h2>
+<h2 id="main-changes-15">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Add support of B-L475E-IOT01 board with project templates, examples and applications</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -6785,7 +7314,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>) ST modified 20170214<span style="font-weight: bold;"></span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V9.0.0</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> ST modified 20170303</span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V9.0.0</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> ST modified 20170303</span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.32 build 20160205</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -6839,7 +7368,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section10" aria-hidden="true"> <label for="collapse-section10" aria-hidden="true">V1.7.0 / 17-February-2017</label>
 <div>
-<h2 id="main-changes-15">Main Changes</h2>
+<h2 id="main-changes-16">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L496xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L4A6xx devices</span></span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">New DCMI, DMA2D, HASH peripherals </span></li>
@@ -7060,7 +7589,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>) <span style="font-weight: bold;">ST modified 20170214</span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V9.0.0</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> ST modified 20160930</span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V9.0.0</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> ST modified 20160930</span>(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.32 build 20160205</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="file:///Projet_test/STM32Cube_FW_L4_Branch_V1.8.1_a/Firmware/Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -7106,7 +7635,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section11" aria-hidden="true"> <label for="collapse-section11" aria-hidden="true">V1.6.0 / 28-October-2016</label>
 <div>
-<h2 id="main-changes-16">Main Changes</h2>
+<h2 id="main-changes-17">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L451xx, </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L452xx</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"> and </span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L462xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device </span></span><span style="font-family: Verdana; font-size: 10pt;">updates</span></p>
 <ul>
@@ -7262,7 +7791,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20160122<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20160122<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">STemWin Version STemWinLibrary5.32 build 20160205</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -7307,7 +7836,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section12" aria-hidden="true"> <label for="collapse-section12" aria-hidden="true">V1.5.2 / 12-September-2016</label>
 <div>
-<h2 id="main-changes-17">Main Changes</h2>
+<h2 id="main-changes-18">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in CMSIS Device STM32L4xx description files</span></p>
 <ul>
 <li><span style="font-family: Verdana; font-size: 10pt;">Fix DAC_SR_BWST1 bit definition</span></li>
@@ -7436,7 +7965,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section13" aria-hidden="true"> <label for="collapse-section13" aria-hidden="true">V1.5.1 / 31-May-2016</label>
 <div>
-<h2 id="main-changes-18">Main Changes</h2>
+<h2 id="main-changes-19">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Patch release to fix issues in</span></p>
 <p><strong>HAL ADC</strong> driver</p>
 <ul>
@@ -7469,7 +7998,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section14" aria-hidden="true"> <label for="collapse-section14" aria-hidden="true">V1.5.0 / 29-April-2016</label>
 <div>
-<h2 id="main-changes-19">Main Changes</h2>
+<h2 id="main-changes-20">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Maintenance release version for STM32L431/432/433/442/443/471/475/476/485/486 lines</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -7650,7 +8179,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20160122<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20160122<span style="font-weight: bold;"></span>(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150626</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -7693,7 +8222,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section15" aria-hidden="true"> <label for="collapse-section15" aria-hidden="true">V1.4.0 / 26-February-2016</label>
 <div>
-<h2 id="main-changes-20">Main Changes</h2>
+<h2 id="main-changes-21">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Official release to support STM32L431xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L432xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L433xx,</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L442xx and</span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32L443xx devices</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">CMSIS Device</span></span></p>
 <ul>
@@ -7790,7 +8319,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.2</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> <span style="font-weight: bold;">ST modified 20160122</span> (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana; font-weight: bold;">FreeRTOS V8.2.3</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> <span style="font-weight: bold;">ST modified 20160122</span> (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150626</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -7833,7 +8362,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section16" aria-hidden="true"> <label for="collapse-section16" aria-hidden="true">V1.3.0 / 29-January-2016</label>
 <div>
-<h2 id="main-changes-21">Main Changes</h2>
+<h2 id="main-changes-22">Main Changes</h2>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">Update Low Layer drivers to add some new LL API(s) and minor changes  </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-hal-driver/blob/master/Release_Notes.html">(release notes)</a></span></p>
 <ul>
 <li><span style="font-size: 10pt; font-family: Verdana;">Add initialization/de-initialization low level API(s) in new stm32l4xx_ll_ppp.c files (under USE_FULL_LL_DRIVER switch)</span></li>
@@ -7949,7 +8478,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">STM32 USB Device Library V2.4.2</span></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150626</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -7986,7 +8515,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section17" aria-hidden="true"> <label for="collapse-section17" aria-hidden="true">V1.2.0 / 25-November-2015</label>
 <div>
-<h2 id="main-changes-22">Main Changes</h2>
+<h2 id="main-changes-23">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Main HAL and LL Drivers updates </span></span><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;"> </span></span><span style="font-size: 10pt; font-family: Verdana;"><a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32l4xx-hal-driver/blob/master/Release_Notes.html">(release notes)</a></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">HAL PWR</span> update (</span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-weight: bold;">User application code impacted</span></span><span style="font-size: 10pt; font-family: Verdana;">)</span></p>
 <ul>
@@ -8113,7 +8642,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.1</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150626</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -8150,7 +8679,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section18" aria-hidden="true"> <label for="collapse-section18" aria-hidden="true">V1.1.1 / 16-October-2015</label>
 <div>
-<h2 id="main-changes-23">Main Changes</h2>
+<h2 id="main-changes-24">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Patch release for all Examples/Applications/Demonstrations projects fine-tuning</span></span></p>
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;">Set Flash prefetch off to match default system configuration (stm32l4xx_hal_conf.h files)<br />
@@ -8186,7 +8715,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section19" aria-hidden="true"> <label for="collapse-section19" aria-hidden="true">V1.1.0 / 16-September-2015</label>
 <div>
-<h2 id="main-changes-24">Main Changes</h2>
+<h2 id="main-changes-25">Main Changes</h2>
 <p><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">Add Low Layer drivers under Drivers\STM32L4xx_HAL_Driver</span></span></p>
 <p><span style="font-size: 10pt; font-family: Verdana;">Low Layer drivers allow performance and memory footprint optimization</span></p>
 <ul>
@@ -8286,7 +8815,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.1</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span> <span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150626</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>
@@ -8323,7 +8852,7 @@
 <div class="collapse">
 <input type="checkbox" id="collapse-section20" aria-hidden="true"> <label for="collapse-section20" aria-hidden="true">V1.0.0 / 26-June-2015</label>
 <div>
-<h2 id="main-changes-25">Main Changes</h2>
+<h2 id="main-changes-26">Main Changes</h2>
 <ul>
 <li><span style="font-family: &#39;Verdana&#39;,&#39;sans-serif&#39;; font-size: 10pt;"><span style="font-weight: bold;">First official release of STM32CubeL4 (STM32Cube for STM32L4 Series) </span></span></li>
 </ul>
@@ -8359,7 +8888,7 @@
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 USB Device Library V2.4.1</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-usb-device/blob/v2.11.3/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STM32 TouchSensing Library V2.2.0</span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://htmlpreview.github.io/?https://github.com/STMicroelectronics/stm32-mw-touchsensing/blob/v2.2.4/Release_Notes.html">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">FatFS R0.11</span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FatFs/src/history.txt">release notes</a>)  ST modified 20150508 (<a href="https://github.com/STMicroelectronics/stm32-mw-fatfs/blob/r0.12c_stm32cube_20231123/src/st_readme.txt">release notes</a>)</span><span style="font-size: 10pt; font-family: Verdana;"></span></li>
-<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/Third_Party/FreeRTOS/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
+<li><span style="font-size: 10pt; font-family: Verdana;">FreeRTOS V8.2.1</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"><span class="Apple-converted-space"> </span></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/readme.txt">release notes</a>) </span><span style="font-size: 10pt; font-family: Verdana;"> ST modified 20150327 (<a href="https://github.com/STMicroelectronics/stm32-mw-freertos/blob/v10.3.1_20200831/Source/st_readme.txt">release notes</a>)</span></li>
 <li><span style="font-size: 10pt; font-family: Verdana;">STemWin Version STemWinLibrary5.28 build 20150415</span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;">(<a href="Middlewares/ST/STemWin/Release_Notes.html">release notes</a>)</span></li>
 </ul>
 <p><span style="font-size: 10pt; font-family: Verdana;">Utilities</span></p>

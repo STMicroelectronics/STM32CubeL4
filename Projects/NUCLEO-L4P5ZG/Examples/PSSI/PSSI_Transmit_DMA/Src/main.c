@@ -35,7 +35,7 @@
 /* PSSI HAL handle declaration */
 PSSI_HandleTypeDef hpssi;
 
-uint32_t ValidationPSSI_HAL_PSSI_TransmitComplete_count;
+__IO uint32_t ValidationPSSI_HAL_PSSI_TransmitComplete_count;
 
 uint16_t pData16[]={0x0201,0x0804,0x2010,0x8040,0x0201,0x0804,0x2010,0x8040,
                     0x0201,0x0804,0x2010,0x8040,0x0201,0x0804,0x2010,0x8040};
