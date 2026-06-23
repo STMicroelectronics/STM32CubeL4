@@ -1527,7 +1527,7 @@ ES_WIFI_Status_t ES_WIFI_HardResetModule(ES_WIFIObject_t *Obj)
   }
   UNLOCK_WIFI();
 
-  return (ret > 0) ? ES_WIFI_STATUS_OK : ES_WIFI_STATUS_ERROR;
+  return (ret == 0) ? ES_WIFI_STATUS_OK : ES_WIFI_STATUS_ERROR;
 }
 
 /**
